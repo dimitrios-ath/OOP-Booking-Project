@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="470b8321-4fef-4a0e-91a5-d42ac110331f" name="Changes" comment="" />
+=======
+    <list default="true" id="22532306-7e06-4c73-a19d-22cdc7b3cc65" name="Changes" comment="" />
+>>>>>>> a307172 (Create "Customer", "Provider", "Reservation" classes)
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,7 +21,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="21JUteiKZAeK66vE7tnqIB2f8cb" />
+=======
+  <component name="ProjectId" id="21JUmrSHhbPrX8DoUswyKJt343L" />
+>>>>>>> a307172 (Create "Customer", "Provider", "Reservation" classes)
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -25,10 +33,29 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+<<<<<<< HEAD
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="MyBooking" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+>>>>>>> a307172 (Create "Customer", "Provider", "Reservation" classes)
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="470b8321-4fef-4a0e-91a5-d42ac110331f" name="Changes" comment="" />
       <created>1637658899787</created>
       <option name="number" value="Default" />
@@ -48,4 +75,14 @@
       </map>
     </option>
   </component>
+=======
+      <changelist id="22532306-7e06-4c73-a19d-22cdc7b3cc65" name="Changes" comment="" />
+      <created>1637658847360</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1637658847360</updated>
+    </task>
+    <servers />
+  </component>
+>>>>>>> a307172 (Create "Customer", "Provider", "Reservation" classes)
 </project>
