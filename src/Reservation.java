@@ -49,27 +49,27 @@ public class Reservation {
     /**
      * getters of Reservation class attributes
      */
-    public int getReservationID() {return reservationID;}
+    public int getReservationID() {return this.reservationID;}
 
-    public int getGuestNumber() {return guestNumber;}
+    public int getGuestNumber() {return this.guestNumber;}
 
-    public int getTotalNights() {return totalNights;}
+    public int getTotalNights() {return this.totalNights;}
 
-    public Date getCheckIn() {return checkIn;}
+    public Date getCheckIn() {return this.checkIn;}
 
-    public Date getCheckOut() {return checkOut;}
+    public Date getCheckOut() {return this.checkOut;}
 
-    public String getPaymentType() {return paymentType;}
+    public String getPaymentType() {return this.paymentType;}
 
-    public String getUsername() {return username;}
+    public String getUsername() {return this.username;}
 
-    public double getAmountPaid() {return amountPaid;}
+    public double getAmountPaid() {return this.amountPaid;}
 
-    public double getTotalPrice() {return totalPrice;}
+    public double getTotalPrice() {return this.totalPrice;}
 
-    public boolean isBreakfast() {return breakfast;}
+    public boolean getBreakfast() {return this.breakfast;}
 
-    public boolean isPets() {return pets;}
+    public boolean getPets() {return this.pets;}
 
     /**
      * setters of Reservation class attributes

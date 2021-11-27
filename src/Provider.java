@@ -40,26 +40,32 @@ public class Provider {
         this.roomID = new HashSet<>();
     }
 
-    public String getFirstName() {return firstName;}
+    /**
+     * getters of Provider class attributes
+     */
+    public String getFirstName() {return this.firstName;}
 
-    public String getLastName() {return lastName;}
+    public String getLastName() {return this.lastName;}
 
-    public String getEmail() {return email;}
+    public String getEmail() {return this.email;}
 
-    public String getUsername() {return username;}
+    public String getUsername() {return this.username;}
 
-    public String getPassword() {return password;}
+    public String getPassword() {return this.password;}
 
-    public String getOffice() {return office;}
+    public String getOffice() {return this.office;}
 
-    public String getCountry() {return country;}
+    public String getCountry() {return this.country;}
 
-    public String getRegion() {return region;}
+    public String getRegion() {return this.region;}
 
-    public String getType() {return type;}
+    public String getType() {return this.type;}
 
-    public HashSet<Integer> getRoomID() {return roomID;}
+    public HashSet<Integer> getRoomID() {return this.roomID;}
 
+    /**
+     * setters of Provider class attributes
+     */
     public void setFirstName(String firstName) {
         this.firstName = firstName;}
 
