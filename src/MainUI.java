@@ -4,7 +4,7 @@ import java.util.*;
 public class MainUI {
     private Map<Integer,Reservation> reservations;
     private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
+    private Map<String,Authentication> users; // username, class Authentication
     private Map<String,Customer> customers;
     private Map<String,Provider> providers;
     private Map<String,Admin> admins;
@@ -63,15 +63,17 @@ public class MainUI {
             login();
         }
         switch (role){
-            case 1:
+            case 1 -> {
                 CustomerUI customerUI = new CustomerUI(this.customers.get(username));
-            case 2:
+            }
+            case 2 -> {
                 ProviderUI providerUI = new ProviderUI(this.providers.get(username), this.rooms);
-                // rooms.forEach((k,n) -> System.out.println(n));
-            case 3:
+                //rooms.forEach((k,n) -> System.out.println(n));
+            }
+            case 3 -> {
                 AdminUI adminUI = new AdminUI(this.admins.get(username));
-            default:
-                System.exit(0);
+            }
+            default -> System.exit(0);
         }
     }
 
