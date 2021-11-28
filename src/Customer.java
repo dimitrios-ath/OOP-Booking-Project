@@ -1,5 +1,5 @@
 import java.lang.String;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Customer {
     private String username;
@@ -10,7 +10,7 @@ public class Customer {
     private String gender;
     private String country;
     private String phone;
-    private Date birthdate;
+    private LocalDate birthdate;
     private Boolean activeAccount;
 
     /**
@@ -28,7 +28,7 @@ public class Customer {
      */
     public Customer(String username, String email, String password,
                     String firstName, String lastName, String gender,
-                    String country, String phone, Date birthdate,
+                    String country, String phone, LocalDate birthdate,
                     Boolean activeAccount) {
         this.username = username;
         this.email = email;
@@ -53,7 +53,7 @@ public class Customer {
     public String getGender() {return gender;}
     public String getCountry() {return country;}
     public String getPhone() {return phone;}
-    public Date getBirthdate() {return birthdate;}
+    public LocalDate getBirthdate() {return birthdate;}
     public Boolean getActiveAccount() {return activeAccount;}
 
     /**
@@ -67,7 +67,7 @@ public class Customer {
     public void setGender(String gender) {this.gender = gender;}
     public void setCountry(String country) {this.country = country;}
     public void setPhone(String phone) {this.phone = phone;}
-    public void setBirthdate(Date birthdate) {this.birthdate = birthdate;}
+    public void setBirthdate(LocalDate birthdate) {this.birthdate = birthdate;}
     public void setActiveAccount(Boolean activeAccount) {this.activeAccount = activeAccount;}
 
 

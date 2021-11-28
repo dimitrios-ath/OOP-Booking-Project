@@ -11,14 +11,14 @@ public class Admin {
     /**
      * Constructor of Admin
      * @param username      admin username
+     * @param password      admin password
      * @param firstName     admin firstName
      * @param lastName      admin lastName
-     * @param password      admin password
      * @param email         admin email
      * @param phone         admin phone number
      */
-    public Admin(String username, String firstName, String lastName,
-                 String password, String email, String phone) {
+    public Admin(String username, String password, String firstName,
+                 String lastName, String email, String phone) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;

@@ -14,25 +14,24 @@ public class Provider {
     private HashSet<Integer> roomID;
 
     /**
-     * @param firstName     provider first name
-     * @param lastName      provider last name
-     * @param email         provider email
      * @param username      unique provider username
      * @param password      provider password
+     * @param email         provider email
+     * @param firstName     provider first name
+     * @param lastName      provider last name
      * @param office        provider office location
      * @param country       provider country
      * @param region        provider region
      * @param type          provider type {hotelier/private}
      */
-    public Provider(String firstName, String lastName, String email,
-                    String username, String password, String office,
-                    String country, String region,
-                    String type) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+    public Provider(String username, String password, String email,
+                    String firstName, String lastName, String office,
+                    String country, String region, String type) {
         this.username = username;
         this.password = password;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.office = office;
         this.country = country;
         this.region = region;
