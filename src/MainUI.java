@@ -10,17 +10,31 @@ public class MainUI {
     private Map<String,Admin> admins;
     Scanner scanner;
 
+    /**
+     * Constructor of MainUI
+     * This constructor initializes all the different HashMaps and some users in memory.
+     * Then it calls the login function
+     */
     public MainUI(){
-        this.reservations = new HashMap<>();    // replace with files
-        this.rooms = new HashMap<>();           // replace with files
-        this.users = new HashMap<>();           // replace with files
-        this.customers = new HashMap<>();           // replace with files
-        this.providers = new HashMap<>();           // replace with files
-        this.admins = new HashMap<>();           // replace with files
-        scanner = new Scanner(System.in);       // scan for mode
+        this.reservations = new HashMap<>();
+        this.rooms = new HashMap<>();
+        this.users = new HashMap<>();
+        this.customers = new HashMap<>();
+        this.providers = new HashMap<>();
+        this.admins = new HashMap<>();
+        scanner = new Scanner(System.in);
 
         /*
-            Initialize some users
+            Create some users with the following credentials:
+            
+               +-----------+----------+---------------+
+               | username  | password |     role      |
+               +-----------+----------+---------------+
+               | user1     | pass1    | customer      |
+               | user2     | pass2    | customer      |
+               | provider1 | pass1    | provider      |
+               | admin1    | pass1    | administrator |
+               +-----------+----------+---------------+
          */
         this.users.put("user1", new Authentication("user1","pass1",1));
         this.users.put("user2", new Authentication("user2","pass2",1));
@@ -35,12 +49,19 @@ public class MainUI {
         this.providers.put("provider1", new Provider("provider1","pass1","provider1@email.com",
                 "provider1First","provider1Last","Street 123","Greece",
                 "Thessaloniki","hotelier"));
-        this.admins.put("admin1", new Admin("admin1", "pass1", "admin1First", "admin1Last",
-                "admin1@email.com","6912345678"));
+        this.admins.put("admin1", new Admin("admin1", "pass1", "admin1First",
+                "admin1Last", "admin1@email.com","6912345678"));
 
         login();
     }
 
+    /**
+     *  This function implements the login function by asking for username and password. If the
+     *  given username is contained in the HashMap `users` as key it checks if the given password
+     *  matches the intended one, otherwise the login fails and asks again for credentials. Based
+     *  on the authenticated user role {customer, provider, admin} the appropriate user interface
+     *  is initialized.
+     */
     public void login(){
         int role = 0;
         System.out.print("Enter your username: ");
@@ -64,11 +85,10 @@ public class MainUI {
         }
         switch (role){
             case 1 -> {
-                CustomerUI customerUI = new CustomerUI(this.customers.get(username));
+                CustomerUI customerUI = new CustomerUI(this.customers.get(username), this.rooms);
             }
             case 2 -> {
                 ProviderUI providerUI = new ProviderUI(this.providers.get(username), this.rooms);
-                //rooms.forEach((k,n) -> System.out.println(n));
             }
             case 3 -> {
                 AdminUI adminUI = new AdminUI(this.admins.get(username));

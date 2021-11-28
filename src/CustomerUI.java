@@ -1,11 +1,13 @@
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Map;
 
 public class CustomerUI {
-    Customer customer;
+    private final Customer customer;
+    private final Map<Integer,Room> rooms;
 
-    public CustomerUI(Customer customer) {
+    public CustomerUI(Customer customer, Map<Integer,Room> rooms) {
         this.customer = customer;
+        this.rooms = rooms;
     }
 
     public void search(HashMap<String,String> filters){

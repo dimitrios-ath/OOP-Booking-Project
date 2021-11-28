@@ -9,12 +9,25 @@ public class ProviderUI {
     private final Scanner scanner = new Scanner(System.in);
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
+    /**
+     * The constructor of ProviderUI assigns the authenticated provider object and a
+     * HashMap of all available rooms to local objects for local access. Then it calls
+     * the main provider panel.
+     * @param provider     The authenticated provider object
+     * @param rooms        A Hashmap of <Integer roomID, Room room>
+     */
     public ProviderUI(Provider provider, Map<Integer,Room> rooms) {
         this.provider = provider;
         this.rooms = rooms;
         panel();
     }
 
+
+    /**
+     * This function reads an integer from user and returns it. If the input is
+     * invalid it returns 0.
+     * @return  the entered integer
+     */
     public int scanInput(){
         int input = 0;
         scanner.nextLine();
@@ -26,6 +39,11 @@ public class ProviderUI {
         return input;
     }
 
+    /**
+     *  This function adds a new room with a random roomID from 0-999 to the `rooms`
+     *  HashMap, using roomID as key and Room object as value. It asks provider for
+     *  every room attribute.
+     */
     public void addRoom(){
         String type="";
         boolean longTime=false;
@@ -253,6 +271,12 @@ public class ProviderUI {
             }
         }
     }
+
+
+    /**
+     *  Prints some basic attributes (id, type, capacity and price) for all the rooms
+     *  of the current provider
+     */
     public void displayAllRooms(){
         for(Integer id : this.provider.getRoomID()){
             System.out.println("id: " + rooms.get(id).getId().toString() +
@@ -262,6 +286,11 @@ public class ProviderUI {
         }
     }
 
+    /**
+     *  Edits an existing room based on its unique roomID, if it belongs to the current
+     *  provider. It asks for the room id, and it retrieves all the updated room attributes
+     *  from the user. Then it updates the existing `rooms` HashMap entry.
+     */
     public void editRoom(){
         String type="";
         boolean longTime=false;
@@ -497,6 +526,13 @@ public class ProviderUI {
         }
     }
 
+
+    /**
+     *   Deletes a room based on unique room ID. It prints all the rooms that belong
+     *   to the authenticated provider and asks for a room identifier. If the given
+     *   room belongs to the current provider it gets removed from the `rooms` HashMap
+     *   and the provider `roomID` HashSet, otherwise it fails.
+     */
     public void deleteRoom(){
         System.out.println("\n+============================+");
         System.out.println("|        Delete room         |");
@@ -525,6 +561,10 @@ public class ProviderUI {
 
     }
 
+
+    /**
+     *   Prints all rooms that belong to the authenticated provider
+     */
     public void showRooms(){
         System.out.println("\n+============================+");
         System.out.println("|       Show all rooms       |");
@@ -532,18 +572,28 @@ public class ProviderUI {
         displayAllRooms();
     }
 
-    //public void returnAllReservations(roomID){}
+    /**  TODO
+     *   Prints all the reservations for a specific room. It asks for a room id and
+     *   outputs all the reservations made for this room.
+     */
+    public void returnAllReservations(){}
 
+
+    /**
+     *   The main provider user interface. It asks for a command and calls the
+     *   appropriate function.
+     */
     public void panel(){
         while (true){
         System.out.println("\n+============================+");
         System.out.println("|       Provider Panel       |");
         System.out.println("+============================+");
-        System.out.println("|  1. Add new room           |");
-        System.out.println("|  2. Edit existing room     |");
-        System.out.println("|  3. Delete existing room   |");
-        System.out.println("|  4. Show all rooms         |");
-        System.out.println("|  5. Exit                   |");
+        System.out.println("| 1. Add new room            |");
+        System.out.println("| 2. Edit existing room      |");
+        System.out.println("| 3. Delete existing room    |");
+        System.out.println("| 4. Show all rooms          |");
+        System.out.println("| 5. Return all reservations |");
+        System.out.println("| 6. Exit                    |");
         System.out.println("+============================+");
             int cmd = 0;
             System.out.print("\n> ");
@@ -556,7 +606,8 @@ public class ProviderUI {
                 case 2 -> editRoom();
                 case 3 -> deleteRoom();
                 case 4 -> showRooms();
-                case 5 -> System.exit(0);
+                case 5 -> returnAllReservations();
+                case 6 -> System.exit(0);
                 default -> {
                     System.out.println("\nInvalid input, enter a valid number");
                     scanner.nextLine();
