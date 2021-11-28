@@ -3,6 +3,7 @@ import java.util.HashSet;
 
 public class CustomerUI {
     Customer customer;
+
     public CustomerUI(Customer customer) {
         this.customer = customer;
     }

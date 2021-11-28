@@ -65,4 +65,5 @@ public class Provider {
     public void setCountry(String country) {this.country = country;}
     public void setRegion(String region) {this.region = region;}
     public void setType(String type) {this.type = type;}
+    public void addRoomID(Integer roomID) {this.roomID.add(roomID);}
 }
