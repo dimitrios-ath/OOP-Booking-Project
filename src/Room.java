@@ -60,12 +60,12 @@ public class Room {
     /**
      * getters of Room class attributes
      */
-    public int getId() {return this.id;}
+    public Integer getId() {return this.id;}
     public String getType() {return this.type;}
+    public Integer getCapacity() {return this.capacity;}
+    public Double getPrice() {return this.price;}
+    public Integer getM2() {return this.m2;}
     public boolean getLongTime() {return this.longTime;}
-    public int getCapacity() {return this.capacity;}
-    public double getPrice() {return this.price;}
-    public int getM2() {return this.m2;}
     public boolean getWifi() {return this.wifi;}
     public boolean getParking() {return this.parking;}
     public boolean getAirCondition() {return this.airCondition;}

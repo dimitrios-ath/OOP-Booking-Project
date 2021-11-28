@@ -39,6 +39,8 @@ public class Provider {
         this.roomID = new HashSet<>();
     }
 
+    public void removeRoomID(Integer roomID) {this.roomID.remove(roomID);}
+
     /**
      * getters of Provider class attributes
      */

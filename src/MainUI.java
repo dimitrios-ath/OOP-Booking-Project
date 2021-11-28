@@ -19,8 +19,8 @@ public class MainUI {
         this.admins = new HashMap<>();           // replace with files
         scanner = new Scanner(System.in);       // scan for mode
 
-        /**
-         *   Initialize some users
+        /*
+            Initialize some users
          */
         this.users.put("user1", new Authentication("user1","pass1",1));
         this.users.put("user2", new Authentication("user2","pass2",1));
@@ -50,7 +50,7 @@ public class MainUI {
         if (this.users.containsKey(username)) {
             Authentication temp = this.users.get(username);
             if (password.equals(temp.getPassword())){
-                System.out.println("\nLogin successful, welcome " + temp.getUsername() + "!\n");
+                System.out.println("\nLogin successful, welcome " + temp.getUsername() + "!");
                 role = temp.getRole();
             }
             else {
