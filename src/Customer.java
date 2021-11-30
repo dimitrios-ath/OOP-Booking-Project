@@ -1,5 +1,6 @@
 import java.lang.String;
 import java.time.LocalDate;
+import java.util.HashSet;
 
 public class Customer {
     private String username;
@@ -12,6 +13,8 @@ public class Customer {
     private String phone;
     private LocalDate birthdate;
     private Boolean activeAccount;
+    private HashSet<Integer> reservationIDs;
+
 
     /**
      * Constructor of Customer
@@ -40,7 +43,9 @@ public class Customer {
         this.phone = phone;
         this.birthdate = birthdate;
         this.activeAccount = activeAccount;
+        this.reservationIDs = new HashSet<>();
     }
+
 
     /**
      * getters of Customer attributes
@@ -55,6 +60,7 @@ public class Customer {
     public String getPhone() {return phone;}
     public LocalDate getBirthdate() {return birthdate;}
     public Boolean getActiveAccount() {return activeAccount;}
+    public HashSet<Integer> getReservationIDs() {return this.reservationIDs;}
 
     /**
      * setters of Customer attributes
@@ -69,6 +75,7 @@ public class Customer {
     public void setPhone(String phone) {this.phone = phone;}
     public void setBirthdate(LocalDate birthdate) {this.birthdate = birthdate;}
     public void setActiveAccount(Boolean activeAccount) {this.activeAccount = activeAccount;}
-
+    public void addReservationID(Integer reservationID) {this.reservationIDs.add(reservationID);}
+    public void removeReservationID(Integer reservationID) {this.reservationIDs.remove(reservationID);}
 
 }

@@ -1,13 +1,13 @@
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Random;
 import java.text.DecimalFormat;
 
 public class ProviderUI {
     private final Provider provider;
     private final Map<Integer,Room> rooms;
-    private final Scanner scanner = new Scanner(System.in);
-    private static final DecimalFormat df = new DecimalFormat("0.00");
+    private final Map<Integer,Reservation> reservations;
+    private final Scanner scanner;
+    private static DecimalFormat df;
 
     /**
      * The constructor of ProviderUI assigns the authenticated provider object and a
@@ -16,9 +16,12 @@ public class ProviderUI {
      * @param provider     The authenticated provider object
      * @param rooms        A Hashmap of <Integer roomID, Room room>
      */
-    public ProviderUI(Provider provider, Map<Integer,Room> rooms) {
+    public ProviderUI(Provider provider, Map<Integer,Room> rooms, Map<Integer,Reservation> reservations) {
         this.provider = provider;
         this.rooms = rooms;
+        this.reservations = reservations;
+        this.scanner = new Scanner(System.in);
+        df = new DecimalFormat("0.00");
         panel();
     }
 
@@ -40,7 +43,7 @@ public class ProviderUI {
     }
 
     /**
-     *  This function adds a new room with a random roomID from 0-999 to the `rooms`
+     *  This function adds a new room with ascending roomID from 1-999 to the `rooms`
      *  HashMap, using roomID as key and Room object as value. It asks provider for
      *  every room attribute.
      */
@@ -259,16 +262,16 @@ public class ProviderUI {
         }
 
         boolean addedToHashMap = false;
-        Random rand = new Random();
-        while(!addedToHashMap) {
-            Integer random = rand.nextInt(1000);
-            if (!rooms.containsKey(random)) {
-                rooms.put(random, new Room(random, type, longTime, capacity, price, m2, wifi, parking,
+        int i=1;
+        while(!addedToHashMap && i<1000) {
+            if (!rooms.containsKey(i)) {
+                rooms.put(i, new Room(i, type, longTime, capacity, price, m2, wifi, parking,
                         airCondition, balcony, fridge, kitchen, tv, smoking, pets));
                 addedToHashMap = true;
-                provider.addRoomID(random);
-                System.out.println("\nAdded new room with id: " + random);
+                provider.addRoomID(i);
+                System.out.println("\nAdded new room with id: " + i);
             }
+            else {i++;}
         }
     }
 
@@ -278,7 +281,7 @@ public class ProviderUI {
      *  of the current provider
      */
     public void displayAllRooms(){
-        for(Integer id : this.provider.getRoomID()){
+        for(Integer id : this.provider.getRoomIDs()){
             System.out.println("id: " + rooms.get(id).getId().toString() +
                     ", type: " + rooms.get(id).getType() + ", capacity: " +
                     rooms.get(id).getCapacity().toString()+ ", price: $" +
@@ -324,7 +327,7 @@ public class ProviderUI {
             scanner.nextLine();
             System.out.println("\nInvalid input, enter a valid number");
         }
-        if (rooms.containsKey(id) && provider.getRoomID().contains(id) && validInput) {
+        if (rooms.containsKey(id) && provider.getRoomIDs().contains(id) && validInput) {
             validInput = false;
             while (!validInput){
                 System.out.println("\nSelect room type:\n1.Hotel\n2.Room\n3.Apartment");
@@ -550,7 +553,7 @@ public class ProviderUI {
             scanner.nextLine();
             System.out.println("\nInvalid input, enter a valid number");
         }
-        if (rooms.containsKey(id) && provider.getRoomID().contains(id) && validInput) {
+        if (rooms.containsKey(id) && provider.getRoomIDs().contains(id) && validInput) {
             rooms.remove(id);
             provider.removeRoomID(id);
             System.out.println("\nSuccessfully removed room with the following id: " + id);
@@ -585,16 +588,16 @@ public class ProviderUI {
      */
     public void panel(){
         while (true){
-        System.out.println("\n+============================+");
-        System.out.println("|       Provider Panel       |");
-        System.out.println("+============================+");
-        System.out.println("| 1. Add new room            |");
-        System.out.println("| 2. Edit existing room      |");
-        System.out.println("| 3. Delete existing room    |");
-        System.out.println("| 4. Show all rooms          |");
-        System.out.println("| 5. Return all reservations |");
-        System.out.println("| 6. Exit                    |");
-        System.out.println("+============================+");
+            System.out.println("\n+============================+");
+            System.out.println("|       Provider Panel       |");
+            System.out.println("+============================+");
+            System.out.println("| 1. Add new room            |");
+            System.out.println("| 2. Edit existing room      |");
+            System.out.println("| 3. Delete existing room    |");
+            System.out.println("| 4. Show all rooms          |");
+            System.out.println("| 5. Return all reservations |");
+            System.out.println("| 6. Exit                    |");
+            System.out.println("+============================+");
             int cmd = 0;
             System.out.print("\n> ");
             try {

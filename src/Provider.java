@@ -11,7 +11,7 @@ public class Provider {
     private String country;
     private String region;
     private String type;
-    private HashSet<Integer> roomID;
+    private HashSet<Integer> roomIDs;
 
     /**
      * @param username      unique provider username
@@ -36,10 +36,10 @@ public class Provider {
         this.country = country;
         this.region = region;
         this.type = type;
-        this.roomID = new HashSet<>();
+        this.roomIDs = new HashSet<>();
     }
 
-    public void removeRoomID(Integer roomID) {this.roomID.remove(roomID);}
+    public void removeRoomID(Integer roomID) {this.roomIDs.remove(roomID);}
 
     /**
      * getters of Provider class attributes
@@ -53,7 +53,7 @@ public class Provider {
     public String getCountry() {return this.country;}
     public String getRegion() {return this.region;}
     public String getType() {return this.type;}
-    public HashSet<Integer> getRoomID() {return this.roomID;}
+    public HashSet<Integer> getRoomIDs() {return this.roomIDs;}
 
     /**
      * setters of Provider class attributes
@@ -67,5 +67,5 @@ public class Provider {
     public void setCountry(String country) {this.country = country;}
     public void setRegion(String region) {this.region = region;}
     public void setType(String type) {this.type = type;}
-    public void addRoomID(Integer roomID) {this.roomID.add(roomID);}
+    public void addRoomID(Integer roomID) {this.roomIDs.add(roomID);}
 }
