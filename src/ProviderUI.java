@@ -7,6 +7,7 @@ public class ProviderUI {
     private final Map<Integer,Room> rooms;
     private final Map<Integer,Reservation> reservations;
     private final Scanner scanner;
+    private final MainUI mainUI;
     private static DecimalFormat df;
 
     /**
@@ -16,9 +17,10 @@ public class ProviderUI {
      * @param provider     The authenticated provider object
      * @param rooms        A Hashmap of <Integer roomID, Room room>
      */
-    public ProviderUI(Provider provider, Map<Integer,Room> rooms, Map<Integer,Reservation> reservations) {
+    public ProviderUI(MainUI mainUI, Provider provider, Map<Integer,Room> rooms, Map<Integer,Reservation> reservations) {
         this.provider = provider;
         this.rooms = rooms;
+        this.mainUI = mainUI;
         this.reservations = reservations;
         this.scanner = new Scanner(System.in);
         df = new DecimalFormat("0.00");
@@ -42,6 +44,35 @@ public class ProviderUI {
         return input;
     }
 
+    public boolean scanBooleanFilter(String message){
+        int input = 0;
+        boolean validInput = false;
+        boolean ret=false;
+        while (!validInput){
+            System.out.println(message);
+            scanner.nextLine();
+            System.out.print("\n> ");
+            try {
+                input = scanner.nextInt();
+                if (input <= 2 && input != 0){
+                    validInput = true;
+                }
+                else {
+                    System.out.println("\nInvalid input, enter a valid number");
+                }
+            }
+            catch (java.util.InputMismatchException ignored){
+                System.out.println("\nInvalid input, enter a valid number");
+            }
+        }
+        if (input==1) {
+            ret=true;
+        }
+        else if (input==2) {
+            ret=false;
+        }
+        return ret;
+    }
     /**
      *  This function adds a new room with ascending roomID from 1-999 to the `rooms`
      *  HashMap, using roomID as key and Room object as value. It asks provider for
@@ -88,19 +119,7 @@ public class ProviderUI {
                 default -> System.out.println("\nInvalid input, enter a valid number\n");
             }
         }
-        validInput = false;
-        while (!validInput){
-            System.out.println("\nIs room available for long term reservation?\n1. Yes\n2. No");
-            input = scanInput();
-            switch (input) {
-                case 1 -> {
-                    longTime = true;
-                    validInput = true;
-                }
-                case 2 -> validInput = true;
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
-            }
-        }
+        longTime = scanBooleanFilter("\nIs room available for long term reservation?\n1. Yes\n2. No");
         validInput = false;
         while (!validInput){
             System.out.println("\nEnter the maximum amount of people in the room:");
@@ -143,123 +162,15 @@ public class ProviderUI {
                 validInput = true;
             }
         }
-        validInput = false;
-        while (!validInput){
-            System.out.println("\nDoes the room provide free WiFi access?\n1. Yes\n2. No");
-            input = scanInput();
-            switch (input) {
-                case 1 -> {
-                    wifi = true;
-                    validInput = true;
-                }
-                case 2 -> validInput = true;
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
-            }
-        }
-        validInput = false;
-        while (!validInput){
-            System.out.println("\nDoes the room provide free parking?\n1. Yes\n2. No");
-            input = scanInput();
-            switch (input) {
-                case 1 -> {
-                    parking = true;
-                    validInput = true;
-                }
-                case 2 -> validInput = true;
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
-            }
-        }
-        validInput = false;
-        while (!validInput){
-            System.out.println("\nDoes the room have air condition?\n1. Yes\n2. No");
-            input = scanInput();
-            switch (input) {
-                case 1 -> {
-                    airCondition = true;
-                    validInput = true;
-                }
-                case 2 -> validInput = true;
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
-            }
-        }
-        validInput = false;
-        while (!validInput){
-            System.out.println("\nDoes the room have balcony?\n1. Yes\n2. No");
-            input = scanInput();
-            switch (input) {
-                case 1 -> {
-                    balcony = true;
-                    validInput = true;
-                }
-                case 2 -> validInput = true;
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
-            }
-        }
-        validInput = false;
-        while (!validInput){
-            System.out.println("\nDoes the room have fridge?\n1. Yes\n2. No");
-            input = scanInput();
-            switch (input) {
-                case 1 -> {
-                    fridge = true;
-                    validInput = true;
-                }
-                case 2 -> validInput = true;
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
-            }
-        }
-        validInput = false;
-        while (!validInput){
-            System.out.println("\nDoes the room have kitchen?\n1. Yes\n2. No");
-            input = scanInput();
-            switch (input) {
-                case 1 -> {
-                    kitchen = true;
-                    validInput = true;
-                }
-                case 2 -> validInput = true;
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
-            }
-        }
-        validInput = false;
-        while (!validInput){
-            System.out.println("\nDoes the room have TV?\n1. Yes\n2. No");
-            input = scanInput();
-            switch (input) {
-                case 1 -> {
-                    tv = true;
-                    validInput = true;
-                }
-                case 2 -> validInput = true;
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
-            }
-        }
-        validInput = false;
-        while (!validInput){
-            System.out.println("\nIs smoking allowed in the room?\n1. Yes\n2. No");
-            input = scanInput();
-            switch (input) {
-                case 1 -> {
-                    smoking = true;
-                    validInput = true;
-                }
-                case 2 -> validInput = true;
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
-            }
-        }
-        validInput = false;
-        while (!validInput){
-            System.out.println("\nAre pets allowed in the room?\n1. Yes\n2. No");
-            input = scanInput();
-            switch (input) {
-                case 1 -> {
-                    pets = true;
-                    validInput = true;
-                }
-                case 2 -> validInput = true;
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
-            }
-        }
+        wifi = scanBooleanFilter("\nDoes the room provide free WiFi access?\n1. Yes\n2. No");
+        parking = scanBooleanFilter("\nDoes the room provide free parking?\n1. Yes\n2. No");
+        airCondition = scanBooleanFilter("\nDoes the room have air condition?\n1. Yes\n2. No");
+        balcony = scanBooleanFilter("\nDoes the room have balcony?\n1. Yes\n2. No");
+        fridge = scanBooleanFilter("\nDoes the room have fridge?\n1. Yes\n2. No");
+        kitchen = scanBooleanFilter("\nDoes the room have kitchen?\n1. Yes\n2. No");
+        tv = scanBooleanFilter("\nDoes the room have TV?\n1. Yes\n2. No");
+        smoking = scanBooleanFilter("\nIs smoking allowed in the room?\n1. Yes\n2. No");
+        pets = scanBooleanFilter("\nAre pets allowed in the room?\n1. Yes\n2. No");
 
         boolean addedToHashMap = false;
         int i=1;
@@ -348,19 +259,7 @@ public class ProviderUI {
                     default -> System.out.println("\nInvalid input, enter a valid number\n");
                 }
             }
-            validInput = false;
-            while (!validInput){
-                System.out.println("\nIs room available for long term reservation?\n1. Yes\n2. No");
-                input = scanInput();
-                switch (input) {
-                    case 1 -> {
-                        longTime = true;
-                        validInput = true;
-                    }
-                    case 2 -> validInput = true;
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
-                }
-            }
+            longTime = scanBooleanFilter("\nIs room available for long term reservation?\n1. Yes\n2. No");
             validInput = false;
             while (!validInput){
                 System.out.println("\nEnter the maximum amount of people in the room:");
@@ -403,123 +302,16 @@ public class ProviderUI {
                     validInput = true;
                 }
             }
-            validInput = false;
-            while (!validInput){
-                System.out.println("\nDoes the room provide free WiFi access?\n1. Yes\n2. No");
-                input = scanInput();
-                switch (input) {
-                    case 1 -> {
-                        wifi = true;
-                        validInput = true;
-                    }
-                    case 2 -> validInput = true;
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
-                }
-            }
-            validInput = false;
-            while (!validInput){
-                System.out.println("\nDoes the room provide free parking?\n1. Yes\n2. No");
-                input = scanInput();
-                switch (input) {
-                    case 1 -> {
-                        parking = true;
-                        validInput = true;
-                    }
-                    case 2 -> validInput = true;
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
-                }
-            }
-            validInput = false;
-            while (!validInput){
-                System.out.println("\nDoes the room have air condition?\n1. Yes\n2. No");
-                input = scanInput();
-                switch (input) {
-                    case 1 -> {
-                        airCondition = true;
-                        validInput = true;
-                    }
-                    case 2 -> validInput = true;
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
-                }
-            }
-            validInput = false;
-            while (!validInput){
-                System.out.println("\nDoes the room have balcony?\n1. Yes\n2. No");
-                input = scanInput();
-                switch (input) {
-                    case 1 -> {
-                        balcony = true;
-                        validInput = true;
-                    }
-                    case 2 -> validInput = true;
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
-                }
-            }
-            validInput = false;
-            while (!validInput){
-                System.out.println("\nDoes the room have fridge?\n1. Yes\n2. No");
-                input = scanInput();
-                switch (input) {
-                    case 1 -> {
-                        fridge = true;
-                        validInput = true;
-                    }
-                    case 2 -> validInput = true;
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
-                }
-            }
-            validInput = false;
-            while (!validInput){
-                System.out.println("\nDoes the room have kitchen?\n1. Yes\n2. No");
-                input = scanInput();
-                switch (input) {
-                    case 1 -> {
-                        kitchen = true;
-                        validInput = true;
-                    }
-                    case 2 -> validInput = true;
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
-                }
-            }
-            validInput = false;
-            while (!validInput){
-                System.out.println("\nDoes the room have TV?\n1. Yes\n2. No");
-                input = scanInput();
-                switch (input) {
-                    case 1 -> {
-                        tv = true;
-                        validInput = true;
-                    }
-                    case 2 -> validInput = true;
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
-                }
-            }
-            validInput = false;
-            while (!validInput){
-                System.out.println("\nIs smoking allowed in the room?\n1. Yes\n2. No");
-                input = scanInput();
-                switch (input) {
-                    case 1 -> {
-                        smoking = true;
-                        validInput = true;
-                    }
-                    case 2 -> validInput = true;
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
-                }
-            }
-            validInput = false;
-            while (!validInput){
-                System.out.println("\nAre pets allowed in the room?\n1. Yes\n2. No");
-                input = scanInput();
-                switch (input) {
-                    case 1 -> {
-                        pets = true;
-                        validInput = true;
-                    }
-                    case 2 -> validInput = true;
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
-                }
-            }
+            wifi = scanBooleanFilter("\nDoes the room provide free WiFi access?\n1. Yes\n2. No");
+            parking = scanBooleanFilter("\nDoes the room provide free parking?\n1. Yes\n2. No");
+            airCondition = scanBooleanFilter("\nDoes the room have air condition?\n1. Yes\n2. No");
+            balcony = scanBooleanFilter("\nDoes the room have balcony?\n1. Yes\n2. No");
+            fridge = scanBooleanFilter("\nDoes the room have fridge?\n1. Yes\n2. No");
+            kitchen = scanBooleanFilter("\nDoes the room have kitchen?\n1. Yes\n2. No");
+            tv = scanBooleanFilter("\nDoes the room have TV?\n1. Yes\n2. No");
+            smoking = scanBooleanFilter("\nIs smoking allowed in the room?\n1. Yes\n2. No");
+            pets = scanBooleanFilter("\nAre pets allowed in the room?\n1. Yes\n2. No");
+
             rooms.put(id, new Room(id, type, longTime, capacity, price, m2, wifi, parking,
                     airCondition, balcony, fridge, kitchen, tv, smoking, pets));
             System.out.println("\nSuccessfully edited room with the following id: " + id);
@@ -596,7 +388,8 @@ public class ProviderUI {
             System.out.println("| 3. Delete existing room    |");
             System.out.println("| 4. Show all rooms          |");
             System.out.println("| 5. Return all reservations |");
-            System.out.println("| 6. Exit                    |");
+            System.out.println("| 6. Log out                 |");
+            System.out.println("| 7. Exit                    |");
             System.out.println("+============================+");
             int cmd = 0;
             System.out.print("\n> ");
@@ -610,7 +403,11 @@ public class ProviderUI {
                     case 3 -> deleteRoom();
                     case 4 -> showRooms();
                     case 5 -> returnAllReservations();
-                    case 6 -> System.exit(0);
+                    case 6 -> {
+                        System.out.println("");
+                        this.mainUI.login();
+                    }
+                    case 7 -> System.exit(0);
                     default -> {
                         System.out.println("\nInvalid input, enter a valid number");
                         scanner.nextLine();

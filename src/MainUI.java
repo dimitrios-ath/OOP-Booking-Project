@@ -8,7 +8,12 @@ public class MainUI {
     private Map<String,Customer> customers;
     private Map<String,Provider> providers;
     private Map<String,Admin> admins;
+    private MainUI mainUI;
     Scanner scanner;
+
+    public void setMainUI(MainUI mainUI) {
+        this.mainUI = mainUI;
+    }
 
     /**
      * Constructor of MainUI
@@ -56,7 +61,6 @@ public class MainUI {
         this.rooms.put(3,new Room(3,"hotel",false,4, 40, 35, false, true, false, true, true, false, true, false, false));
         this.rooms.put(4,new Room(4,"room",false,3, 40, 35, false, true, false, true, true, false, false, false, false));
         this.reservations.put(1,new Reservation(1,2, 3, 3, LocalDate.of(2021, 3, 5), LocalDate.of(2021, 3, 7), "user2", 50));
-        login();
     }
 
     /**
@@ -67,8 +71,6 @@ public class MainUI {
      *  is initialized.
      */
     public void login(){
-
-
         int role = 0;
         System.out.print("Enter your username: ");
         String username = scanner.next();
@@ -91,16 +93,15 @@ public class MainUI {
         }
         switch (role){
             case 1 -> {
-                CustomerUI customerUI = new CustomerUI(this.customers.get(username), this.rooms, this.reservations);
+                CustomerUI customerUI = new CustomerUI(this.mainUI, this.customers.get(username), this.rooms, this.reservations);
             }
             case 2 -> {
-                ProviderUI providerUI = new ProviderUI(this.providers.get(username), this.rooms, this.reservations);
+                ProviderUI providerUI = new ProviderUI(this.mainUI, this.providers.get(username), this.rooms, this.reservations);
             }
             case 3 -> {
-                AdminUI adminUI = new AdminUI(this.admins.get(username),this.reservations);
+                AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username),this.reservations);
             }
             default -> System.exit(0);
         }
     }
-
 }
