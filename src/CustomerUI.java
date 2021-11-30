@@ -232,7 +232,12 @@ public class CustomerUI {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
             try {
                 checkOut = LocalDate.parse(date, dtf);
-                validInput = true;
+                if (checkOut.isAfter(checkIn)){
+                    validInput = true;
+                }
+                else {
+                    System.out.println("\nInvalid input, please enter a valid date");
+                }
             } catch (java.time.format.DateTimeParseException ignored){
                 System.out.println("\nInvalid input, please enter a valid date");
             }
@@ -285,70 +290,36 @@ public class CustomerUI {
             }
         });
 
-        System.out.println("\nFiltered rooms:\n"); // debug
-        filteredRooms.forEach((k,v) -> System.out.println(v)); // debug
-
         HashSet<Integer> idsToRemove = new HashSet<>();
-
-        System.out.println("\nfirst\n"); // debug
         int finalGuests = guests;
         filteredRooms.forEach((id, room) -> {
-            System.out.println(room); // debug
             if (room.getCapacity() < finalGuests){
                 idsToRemove.add(id);
-                //filteredRooms.remove(room.getId());
             }
         });
         idsToRemove.forEach(filteredRooms::remove);
+        idsToRemove.clear();
 
-        System.out.println("\nFiltered rooms after guest num, checkin, checkout:\n"); // debug
-        filteredRooms.forEach((k,v) -> System.out.println(v)); // debug
+        // filteredRooms guest number filtered
 
-/*
-        LocalDate FinalCheckin=checkIn;
-        LocalDate FinalCheckout=checkOut;
-        this.reservations.forEach((integer, reservation) -> {
-            for (Map.Entry<Integer, Room> entry : this.rooms.entrySet()) {
-                Integer roomID = entry.getKey();
-                Room room = entry.getValue();
-                if (reservation.getRoomdID() == roomID) {
-                    if ((FinalCheckin.isBefore(reservation.getCheckIn()) && FinalCheckout.isAfter(reservation.getCheckIn()) )
-                            ||( FinalCheckin.isBefore(reservation.getCheckOut()) && FinalCheckout.isAfter(reservation.getCheckOut()) )
-                            ||(FinalCheckin.isBefore(reservation.getCheckIn()) && FinalCheckout.isAfter(reservation.getCheckOut()))
-                            ||(FinalCheckin.isAfter(reservation.getCheckIn()) && FinalCheckout.isBefore(reservation.getCheckOut()))){
-                        filteredRooms.remove(room.getId(),room);
+        LocalDate finalCheckin = checkIn;
+        LocalDate finalCheckout = checkOut;
+        filteredRooms.forEach((roomID, room) -> {
+            this.reservations.forEach((reservationID, reservation) -> {
+                if (reservations.get(reservationID).getRoomID() == roomID){
+                    if ((finalCheckin.isBefore(reservation.getCheckIn()) && finalCheckout.isAfter(reservation.getCheckIn()))
+                            || ( finalCheckin.isBefore(reservation.getCheckOut()) && finalCheckout.isAfter(reservation.getCheckOut()))
+                            || (finalCheckin.isBefore(reservation.getCheckIn()) && finalCheckout.isAfter(reservation.getCheckOut()))
+                            || (finalCheckin.isAfter(reservation.getCheckIn()) && finalCheckout.isBefore(reservation.getCheckOut()))) {
+                        idsToRemove.add(roomID);
                     }
-
                 }
-            }
-
+            });
         });
-*/
-        /*
+        idsToRemove.forEach(filteredRooms::remove);
+        System.out.println("\nFinal rooms after all filters");
+        filteredRooms.forEach((id, room) -> System.out.println(room));
 
-        gia kathe domatio sto filteredRooms
-        if domatio.getCapacity < guests
-            afairesai to domatio apo ta filtered rooms
-
-        for reservation in reservations
-            if reservation.getRoomID == domatio.getRoomID
-                if (customerCheckIn < reservationCheckIn && customerCheckOut > reservationCheckIn ||
-                customerCheckIn < reservationCheckOut && customerCheckOut > reservationCheckOut  ||
-                customerCheckIn < reservationCheckIn && customerCheckOut > reservationCheckOut ||
-                customerCheckIn > reservationCheckIn && customerCheckOut < reservationCheckOut)
-                    remove
-                else {keep}
-
-        */
-        // filteredRooms na filtraristoun ksana gia ton 1. arithmo twn guests, 2. to checkin date, checkout date
-
-        System.out.println("\nFiltered rooms after guest num, checkin, checkout:\n"); // debug
-        filteredRooms.forEach((k,v) -> System.out.println(v)); // debug
-
-        /*
-        epistrefei mia lista me ola ta diathesima rooms
-        otan o xristis epileksei domatio tote prosthese to reservation mesa sto reservations, customer.reservationIDs
-        */
         // reserve(roomid, guest num, checkin , checkout);
         filters.clear();
     }

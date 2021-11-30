@@ -10,7 +10,6 @@ public class Reservation {
     private LocalDate checkOut;
     private String username;
     private double totalPrice;
-    private boolean breakfast;
 
     /**
      * Constructor of Reservation
@@ -21,12 +20,11 @@ public class Reservation {
      * @param checkOut               check out date
      * @param username               unique username of the customer
      * @param totalPrice             total reservation cost
-     * @param breakfast              with breakfast {true/false}
      */
     public Reservation(int reservationID, int guestNumber,
                        int totalNights, int roomID, LocalDate checkIn,
                        LocalDate checkOut, String username,
-                       double totalPrice, boolean breakfast) {
+                       double totalPrice) {
         this.reservationID = reservationID;
         this.guestNumber = guestNumber;
         this.totalNights = totalNights;
@@ -35,7 +33,6 @@ public class Reservation {
         this.checkOut = checkOut;
         this.username = username;
         this.totalPrice = totalPrice;
-        this.breakfast = breakfast;
     }
 
     /**
@@ -49,7 +46,6 @@ public class Reservation {
     public LocalDate getCheckOut() {return this.checkOut;}
     public String getUsername() {return this.username;}
     public double getTotalPrice() {return this.totalPrice;}
-    public boolean getBreakfast() {return this.breakfast;}
 
     /**
      * setters of Reservation class attributes
@@ -62,5 +58,4 @@ public class Reservation {
     public void setCheckOut(LocalDate checkOut) {this.checkOut = checkOut;}
     public void setUsername(String username) {this.username = username;}
     public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
-    public void setBreakfast(boolean breakfast) {this.breakfast = breakfast;}
 }

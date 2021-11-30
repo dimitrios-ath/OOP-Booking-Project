@@ -51,7 +51,11 @@ public class MainUI {
                 "Thessaloniki","hotelier"));
         this.admins.put("admin1", new Admin("admin1", "pass1", "admin1First",
                 "admin1Last", "admin1@email.com","6912345678"));
-
+        this.rooms.put(1,new Room(1,"hotel",false,2, 40, 35, true, true, true, true, true, false, true, false, false));
+        this.rooms.put(2,new Room(2,"apartment",false,2, 40, 35, true, true, false, true, true, false, false, false, false));
+        this.rooms.put(3,new Room(3,"hotel",false,4, 40, 35, false, true, false, true, true, false, true, false, false));
+        this.rooms.put(4,new Room(4,"room",false,3, 40, 35, false, true, false, true, true, false, false, false, false));
+        this.reservations.put(1,new Reservation(1,2, 3, 3, LocalDate.of(2021, 3, 5), LocalDate.of(2021, 3, 7), "user2", 50));
         login();
     }
 
@@ -63,10 +67,7 @@ public class MainUI {
      *  is initialized.
      */
     public void login(){
-        this.rooms.put(1,new Room(1,"hotel",false,2, 40, 35, true, true, true, true, true, false, true, false, false));
-        this.rooms.put(2,new Room(2,"apartment",false,2, 40, 35, true, true, false, true, true, false, false, false, false));
-        this.rooms.put(3,new Room(3,"hotel",false,4, 40, 35, false, true, false, true, true, false, true, false, false));
-        this.rooms.put(4,new Room(4,"room",false,3, 40, 35, false, true, false, true, true, false, false, false, false));
+
 
         int role = 0;
         System.out.print("Enter your username: ");
