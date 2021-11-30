@@ -115,7 +115,7 @@ public class CustomerUI {
                                 System.out.println("\nInvalid input, enter a valid number");
                             }
                         }
-                        catch (InputMismatchException ignored){
+                        catch (java.util.InputMismatchException ignored){
                             System.out.println("\nInvalid input, enter a valid number");
                         }
                     }
@@ -137,7 +137,7 @@ public class CustomerUI {
                                 System.out.println("\nInvalid input, enter a valid number");
                             }
                         }
-                        catch (InputMismatchException ignored){
+                        catch (java.util.InputMismatchException ignored){
                             System.out.println("\nInvalid input, enter a valid number");
                         }
                     }
@@ -177,33 +177,32 @@ public class CustomerUI {
         });
     }
 
-    public void search() {
+    public void search(){
         Map<String, String> filters = new HashMap<>();
         Map<Integer, Room> filteredRooms = new HashMap<>();
-        Map<Integer, Reservation> reservations = new HashMap<>();
         AtomicBoolean matchingRoom = new AtomicBoolean(false);
         boolean validInput;
-        int guests = 0, input = 0;
-        LocalDate checkIn = LocalDate.of(1, 1, 1), checkOut = LocalDate.of(1, 1, 1);
+        int guests = 0, input=0;
+        LocalDate checkIn = LocalDate.of(1,1,1) , checkOut = LocalDate.of(1,1,1);
 
-        filters.put("Type", "-");
-        filters.put("Price", "-");
-        filters.put("Balcony", "-");
-        filters.put("Kitchen", "-");
-        filters.put("Wifi", "-");
-        filters.put("Parking", "-");
-        filters.put("AirCondition", "-");
-        filters.put("Fridge", "-");
-        filters.put("Tv", "-");
-        filters.put("Smoking", "-");
-        filters.put("Pets", "-");
+        filters.put("Type","-");
+        filters.put("Price","-");
+        filters.put("Balcony","-");
+        filters.put("Kitchen","-");
+        filters.put("Wifi","-");
+        filters.put("Parking","-");
+        filters.put("AirCondition","-");
+        filters.put("Fridge","-");
+        filters.put("Tv","-");
+        filters.put("Smoking","-");
+        filters.put("Pets","-");
 
         System.out.println("\n+============================+");
         System.out.println("|    Search/Reserve Room     |");
         System.out.println("+============================+");
 
         validInput = false;
-        while (!validInput) {
+        while (!validInput){
             System.out.println("\nEnter the number of guests:");
             guests = scanInput();
             if (guests != 0) {
@@ -212,7 +211,7 @@ public class CustomerUI {
         }
 
         validInput = false;
-        while (!validInput) {
+        while (!validInput){
             System.out.println("\nEnter the check in date (dd-mm-yyyy):");
             System.out.print("\n> ");
             String date = scanner.next();
@@ -220,13 +219,13 @@ public class CustomerUI {
             try {
                 checkIn = LocalDate.parse(date, dtf);
                 validInput = true;
-            } catch (java.time.format.DateTimeParseException ignored) {
+            } catch (java.time.format.DateTimeParseException ignored){
                 System.out.println("\nInvalid input, please enter a valid date");
             }
         }
 
         validInput = false;
-        while (!validInput) {
+        while (!validInput){
             System.out.println("\nEnter the check out date (dd-mm-yyyy):");
             System.out.print("\n> ");
             String date = scanner.next();
@@ -234,13 +233,13 @@ public class CustomerUI {
             try {
                 checkOut = LocalDate.parse(date, dtf);
                 validInput = true;
-            } catch (java.time.format.DateTimeParseException ignored) {
+            } catch (java.time.format.DateTimeParseException ignored){
                 System.out.println("\nInvalid input, please enter a valid date");
             }
         }
 
         validInput = false;
-        while (!validInput) {
+        while (!validInput){
             System.out.println("\n1. Add new search filters\n2. Continue search with current filters");
             input = scanInput();
             switch (input) {
@@ -254,59 +253,58 @@ public class CustomerUI {
 
         }
 
-        this.rooms.forEach((roomID, room) -> {
+        this.rooms.forEach((roomID,room) -> {
             matchingRoom.set(true);
-            filters.forEach((filter, value) -> {
+            filters.forEach((filter,value) -> {
                 if (!Objects.equals(value, "-") && !Objects.equals(filter, "Price")) {
                     Method method = null;
                     boolean booleanValue = false;
-                    if (Objects.equals(value, "yes")) {
-                        booleanValue = true;
-                    } else if (Objects.equals(value, "no")) {
-                        booleanValue = false;
-                    }
+                    if (Objects.equals(value, "yes")) {booleanValue = true;}
+                    else if (Objects.equals(value, "no")) {booleanValue = false;}
                     try {
                         method = Room.class.getDeclaredMethod("get" + filter);
                     } catch (NoSuchMethodException ignored) {
                     }
                     try {
                         assert method != null;
-                        if (!Objects.equals(filter, "Type")) {
+                        if (!Objects.equals(filter, "Type")){
                             if ((boolean) method.invoke(room) != booleanValue) {
                                 matchingRoom.set(false);
                             }
-                        } else {
+                        }
+                        else {
                             if (method.invoke(room) != value) {
                                 matchingRoom.set(false);
                             }
                         }
-                    } catch (IllegalAccessException | InvocationTargetException ignored) {
-                    }
+                    } catch (IllegalAccessException | InvocationTargetException ignored) {}
                 }
             });
-            if (matchingRoom.get()) {
-                filteredRooms.put(room.getId(), room);
+            if (matchingRoom.get()){
+                filteredRooms.put(room.getId(),room);
             }
         });
 
         System.out.println("\nFiltered rooms:\n"); // debug
-        filteredRooms.forEach((k, v) -> System.out.println(v)); // debug
+        filteredRooms.forEach((k,v) -> System.out.println(v)); // debug
 
+        HashSet<Integer> idsToRemove = new HashSet<>();
 
+        System.out.println("\nfirst\n"); // debug
         int finalGuests = guests;
-        this.rooms.forEach((roomID, room) -> {
-            filters.forEach((filter, value) -> {
-                if (finalGuests <= room.getCapacity()){
-                    filteredRooms.put(room.getId(),room);
-                }
-                else{
-                    filteredRooms.remove(room.getId(),room);
-                }
-            });
-
+        filteredRooms.forEach((id, room) -> {
+            System.out.println(room); // debug
+            if (room.getCapacity() < finalGuests){
+                idsToRemove.add(id);
+                //filteredRooms.remove(room.getId());
+            }
         });
+        idsToRemove.forEach(filteredRooms::remove);
 
+        System.out.println("\nFiltered rooms after guest num, checkin, checkout:\n"); // debug
+        filteredRooms.forEach((k,v) -> System.out.println(v)); // debug
 
+/*
         LocalDate FinalCheckin=checkIn;
         LocalDate FinalCheckout=checkOut;
         this.reservations.forEach((integer, reservation) -> {
@@ -325,15 +323,36 @@ public class CustomerUI {
             }
 
         });
+*/
+        /*
 
-        System.out.println("\nFiltered rooms after guests num,check in,checkoutL\n");//debug
-        filteredRooms.forEach((k, v) -> System.out.println(v)); // debug
+        gia kathe domatio sto filteredRooms
+        if domatio.getCapacity < guests
+            afairesai to domatio apo ta filtered rooms
 
-        reserve(guests,checkIn,checkOut,customer);
+        for reservation in reservations
+            if reservation.getRoomID == domatio.getRoomID
+                if (customerCheckIn < reservationCheckIn && customerCheckOut > reservationCheckIn ||
+                customerCheckIn < reservationCheckOut && customerCheckOut > reservationCheckOut  ||
+                customerCheckIn < reservationCheckIn && customerCheckOut > reservationCheckOut ||
+                customerCheckIn > reservationCheckIn && customerCheckOut < reservationCheckOut)
+                    remove
+                else {keep}
+
+        */
+        // filteredRooms na filtraristoun ksana gia ton 1. arithmo twn guests, 2. to checkin date, checkout date
+
+        System.out.println("\nFiltered rooms after guest num, checkin, checkout:\n"); // debug
+        filteredRooms.forEach((k,v) -> System.out.println(v)); // debug
+
+        /*
+        epistrefei mia lista me ola ta diathesima rooms
+        otan o xristis epileksei domatio tote prosthese to reservation mesa sto reservations, customer.reservationIDs
+        */
+        // reserve(roomid, guest num, checkin , checkout);
         filters.clear();
     }
-
-    public void reserve(int guests, LocalDate checkIn, LocalDate checkOut, Customer customer){
+    public void reserve(){
         // todo call reservation constructor and add reservation to reservation hashset
     }
     public void cancel(){

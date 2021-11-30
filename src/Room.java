@@ -35,6 +35,7 @@ public class Room {
      * @param smoking       smoking allowed {true/false}
      * @param pets          pets allowed {true/false}
      */
+
     public Room(int id, String type, boolean longTime, int capacity,
                 double price, int m2, boolean wifi, boolean parking,
                 boolean airCondition, boolean balcony,
