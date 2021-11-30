@@ -1,31 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="470b8321-4fef-4a0e-91a5-d42ac110331f" name="Changes" comment="" />
-=======
-    <list default="true" id="22532306-7e06-4c73-a19d-22cdc7b3cc65" name="Changes" comment="" />
->>>>>>> a307172 (Create "Customer", "Provider", "Reservation" classes)
+    <list default="true" id="4b91168f-e298-4276-b2df-14e4bee53e12" name="Changes" comment="Fixed a little bit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CustomerUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomerUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProviderUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ProviderUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Reservation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Room.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-<<<<<<< HEAD
-  <component name="ProjectId" id="21JUteiKZAeK66vE7tnqIB2f8cb" />
-=======
-  <component name="ProjectId" id="21JUmrSHhbPrX8DoUswyKJt343L" />
->>>>>>> a307172 (Create "Customer", "Provider", "Reservation" classes)
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/CustomerUI.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Provider.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ProviderUI.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Reservation.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Customer.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/MainUI.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectId" id="21e3VdoblJZIP4e1uAehXmipL1y" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,36 +42,49 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-<<<<<<< HEAD
-=======
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="MyBooking" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
->>>>>>> a307172 (Create "Customer", "Provider", "Reservation" classes)
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="470b8321-4fef-4a0e-91a5-d42ac110331f" name="Changes" comment="" />
-      <created>1637658899787</created>
+      <changelist id="4b91168f-e298-4276-b2df-14e4bee53e12" name="Changes" comment="" />
+      <created>1638173415615</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1637658899787</updated>
+      <updated>1638173415615</updated>
     </task>
+    <task id="LOCAL-00001" summary="Fixed a little bit AdminUI-panel">
+      <created>1638280738673</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638280738674</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Fixed a little bit AdminUI-panel">
+      <created>1638281341564</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1638281341564</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Fixed a little bit">
+      <created>1638290745399</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1638290745399</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fixed a little bit">
+      <created>1638292332423</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1638292332423</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.name" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -74,15 +96,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
-=======
-      <changelist id="22532306-7e06-4c73-a19d-22cdc7b3cc65" name="Changes" comment="" />
-      <created>1637658847360</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1637658847360</updated>
-    </task>
-    <servers />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Creating Customer Panel" />
+    <MESSAGE value="Fixed a little bit AdminUI-panel" />
+    <MESSAGE value="Fixed a little bit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed a little bit" />
   </component>
->>>>>>> a307172 (Create "Customer", "Provider", "Reservation" classes)
 </project>

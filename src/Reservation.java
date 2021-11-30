@@ -42,6 +42,10 @@ public class Reservation {
         this.breakfast = breakfast;
     }
 
+    public Reservation() {
+
+    }
+
     /**
      * getters of Reservation class attributes
      */
@@ -70,4 +74,6 @@ public class Reservation {
     public void setAmountPaid(double amountPaid) {this.amountPaid = amountPaid;}
     public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
     public void setBreakfast(boolean breakfast) {this.breakfast = breakfast;}
+
+
 }

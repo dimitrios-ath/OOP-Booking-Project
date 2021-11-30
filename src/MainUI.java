@@ -95,7 +95,7 @@ public class MainUI {
                 ProviderUI providerUI = new ProviderUI(this.providers.get(username), this.rooms, this.reservations);
             }
             case 3 -> {
-                AdminUI adminUI = new AdminUI(this.admins.get(username));
+                AdminUI adminUI = new AdminUI(this.admins.get(username),this.reservations);
             }
             default -> System.exit(0);
         }

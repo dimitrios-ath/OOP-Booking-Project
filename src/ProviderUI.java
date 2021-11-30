@@ -605,15 +605,15 @@ public class ProviderUI {
             }
             catch (java.util.InputMismatchException ignored){}
             switch (cmd) {
-                case 1 -> addRoom();
-                case 2 -> editRoom();
-                case 3 -> deleteRoom();
-                case 4 -> showRooms();
-                case 5 -> returnAllReservations();
-                case 6 -> System.exit(0);
-                default -> {
-                    System.out.println("\nInvalid input, enter a valid number");
-                    scanner.nextLine();
+                    case 1 -> addRoom();
+                    case 2 -> editRoom();
+                    case 3 -> deleteRoom();
+                    case 4 -> showRooms();
+                    case 5 -> returnAllReservations();
+                    case 6 -> System.exit(0);
+                    default -> {
+                        System.out.println("\nInvalid input, enter a valid number");
+                        scanner.nextLine();
                 }
             }
         }
