@@ -7,12 +7,11 @@ public class Reservation {
     private int totalNights;
     private LocalDate checkIn;
     private LocalDate checkOut;
-    private String paymentType;
     private String username;
     private double amountPaid;
     private double totalPrice;
     private boolean breakfast;
-    private boolean pets;
+
 
     /**
      * Constructor of Reservation
@@ -21,29 +20,24 @@ public class Reservation {
      * @param totalNights            total nights
      * @param checkIn                check in date
      * @param checkOut               check out date
-     * @param paymentType            payment type {cash/card}
      * @param username               unique username of the customer
      * @param amountPaid             amount already paid
      * @param totalPrice             total reservation cost
      * @param breakfast              with breakfast {true/false}
-     * @param pets                   pets allowed {true/false}
      */
     public Reservation(int reservationID, int guestNumber,
                        int totalNights, LocalDate checkIn, LocalDate checkOut,
-                       String paymentType, String username, double amountPaid,
-                       double totalPrice, boolean breakfast,
-                       boolean pets) {
+                       String username, double amountPaid,
+                       double totalPrice, boolean breakfast) {
         this.reservationID = reservationID;
         this.guestNumber = guestNumber;
         this.totalNights = totalNights;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-        this.paymentType = paymentType;
         this.username = username;
         this.amountPaid = amountPaid;
         this.totalPrice = totalPrice;
         this.breakfast = breakfast;
-        this.pets = pets;
     }
 
     /**
@@ -54,12 +48,11 @@ public class Reservation {
     public int getTotalNights() {return this.totalNights;}
     public LocalDate getCheckIn() {return this.checkIn;}
     public LocalDate getCheckOut() {return this.checkOut;}
-    public String getPaymentType() {return this.paymentType;}
     public String getUsername() {return this.username;}
     public double getAmountPaid() {return this.amountPaid;}
     public double getTotalPrice() {return this.totalPrice;}
     public boolean getBreakfast() {return this.breakfast;}
-    public boolean getPets() {return this.pets;}
+
 
     /**
      * setters of Reservation class attributes
@@ -69,10 +62,8 @@ public class Reservation {
     public void setTotalNights(int totalNights) {this.totalNights = totalNights;}
     public void setCheckIn(LocalDate checkIn) {this.checkIn = checkIn;}
     public void setCheckOut(LocalDate checkOut) {this.checkOut = checkOut;}
-    public void setPaymentType(String paymentType) {this.paymentType = paymentType;}
     public void setUsername(String username) {this.username = username;}
     public void setAmountPaid(double amountPaid) {this.amountPaid = amountPaid;}
     public void setTotalPrice(double totalPrice) {this.totalPrice = totalPrice;}
     public void setBreakfast(boolean breakfast) {this.breakfast = breakfast;}
-    public void setPets(boolean pets) {this.pets = pets;}
 }
