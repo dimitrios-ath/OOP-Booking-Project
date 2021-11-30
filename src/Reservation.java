@@ -3,6 +3,7 @@ import java.time.LocalDate;
 
 public class Reservation {
     private int reservationID;
+    private int roomdID;
     private int guestNumber;
     private int totalNights;
     private LocalDate checkIn;
@@ -25,11 +26,12 @@ public class Reservation {
      * @param totalPrice             total reservation cost
      * @param breakfast              with breakfast {true/false}
      */
-    public Reservation(int reservationID, int guestNumber,
+    public Reservation(int reservationID,int roomdID,int guestNumber,
                        int totalNights, LocalDate checkIn, LocalDate checkOut,
                        String username, double amountPaid,
                        double totalPrice, boolean breakfast) {
         this.reservationID = reservationID;
+        this.roomdID=roomdID;
         this.guestNumber = guestNumber;
         this.totalNights = totalNights;
         this.checkIn = checkIn;
@@ -44,6 +46,7 @@ public class Reservation {
      * getters of Reservation class attributes
      */
     public int getReservationID() {return this.reservationID;}
+    public int getRoomdID() {return this.roomdID;}
     public int getGuestNumber() {return this.guestNumber;}
     public int getTotalNights() {return this.totalNights;}
     public LocalDate getCheckIn() {return this.checkIn;}
@@ -58,6 +61,7 @@ public class Reservation {
      * setters of Reservation class attributes
      */
     public void setReservationID(int reservationID) {this.reservationID = reservationID;}
+    public void setRoomdID(int roomdID) {this.roomdID=roomdID;}
     public void setGuestNumber(int guestNumber) {this.guestNumber = guestNumber;}
     public void setTotalNights(int totalNights) {this.totalNights = totalNights;}
     public void setCheckIn(LocalDate checkIn) {this.checkIn = checkIn;}

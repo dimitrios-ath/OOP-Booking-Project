@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Date;
 
 public class CustomerUI {
     private final Customer customer;
@@ -305,38 +306,34 @@ public class CustomerUI {
 
         });
 
+
+        LocalDate FinalCheckin=checkIn;
+        LocalDate FinalCheckout=checkOut;
         this.reservations.forEach((integer, reservation) -> {
-             //   if (reservation.)
+            for (Map.Entry<Integer, Room> entry : this.rooms.entrySet()) {
+                Integer roomID = entry.getKey();
+                Room room = entry.getValue();
+                if (reservation.getRoomdID() == roomID) {
+                    if ((FinalCheckin.isBefore(reservation.getCheckIn()) && FinalCheckout.isAfter(reservation.getCheckIn()) )
+                            ||( FinalCheckin.isBefore(reservation.getCheckOut()) && FinalCheckout.isAfter(reservation.getCheckOut()) )
+                            ||(FinalCheckin.isBefore(reservation.getCheckIn()) && FinalCheckout.isAfter(reservation.getCheckOut()))
+                            ||(FinalCheckin.isAfter(reservation.getCheckIn()) && FinalCheckout.isBefore(reservation.getCheckOut()))){
+                        filteredRooms.remove(room.getId(),room);
+                    }
+
+                }
+            }
 
         });
-        /*
 
-
-
-        for reservation in reservations
-            if reservation.getRoomID == domatio.getRoomID
-                if (customerCheckIn < reservationCheckIn && customerCheckOut > reservationCheckIn ||
-                customerCheckIn < reservationCheckOut && customerCheckOut > reservationCheckOut  ||
-                customerCheckIn < reservationCheckIn && customerCheckOut > reservationCheckOut ||
-                customerCheckIn > reservationCheckIn && customerCheckOut < reservationCheckOut)
-                    remove
-                else {keep}
-
-        */
-        // filteredRooms na filtraristoun ksana gia ton 1. arithmo twn guests, 2. to checkin date, checkout date
-
-        System.out.println("\nFiltered rooms after  geusts num,check in,checkout:\n"); // debug
+        System.out.println("\nFiltered rooms after guests num,check in,checkoutL\n");//debug
         filteredRooms.forEach((k, v) -> System.out.println(v)); // debug
-        /*
-        epistrefei mia lista me ola ta diathesima rooms
-        otan o xristis epileksei domatio tote prosthese to reservation mesa sto reservations, customer.reservationIDs
-                */
 
-        //reserve(roomid,guestnumber,checkin,checkout)
+        reserve(guests,checkIn,checkOut,customer);
         filters.clear();
     }
 
-    public void reserve(){
+    public void reserve(int guests, LocalDate checkIn, LocalDate checkOut, Customer customer){
         // todo call reservation constructor and add reservation to reservation hashset
     }
     public void cancel(){
