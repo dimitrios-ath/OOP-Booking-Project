@@ -1,18 +1,33 @@
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Map;
 
 public class AdminUI {
+    private Map<Integer,Reservation> reservations;
     Admin admin;
-    public AdminUI(Admin admin){
-        this.admin = admin;
-    }
-    public void searchReservations(){}
-    public void searchUsers(){}
-    public void approvalNewUser(){}
-    public void sendMessages(){}
     Scanner scanner=new Scanner(System.in);
 
+    public AdminUI(Admin admin, Map<Integer,Reservation> reservations){
+        this.admin = admin;
+        this.reservations=reservations;
+        panel();
+    }
+    public void searchReservations(){
+        //todo
+    }
+    public void searchUsers(){
+        //todo
+    }
+    public void approvalNewUser(){
+        //todo
+    }
+    public void sendMessages(){
+        //todo
+    }
+
+    /**
+     * The main admin user interface. It asks for a command and calls the
+     * appropriate function
+     */
 
     public void panel(){{
             while (true){
