@@ -64,8 +64,9 @@ public class MainUI {
      */
     public void login(){
         this.rooms.put(1,new Room(1,"hotel",false,2, 40, 35, true, true, true, true, true, false, true, false, false));
+        this.rooms.put(2,new Room(2,"apartment",false,2, 40, 35, true, true, false, true, true, false, false, false, false));
         this.rooms.put(3,new Room(3,"hotel",false,4, 40, 35, false, true, false, true, true, false, true, false, false));
-        this.rooms.put(2,new Room(2,"apartment",false,2, 40, 35, true, true, false, true, true, false, true, false, false));
+        this.rooms.put(4,new Room(4,"room",false,3, 40, 35, false, true, false, true, true, false, false, false, false));
 
         int role = 0;
         System.out.print("Enter your username: ");
