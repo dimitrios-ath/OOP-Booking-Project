@@ -1,8 +1,10 @@
 import java.util.Scanner;
 import java.util.Map;
+import java.util.function.BiConsumer;
 
 public class AdminUI {
     private Map<Integer,Reservation> reservations;
+    private Map<Integer,Customer> customers;
     Admin admin;
     Scanner scanner=new Scanner(System.in);
 
@@ -12,10 +14,21 @@ public class AdminUI {
         panel();
     }
     public void searchReservations(){
-        //todo
+
+        System.out.println("\n+============================+");
+        System.out.println("|  Search/Show Reservations   |");
+        System.out.println("\n+============================+");
+
+        for (Map.Entry<Integer, Reservation> entry : this.reservations.entrySet()) {
+            Integer reservationID = entry.getKey();
+            Reservation value = entry.getValue();
+            System.out.println(new StringBuilder().append("id:").append(value.getReservationID()).append(",guests:").
+                    append(value.getGuestNumber()).append(",Nights:").append(value.getTotalNights()).append(",Room's Id:").append(value.getRoomID()).append(",Check in:").append(value.getCheckIn()).append(",check out:").append(value.getCheckOut())
+                    .append(",username of Customer:").append(value.getUsername()).toString());
+        }
     }
     public void searchUsers(){
-        //todo
+         //todo
     }
     public void approvalNewUser(){
         //todo
@@ -34,8 +47,8 @@ public class AdminUI {
                 System.out.println("\n+============================+");
                 System.out.println("|       Admin    Panel       |");
                 System.out.println("+============================+");
-                System.out.println("| 1. Search  reservations    |");
-                System.out.println("| 2. Search  users           |");
+                System.out.println("| 1. Search/Show reservations|");
+                System.out.println("| 2. Search/Show users       |");
                 System.out.println("| 3. Approve new user        |");
                 System.out.println("| 4. Send message to user    |");
                 System.out.println("| 5. Exit                    |");

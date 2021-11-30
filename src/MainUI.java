@@ -36,6 +36,7 @@ public class MainUI {
                | admin1    | pass1    | administrator |
                +-----------+----------+---------------+
          */
+
         this.users.put("user1", new Authentication("user1","pass1",1));
         this.users.put("user2", new Authentication("user2","pass2",1));
         this.users.put("provider1", new Authentication("provider1","pass1",2));

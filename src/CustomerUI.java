@@ -324,7 +324,7 @@ public class CustomerUI {
         filters.clear();
     }
     public void reserve(){
-        // todo call reservation constructor and add reservation to reservation hashset
+        /* todo call reservation constructor and add reservation to reservation hashset */
     }
     public void cancel(){
         // todo remove reservation from reservations hashmap
