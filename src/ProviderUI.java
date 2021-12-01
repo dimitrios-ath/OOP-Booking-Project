@@ -44,6 +44,15 @@ public class ProviderUI {
         return input;
     }
 
+    /**
+     *
+     * this function deescalates the term of complexity
+     * (in the purpose of not writing the same code again
+     * and again) by creating cases loop that helps the
+     * progress of the program to be more efficient
+     * @param message recieves a guestion-string
+     * return ret   the outcome of this method
+     */
     public boolean scanBooleanFilter(String message){
         int input = 0;
         boolean validInput = false;

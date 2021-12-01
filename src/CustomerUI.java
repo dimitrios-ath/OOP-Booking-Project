@@ -3,9 +3,10 @@ import java.lang.reflect.Method;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.Date;
+import java.time.ZoneId;
 
 public class CustomerUI {
     private final Customer customer;
@@ -14,6 +15,7 @@ public class CustomerUI {
     private final Scanner scanner;
     private final MainUI mainUI;
     private static DecimalFormat df;
+    private Object Integer;
 
     public CustomerUI(MainUI mainUI, Customer customer, Map<Integer,Room> rooms, Map<Integer,Reservation> reservations) {
         this.customer = customer;
@@ -71,7 +73,13 @@ public class CustomerUI {
         }
     }
 
-
+    /**
+     *
+     * @param filters
+     * this function registers some filters based on
+     * customers satisfactions in the purpose of making
+     * the search more efficient
+     */
     public void filtersUI(Map<String, String> filters) {
         boolean defaultPrice = true;
         boolean readyToSearch = false;
@@ -171,6 +179,10 @@ public class CustomerUI {
 
     }
 
+    /**
+     * this function displays all the rooms
+     * with their characteristics
+     */
     public void displayAllRooms(){
         this.rooms.forEach((id, room) -> {
             System.out.println("Type: " + rooms.get(id).getType() + ", capacity: " +
@@ -178,7 +190,12 @@ public class CustomerUI {
                     df.format(rooms.get(id).getPrice()));
         });
     }
-
+    /**
+     *  this function searches rooms based on some
+     *  user's filters and calls the function reserve
+     *  giving the capacity to the user to reserve
+     *  whatever room he wants
+     */
     public void search(){
         Map<String, String> filters = new HashMap<>();
         Map<Integer, Room> filteredRooms = new HashMap<>();
@@ -313,7 +330,7 @@ public class CustomerUI {
                             || ( finalCheckin.isBefore(reservation.getCheckOut()) && finalCheckout.isAfter(reservation.getCheckOut()))
                             || (finalCheckin.isBefore(reservation.getCheckIn()) && finalCheckout.isAfter(reservation.getCheckOut()))
                             || (finalCheckin.isAfter(reservation.getCheckIn()) && finalCheckout.isBefore(reservation.getCheckOut()))) {
-                        idsToRemove.add(roomID);
+                             idsToRemove.add(roomID);
                     }
                 }
             });
@@ -322,12 +339,47 @@ public class CustomerUI {
         System.out.println("\nFinal rooms after all filters");
         filteredRooms.forEach((id, room) -> System.out.println(room));
 
-        // reserve(roomid, guest num, checkin , checkout);
+
+        int nights= (int) ChronoUnit.DAYS.between(finalCheckin,finalCheckout);
+        System.out.println("nights : "+nights);
+
+
+        System.out.println("\nDo you want to continue for reversing a room:\n ");
+        System.out.println("\n1.Yes\n2.No");
+        int continueToReservation = 0;
+        validInput = false;
+        while (!validInput) {
+            System.out.println("\n>");
+            continueToReservation = scanner.nextInt();
+            try {
+                if ((continueToReservation==1)|| (continueToReservation==2))
+                    validInput = true;
+                else {
+                    System.out.println("\nInvalid input, enter a valid number");
+                }
+            }
+            catch (Exception e) {
+                System.out.println("\nInvalid input, please enter a valid option");
+            }
+        }
+        if (continueToReservation==1){
+            reserve( reservations, filteredRooms, filteredRooms.get(rooms).getId(), finalCheckin, finalCheckout, nights);
+        }
+
+
         filters.clear();
+
     }
-    public void reserve(){
-        /* todo call reservation constructor and add reservation to reservation hashset */
+    public void reserve(Map<Integer,Reservation> reservations,Map<Integer, Room> filteredRooms, Integer roomID, LocalDate finalCheckin, LocalDate finalCheckout,int nights) {
+        System.out.println("\n+============================+");
+        System.out.println("|       Reverse a room         |");
+        System.out.println("+============================+");
+
+
+
+
     }
+
     public void cancel(){
         // todo remove reservation from reservations hashmap
     }
@@ -335,7 +387,10 @@ public class CustomerUI {
         System.out.println("todo");
         return false;
     }
-
+    /**
+     *   this function shows all reservations with
+     *   their characteristics
+     */
     public void showReservations(){
         for(Integer id : this.customer.getReservationIDs()){
             System.out.println("id: " + reservations.get(id).getReservationID() +
@@ -345,7 +400,10 @@ public class CustomerUI {
                     df.format(reservations.get(id).getTotalPrice()));
         }
     }
-
+    /**
+     *   The main provider user interface. It asks for a command and calls the
+     *   appropriate function.
+     */
     public void panel(){
         while (true){
             System.out.println("\n+============================+");
