@@ -35,12 +35,11 @@ public class ProviderUI {
      */
     public int scanInput(){
         int input = 0;
-        scanner.nextLine();
         System.out.print("\n> ");
         try {
             input = scanner.nextInt();
         }
-        catch (java.util.InputMismatchException ignored){}
+        catch (java.util.InputMismatchException ignored){scanner.nextLine();}
         return input;
     }
 
@@ -59,7 +58,6 @@ public class ProviderUI {
         boolean ret=false;
         while (!validInput){
             System.out.println(message);
-            scanner.nextLine();
             System.out.print("\n> ");
             try {
                 input = scanner.nextInt();
@@ -72,6 +70,7 @@ public class ProviderUI {
             }
             catch (java.util.InputMismatchException ignored){
                 System.out.println("\nInvalid input, enter a valid number");
+                scanner.nextLine();
             }
         }
         if (input==1) {
@@ -88,6 +87,7 @@ public class ProviderUI {
      *  every room attribute.
      */
     public void addRoom(){
+        String name="";
         String type="";
         boolean longTime=false;
         int capacity=0;
@@ -125,7 +125,40 @@ public class ProviderUI {
                     type = "apartment";
                     validInput = true;
                 }
-                default -> System.out.println("\nInvalid input, enter a valid number\n");
+                default -> System.out.println("\nInvalid input, enter a valid number");
+            }
+        }
+        validInput = false;
+        while (!validInput){
+            if (type.equals("hotel")){
+                System.out.println("\nEnter hotel name:");
+                scanner.nextLine();
+                System.out.print("\n> ");
+                try {
+                    name = scanner.nextLine();
+                    validInput = true;
+                }
+                catch (java.util.InputMismatchException ignored){}
+            }
+            else if (type.equals("room")){
+                System.out.println("\nEnter room name:");
+                scanner.nextLine();
+                System.out.print("\n> ");
+                try {
+                    name = scanner.nextLine();
+                    validInput = true;
+                }
+                catch (java.util.InputMismatchException ignored){}
+            }
+            else {
+                System.out.println("\nEnter apartment name:");
+                scanner.nextLine();
+                System.out.print("\n> ");
+                try {
+                    name = scanner.nextLine();
+                    validInput = true;
+                }
+                catch (java.util.InputMismatchException ignored){}
             }
         }
         longTime = scanBooleanFilter("\nIs room available for long term reservation?\n1. Yes\n2. No");
@@ -134,7 +167,7 @@ public class ProviderUI {
             System.out.println("\nEnter the maximum amount of people in the room:");
             input = scanInput();
             if (input == 0 || input >= 10){
-                System.out.println("\nInvalid input, enter a valid number\n");
+                System.out.println("\nInvalid input, enter a valid number");
             }
             else {
                 capacity = input;
@@ -152,7 +185,7 @@ public class ProviderUI {
             }
             catch (java.util.InputMismatchException ignored){}
             if (scannedPrice<=0){
-                System.out.println("\nInvalid input, enter a valid price\n");
+                System.out.println("\nInvalid input, enter a valid price");
             }
             else {
                 price = scannedPrice;
@@ -164,7 +197,7 @@ public class ProviderUI {
             System.out.println("\nEnter the room size in square meters:");
             input = scanInput();
             if (input <= 0){
-                System.out.println("\nInvalid input, enter a valid number\n");
+                System.out.println("\nInvalid input, enter a valid number");
             }
             else {
                 m2 = input;
@@ -185,7 +218,7 @@ public class ProviderUI {
         int i=1;
         while(!addedToHashMap && i<1000) {
             if (!rooms.containsKey(i)) {
-                rooms.put(i, new Room(i, type, longTime, capacity, price, m2, wifi, parking,
+                rooms.put(i, new Room(i, name, type, longTime, capacity, price, m2, wifi, parking,
                         airCondition, balcony, fridge, kitchen, tv, smoking, pets));
                 addedToHashMap = true;
                 provider.addRoomID(i);
@@ -203,7 +236,8 @@ public class ProviderUI {
     public void displayAllRooms(){
         for(Integer id : this.provider.getRoomIDs()){
             System.out.println("id: " + rooms.get(id).getId().toString() +
-                    ", type: " + rooms.get(id).getType() + ", capacity: " +
+                    ", name: \"" + rooms.get(id).getName() +
+                    "\", type: " + rooms.get(id).getType() + ", capacity: " +
                     rooms.get(id).getCapacity().toString()+ ", price: $" +
                     df.format(rooms.get(id).getPrice()));
         }
@@ -216,6 +250,7 @@ public class ProviderUI {
      */
     public void editRoom(){
         String type="";
+        String name="";
         boolean longTime=false;
         int capacity=0;
         double price=0;
@@ -265,7 +300,40 @@ public class ProviderUI {
                         type = "apartment";
                         validInput = true;
                     }
-                    default -> System.out.println("\nInvalid input, enter a valid number\n");
+                    default -> System.out.println("\nInvalid input, enter a valid number");
+                }
+            }
+            validInput = false;
+            while (!validInput){
+                if (type.equals("hotel")){
+                    System.out.println("\nEnter hotel name:");
+                    scanner.nextLine();
+                    System.out.print("\n> ");
+                    try {
+                        name = scanner.nextLine();
+                        validInput = true;
+                    }
+                    catch (java.util.InputMismatchException ignored){}
+                }
+                else if (type.equals("room")){
+                    System.out.println("\nEnter room name:");
+                    scanner.nextLine();
+                    System.out.print("\n> ");
+                    try {
+                        name = scanner.nextLine();
+                        validInput = true;
+                    }
+                    catch (java.util.InputMismatchException ignored){}
+                }
+                else {
+                    System.out.println("\nEnter apartment name:");
+                    scanner.nextLine();
+                    System.out.print("\n> ");
+                    try {
+                        name = scanner.nextLine();
+                        validInput = true;
+                    }
+                    catch (java.util.InputMismatchException ignored){}
                 }
             }
             longTime = scanBooleanFilter("\nIs room available for long term reservation?\n1. Yes\n2. No");
@@ -274,7 +342,7 @@ public class ProviderUI {
                 System.out.println("\nEnter the maximum amount of people in the room:");
                 input = scanInput();
                 if (input == 0 || input >= 10){
-                    System.out.println("\nInvalid input, enter a valid number\n");
+                    System.out.println("\nInvalid input, enter a valid number");
                 }
                 else {
                     capacity = input;
@@ -292,7 +360,7 @@ public class ProviderUI {
                 }
                 catch (java.util.InputMismatchException ignored){}
                 if (scannedPrice<=0){
-                    System.out.println("\nInvalid input, enter a valid price\n");
+                    System.out.println("\nInvalid input, enter a valid price");
                 }
                 else {
                     price = scannedPrice;
@@ -304,7 +372,7 @@ public class ProviderUI {
                 System.out.println("\nEnter the room size in square meters:");
                 input = scanInput();
                 if (input <= 0){
-                    System.out.println("\nInvalid input, enter a valid number\n");
+                    System.out.println("\nInvalid input, enter a valid number");
                 }
                 else {
                     m2 = input;
@@ -321,7 +389,7 @@ public class ProviderUI {
             smoking = scanBooleanFilter("\nIs smoking allowed in the room?\n1. Yes\n2. No");
             pets = scanBooleanFilter("\nAre pets allowed in the room?\n1. Yes\n2. No");
 
-            rooms.put(id, new Room(id, type, longTime, capacity, price, m2, wifi, parking,
+            rooms.put(id, new Room(id, name, type, longTime, capacity, price, m2, wifi, parking,
                     airCondition, balcony, fridge, kitchen, tv, smoking, pets));
             System.out.println("\nSuccessfully edited room with the following id: " + id);
         }
@@ -362,7 +430,6 @@ public class ProviderUI {
         else if (validInput){
             System.out.println("\nFailed to remove room with the following id: " + id);
         }
-
     }
 
 

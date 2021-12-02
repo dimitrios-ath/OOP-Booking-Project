@@ -196,7 +196,7 @@ public class CustomerUI {
      *  giving the capacity to the user to reserve
      *  whatever room he wants
      */
-    public void search(){
+    public void searchAndReserve(){
         Map<String, String> filters = new HashMap<>();
         Map<Integer, Room> filteredRooms = new HashMap<>();
         AtomicBoolean matchingRoom = new AtomicBoolean(false);
@@ -262,6 +262,8 @@ public class CustomerUI {
             }
         }
 
+        long nights = ChronoUnit.DAYS.between(checkIn,checkOut);
+
         validInput = false;
         while (!validInput){
             System.out.println("\n1. Add new search filters\n2. Continue search with current filters");
@@ -310,6 +312,17 @@ public class CustomerUI {
         });
 
         HashSet<Integer> idsToRemove = new HashSet<>();
+        filteredRooms.forEach((id, room) -> {
+            if (!Objects.equals(filters.get("Price"), "-")) {
+                if (room.getPrice() > Double.parseDouble(filters.get("Price"))) {
+                    idsToRemove.add(id);
+                }
+            }
+        });
+        idsToRemove.forEach(filteredRooms::remove);
+        idsToRemove.clear();
+
+
         int finalGuests = guests;
         filteredRooms.forEach((id, room) -> {
             if (room.getCapacity() < finalGuests){
@@ -318,6 +331,7 @@ public class CustomerUI {
         });
         idsToRemove.forEach(filteredRooms::remove);
         idsToRemove.clear();
+
 
         // filteredRooms guest number filtered
 
@@ -336,68 +350,110 @@ public class CustomerUI {
             });
         });
         idsToRemove.forEach(filteredRooms::remove);
-        System.out.println("\nFinal rooms after all filters");
-        filteredRooms.forEach((id, room) -> System.out.println(room));
 
+        System.out.println("\n+============================+");
+        System.out.println("|      Available rooms       |");
+        System.out.println("+============================+");
 
-        int nights= (int) ChronoUnit.DAYS.between(finalCheckin,finalCheckout);
-        System.out.println("nights : "+nights);
+        var ref = new Object() {int c = 1;};
+        System.out.println("\n0. Return to menu without reservation\n-------------------------------------");
+        Map<Integer, Integer> matchingRooms = new HashMap<>();
+        if(filteredRooms.size()==0){
+            System.out.println("No rooms available\n\nReturning to main menu");
+        }
+        else {
+            filteredRooms.forEach((id, room) -> {
+                System.out.println(ref.c + ". " + "Name: \"" + filteredRooms.get(id).getName() + "\", type: " + filteredRooms.get(id).getType() + ", Capacity: " +
+                        filteredRooms.get(id).getCapacity().toString() + ", Price/night: $" + df.format(filteredRooms.get(id).getPrice())+
+                        ", Total price: $" + df.format((filteredRooms.get(id).getPrice()*nights)));
+                matchingRooms.put(ref.c, room.getId());
+                ref.c++;
+            });
 
-
-        System.out.println("\nDo you want to continue for reversing a room:\n ");
-        System.out.println("\n1.Yes\n2.No");
-        int continueToReservation = 0;
-        validInput = false;
-        while (!validInput) {
-            System.out.println("\n>");
-            continueToReservation = scanner.nextInt();
-            try {
-                if ((continueToReservation==1)|| (continueToReservation==2))
-                    validInput = true;
-                else {
+            int roomToReserve = -1;
+            validInput = false;
+            while (!validInput){
+                System.out.println("\nSelect a room to reserve or press 0 to return to main menu:");
+                scanner.nextLine();
+                System.out.print("\n> ");
+                try {
+                    roomToReserve = scanner.nextInt();
+                    if (roomToReserve < ref.c && roomToReserve > -1){
+                        validInput = true;
+                    }
+                    else {
+                        System.out.println("\nInvalid input, enter a valid number");
+                    }
+                } catch (java.util.InputMismatchException ignored){
                     System.out.println("\nInvalid input, enter a valid number");
                 }
             }
-            catch (Exception e) {
-                System.out.println("\nInvalid input, please enter a valid option");
+            if (roomToReserve != 0){
+                boolean addedToHashMap = false;
+                int i=1;
+                while(!addedToHashMap && i<1000) {
+                    if (!reservations.containsKey(i)) {
+                        reservations.put(i, new Reservation(i, guests, nights, matchingRooms.get(roomToReserve),
+                                checkIn, checkOut, this.customer.getUsername(),
+                                this.rooms.get(matchingRooms.get(roomToReserve)).getPrice()));
+                        addedToHashMap = true;
+                        customer.addReservationID(i);
+                        System.out.println("\nReservation complete with id: " + i);
+                    }
+                    else {i++;}
+                }
             }
-        }
-        if (continueToReservation==1){
-            reserve( reservations, filteredRooms, filteredRooms.get(rooms).getId(), finalCheckin, finalCheckout, nights);
         }
 
 
         filters.clear();
-
     }
-    public void reserve(Map<Integer,Reservation> reservations,Map<Integer, Room> filteredRooms, Integer roomID, LocalDate finalCheckin, LocalDate finalCheckout,int nights) {
+
+    public void cancelReservation(){
         System.out.println("\n+============================+");
-        System.out.println("|       Reverse a room         |");
-        System.out.println("+============================+");
-
-
-
-
+        System.out.println("|     Cancel reservation     |");
+        System.out.println("+============================+\n");
+        showReservations();
+        System.out.println("\nEnter reservation ID to cancel:");
+        Integer id = 0;
+        boolean validInput = false;
+        System.out.print("\n> ");
+        try {
+            id = scanner.nextInt();
+            validInput = true;
+        }
+        catch (java.util.InputMismatchException ignored){
+            scanner.nextLine();
+            System.out.println("\nInvalid input, enter a valid number");
+        }
+        if (reservations.containsKey(id) && customer.getReservationIDs().contains(id) && validInput) {
+            reservations.remove(id);
+            customer.removeReservationID(id);
+            System.out.println("\nSuccessfully canceled with the following id: " + id);
+        }
+        else if (validInput){
+            System.out.println("\nFailed to cancel reservation with the following id: " + id);
+        }
     }
 
-    public void cancel(){
-        // todo remove reservation from reservations hashmap
-    }
-    public boolean isAvailable(int roomID){
-        System.out.println("todo");
-        return false;
-    }
     /**
      *   this function shows all reservations with
      *   their characteristics
      */
     public void showReservations(){
+        System.out.println("\n+============================+");
+        System.out.println("|     Show reservations      |");
+        System.out.println("+============================+\n");
         for(Integer id : this.customer.getReservationIDs()){
-            System.out.println("id: " + reservations.get(id).getReservationID() +
-                    ", guests: " + reservations.get(id).getGuestNumber() + ", check in: " +
-                    reservations.get(id).getCheckIn().toString() + ", check out: " +
-                    reservations.get(id).getCheckOut().toString() + ", price: $" +
-                    df.format(reservations.get(id).getTotalPrice()));
+            System.out.println("Reservation id: " + reservations.get(id).getReservationID() +
+                    ", Room name: \"" + this.rooms.get(reservations.get(id).getReservationID()).getName() +
+                    "\", Room type: " + this.rooms.get(reservations.get(id).getReservationID()).getType() +
+                    ", Guests: " + reservations.get(id).getGuestNumber() + ", Check in: " +
+                    reservations.get(id).getCheckIn().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ", Check out: " +
+                    reservations.get(id).getCheckOut().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ", Total price: $" +
+                    df.format(reservations.get(id).getTotalPrice() *
+                            ChronoUnit.DAYS.between(reservations.get(id).getCheckIn(),
+                                    reservations.get(id).getCheckOut())));
         }
     }
     /**
@@ -422,8 +478,8 @@ public class CustomerUI {
             }
             catch (java.util.InputMismatchException ignored){}
             switch (cmd) {
-                case 1 -> search();
-                case 2 -> cancel();
+                case 1 -> searchAndReserve();
+                case 2 -> cancelReservation();
                 case 3 -> showReservations();
                 case 4 -> {
                     System.out.println("");

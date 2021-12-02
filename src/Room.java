@@ -2,6 +2,7 @@ import java.lang.String;
 
 public class Room {
     private int id;
+    private String name;
     private String type;
     private boolean longTime;
     private int capacity;
@@ -20,6 +21,7 @@ public class Room {
     /**
      * Constructor of Room
      * @param id            room id
+     * @param name          room name
      * @param type          room type {hotel,room,apartment}
      * @param longTime      is room available for long term reservation {true/false}
      * @param capacity      number of people
@@ -35,13 +37,13 @@ public class Room {
      * @param smoking       smoking allowed {true/false}
      * @param pets          pets allowed {true/false}
      */
-
-    public Room(int id, String type, boolean longTime, int capacity,
+    public Room(int id, String name, String type, boolean longTime, int capacity,
                 double price, int m2, boolean wifi, boolean parking,
                 boolean airCondition, boolean balcony,
                 boolean fridge, boolean kitchen,
                 boolean tv, boolean smoking, boolean pets) {
         this.id = id;
+        this.name = name;
         this.type = type;
         this.longTime = longTime;
         this.capacity = capacity;
@@ -62,6 +64,7 @@ public class Room {
      * getters of Room class attributes
      */
     public Integer getId() {return this.id;}
+    public String getName() {return this.name;}
     public String getType() {return this.type;}
     public Integer getCapacity() {return this.capacity;}
     public Double getPrice() {return this.price;}
@@ -81,6 +84,7 @@ public class Room {
      * setters of Room class attributes
      */
     public void setId(int id) {this.id = id;}
+    public void setName(String name) {this.name = name;}
     public void setType(String type) {this.type = type;}
     public void setLongTime(boolean longTime) {this.longTime = longTime;}
     public void setCapacity(int capacity) {this.capacity = capacity;}

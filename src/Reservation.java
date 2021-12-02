@@ -4,7 +4,7 @@ import java.time.LocalDate;
 public class Reservation {
     private int reservationID;
     private int guestNumber;
-    private int totalNights;
+    private long totalNights;
     private int roomID;
     private LocalDate checkIn;
     private LocalDate checkOut;
@@ -22,7 +22,7 @@ public class Reservation {
      * @param totalPrice             total reservation cost
      */
     public Reservation(int reservationID, int guestNumber,
-                       int totalNights, int roomID, LocalDate checkIn,
+                       long totalNights, int roomID, LocalDate checkIn,
                        LocalDate checkOut, String username,
                        double totalPrice) {
         this.reservationID = reservationID;
@@ -40,7 +40,7 @@ public class Reservation {
      */
     public int getReservationID() {return this.reservationID;}
     public int getGuestNumber() {return this.guestNumber;}
-    public int getTotalNights() {return this.totalNights;}
+    public long getTotalNights() {return this.totalNights;}
     public int getRoomID() {return this.roomID;}
     public LocalDate getCheckIn() {return this.checkIn;}
     public LocalDate getCheckOut() {return this.checkOut;}
@@ -52,7 +52,7 @@ public class Reservation {
      */
     public void setReservationID(int reservationID) {this.reservationID = reservationID;}
     public void setGuestNumber(int guestNumber) {this.guestNumber = guestNumber;}
-    public void setTotalNights(int totalNights) {this.totalNights = totalNights;}
+    public void setTotalNights(long totalNights) {this.totalNights = totalNights;}
     public void setRoomID(int roomID) {this.roomID = roomID;}
     public void setCheckIn(LocalDate checkIn) {this.checkIn = checkIn;}
     public void setCheckOut(LocalDate checkOut) {this.checkOut = checkOut;}
