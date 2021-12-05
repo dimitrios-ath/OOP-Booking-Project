@@ -1,3 +1,4 @@
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.text.DecimalFormat;
@@ -9,7 +10,6 @@ public class ProviderUI {
     private final Scanner scanner;
     private final MainUI mainUI;
     private static DecimalFormat df;
-
     /**
      * The constructor of ProviderUI assigns the authenticated provider object and a
      * HashMap of all available rooms to local objects for local access. Then it calls
@@ -443,11 +443,48 @@ public class ProviderUI {
         displayAllRooms();
     }
 
-    /**  TODO
+    /**
      *   Prints all the reservations for a specific room. It asks for a room id and
      *   outputs all the reservations made for this room.
      */
-    public void returnAllReservations(){}
+    public void returnAllReservations(){
+        boolean validInput=false;
+        int id = 0;
+        System.out.println("\n+============================+");
+        System.out.println("|     Room's reservations    |");
+        System.out.println("+============================+\n");
+
+        displayAllRooms();
+        while (!validInput) {
+            System.out.println("\nGive the room's ID:");
+            scanner.nextLine();
+            try{
+              id=scanner.nextInt();
+                    validInput=true;
+            }
+            catch (Exception e){
+                System.out.println("\nInvalid input, enter a valid number");
+            }
+        }
+
+        int counter=0;
+        if (rooms.containsKey(id)==provider.getRoomIDs().contains(id) && validInput) {
+            for (Map.Entry<Integer, Reservation> entry : this.reservations.entrySet()) {
+                Reservation value = entry.getValue();
+                if (value.getRoomID() == id) {
+                    counter++;
+                    System.out.println("reservation's id:"+value.getReservationID());
+                }
+            }
+            System.out.println("Total reservations:"+counter);
+        }
+        else
+        {
+            System.out.println("\nFailed to find room's reservation with the following id: " + id);
+        }
+
+
+    }
 
 
     /**
