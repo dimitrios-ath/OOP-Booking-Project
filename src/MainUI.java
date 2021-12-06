@@ -2,12 +2,12 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class MainUI {
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users; // username, class Authentication
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users; // username, class Authentication
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
     private MainUI mainUI;
     Scanner scanner;
 
@@ -102,7 +102,7 @@ public class MainUI {
                 ProviderUI providerUI = new ProviderUI(this.mainUI, this.providers.get(username), this.rooms, this.reservations);
             }
             case 3 -> {
-                AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username),this.reservations,this.customers,this.providers,this.admins,this.users,this.rooms);
+                AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username),this.reservations,this.customers,this.providers,this.admins,this.rooms);
             }
             default -> System.exit(0);
         }

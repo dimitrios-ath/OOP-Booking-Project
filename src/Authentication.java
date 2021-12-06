@@ -9,7 +9,7 @@ public class Authentication {
     int role;
 
     /**
-     *   Constuctor of Authentication class
+     *   Constructor of Authentication class
      *   @param username    user username
      *   @param password    user password
      *   @param role        user role {1:customer, 2:provider, 3:admin}

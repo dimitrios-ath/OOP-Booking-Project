@@ -6,12 +6,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class AdminUI {
-    private Map<String,Provider> providers;
-    private Map<Integer,Reservation> reservations;
+    private final Map<String,Provider> providers;
+    private final Map<Integer,Reservation> reservations;
     private final Map<Integer,Room> rooms;
-    private Map<String,Customer> customers;
-    private Map<String,Admin> admins;
-    private Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Admin> admins;
     private static DecimalFormat df;
     Admin admin;
     Scanner scanner=new Scanner(System.in);
@@ -21,7 +20,7 @@ public class AdminUI {
      *  Constructor of AdminUI
      */
     public AdminUI(MainUI mainUI, Admin admin, Map<Integer,Reservation> reservations, Map<String, Customer> customers,
-                   Map<String,Provider> providers,Map<String,Admin> admins,Map<String,Authentication> users, Map<Integer,Room> rooms){
+                   Map<String,Provider> providers,Map<String,Admin> admins, Map<Integer,Room> rooms){
         this.admin = admin;
         this.rooms = rooms;
         this.mainUI = mainUI;
@@ -29,7 +28,6 @@ public class AdminUI {
         this.customers=customers;
         this.providers=providers;
         this.admins=admins;
-        this.users = users;
         df = new DecimalFormat("0.00");
         panel();
     }
@@ -204,7 +202,7 @@ public class AdminUI {
         System.out.println("\n+============================+");
         System.out.println("|  Search/Show Reservations  |");
         System.out.println("+============================+");
-        int cmd=0;
+        int cmd;
         boolean validInput=false;
 
         while (!validInput){
@@ -387,7 +385,7 @@ public class AdminUI {
                     case 3 -> approvalNewUser();
                     case 4 -> sendMessages();
                     case 5 -> {
-                        System.out.println("");
+                        System.out.println();
                         this.mainUI.login();
                     }
                     case 6 -> System.exit(0);

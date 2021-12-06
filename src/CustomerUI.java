@@ -6,7 +6,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.time.ZoneId;
 
 public class CustomerUI {
     private final Customer customer;
@@ -74,11 +73,8 @@ public class CustomerUI {
     }
 
     /**
-     *
-     * @param filters
-     * this function registers some filters based on
-     * customers satisfactions in the purpose of making
-     * the search more efficient
+     *  Used in searchAndReserve() to search room based on given filters
+     *  @param filters   Map of filter and value
      */
     public void filtersUI(Map<String, String> filters) {
         boolean defaultPrice = true;
@@ -110,7 +106,7 @@ public class CustomerUI {
             switch (cmd) {
                 case 0 -> readyToSearch = true;
                 case 1 -> {
-                    Double input = 0.0;
+                    double input = 0.0;
                     boolean validInput = false;
                     while (!validInput){
                         System.out.println("\nEnter maximum room price per night:");
@@ -129,7 +125,7 @@ public class CustomerUI {
                             System.out.println("\nInvalid input, enter a valid number");
                         }
                     }
-                    filters.put("Price", input.toString());
+                    filters.put("Price", Double.toString(input));
                 }
                 case 2 -> {
                     int input = 0;
@@ -179,17 +175,7 @@ public class CustomerUI {
 
     }
 
-    /**
-     * this function displays all the rooms
-     * with their characteristics
-     */
-    public void displayAllRooms(){
-        this.rooms.forEach((id, room) -> {
-            System.out.println("Type: " + rooms.get(id).getType() + ", capacity: " +
-                    rooms.get(id).getCapacity().toString()+ ", price: $" +
-                    df.format(rooms.get(id).getPrice()));
-        });
-    }
+
     /**
      *  this function searches rooms based on some
      *  user's filters and calls the function reserve
@@ -201,7 +187,7 @@ public class CustomerUI {
         Map<Integer, Room> filteredRooms = new HashMap<>();
         AtomicBoolean matchingRoom = new AtomicBoolean(false);
         boolean validInput;
-        int guests = 0, input=0;
+        int guests = 0, input;
         LocalDate checkIn = LocalDate.of(1,1,1) , checkOut = LocalDate.of(1,1,1);
 
         filters.put("Type","-");
@@ -274,7 +260,6 @@ public class CustomerUI {
                     validInput = true;
                 }
                 case 2 -> validInput = true;
-                default -> validInput = false;
             }
 
         }
@@ -284,9 +269,7 @@ public class CustomerUI {
             filters.forEach((filter,value) -> {
                 if (!Objects.equals(value, "-") && !Objects.equals(filter, "Price")) {
                     Method method = null;
-                    boolean booleanValue = false;
-                    if (Objects.equals(value, "yes")) {booleanValue = true;}
-                    else if (Objects.equals(value, "no")) {booleanValue = false;}
+                    boolean booleanValue = Objects.equals(value, "yes");
                     try {
                         method = Room.class.getDeclaredMethod("get" + filter);
                     } catch (NoSuchMethodException ignored) {
@@ -335,20 +318,18 @@ public class CustomerUI {
 
         // filteredRooms guest number filtered
 
-        LocalDate finalCheckin = checkIn;
-        LocalDate finalCheckout = checkOut;
-        filteredRooms.forEach((roomID, room) -> {
-            this.reservations.forEach((reservationID, reservation) -> {
-                if (reservations.get(reservationID).getRoomID() == roomID){
-                    if ((finalCheckin.isBefore(reservation.getCheckIn()) && finalCheckout.isAfter(reservation.getCheckIn()))
-                            || ( finalCheckin.isBefore(reservation.getCheckOut()) && finalCheckout.isAfter(reservation.getCheckOut()))
-                            || (finalCheckin.isBefore(reservation.getCheckIn()) && finalCheckout.isAfter(reservation.getCheckOut()))
-                            || (finalCheckin.isAfter(reservation.getCheckIn()) && finalCheckout.isBefore(reservation.getCheckOut()))) {
-                             idsToRemove.add(roomID);
-                    }
+        LocalDate finalCheckIn = checkIn;
+        LocalDate finalCheckOut = checkOut;
+        filteredRooms.forEach((roomID, room) -> this.reservations.forEach((reservationID, reservation) -> {
+            if (reservations.get(reservationID).getRoomID() == roomID){
+                if ((finalCheckIn.isBefore(reservation.getCheckIn()) && finalCheckOut.isAfter(reservation.getCheckIn()))
+                        || ( finalCheckIn.isBefore(reservation.getCheckOut()) && finalCheckOut.isAfter(reservation.getCheckOut()))
+                        || (finalCheckIn.isBefore(reservation.getCheckIn()) && finalCheckOut.isAfter(reservation.getCheckOut()))
+                        || (finalCheckIn.isAfter(reservation.getCheckIn()) && finalCheckOut.isBefore(reservation.getCheckOut()))) {
+                         idsToRemove.add(roomID);
                 }
-            });
-        });
+            }
+        }));
         idsToRemove.forEach(filteredRooms::remove);
 
         System.out.println("\n+============================+");
@@ -483,7 +464,7 @@ public class CustomerUI {
                 case 2 -> cancelReservation();
                 case 3 -> showReservations();
                 case 4 -> {
-                    System.out.println("");
+                    System.out.println();
                     this.mainUI.login();
                 }
                 case 5 -> System.exit(0);

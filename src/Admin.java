@@ -27,8 +27,6 @@ public class Admin {
         this.phone = phone;
     }
 
-
-
     /**
      * getters of Admin class attributes
      */
