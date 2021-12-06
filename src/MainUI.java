@@ -294,7 +294,7 @@ public class MainUI {
                         namelast = scanner.next();
 
                         if (namelast.matches("[a-zA-Z]+")) {
-                            firstName = namelast;
+                            lastName = namelast;
                             validInput = true;
                         } else {
                             System.out.println("\nInvalid Input, enter a valid name");
@@ -430,7 +430,7 @@ public class MainUI {
                         namelast = scanner.next();
 
                         if (namelast.matches("[a-zA-Z]+")) {
-                            firstName = namelast;
+                           lastName = namelast;
                             validInput = true;
                         } else {
                             System.out.println("\nInvalid Input, enter a valid name");
