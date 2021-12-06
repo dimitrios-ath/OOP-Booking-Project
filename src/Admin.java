@@ -7,6 +7,7 @@ public class Admin {
     private String password;
     private String email;
     private String phone;
+    private boolean activeAccount;
 
     /**
      * Constructor of Admin
@@ -18,13 +19,14 @@ public class Admin {
      * @param phone         admin phone number
      */
     public Admin(String username, String password, String firstName,
-                 String lastName, String email, String phone) {
+                 String lastName, String email, String phone,boolean activeAccount) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
         this.phone = phone;
+        this.activeAccount=activeAccount;
     }
 
     /**
@@ -36,6 +38,7 @@ public class Admin {
     public String getPassword() {return this.password;}
     public String getEmail() {return this.email;}
     public String getPhone() {return this.phone;}
+    public boolean getActiveAccount() {return  this.activeAccount;}
 
     /**
      * setters  of Admin class attributes
@@ -46,4 +49,5 @@ public class Admin {
     public void setPassword(String password) {this.password = password;}
     public void setEmail(String email) {this.email = email;}
     public void setPhone(String phone) {this.phone = phone;}
+    public void setActiveAccount(boolean activeAccount) {this.activeAccount=activeAccount;}
 }

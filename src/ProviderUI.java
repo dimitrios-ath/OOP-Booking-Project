@@ -78,9 +78,6 @@ public class ProviderUI {
         if (input==1) {
             ret=true;
         }
-        else if (input==2) {
-            ret=false;
-        }
         return ret;
     }
     /**
@@ -91,19 +88,19 @@ public class ProviderUI {
     public void addRoom(){
         String name="";
         String type="";
-        boolean longTime=false;
+        boolean longTime;
         int capacity=0;
         double price=0;
         int m2=0;
-        boolean wifi=false;
-        boolean parking=false;
-        boolean airCondition=false;
-        boolean balcony=false;
-        boolean fridge=false;
-        boolean kitchen=false;
-        boolean tv=false;
-        boolean smoking=false;
-        boolean pets=false;
+        boolean wifi;
+        boolean parking;
+        boolean airCondition;
+        boolean balcony;
+        boolean fridge;
+        boolean kitchen;
+        boolean tv;
+        boolean smoking;
+        boolean pets;
 
         int input;
         boolean validInput = false;
@@ -256,19 +253,19 @@ public class ProviderUI {
     public void editRoom(){
         String type="";
         String name="";
-        boolean longTime=false;
+        boolean longTime;
         int capacity=0;
         double price=0;
         int m2=0;
-        boolean wifi=false;
-        boolean parking=false;
-        boolean airCondition=false;
-        boolean balcony=false;
-        boolean fridge=false;
-        boolean kitchen=false;
-        boolean tv=false;
-        boolean smoking=false;
-        boolean pets=false;
+        boolean wifi;
+        boolean parking;
+        boolean airCondition;
+        boolean balcony;
+        boolean fridge;
+        boolean kitchen;
+        boolean tv;
+        boolean smoking;
+        boolean pets;
         int input;
 
         System.out.println("\n+============================+");
@@ -518,7 +515,7 @@ public class ProviderUI {
                     case 4 -> showRooms();
                     case 5 -> returnAllReservations();
                     case 6 -> {
-                        System.out.println("");
+                        System.out.print("");
                         this.mainUI.login();
                     }
                     case 7 -> System.exit(0);

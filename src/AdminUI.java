@@ -344,10 +344,57 @@ public class AdminUI {
 
 
     /**
-     * method for approving new Users
+     * method for approving new Users based on username
      */
     public void approvalNewUser(){
-        //todo
+        System.out.println("\n+============================+");
+        System.out.println("|     Approval of New User    |");
+        System.out.println("+============================+");
+
+        System.out.print("\nApproving\n1.Customer\n2.Provider\n3.Admin");
+        int role;
+        System.out.print("\n>");
+        role=scanner.nextInt();
+
+        switch(role){
+            case 1->{
+                int counterOfApprovals=0;
+                for (Map.Entry<String, Customer > entry: this.customers.entrySet() ){
+                    Customer value=entry.getValue();
+                    if (!value.getActiveAccount()){
+                        value.setActiveAccount(true);
+                        counterOfApprovals++;
+                    }
+
+                }
+                System.out.print("\nThe total number of new Approvals is: "+ counterOfApprovals);
+            }
+            case 2->{
+                int counterOfApprovals=0;
+                for (Map.Entry<String, Provider> entry: this.providers.entrySet() ){
+                    Provider value=entry.getValue();
+                    if (!value.getActiveAccount()){
+                        value.setActiveAccount(true);
+                    }
+                }
+                System.out.print("\nThe total number of new Approvals is: "+ counterOfApprovals);
+            }
+            case 3->{
+                int counterOfApprovals=0;
+                for (Map.Entry<String , Admin> entry: this.admins.entrySet()){
+                    Admin value=entry.getValue();
+                    if (!value.getActiveAccount()){
+                        value.setActiveAccount(true);
+                    }
+                }
+                System.out.print("\nThe total number of new Approvals is: "+ counterOfApprovals);
+            }
+            default -> {
+                System.out.println("\nInvalid input, enter a valid number");
+                scanner.nextLine();
+            }
+        }
+
     }
 
     /**

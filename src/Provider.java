@@ -11,6 +11,7 @@ public class Provider {
     private String country;
     private String region;
     private String type;
+    private boolean activeAccount;
     private HashSet<Integer> roomIDs;
 
     /**
@@ -26,7 +27,7 @@ public class Provider {
      */
     public Provider(String username, String password, String email,
                     String firstName, String lastName, String office,
-                    String country, String region, String type) {
+                    String country, String region, String type,boolean activeAccount) {
         this.username = username;
         this.password = password;
         this.email = email;
@@ -36,6 +37,7 @@ public class Provider {
         this.country = country;
         this.region = region;
         this.type = type;
+        this.activeAccount=activeAccount;
         this.roomIDs = new HashSet<>();
     }
 
@@ -53,6 +55,7 @@ public class Provider {
     public String getCountry() {return this.country;}
     public String getRegion() {return this.region;}
     public String getType() {return this.type;}
+    public boolean getActiveAccount() {return this.activeAccount;}
     public HashSet<Integer> getRoomIDs() {return this.roomIDs;}
 
     /**
@@ -67,5 +70,6 @@ public class Provider {
     public void setCountry(String country) {this.country = country;}
     public void setRegion(String region) {this.region = region;}
     public void setType(String type) {this.type = type;}
+    public void setActiveAccount(boolean activeAccount) {this.activeAccount=activeAccount;}
     public void addRoomID(Integer roomID) {this.roomIDs.add(roomID);}
 }

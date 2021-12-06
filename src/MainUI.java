@@ -56,9 +56,9 @@ public class MainUI {
                 LocalDate.of(2000, 5,2),false));
         this.providers.put("provider1", new Provider("provider1","pass1","provider1@email.com",
                 "provider1First","provider1Last","Street 123","Greece",
-                "Thessaloniki","hotelier"));
+                "Thessaloniki","hotelier",true));
         this.admins.put("admin1", new Admin("admin1", "pass1", "admin1First",
-                "admin1Last", "admin1@email.com","6912345678"));
+                "admin1Last", "admin1@email.com","6912345678",true));
 
         this.rooms.put(1,new Room(1,"hotel1", "hotel",false,2, 40, 35, true, true, true, true, true, false, true, false, false));
         this.rooms.put(2,new Room(2, "apartment1", "apartment",false,2, 80, 35, true, true, false, true, true, false, false, false, false));
@@ -98,7 +98,7 @@ public class MainUI {
             while (!validInput) {
                 for (Map.Entry<String, Authentication> entry : this.users.entrySet()) {
                     Authentication value = entry.getValue();
-                    if (usernametoEntry != value.getUsername()) {
+                    if (!Objects.equals(usernametoEntry, value.getUsername())) {
                         validInput = true;
                         System.out.print("Enter your password: ");
                         passwordtoEntry = scanner.next();
@@ -132,7 +132,6 @@ public class MainUI {
                     String country=null;
                     String phone=null;
                     LocalDate birthdate =null;
-                    Boolean activeAccount = true;
                     username = usernametoEntry;
                     password = passwordtoEntry;
                     validInput = false;
@@ -220,6 +219,7 @@ public class MainUI {
                             countryto = scanner.next();
                         } catch (InputMismatchException ignored) {
                         }
+                        assert countryto != null;
                         if (countryto.matches("[a-zA-Z]+")) {
                             country = countryto;
                             validInput = true;
@@ -259,19 +259,19 @@ public class MainUI {
                         }
                     }
                     System.out.println("Registration successful, welcome" +" " +firstName + "!");
-                    this.customers.put(username, new Customer(username, email, password, firstName, lastName, gender, country, phone, birthdate, true));
+                    this.customers.put(username, new Customer(username, email, password, firstName, lastName, gender, country, phone, birthdate, false));
                     CustomerUI customerUI = new CustomerUI(this.mainUI, this.customers.get(username), this.rooms, this.reservations);
                 }
                 case 2 -> {
-                    String firstName = " ";
-                    String lastName = " ";
-                    String email = " ";
+                    String firstName =null;
+                    String lastName = null;
+                    String email =null;
                     String username;
                     String password;
-                    String office = " ";
-                    String country = " ";
-                    String region = " ";
-                    String type = " ";
+                    String office = null;
+                    String country = null;
+                    String region = null;
+                    String type = null;
                     username = usernametoEntry;
                     password = passwordtoEntry;
                     validInput = false;
@@ -396,7 +396,7 @@ public class MainUI {
 
                     }
                     System.out.println("Registration successful, welcome  " + firstName + "!");
-                    this.providers.put(username, new Provider(username, password, email, firstName, lastName, office, country, region, type));
+                    this.providers.put(username, new Provider(username, password, email, firstName, lastName, office, country, region, type,false));
                     ProviderUI providerUI = new ProviderUI(this.mainUI, this.providers.get(username), this.rooms, this.reservations);
 
 
@@ -426,7 +426,7 @@ public class MainUI {
                     while (!validInput) {
                         System.out.print("\nEnter your last Name: ");
                         System.out.print("\n> ");
-                        String namelast = " ";
+                        String namelast;
                         namelast = scanner.next();
 
                         if (namelast.matches("[a-zA-Z]+")) {
@@ -472,7 +472,7 @@ public class MainUI {
                     }
 
                 System.out.println("Registration successful, welcome  " + firstName + "!");
-                this.admins.put(username, new Admin(username, firstName,lastName,password,email,phone));
+                this.admins.put(username, new Admin(username, firstName,lastName,password,email,phone,false));
                 AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username),this.reservations,this.customers,this.providers,this.admins,this.rooms);
 
                 }
