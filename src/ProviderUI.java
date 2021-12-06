@@ -1,7 +1,9 @@
-import java.util.HashSet;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import java.util.Scanner;
 import java.text.DecimalFormat;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProviderUI {
     private final Provider provider;
@@ -49,7 +51,7 @@ public class ProviderUI {
      * (in the purpose of not writing the same code again
      * and again) by creating cases loop that helps the
      * progress of the program to be more efficient
-     * @param message recieves a guestion-string
+     * @param message receives a question-string
      * return ret   the outcome of this method
      */
     public boolean scanBooleanFilter(String message){
@@ -234,6 +236,9 @@ public class ProviderUI {
      *  of the current provider
      */
     public void displayAllRooms(){
+        if (this.provider.getRoomIDs().size()==0){
+            System.out.println("\nNo rooms found");
+        } else {System.out.println();}
         for(Integer id : this.provider.getRoomIDs()){
             System.out.println("id: " + rooms.get(id).getId().toString() +
                     ", name: \"" + rooms.get(id).getName() +
@@ -268,7 +273,7 @@ public class ProviderUI {
 
         System.out.println("\n+============================+");
         System.out.println("|         Edit room          |");
-        System.out.println("+============================+\n");
+        System.out.println("+============================+");
         displayAllRooms();
         System.out.println("\nEnter room ID to edit:");
         int id = 0;
@@ -408,7 +413,7 @@ public class ProviderUI {
     public void deleteRoom(){
         System.out.println("\n+============================+");
         System.out.println("|        Delete room         |");
-        System.out.println("+============================+\n");
+        System.out.println("+============================+");
         displayAllRooms();
         System.out.println("\nEnter room ID to delete:");
         Integer id = 0;
@@ -439,7 +444,7 @@ public class ProviderUI {
     public void showRooms(){
         System.out.println("\n+============================+");
         System.out.println("|       Show all rooms       |");
-        System.out.println("+============================+\n");
+        System.out.println("+============================+");
         displayAllRooms();
     }
 
@@ -448,42 +453,38 @@ public class ProviderUI {
      *   outputs all the reservations made for this room.
      */
     public void returnAllReservations(){
-        boolean validInput=false;
         int id = 0;
         System.out.println("\n+============================+");
-        System.out.println("|     Room's reservations    |");
-        System.out.println("+============================+\n");
-
+        System.out.println("|   Return all reservations  |");
+        System.out.println("+============================+");
         displayAllRooms();
+        boolean validInput=false;
         while (!validInput) {
-            System.out.println("\nGive the room's ID:");
-            scanner.nextLine();
-            try{
-              id=scanner.nextInt();
-                    validInput=true;
-            }
-            catch (Exception e){
-                System.out.println("\nInvalid input, enter a valid number");
-            }
+            System.out.println("\nGive the room ID to return reservations for:");
+            id = scanInput();
+            if (id>0) {
+                validInput = true;
+            } else {System.out.println("\nInvalid input, enter a valid number");}
         }
 
-        int counter=0;
-        if (rooms.containsKey(id)==provider.getRoomIDs().contains(id) && validInput) {
-            for (Map.Entry<Integer, Reservation> entry : this.reservations.entrySet()) {
-                Reservation value = entry.getValue();
-                if (value.getRoomID() == id) {
-                    counter++;
-                    System.out.println("reservation's id:"+value.getReservationID());
+        AtomicBoolean roomFound = new AtomicBoolean(false);
+        AtomicInteger counter = new AtomicInteger(1);
+        int finalId = id;
+        if (this.rooms.containsKey(id) && this.provider.getRoomIDs().contains(id)) {
+            reservations.forEach((roomID, reservation) -> {
+                if (reservation.getRoomID() == finalId) {
+                    System.out.println(counter + ". " + "reservation ID: " + reservation.getReservationID() + ", Username: \""
+                            + reservation.getUsername() + "\", Guests: " + reservation.getGuestNumber() + ", Check in: "
+                            + reservation.getCheckIn().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                            + ", Check out: " + reservation.getCheckOut().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                            + ", Total price: $" + df.format((reservation.getTotalPrice())));
+                    roomFound.set(true);
+                    counter.getAndIncrement();
                 }
-            }
-            System.out.println("Total reservations:"+counter);
-        }
-        else
-        {
-            System.out.println("\nFailed to find room's reservation with the following id: " + id);
-        }
-
-
+            });
+        } else {System.out.println("\nFailed to find reservations with the following room id: " + id);}
+        if (!roomFound.get() && this.provider.getRoomIDs().contains(id)) {
+            System.out.println("\nNo reservations found for this room");}
     }
 
 

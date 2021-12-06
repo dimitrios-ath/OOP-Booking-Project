@@ -395,7 +395,7 @@ public class CustomerUI {
                     if (!reservations.containsKey(i)) {
                         reservations.put(i, new Reservation(i, guests, nights, matchingRooms.get(roomToReserve),
                                 checkIn, checkOut, this.customer.getUsername(),
-                                this.rooms.get(matchingRooms.get(roomToReserve)).getPrice()));
+                                this.rooms.get(matchingRooms.get(roomToReserve)).getPrice()*nights));
                         addedToHashMap = true;
                         customer.addReservationID(i);
                         System.out.println("\nReservation complete with id: " + i);
@@ -412,7 +412,7 @@ public class CustomerUI {
     public void cancelReservation(){
         System.out.println("\n+============================+");
         System.out.println("|     Cancel reservation     |");
-        System.out.println("+============================+\n");
+        System.out.println("+============================+");
         showReservations();
         System.out.println("\nEnter reservation ID to cancel:");
         Integer id = 0;
@@ -443,17 +443,18 @@ public class CustomerUI {
     public void showReservations(){
         System.out.println("\n+============================+");
         System.out.println("|     Show reservations      |");
-        System.out.println("+============================+\n");
+        System.out.println("+============================+");
+        if (this.customer.getReservationIDs().size()==0){
+            System.out.println("\nNo reservations found");
+        } else {System.out.println();}
         for(Integer id : this.customer.getReservationIDs()){
             System.out.println("Reservation id: " + reservations.get(id).getReservationID() +
-                    ", Room name: \"" + this.rooms.get(reservations.get(id).getReservationID()).getName() +
-                    "\", Room type: " + this.rooms.get(reservations.get(id).getReservationID()).getType() +
+                    ", Room name: \"" + this.rooms.get(reservations.get(id).getRoomID()).getName() +
+                    "\", Room type: " + this.rooms.get(reservations.get(id).getRoomID()).getType() +
                     ", Guests: " + reservations.get(id).getGuestNumber() + ", Check in: " +
                     reservations.get(id).getCheckIn().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ", Check out: " +
                     reservations.get(id).getCheckOut().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ", Total price: $" +
-                    df.format(reservations.get(id).getTotalPrice() *
-                            ChronoUnit.DAYS.between(reservations.get(id).getCheckIn(),
-                                    reservations.get(id).getCheckOut())));
+                    df.format(reservations.get(id).getTotalPrice()));
         }
     }
     /**
