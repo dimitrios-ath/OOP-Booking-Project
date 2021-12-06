@@ -63,6 +63,7 @@ public class MainUI {
         this.rooms.put(3,new Room(3, "hotel2", "hotel",false,4, 30, 35, false, true, false, true, true, false, true, false, false));
         this.rooms.put(4,new Room(4, "room1", "room",false,3, 25, 35, false, true, false, true, true, false, false, false, false));
         this.reservations.put(1,new Reservation(1,2, 3, 3, LocalDate.of(2021, 3, 5), LocalDate.of(2021, 3, 7), "user2", 50));
+        this.reservations.put(2,new Reservation(2,1, 3, 2, LocalDate.of(2021, 6, 15), LocalDate.of(2021, 7, 17), "user1", 40));
     }
 
     /**
@@ -101,7 +102,7 @@ public class MainUI {
                 ProviderUI providerUI = new ProviderUI(this.mainUI, this.providers.get(username), this.rooms, this.reservations);
             }
             case 3 -> {
-                AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username),this.reservations,this.customers,this.providers,this.admins);
+                AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username),this.reservations,this.customers,this.providers,this.admins,this.users,this.rooms);
             }
             default -> System.exit(0);
         }
