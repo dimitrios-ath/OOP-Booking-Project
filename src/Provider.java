@@ -2,11 +2,11 @@ import java.lang.String;
 import java.util.HashSet;
 
 public class Provider {
-    private String firstName;
-    private String lastName;
-    private String email;
     private String username;
     private String password;
+    private String email;
+    private String firstName;
+    private String lastName;
     private String office;
     private String country;
     private String region;

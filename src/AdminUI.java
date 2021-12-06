@@ -1,11 +1,9 @@
 import java.text.DecimalFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 import java.util.Scanner;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.BiConsumer;
 
 public class AdminUI {
     private Map<String,Provider> providers;
@@ -69,6 +67,103 @@ public class AdminUI {
         }
     }
 
+    public void returnAllProviders(){
+        var ref = new Object() {int c = 1;};
+        System.out.println();
+        this.providers.forEach((username, provider) -> {
+            System.out.println(ref.c + ". Username: \""
+                    + provider.getUsername() + "\", email: \"" + provider.getEmail() + "\", First name: \""
+                    + provider.getFirstName() + "\", Last name: \"" + provider.getLastName() + "\", Office: \""
+                    + provider.getOffice() + "\", Type: " + provider.getType() + ", Country: " + provider.getCountry()
+                    + ", Region: " + provider.getRegion());
+            ref.c++;
+        });
+    }
+
+    public void searchProvidersByUsername(String pattern) {
+        var ref = new Object() {int c = 1;};
+        AtomicBoolean userFound = new AtomicBoolean(false);
+        this.providers.forEach((username, provider) -> {
+            if (username.contains(pattern)) {
+                if (ref.c == 1){System.out.println();}
+                System.out.println(ref.c + ". Username: \""
+                        + provider.getUsername() + "\", email: \"" + provider.getEmail() + "\", First name: \""
+                        + provider.getFirstName() + "\", Last name: \"" + provider.getLastName() + "\", Office: \""
+                        + provider.getOffice() + "\", Type: " + provider.getType() + ", Country: " + provider.getCountry()
+                        + ", Region: " + provider.getRegion());
+                ref.c++;
+                userFound.set(true);
+            }
+        });
+        if (!userFound.get()) {
+            System.out.println("\nNo providers found with the pattern: " + pattern);
+        }
+    }
+
+    public void returnAllCustomers(){
+        var ref = new Object() {int c = 1;};
+        System.out.println();
+        this.customers.forEach((username, user) -> {
+            System.out.println(ref.c + ". Username: \""
+                    + user.getUsername() + "\", email: \"" + user.getEmail() + "\", First name: \""
+                    + user.getFirstName() + "\", Last name: \"" + user.getLastName() + "\", Birthdate: "
+                    + user.getBirthdate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                    + ", Gender: " + user.getGender() + ", Country: " + user.getCountry() + ", Tel: " + user.getPhone());
+            ref.c++;
+        });
+    }
+
+    public void searchUsersByUsername(String pattern) {
+        var ref = new Object() {int c = 1;};
+        AtomicBoolean userFound = new AtomicBoolean(false);
+        this.customers.forEach((username, user) -> {
+            if (username.contains(pattern)) {
+                if (ref.c == 1){System.out.println();}
+                System.out.println(ref.c + ". Username: \""
+                        + user.getUsername() + "\", email: \"" + user.getEmail() + "\", First name: \""
+                        + user.getFirstName() + "\", Last name: \"" + user.getLastName() + "\", Birthdate: "
+                        + user.getBirthdate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                        + ", Gender: " + user.getGender() + ", Country: " + user.getCountry() + ", Tel: " + user.getPhone());
+                ref.c++;
+                userFound.set(true);
+            }
+        });
+        if (!userFound.get()) {
+            System.out.println("\nNo customers found with the pattern: " + pattern);
+        }
+    }
+
+    public void returnAllAdmins(){
+        var ref = new Object() {int c = 1;};
+        System.out.println();
+        this.admins.forEach((username, admin) -> {
+            System.out.println(ref.c + ". Username: \""
+                    + admin.getUsername() + "\", email: \"" + admin.getEmail() + "\", First name: \""
+                    + admin.getFirstName() + "\", Last name: \"" + admin.getLastName() + "\", Tel: "
+                    + admin.getPhone());
+            ref.c++;
+        });
+    }
+
+    public void searchAdminsByUsername(String pattern) {
+        var ref = new Object() {int c = 1;};
+        AtomicBoolean userFound = new AtomicBoolean(false);
+        this.admins.forEach((username, admin) -> {
+            if (username.contains(pattern)) {
+                if (ref.c == 1){System.out.println();}
+                System.out.println(ref.c + ". Username: \""
+                        + admin.getUsername() + "\", email: \"" + admin.getEmail() + "\", First name: \""
+                        + admin.getFirstName() + "\", Last name: \"" + admin.getLastName() + "\", Tel: "
+                        + admin.getPhone());
+                ref.c++;
+                userFound.set(true);
+            }
+        });
+        if (!userFound.get()) {
+            System.out.println("\nNo administrators found with the pattern: " + pattern);
+        }
+    }
+
     public void searchReservationsByRoomID(int roomID){
         System.out.println();
         AtomicBoolean roomFound = new AtomicBoolean(false);
@@ -89,7 +184,6 @@ public class AdminUI {
         }
     }
 
-
     public void returnAllReservations(){
         var ref = new Object() {
             int c = 1;
@@ -108,7 +202,7 @@ public class AdminUI {
      */
     public void searchReservations(){
         System.out.println("\n+============================+");
-        System.out.println("|  Search/Show Reservations   |");
+        System.out.println("|  Search/Show Reservations  |");
         System.out.println("+============================+");
         int cmd=0;
         boolean validInput=false;
@@ -161,66 +255,93 @@ public class AdminUI {
      * this function searches and shows all the users
      */
     public void searchUsers() {
+        System.out.println("\n+============================+");
+        System.out.println("|      Search/Show Users     |");
+        System.out.println("+============================+");
+        int cmd = 0;
         boolean validInput=false;
-        int toSearch = 0;
-        System.out.println("\n+============================+");
-        System.out.println("|       Search/Show Users     |");
-        System.out.println("\n+============================+");
         while (!validInput) {
-            System.out.println("Users type:\n1.Customers\n2.Providers\n3.Admins");
-            scanner.nextLine();
-            try{
-                toSearch=scanner.nextInt();
-                if ((toSearch==1) || (toSearch==2) || (toSearch==3)){
-                    validInput=true;
-                }
-                else{
-                    System.out.println("\nInvalid input, enter a valid number");
-                }
+            System.out.println("\nSelect user type to search:\n1. Customer\n2. Provider\n3. Admin");
+            cmd = scanInput();
+            if (cmd > 0 && cmd <= 3){
+                    validInput = true;
             }
-            catch (Exception e){
+            else {
                 System.out.println("\nInvalid input, enter a valid number");
             }
         }
-
-       switch (toSearch){
-            case 1-> {
-                    for (Map.Entry<String, Customer> entry : this.customers.entrySet()) {
-                    String CustomerID = entry.getKey();
-                    Customer value = entry.getValue();
-                    System.out.println(new StringBuilder().append("username:").append(value.getUsername()).append(",email:").
-                            append(value.getEmail()).append(",password:").append(value.getPassword()).append(",first Name:").
-                            append(value.getFirstName()).append(",Last Name:").append(value.getLastName()).append(",gender:").append(value.getGender())
-                            .append(",country:").append(value.getCountry()).append(",phone:").append(value.getPhone()).
-                            append(",birthdate:").append(value.getBirthdate()).append(",Active Acount:").append(value.getActiveAccount()).toString());
+       switch (cmd){
+            case 1 -> {
+                validInput = false;
+                while (!validInput) {
+                    System.out.println("\nSearch customers:\n1. Search by name pattern\n2. Return all customers");
+                    cmd = scanInput();
+                    if (cmd > 0 && cmd <= 2) {validInput = true;}
+                    else {System.out.println("\nInvalid input, enter a valid number");}
+                    switch (cmd){
+                        case 1 -> {
+                            String username = "";
+                            System.out.println("\nEnter search pattern:");
+                            System.out.print("\n> ");
+                            try {
+                                username = scanner.next();
+                            } catch (Exception e) {System.out.println("Invalid input. Enter a valid pattern");}
+                            scanner.nextLine();
+                            searchUsersByUsername(username);
+                        }
+                        case 2 -> returnAllCustomers();
                     }
-            }
-       case 2 -> {
-            for (Map.Entry<String, Provider> entry : this.providers.entrySet()) {
-                String ProviderID = entry.getKey();
-                Provider value = entry.getValue();
-                System.out.println(new StringBuilder().append("First Name:").append(value.getFirstName()).append(",Last Name:").append(value.getLastName())
-                        .append("username:").append(value.getUsername()).append(",password:").append(value.getPassword()).append(",email:").
-                        append(value.getEmail()).append(",country:").append(value.getCountry()).append(",office:").append(value.getOffice()).
-                        append(",region:").append(value.getRegion()).toString());
-            }
-        }
-        case 3 -> {
-                for (Map.Entry<String, Admin> entry: this.admins.entrySet()){
-                    String AdminID =entry.getKey();
-                    Admin value=entry.getValue();
-                    System.out.println(new StringBuilder().append("First Name:").append(value.getFirstName()).append(",Last Name:").
-                            append(value.getLastName()).append(",username:").append(value.getUsername()).append(",password:").append(value.getPassword()).
-                            append(",email:").append(value.getEmail()).append(",phone:").append(value.getPhone()).toString());
                 }
-        }
-        default ->   {
+            }
+           case 2 -> {
+               validInput = false;
+               while (!validInput) {
+                   System.out.println("\nSearch providers:\n1. Search by name pattern\n2. Return all providers");
+                   cmd = scanInput();
+                   if (cmd > 0 && cmd <= 2) {validInput = true;}
+                   else {System.out.println("\nInvalid input, enter a valid number");}
+                   switch (cmd){
+                       case 1 -> {
+                           String username = "";
+                           System.out.println("\nEnter search pattern:");
+                           System.out.print("\n> ");
+                           try {
+                               username = scanner.next();
+                           } catch (Exception e) {System.out.println("Invalid input. Enter a valid pattern");}
+                           scanner.nextLine();
+                           searchProvidersByUsername(username);
+                       }
+                       case 2 -> returnAllProviders();
+                   }
+               }
+           }
+           case 3 -> {
+               validInput = false;
+               while (!validInput) {
+                   System.out.println("\nSearch administrators:\n1. Search by name pattern\n2. Return all administrators");
+                   cmd = scanInput();
+                   if (cmd > 0 && cmd <= 2) {validInput = true;}
+                   else {System.out.println("\nInvalid input, enter a valid number");}
+                   switch (cmd){
+                       case 1 -> {
+                           String username = "";
+                           System.out.println("\nEnter search pattern:");
+                           System.out.print("\n> ");
+                           try {
+                               username = scanner.next();
+                           } catch (Exception e) {System.out.println("Invalid input. Enter a valid pattern");}
+                           scanner.nextLine();
+                           searchAdminsByUsername(username);
+                       }
+                       case 2 -> returnAllAdmins();
+                   }
+               }
+           }
+       default ->   {
                System.out.println("\nInvalid input, enter a valid number");
                scanner.nextLine();
            }
-
-        }
-
+       }
     }
 
 
