@@ -401,7 +401,7 @@ public class AdminUI {
      * method for sending messages
      */
     public void sendMessages(){
-        //todo
+        System.out.println("\nNot yet implemented");
     }
 
     /**
