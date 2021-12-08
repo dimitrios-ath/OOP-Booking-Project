@@ -27,7 +27,7 @@ public class CustomerUI {
     }
 
     /**
-     * This function reads an integer from user and returns it. If the input is
+     * Reads an integer from user and returns it. If the input is
      * invalid it returns 0.
      * @return  the entered integer
      */
@@ -463,10 +463,7 @@ public class CustomerUI {
                 case 1 -> searchAndReserve();
                 case 2 -> cancelReservation();
                 case 3 -> showReservations();
-                case 4 -> {
-                    System.out.println();
-                    this.mainUI.login();
-                }
+                case 4 -> this.mainUI.optionHandler();
                 case 5 -> System.exit(0);
                 default -> {
                     System.out.println("\nInvalid input, enter a valid number");

@@ -68,6 +68,38 @@ public class MainUI {
         this.reservations.put(2,new Reservation(2,1, 3, 2, LocalDate.of(2021, 6, 15), LocalDate.of(2021, 7, 17), "user1", 40));
     }
 
+    public void optionHandler(){
+        System.out.println("\n+====================+");
+        System.out.println("|     MyBooking      |");
+        System.out.println("+====================+");
+        int input = 0;
+        boolean validInput = false;
+        System.out.println("\nChoose an option:\n\n1.Login\n2.Register");
+        System.out.print("\n> ");
+        try {
+            input = scanner.nextInt();
+            if (input <= 2 && input > 0){
+                validInput = true;
+            }
+            else {
+                System.out.println("\nInvalid input, enter a valid number");
+            }
+        }
+        catch (java.util.InputMismatchException ignored){
+            System.out.println("\nInvalid input, enter a valid number");
+            scanner.nextLine();
+        }
+        if (validInput){
+            switch (input) {
+                case 1 -> login();
+                case 2 -> register();
+            }
+        }
+        else {
+            this.optionHandler();
+        }
+    }
+
     /**
      *   This function implements the register function by asking for username and password. If the
      *   given username is contained in the HashMap `users` the functions calls re log in method
@@ -75,411 +107,299 @@ public class MainUI {
      *
      */
     public void register() {
-
-        System.out.print("1.Register\n2.Log in");
-        System.out.print("\n> ");
-        int input;
-        input=scanner.nextInt();
-
-        if (input==2){
-            login();
-        }
-        else {
-            System.out.println("\n+============================+");
-            System.out.println("|    Registration panel      |");
-            System.out.println("+============================+");
-
-
-            int role = 0;
-            System.out.print("Enter your username: ");
-            String usernametoEntry = scanner.next();
-            String passwordtoEntry = " ";
-            boolean validInput = false;
-            while (!validInput) {
-                for (Map.Entry<String, Authentication> entry : this.users.entrySet()) {
-                    Authentication value = entry.getValue();
-                    if (!Objects.equals(usernametoEntry, value.getUsername())) {
-                        validInput = true;
-                        System.out.print("Enter your password: ");
-                        passwordtoEntry = scanner.next();
-                        break;
-                    } else {
-                        System.out.println("This username: " + usernametoEntry + "is already exists, please try again");
-                        register();
-                    }
-                }
-            }
-            validInput = false;
-            while (!validInput) {
-                System.out.print("Enter your role:\n1.Customer\n2.Provicer\n3.Admin");
-                System.out.print("\n>");
+        System.out.println("\n+============================+");
+        System.out.println("|     Registration panel     |");
+        System.out.println("+============================+\n");
+        int role = 0;
+        boolean validInput = false;
+        while (!validInput) {
+            System.out.println("Choose the account type:\n\n1. Customer\n2. Provider\n3. Admin");
+            System.out.print("\n> ");
+            try {
                 role = scanner.nextInt();
-                if (role == 1 || role == 2 || role == 3) {
+                if (role > 0 && role <= 3) {
                     validInput = true;
-                    this.users.put(usernametoEntry, new Authentication(usernametoEntry, passwordtoEntry, role));
                 } else {
-                    System.out.println("\nInvalid input,enter a valid number:");
+                    System.out.println("\nInvalid input, enter a valid number\n");
                 }
+            } catch (java.util.InputMismatchException ignored) {
+                System.out.println("\nInvalid input, enter a valid number\n");
+                scanner.nextLine();
             }
-            switch (role) {
-                case 1 -> {
-                    String username;
-                    String email=null;
-                    String password;
-                    String firstName=null;
-                    String lastName=null;
-                    String gender=null;
-                    String country=null;
-                    String phone=null;
-                    LocalDate birthdate =null;
-                    username = usernametoEntry;
-                    password = passwordtoEntry;
-                    validInput = false;
-                    String nameFirst;
-                    while (!validInput){
-                        System.out.println("Enter your First Name: ");
-                        System.out.print("\n> ");
-                        nameFirst = scanner.next();
-                        try {
-                            if (nameFirst.matches("[a-zA-Z]+")){
-                                firstName=nameFirst;
-                                validInput = true;
+        }
+        String username = "";
+        validInput = false;
+        while (!validInput) {
+            System.out.println("\nEnter a username:");
+            System.out.print("\n> ");
+            try {
+                username = scanner.next();
+                scanner.nextLine();
+                if (username.matches("^[a-zA-Z0-9_]*$")) {
+                    if (!users.containsKey(username)) {
+                        validInput = true;
+                    } else {
+                        System.out.println("\nUsername already exists, choose another one");
+                    }
+                } else {
+                    System.out.println("\nInvalid input, enter a valid username (only alphanumeric characters and underscores accepted)");
+                }
+            } catch (java.util.InputMismatchException ignored) {
+                System.out.println("\nInvalid input, enter a valid username (only alphanumeric characters and underscores accepted)");
+                scanner.nextLine();
+            }
+        }
+        String password = "";
+        validInput = false;
+        while (!validInput) {
+            System.out.println("\nEnter a password:");
+            System.out.print("\n> ");
+            try {
+                password = scanner.nextLine();
+                if (!Objects.equals(password, "")) {
+                    validInput = true;
+                }
+            } catch (java.util.InputMismatchException ignored) {
+                System.out.println("\nInvalid input, enter a valid password");
+                scanner.nextLine();
+            }
+        }
+        String firstName = "";
+        validInput = false;
+        while (!validInput) {
+            System.out.println("\nEnter your first name:");
+            System.out.print("\n> ");
+            try {
+                firstName = scanner.next();
+                scanner.nextLine();
+                if (firstName.matches("^[a-zA-Z]*$")) {
+                    validInput = true;
+                } else {
+                    System.out.println("\nInvalid input, enter a valid first name (only alpha characters accepted)");
+                }
+            } catch (java.util.InputMismatchException ignored) {
+                System.out.println("\nInvalid input, enter a valid first name (only alpha characters accepted)");
+                scanner.nextLine();
+            }
+        }
+        String lastName = "";
+        validInput = false;
+        while (!validInput) {
+            System.out.println("\nEnter your last name:");
+            System.out.print("\n> ");
+            try {
+                lastName = scanner.next();
+                scanner.nextLine();
+                if (lastName.matches("^[a-zA-Z]*$")) {
+                    validInput = true;
+                } else {
+                    System.out.println("\nInvalid input, enter a valid last name (only alpha characters accepted)");
+                }
+            } catch (java.util.InputMismatchException ignored) {
+                System.out.println("\nInvalid input, enter a valid last name (only alpha characters accepted)");
+                scanner.nextLine();
+            }
+        }
+        String email = "";
+        validInput = false;
+        while (!validInput) {
+            System.out.println("\nEnter your email address:");
+            System.out.print("\n> ");
+            try {
+                email = scanner.next();
+                scanner.nextLine();
+                if (email.matches("^(.+)@(.+)$")) {
+                    validInput = true;
+                } else {
+                    System.out.println("\nInvalid input, enter a valid email address");
+                }
+            } catch (java.util.InputMismatchException ignored) {
+                System.out.println("\nInvalid input, enter a valid email address");
+                scanner.nextLine();
+            }
+        }
+        switch (role) {
+            case 1 -> {      //  Customer
+                String gender = "";
+                int input;
+                validInput = false;
+                while (!validInput) {
+                    System.out.println("\nChoose your gender:\n\n1. Male\n2. Female");
+                    System.out.print("\n> ");
+                    try {
+                        input = scanner.nextInt();
+                        if (input > 0 && input <= 2) {
+                            validInput = true;
+                            switch (input) {
+                                case 1 -> gender = "male";
+                                case 2 -> gender = "female";
                             }
-                            else {
-                                System.out.println("\nInvalid input, enter a valid name");
-                            }
+                        } else {
+                            System.out.println("\nInvalid input, enter a valid number\n");
                         }
-                        catch (InputMismatchException ignored){
-                            System.out.println("\nInvalid input, enter a valid name");
+                    } catch (java.util.InputMismatchException ignored) {
+                        System.out.println("\nInvalid input, enter a valid number\n");
+                        scanner.nextLine();
+                    }
+                }
+                String country = "";
+                validInput = false;
+                while (!validInput) {
+                    System.out.println("\nEnter your country:");
+                    System.out.print("\n> ");
+                    try {
+                        country = scanner.next();
+                        scanner.nextLine();
+                        if (country.matches("^[a-zA-Z]*$")) {
+                            validInput = true;
+                        } else {
+                            System.out.println("\nInvalid input, enter a valid country (only alpha characters accepted)");
+                        }
+                    } catch (java.util.InputMismatchException ignored) {
+                        System.out.println("\nInvalid input, enter a valid country (only alpha characters accepted)");
+                        scanner.nextLine();
+                    }
+                }
+                String phone = "";
+                validInput = false;
+                while (!validInput) {
+                    System.out.println("\nEnter your phone number:");
+                    System.out.print("\n> ");
+                    try {
+                        phone = scanner.nextLine();
+                        if (phone.matches("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$")) {
+                            validInput = true;
+                        } else {
+                            System.out.println("\nInvalid input, enter a valid phone number");
+                        }
+                    } catch (java.util.InputMismatchException ignored) {
+                        System.out.println("\nInvalid input, enter a valid phone number");
+                        scanner.nextLine();
+                    }
+                }
+                LocalDate birthdate = LocalDate.of(1, 1, 1);
+                validInput = false;
+                while (!validInput) {
+                    System.out.println("\nEnter your birthdate (dd-mm-yyyy):");
+                    System.out.print("\n> ");
+                    String date = scanner.next();
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+                    try {
+                        birthdate = LocalDate.parse(date, dtf);
+                        validInput = true;
+                    } catch (java.time.format.DateTimeParseException ignored) {
+                        System.out.println("\nInvalid input, please enter a valid date");
+                    }
+                }
+                users.put(username, new Authentication(username, password, role));
+                customers.put(username, new Customer(username, email, password, firstName, lastName,
+                        gender, country, phone, birthdate, false));
+                System.out.println("\nRegistration successful with username: " + username);
+                optionHandler();
+            }
+            case 2 -> {     //  Provider
+                String type = "";
+                int input;
+                validInput = false;
+                while (!validInput) {
+                    System.out.println("\nChoose your type:\n\n1. Hotelier\n2. Private");
+                    System.out.print("\n> ");
+                    try {
+                        input = scanner.nextInt();
+                        if (input > 0 && input <= 2) {
+                            validInput = true;
                             scanner.nextLine();
-                        }
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your Last Name: ");
-                        System.out.print("\n> ");
-                        String name = " ";
-                        try {
-                            name = scanner.next();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if (name.matches("[a-zA-Z]+")) {
-                            lastName = name;
-                            validInput = true;
+                            switch (input) {
+                                case 1 -> type = "hotelier";
+                                case 2 -> type = "private";
+                            }
                         } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
+                            System.out.println("\nInvalid input, enter a valid type number\n");
                         }
-
+                    } catch (java.util.InputMismatchException ignored) {
+                        System.out.println("\nInvalid input, enter a valid type number\n");
+                        scanner.nextLine();
                     }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your email: ");
-                        System.out.print("\n> ");
-                        String emailto;
-                        emailto = " ";
-                        try {
-                            emailto = scanner.next();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if (emailto.contains("@mail.com")) {
-                            email = emailto;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid email");
-                        }
-
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your gender: ");
-                        System.out.print("\n1.Male\n2.Female");
-                        System.out.print("\n> ");
-                        int genderto = 0;
-                        try {
-                            genderto = scanner.nextInt();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if ((genderto == 1 || genderto == 2)) {
-                            if (genderto == 1)
-                                gender = "Male";
-                            else
-                                gender = "Female";
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid gender");
-                        }
-
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your country: ");
-                        System.out.print("\n> ");
-                        String countryto = null;
-                        try {
-                            countryto = scanner.next();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        assert countryto != null;
-                        if (countryto.matches("[a-zA-Z]+")) {
-                            country = countryto;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
-                        }
-
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your phone: ");
-                        System.out.print("\n> ");
-                        String phoneto = " ";
-                        try {
-                            phoneto = scanner.next();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if (phoneto.matches("[0-9]+")) {
-                            phone = phoneto;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
-                        }
-
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-                        System.out.print("\nEnter your birthdate: ");
-                        System.out.print("\n> ");
-                        String date = scanner.next();
-                        try {
-                            birthdate = LocalDate.parse(date, dtf);
-                            validInput = true;
-                        } catch (DateTimeParseException ignored) {
-                            System.out.println("\nInvalid input, please enter a valid date");
-                        }
-                    }
-                    System.out.println("Registration successful, welcome" +" " +firstName + "!");
-                    this.customers.put(username, new Customer(username, email, password, firstName, lastName, gender, country, phone, birthdate, false));
-                    CustomerUI customerUI = new CustomerUI(this.mainUI, this.customers.get(username), this.rooms, this.reservations);
                 }
-                case 2 -> {
-                    String firstName =null;
-                    String lastName = null;
-                    String email =null;
-                    String username;
-                    String password;
-                    String office = null;
-                    String country = null;
-                    String region = null;
-                    String type = null;
-                    username = usernametoEntry;
-                    password = passwordtoEntry;
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your first Name: ");
-                        System.out.print("\n> ");
-                        firstName=scanner.next();
-                        if (firstName.matches("[a-zA-Z]+")) {
+                String office = "";
+                validInput = false;
+                while (!validInput) {
+                    System.out.println("\nEnter your office:");
+                    System.out.print("\n> ");
+                    try {
+                        office = scanner.nextLine();
+                        if (!Objects.equals(office, "")) {
                             validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
                         }
-
+                    } catch (java.util.InputMismatchException ignored) {
+                        System.out.println("\nInvalid input, enter a valid office address");
+                        scanner.nextLine();
                     }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your last Name: ");
-                        System.out.print("\n> ");
-                        String namelast = " ";
-                        namelast = scanner.next();
-
-                        if (namelast.matches("[a-zA-Z]+")) {
-                            lastName = namelast;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
-                        }
-                    }
-
-
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your email: ");
-                        System.out.print("\n> ");
-                        String emailto;
-                        emailto = " ";
-                        try {
-                            emailto = scanner.next();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if (emailto.contains("@mail.com")) {
-                            email = emailto;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid email");
-                        }
-
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your country: ");
-                        System.out.print("\n> ");
-                        String countryto = null;
-                        try {
-                            countryto = scanner.next();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if (countryto.matches("[a-zA-Z]+")) {
-                            country = countryto;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
-                        }
-
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your office: ");
-                        System.out.print("\n> ");
-                        String officeto = null;
-                        try {
-                            officeto = scanner.next();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if (officeto.matches("[a-zA-Z]+") ) {
-                            office = officeto;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
-                        }
-
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your region: ");
-                        System.out.print("\n> ");
-                        String regionto = null;
-                        try {
-                            regionto = scanner.next();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if (regionto.matches("[a-zA-Z]+")) {
-                            region = regionto;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
-                        }
-
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your type: ");
-                        System.out.print("\n1.Hotelier\n2.Roomer\n3.Apartmenter");
-                        System.out.print("\n> ");
-                        int typeto = 0;
-                        try {
-                            typeto = scanner.nextInt();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if ((typeto == 1 || typeto == 2 || typeto == 3)) {
-                            if (typeto == 1)
-                                type = "Hotelier";
-                            else if (typeto == 2)
-                                type = "Roomer";
-                            else
-                                type = "Apartmenter";
-
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid gender");
-                        }
-
-                    }
-                    System.out.println("Registration successful, welcome  " + firstName + "!");
-                    this.providers.put(username, new Provider(username, password, email, firstName, lastName, office, country, region, type,false));
-                    ProviderUI providerUI = new ProviderUI(this.mainUI, this.providers.get(username), this.rooms, this.reservations);
-
-
                 }
-            case 3->{
-                    String username;
-                    String firstName = null;
-                    String lastName=null;
-                    String password;
-                    String email=null;
-                    String phone=null;
-                    username=usernametoEntry;
-                    password=passwordtoEntry;
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your first Name: ");
-                        System.out.print("\n> ");
-                        firstName=scanner.next();
-                        if (firstName.matches("[a-zA-Z]+")) {
+                String country = "";
+                validInput = false;
+                while (!validInput) {
+                    System.out.println("\nEnter your country:");
+                    System.out.print("\n> ");
+                    try {
+                        country = scanner.next();
+                        scanner.nextLine();
+                        if (country.matches("^[a-zA-Z]*$")) {
                             validInput = true;
                         } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
+                            System.out.println("\nInvalid input, enter a valid country (only alpha characters accepted)");
                         }
-
+                    } catch (java.util.InputMismatchException ignored) {
+                        System.out.println("\nInvalid input, enter a valid country (only alpha characters accepted)");
+                        scanner.nextLine();
                     }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your last Name: ");
-                        System.out.print("\n> ");
-                        String namelast;
-                        namelast = scanner.next();
-
-                        if (namelast.matches("[a-zA-Z]+")) {
-                           lastName = namelast;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
-                        }
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your email: ");
-                        System.out.print("\n> ");
-                        String adminemail;
-                        adminemail = " ";
-                        try {
-                            adminemail = scanner.next();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if (adminemail.contains("@mail.com")) {
-                            email = adminemail;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid email");
-                        }
-                    }
-                    validInput = false;
-                    while (!validInput) {
-                        System.out.print("\nEnter your phone: ");
-                        System.out.print("\n> ");
-                        String adminPhone = " ";
-                        try {
-                            adminPhone = scanner.next();
-                        } catch (InputMismatchException ignored) {
-                        }
-                        if (adminPhone.matches("[0-9]+")) {
-                            phone = adminPhone;
-                            validInput = true;
-                        } else {
-                            System.out.println("\nInvalid Input, enter a valid name");
-                        }
-
-                    }
-
-                System.out.println("Registration successful, welcome  " + firstName + "!");
-                this.admins.put(username, new Admin(username, firstName,lastName,password,email,phone,false));
-                AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username),this.reservations,this.customers,this.providers,this.admins,this.rooms);
-
                 }
-                default -> System.exit(0);
-
-
-
+                String region = "";
+                validInput = false;
+                while (!validInput) {
+                    System.out.println("\nEnter your region:");
+                    System.out.print("\n> ");
+                    try {
+                        region = scanner.next();
+                        scanner.nextLine();
+                        if (region.matches("^[a-zA-Z]*$")) {
+                            validInput = true;
+                        } else {
+                            System.out.println("\nInvalid input, enter a valid region (only alpha characters accepted)");
+                        }
+                    } catch (java.util.InputMismatchException ignored) {
+                        System.out.println("\nInvalid input, enter a valid region (only alpha characters accepted)");
+                        scanner.nextLine();
+                    }
+                }
+                users.put(username, new Authentication(username, password, role));
+                providers.put(username, new Provider(username, password, email, firstName, lastName,
+                        office, country, region, type, false));
+                System.out.println("\nRegistration successful with username: " + username);
+                optionHandler();
+            }
+            case 3 -> {
+                String phone = "";
+                validInput = false;
+                while (!validInput) {
+                    System.out.println("\nEnter your phone number:");
+                    System.out.print("\n> ");
+                    try {
+                        phone = scanner.nextLine();
+                        if (phone.matches("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$")) {
+                            validInput = true;
+                        } else {
+                            System.out.println("\nInvalid input, enter a valid phone number");
+                        }
+                    } catch (java.util.InputMismatchException ignored) {
+                        System.out.println("\nInvalid input, enter a valid phone number");
+                        scanner.nextLine();
+                    }
+                }
+                users.put(username, new Authentication(username, password, role));
+                admins.put(username, new Admin(username, password, firstName, lastName, email, phone, true));
+                System.out.println("\nRegistration successful with username: " + username);
+                optionHandler();
             }
         }
     }
@@ -491,9 +411,9 @@ public class MainUI {
      *  is initialized.
      */
     public void login(){
-        System.out.println("\n+============================+");
-        System.out.println("|         Log in  panel      |");
-        System.out.println("+============================+");
+        System.out.println("\n+====================+");
+        System.out.println("|     Login panel    |");
+        System.out.println("+====================+\n");
         int role = 0;
         System.out.print("Enter your username: ");
         String username = scanner.next();
@@ -506,13 +426,13 @@ public class MainUI {
                 role = temp.getRole();
             }
             else {
-                System.out.println("Login failed, please try again");
-                login();
+                System.out.println("\nLogin failed, please try again");
+                optionHandler();
             }
         }
         else {
-            System.out.println("Login failed, please try again");
-            login();
+            System.out.println("\nLogin failed, please try again");
+            optionHandler();
         }
         switch (role){
             case 1 -> {
@@ -527,6 +447,4 @@ public class MainUI {
             default -> System.exit(0);
         }
     }
-
-
 }

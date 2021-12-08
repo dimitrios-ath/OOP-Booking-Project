@@ -23,7 +23,7 @@ public class Customer {
      * @param password          customer password
      * @param firstName         customer first name
      * @param lastName          customer last name
-     * @param gender            customer gender
+     * @param gender            customer gender {male/female}
      * @param country           customer country
      * @param phone             customer phone number
      * @param birthdate         customer birthdate

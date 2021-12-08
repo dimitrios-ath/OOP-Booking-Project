@@ -514,10 +514,7 @@ public class ProviderUI {
                     case 3 -> deleteRoom();
                     case 4 -> showRooms();
                     case 5 -> returnAllReservations();
-                    case 6 -> {
-                        System.out.print("");
-                        this.mainUI.login();
-                    }
+                    case 6 -> this.mainUI.optionHandler();
                     case 7 -> System.exit(0);
                     default -> {
                         System.out.println("\nInvalid input, enter a valid number");

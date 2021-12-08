@@ -431,10 +431,7 @@ public class AdminUI {
                     case 2 -> searchUsers();
                     case 3 -> approvalNewUser();
                     case 4 -> sendMessages();
-                    case 5 -> {
-                        System.out.println();
-                        this.mainUI.login();
-                    }
+                    case 5 -> this.mainUI.optionHandler();
                     case 6 -> System.exit(0);
                     default -> {
                         System.out.println("\nInvalid input, enter a valid number");
