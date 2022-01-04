@@ -16,9 +16,7 @@ public class MessageUI {
         this.scanner = new Scanner(System.in);
         this.currentUsername = currentUsername;
         this.users = users;
-        panel();
     }
-
 
     /**
      *   Asks for recipient username. If user exists, it asks for message content.

@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.lang.String;
 
-public class Admin {
+public class Admin implements Serializable {
     private String username;
     private String firstName;
     private String lastName;

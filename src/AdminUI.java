@@ -1,5 +1,6 @@
 import java.text.DecimalFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -9,11 +10,9 @@ public class AdminUI {
     private final Map<String,Provider> providers;
     private final Map<Integer,Reservation> reservations;
     private final Map<Integer,Room> rooms;
-    private final Map<Integer,Message> messages;
     private final Map<String,Customer> customers;
     private final Map<String,Admin> admins;
-    private final Map<String,Authentication> users;
-    private MessageUI messageUI;
+    private final MessageUI messageUI;
     private static DecimalFormat df;
     Admin admin;
     Scanner scanner=new Scanner(System.in);
@@ -28,13 +27,11 @@ public class AdminUI {
         this.admin = admin;
         this.rooms = rooms;
         this.mainUI = mainUI;
-        this.users = users;
         this.reservations=reservations;
         this.customers=customers;
         this.providers=providers;
         this.admins=admins;
-        this.messages = messages;
-        messageUI = new MessageUI(this.messages, this.admin.getUsername(), this.users);
+        messageUI = new MessageUI(messages, this.admin.getUsername(), users);
         df = new DecimalFormat("0.00");
         panel();
     }
@@ -57,16 +54,17 @@ public class AdminUI {
     public void searchReservationsByUsername(String username){
         AtomicBoolean roomFound = new AtomicBoolean(false);
         AtomicInteger counter = new AtomicInteger(1);
-        this.customers.get(username).getReservationIDs().forEach((reservationID) -> {
-            System.out.println(counter + ". " + "reservation ID: " + reservations.get(reservationID).getReservationID()
-                    + ", Username: \"" + reservations.get(reservationID).getUsername() + "\", Guests: "
-                    + reservations.get(reservationID).getGuestNumber() + ", Check in: "
-                    + reservations.get(reservationID).getCheckIn().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
-                    + ", Check out: " + reservations.get(reservationID).getCheckOut().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
-                    + ", Total price: $" + df.format((reservations.get(reservationID).getTotalPrice())));
-            roomFound.set(true);
-            counter.getAndIncrement();
-        });
+        this.reservations.forEach((id, reservation) -> {
+            if (Objects.equals(reservation.getUsername(), username)){
+                System.out.println(counter + ". " + "reservation ID: " + reservations.get(id).getReservationID()
+                        + ", Username: \"" + reservations.get(id).getUsername() + "\", Guests: "
+                        + reservations.get(id).getGuestNumber() + ", Check in: "
+                        + reservations.get(id).getCheckIn().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                        + ", Check out: " + reservations.get(id).getCheckOut().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                        + ", Total price: $" + df.format((reservations.get(id).getTotalPrice())));
+                roomFound.set(true);
+                counter.getAndIncrement();
+            }});
         if (!roomFound.get()) {
             System.out.println("\nNo reservations found for username: " + username);
         }
@@ -408,6 +406,7 @@ public class AdminUI {
      *   The main provider user interface. It asks for a command and calls the
      *   appropriate function.
      */
+    @SuppressWarnings("InfiniteLoopStatement")
     public void panel(){{
             while (true){
                 System.out.println("\n+=============================+");
@@ -432,7 +431,7 @@ public class AdminUI {
                     case 3 -> approvalNewUser();
                     case 4 -> this.messageUI.panel();
                     case 5 -> this.mainUI.optionHandler();
-                    case 6 -> System.exit(0);
+                    case 6 -> this.mainUI.saveAndExit();
                     default -> {
                         System.out.println("\nInvalid input, enter a valid number");
                         scanner.nextLine();

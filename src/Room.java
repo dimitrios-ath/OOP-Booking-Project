@@ -1,7 +1,9 @@
+import java.io.Serializable;
 import java.lang.String;
 
-public class Room {
+public class Room implements Serializable {
     private int id;
+    private String owner;
     private String name;
     private String type;
     private boolean longTime;
@@ -21,6 +23,7 @@ public class Room {
     /**
      * Constructor of Room
      * @param id            room id
+     * @param owner         room owner
      * @param name          room name
      * @param type          room type {hotel,room,apartment}
      * @param longTime      is room available for long term reservation {true/false}
@@ -37,13 +40,14 @@ public class Room {
      * @param smoking       smoking allowed {true/false}
      * @param pets          pets allowed {true/false}
      */
-    public Room(int id, String name, String type, boolean longTime, int capacity,
+    public Room(int id, String owner, String name, String type, boolean longTime, int capacity,
                 double price, int m2, boolean wifi, boolean parking,
                 boolean airCondition, boolean balcony,
                 boolean fridge, boolean kitchen,
                 boolean tv, boolean smoking, boolean pets) {
         this.id = id;
         this.name = name;
+        this.owner = owner;
         this.type = type;
         this.longTime = longTime;
         this.capacity = capacity;
@@ -65,6 +69,7 @@ public class Room {
      */
     public Integer getId() {return this.id;}
     public String getName() {return this.name;}
+    public String getOwner() {return this.owner;}
     public String getType() {return this.type;}
     public Integer getCapacity() {return this.capacity;}
     public Double getPrice() {return this.price;}
@@ -85,6 +90,7 @@ public class Room {
      */
     public void setId(int id) {this.id = id;}
     public void setName(String name) {this.name = name;}
+    public void setOwner(String owner) {this.owner = owner;}
     public void setType(String type) {this.type = type;}
     public void setLongTime(boolean longTime) {this.longTime = longTime;}
     public void setCapacity(int capacity) {this.capacity = capacity;}

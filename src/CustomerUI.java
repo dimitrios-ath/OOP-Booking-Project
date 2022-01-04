@@ -12,22 +12,17 @@ public class CustomerUI {
     private final Map<Integer,Room> rooms;
     private final Map<Integer,Reservation> reservations;
     private final Scanner scanner;
-    private final Map<String,Authentication> users;
-    private final Map<Integer,Message> messages;
     private final MainUI mainUI;
     private static DecimalFormat df;
-    private MessageUI messageUI;
-    private Object Integer;
+    private final MessageUI messageUI;
 
     public CustomerUI(MainUI mainUI, Customer customer, Map<Integer,Room> rooms, Map<Integer,Reservation> reservations,
                       Map<Integer,Message> messages, Map<String,Authentication> users) {
         this.customer = customer;
         this.rooms = rooms;
-        this.users = users;
-        this.messages = messages;
         this.reservations = reservations;
         this.mainUI = mainUI;
-        messageUI = new MessageUI(this.messages, this.customer.getUsername(), this.users);
+        messageUI = new MessageUI(messages, this.customer.getUsername(), users);
         this.scanner = new Scanner(System.in);
         df = new DecimalFormat("0.00");
         panel();
@@ -385,7 +380,6 @@ public class CustomerUI {
                                 checkIn, checkOut, this.customer.getUsername(),
                                 this.rooms.get(matchingRooms.get(roomToReserve)).getPrice()*nights));
                         addedToHashMap = true;
-                        customer.addReservationID(i);
                         System.out.println("\nReservation complete with id: " + i);
                     }
                     else {i++;}
@@ -414,10 +408,9 @@ public class CustomerUI {
             scanner.nextLine();
             System.out.println("\nInvalid input, enter a valid number");
         }
-        if (reservations.containsKey(id) && customer.getReservationIDs().contains(id) && validInput) {
+        if (reservations.containsKey(id) && Objects.equals(reservations.get(id).getUsername(), customer.getUsername()) && validInput) {
             reservations.remove(id);
-            customer.removeReservationID(id);
-            System.out.println("\nSuccessfully canceled with the following id: " + id);
+            System.out.println("\nSuccessfully canceled reservation with the following id: " + id);
         }
         else if (validInput){
             System.out.println("\nFailed to cancel reservation with the following id: " + id);
@@ -431,24 +424,29 @@ public class CustomerUI {
     public void showReservations(){
         System.out.println("\n+============================+");
         System.out.println("|     Show reservations      |");
-        System.out.println("+============================+");
-        if (this.customer.getReservationIDs().size()==0){
-            System.out.println("\nNo reservations found");
-        } else {System.out.println();}
-        for(Integer id : this.customer.getReservationIDs()){
-            System.out.println("Reservation id: " + reservations.get(id).getReservationID() +
-                    ", Room name: \"" + this.rooms.get(reservations.get(id).getRoomID()).getName() +
-                    "\", Room type: " + this.rooms.get(reservations.get(id).getRoomID()).getType() +
-                    ", Guests: " + reservations.get(id).getGuestNumber() + ", Check in: " +
-                    reservations.get(id).getCheckIn().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ", Check out: " +
-                    reservations.get(id).getCheckOut().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ", Total price: $" +
-                    df.format(reservations.get(id).getTotalPrice()));
+        System.out.println("+============================+\n");
+        AtomicBoolean noReservations = new AtomicBoolean(true);
+        this.reservations.forEach((id, reservation) -> {
+            if (Objects.equals(reservation.getUsername(), this.customer.getUsername())){
+                System.out.println("Reservation id: " + reservations.get(id).getReservationID() +
+                        ", Room name: \"" + this.rooms.get(reservations.get(id).getRoomID()).getName() +
+                        "\", Room type: " + this.rooms.get(reservations.get(id).getRoomID()).getType() +
+                        ", Guests: " + reservations.get(id).getGuestNumber() + ", Check in: " +
+                        reservations.get(id).getCheckIn().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ", Check out: " +
+                        reservations.get(id).getCheckOut().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")) + ", Total price: $" +
+                        df.format(reservations.get(id).getTotalPrice()));
+                noReservations.set(false);
+            }
+        });
+        if (noReservations.get()){
+            System.out.println("No reservations found");
         }
     }
     /**
      *   The main provider user interface. It asks for a command and calls the
      *   appropriate function.
      */
+    @SuppressWarnings("InfiniteLoopStatement")
     public void panel(){
         while (true){
             System.out.println("\n+============================+");
@@ -473,7 +471,7 @@ public class CustomerUI {
                 case 3 -> showReservations();
                 case 4 -> this.messageUI.panel();
                 case 5 -> this.mainUI.optionHandler();
-                case 6 -> System.exit(0);
+                case 6 -> this.mainUI.saveAndExit();
                 default -> {
                     System.out.println("\nInvalid input, enter a valid number");
                     scanner.nextLine();

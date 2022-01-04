@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.lang.String;
 import java.time.LocalDate;
 
-public class Reservation {
+public class Reservation implements Serializable {
     private int reservationID;
     private int guestNumber;
     private long totalNights;

@@ -1,5 +1,6 @@
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -9,11 +10,9 @@ public class ProviderUI {
     private final Provider provider;
     private final Map<Integer,Room> rooms;
     private final Map<Integer,Reservation> reservations;
-    private final Map<Integer,Message> messages;
-    private final Map<String,Authentication> users;
     private final Scanner scanner;
     private final MainUI mainUI;
-    private MessageUI messageUI;
+    private final MessageUI messageUI;
     private static DecimalFormat df;
     /**
      * The constructor of ProviderUI assigns the authenticated provider object and a
@@ -26,11 +25,9 @@ public class ProviderUI {
                       Map<Integer,Message> messages, Map<String,Authentication> users) {
         this.provider = provider;
         this.rooms = rooms;
-        this.users = users;
-        this.messages = messages;
         this.mainUI = mainUI;
         this.reservations = reservations;
-        messageUI = new MessageUI(this.messages, this.provider.getUsername(), this.users);
+        messageUI = new MessageUI(messages, this.provider.getUsername(), users);
         this.scanner = new Scanner(System.in);
         df = new DecimalFormat("0.00");
         panel();
@@ -224,10 +221,9 @@ public class ProviderUI {
         int i=1;
         while(!addedToHashMap && i<1000) {
             if (!rooms.containsKey(i)) {
-                rooms.put(i, new Room(i, name, type, longTime, capacity, price, m2, wifi, parking,
+                rooms.put(i, new Room(i, provider.getUsername(), name, type, longTime, capacity, price, m2, wifi, parking,
                         airCondition, balcony, fridge, kitchen, tv, smoking, pets));
                 addedToHashMap = true;
-                provider.addRoomID(i);
                 System.out.println("\nAdded new room with id: " + i);
             }
             else {i++;}
@@ -240,15 +236,20 @@ public class ProviderUI {
      *  of the current provider
      */
     public void displayAllRooms(){
-        if (this.provider.getRoomIDs().size()==0){
-            System.out.println("\nNo rooms found");
-        } else {System.out.println();}
-        for(Integer id : this.provider.getRoomIDs()){
-            System.out.println("id: " + rooms.get(id).getId().toString() +
-                    ", name: \"" + rooms.get(id).getName() +
-                    "\", type: " + rooms.get(id).getType() + ", capacity: " +
-                    rooms.get(id).getCapacity().toString()+ ", price: $" +
-                    df.format(rooms.get(id).getPrice()));
+        AtomicBoolean noRoomsForProvider = new AtomicBoolean(true);
+        System.out.println();
+        this.rooms.forEach((id, Room) -> {
+            if (Objects.equals(Room.getOwner(), this.provider.getUsername())){
+                System.out.println("id: " + rooms.get(id).getId().toString() +
+                        ", name: \"" + rooms.get(id).getName() +
+                        "\", type: " + rooms.get(id).getType() + ", capacity: " +
+                        rooms.get(id).getCapacity().toString()+ ", price: $" +
+                        df.format(rooms.get(id).getPrice()));
+            }
+            noRoomsForProvider.set(false);
+        });
+        if (noRoomsForProvider.get()) {
+            System.out.println("No rooms found");
         }
     }
 
@@ -291,7 +292,7 @@ public class ProviderUI {
             scanner.nextLine();
             System.out.println("\nInvalid input, enter a valid number");
         }
-        if (rooms.containsKey(id) && provider.getRoomIDs().contains(id) && validInput) {
+        if (rooms.containsKey(id) && Objects.equals(rooms.get(id).getOwner(), provider.getUsername()) && validInput) {
             validInput = false;
             while (!validInput){
                 System.out.println("\nSelect room type:\n1.Hotel\n2.Room\n3.Apartment");
@@ -398,7 +399,7 @@ public class ProviderUI {
             smoking = scanBooleanFilter("\nIs smoking allowed in the room?\n1. Yes\n2. No");
             pets = scanBooleanFilter("\nAre pets allowed in the room?\n1. Yes\n2. No");
 
-            rooms.put(id, new Room(id, name, type, longTime, capacity, price, m2, wifi, parking,
+            rooms.put(id, new Room(id, provider.getUsername(), name, type, longTime, capacity, price, m2, wifi, parking,
                     airCondition, balcony, fridge, kitchen, tv, smoking, pets));
             System.out.println("\nSuccessfully edited room with the following id: " + id);
         }
@@ -431,12 +432,21 @@ public class ProviderUI {
             scanner.nextLine();
             System.out.println("\nInvalid input, enter a valid number");
         }
-        if (rooms.containsKey(id) && provider.getRoomIDs().contains(id) && validInput) {
+        AtomicBoolean reservationsForRoomExist = new AtomicBoolean(false);
+        Integer finalId = id;
+        reservations.forEach((reservationID, Reservation) -> {
+            if (Reservation.getRoomID()== finalId){
+                reservationsForRoomExist.set(true);
+            }
+        });
+        if (rooms.containsKey(id) && Objects.equals(rooms.get(id).getOwner(), provider.getUsername()) && !reservationsForRoomExist.get() && validInput) {
             rooms.remove(id);
-            provider.removeRoomID(id);
             System.out.println("\nSuccessfully removed room with the following id: " + id);
         }
-        else if (validInput){
+        else if (validInput && reservationsForRoomExist.get()){
+            System.out.println("\nFailed to remove room with the following id: " + id + ", because there are existing reservations for this room.");
+        }
+        else {
             System.out.println("\nFailed to remove room with the following id: " + id);
         }
     }
@@ -474,7 +484,8 @@ public class ProviderUI {
         AtomicBoolean roomFound = new AtomicBoolean(false);
         AtomicInteger counter = new AtomicInteger(1);
         int finalId = id;
-        if (this.rooms.containsKey(id) && this.provider.getRoomIDs().contains(id)) {
+        if (this.rooms.containsKey(id) && Objects.equals(rooms.get(id).getOwner(), provider.getUsername())) {
+            System.out.println();
             reservations.forEach((roomID, reservation) -> {
                 if (reservation.getRoomID() == finalId) {
                     System.out.println(counter + ". " + "reservation ID: " + reservation.getReservationID() + ", Username: \""
@@ -487,7 +498,7 @@ public class ProviderUI {
                 }
             });
         } else {System.out.println("\nFailed to find reservations with the following room id: " + id);}
-        if (!roomFound.get() && this.provider.getRoomIDs().contains(id)) {
+        if (!roomFound.get() && Objects.equals(rooms.get(id).getOwner(), provider.getUsername())) {
             System.out.println("\nNo reservations found for this room");}
     }
 
@@ -496,6 +507,7 @@ public class ProviderUI {
      *   The main provider user interface. It asks for a command and calls the
      *   appropriate function.
      */
+    @SuppressWarnings("InfiniteLoopStatement")
     public void panel(){
         while (true){
             System.out.println("\n+============================+");
@@ -524,7 +536,7 @@ public class ProviderUI {
                     case 5 -> returnAllReservations();
                     case 6 -> this.messageUI.panel();
                     case 7 -> this.mainUI.optionHandler();
-                    case 8 -> System.exit(0);
+                    case 8 -> this.mainUI.saveAndExit();
                     default -> {
                         System.out.println("\nInvalid input, enter a valid number");
                         scanner.nextLine();

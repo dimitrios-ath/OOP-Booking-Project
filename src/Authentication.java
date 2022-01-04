@@ -1,10 +1,11 @@
+import java.io.Serializable;
 import java.lang.String;
 
 /**
  *   An object of this class is used during login. This object holds some basic info
  *   like username, password and role, and it's used for the authentication.
  */
-public class Authentication {
+public class Authentication implements Serializable {
     String username, password;
     int role;
 

@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.lang.String;
 import java.util.HashSet;
 
-public class Provider {
+public class Provider implements Serializable {
     private String username;
     private String password;
     private String email;
@@ -12,7 +13,6 @@ public class Provider {
     private String region;
     private String type;
     private boolean activeAccount;
-    private HashSet<Integer> roomIDs;
 
     /**
      * @param username      unique provider username
@@ -38,10 +38,7 @@ public class Provider {
         this.region = region;
         this.type = type;
         this.activeAccount=activeAccount;
-        this.roomIDs = new HashSet<>();
     }
-
-    public void removeRoomID(Integer roomID) {this.roomIDs.remove(roomID);}
 
     /**
      * getters of Provider class attributes
@@ -56,7 +53,6 @@ public class Provider {
     public String getRegion() {return this.region;}
     public String getType() {return this.type;}
     public boolean getActiveAccount() {return this.activeAccount;}
-    public HashSet<Integer> getRoomIDs() {return this.roomIDs;}
 
     /**
      * setters of Provider class attributes
@@ -71,5 +67,4 @@ public class Provider {
     public void setRegion(String region) {this.region = region;}
     public void setType(String type) {this.type = type;}
     public void setActiveAccount(boolean activeAccount) {this.activeAccount=activeAccount;}
-    public void addRoomID(Integer roomID) {this.roomIDs.add(roomID);}
 }
