@@ -177,7 +177,6 @@ public class MainUI {
      *   This function implements the register function by asking for username and password. If the
      *   given username is contained in the HashMap `users` the functions calls re log in method
      *   otherwise based on the role of the user{1.customer2.provider} aks for credentials.
-     *
      */
     public void register() {
         System.out.println("\n+============================+");
