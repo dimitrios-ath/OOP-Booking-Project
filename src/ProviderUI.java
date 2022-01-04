@@ -9,8 +9,11 @@ public class ProviderUI {
     private final Provider provider;
     private final Map<Integer,Room> rooms;
     private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Message> messages;
+    private final Map<String,Authentication> users;
     private final Scanner scanner;
     private final MainUI mainUI;
+    private MessageUI messageUI;
     private static DecimalFormat df;
     /**
      * The constructor of ProviderUI assigns the authenticated provider object and a
@@ -19,11 +22,15 @@ public class ProviderUI {
      * @param provider     The authenticated provider object
      * @param rooms        A Hashmap of <Integer roomID, Room room>
      */
-    public ProviderUI(MainUI mainUI, Provider provider, Map<Integer,Room> rooms, Map<Integer,Reservation> reservations) {
+    public ProviderUI(MainUI mainUI, Provider provider, Map<Integer,Room> rooms, Map<Integer,Reservation> reservations,
+                      Map<Integer,Message> messages, Map<String,Authentication> users) {
         this.provider = provider;
         this.rooms = rooms;
+        this.users = users;
+        this.messages = messages;
         this.mainUI = mainUI;
         this.reservations = reservations;
+        messageUI = new MessageUI(this.messages, this.provider.getUsername(), this.users);
         this.scanner = new Scanner(System.in);
         df = new DecimalFormat("0.00");
         panel();
@@ -499,8 +506,9 @@ public class ProviderUI {
             System.out.println("| 3. Delete existing room    |");
             System.out.println("| 4. Show all rooms          |");
             System.out.println("| 5. Return all reservations |");
-            System.out.println("| 6. Log out                 |");
-            System.out.println("| 7. Exit                    |");
+            System.out.println("| 6. Messages                |");
+            System.out.println("| 7. Log out                 |");
+            System.out.println("| 8. Exit                    |");
             System.out.println("+============================+");
             int cmd = 0;
             System.out.print("\n> ");
@@ -514,8 +522,9 @@ public class ProviderUI {
                     case 3 -> deleteRoom();
                     case 4 -> showRooms();
                     case 5 -> returnAllReservations();
-                    case 6 -> this.mainUI.optionHandler();
-                    case 7 -> System.exit(0);
+                    case 6 -> this.messageUI.panel();
+                    case 7 -> this.mainUI.optionHandler();
+                    case 8 -> System.exit(0);
                     default -> {
                         System.out.println("\nInvalid input, enter a valid number");
                         scanner.nextLine();

@@ -10,6 +10,7 @@ public class MainUI {
     private final Map<String,Customer> customers;
     private final Map<String,Provider> providers;
     private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
     private MainUI mainUI;
     Scanner scanner;
 
@@ -29,6 +30,7 @@ public class MainUI {
         this.customers = new HashMap<>();
         this.providers = new HashMap<>();
         this.admins = new HashMap<>();
+        this.messages = new HashMap<>();
         scanner = new Scanner(System.in);
 
         /*
@@ -436,13 +438,16 @@ public class MainUI {
         }
         switch (role){
             case 1 -> {
-                CustomerUI customerUI = new CustomerUI(this.mainUI, this.customers.get(username), this.rooms, this.reservations);
+                CustomerUI customerUI = new CustomerUI(this.mainUI, this.customers.get(username), this.rooms,
+                        this.reservations, this.messages, this.users);
             }
             case 2 -> {
-                ProviderUI providerUI = new ProviderUI(this.mainUI, this.providers.get(username), this.rooms, this.reservations);
+                ProviderUI providerUI = new ProviderUI(this.mainUI, this.providers.get(username), this.rooms,
+                        this.reservations, this.messages, this.users);
             }
             case 3 -> {
-                AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username),this.reservations,this.customers,this.providers,this.admins,this.rooms);
+                AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username), this.reservations,
+                        this.customers, this.providers, this.admins, this.rooms, this.messages, this.users);
             }
             default -> System.exit(0);
         }

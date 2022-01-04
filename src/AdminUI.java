@@ -9,8 +9,11 @@ public class AdminUI {
     private final Map<String,Provider> providers;
     private final Map<Integer,Reservation> reservations;
     private final Map<Integer,Room> rooms;
+    private final Map<Integer,Message> messages;
     private final Map<String,Customer> customers;
     private final Map<String,Admin> admins;
+    private final Map<String,Authentication> users;
+    private MessageUI messageUI;
     private static DecimalFormat df;
     Admin admin;
     Scanner scanner=new Scanner(System.in);
@@ -20,14 +23,18 @@ public class AdminUI {
      *  Constructor of AdminUI
      */
     public AdminUI(MainUI mainUI, Admin admin, Map<Integer,Reservation> reservations, Map<String, Customer> customers,
-                   Map<String,Provider> providers,Map<String,Admin> admins, Map<Integer,Room> rooms){
+                   Map<String,Provider> providers,Map<String,Admin> admins, Map<Integer,Room> rooms,
+                   Map<Integer,Message> messages, Map<String,Authentication> users){
         this.admin = admin;
         this.rooms = rooms;
         this.mainUI = mainUI;
+        this.users = users;
         this.reservations=reservations;
         this.customers=customers;
         this.providers=providers;
         this.admins=admins;
+        this.messages = messages;
+        messageUI = new MessageUI(this.messages, this.admin.getUsername(), this.users);
         df = new DecimalFormat("0.00");
         panel();
     }
@@ -398,13 +405,6 @@ public class AdminUI {
     }
 
     /**
-     * method for sending messages
-     */
-    public void sendMessages(){
-        System.out.println("\nNot yet implemented");
-    }
-
-    /**
      *   The main provider user interface. It asks for a command and calls the
      *   appropriate function.
      */
@@ -416,7 +416,7 @@ public class AdminUI {
                 System.out.println("| 1. Search/Show reservations |");
                 System.out.println("| 2. Search/Show users        |");
                 System.out.println("| 3. Approve new user         |");
-                System.out.println("| 4. Send message to user     |");
+                System.out.println("| 4. Messages                 |");
                 System.out.println("| 5. Log out                  |");
                 System.out.println("| 6. Exit                     |");
                 System.out.println("+=============================+");
@@ -430,7 +430,7 @@ public class AdminUI {
                     case 1 -> searchReservations();
                     case 2 -> searchUsers();
                     case 3 -> approvalNewUser();
-                    case 4 -> sendMessages();
+                    case 4 -> this.messageUI.panel();
                     case 5 -> this.mainUI.optionHandler();
                     case 6 -> System.exit(0);
                     default -> {

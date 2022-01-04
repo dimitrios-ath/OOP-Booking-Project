@@ -12,15 +12,22 @@ public class CustomerUI {
     private final Map<Integer,Room> rooms;
     private final Map<Integer,Reservation> reservations;
     private final Scanner scanner;
+    private final Map<String,Authentication> users;
+    private final Map<Integer,Message> messages;
     private final MainUI mainUI;
     private static DecimalFormat df;
+    private MessageUI messageUI;
     private Object Integer;
 
-    public CustomerUI(MainUI mainUI, Customer customer, Map<Integer,Room> rooms, Map<Integer,Reservation> reservations) {
+    public CustomerUI(MainUI mainUI, Customer customer, Map<Integer,Room> rooms, Map<Integer,Reservation> reservations,
+                      Map<Integer,Message> messages, Map<String,Authentication> users) {
         this.customer = customer;
         this.rooms = rooms;
+        this.users = users;
+        this.messages = messages;
         this.reservations = reservations;
         this.mainUI = mainUI;
+        messageUI = new MessageUI(this.messages, this.customer.getUsername(), this.users);
         this.scanner = new Scanner(System.in);
         df = new DecimalFormat("0.00");
         panel();
@@ -450,8 +457,9 @@ public class CustomerUI {
             System.out.println("| 1. Search/reserve a room   |");
             System.out.println("| 2. Cancel reservation      |");
             System.out.println("| 3. Show all reservations   |");
-            System.out.println("| 4. Log out                 |");
-            System.out.println("| 5. Exit                    |");
+            System.out.println("| 4. Messages                |");
+            System.out.println("| 5. Log out                 |");
+            System.out.println("| 6. Exit                    |");
             System.out.println("+============================+");
             int cmd = 0;
             System.out.print("\n> ");
@@ -463,8 +471,9 @@ public class CustomerUI {
                 case 1 -> searchAndReserve();
                 case 2 -> cancelReservation();
                 case 3 -> showReservations();
-                case 4 -> this.mainUI.optionHandler();
-                case 5 -> System.exit(0);
+                case 4 -> this.messageUI.panel();
+                case 5 -> this.mainUI.optionHandler();
+                case 6 -> System.exit(0);
                 default -> {
                     System.out.println("\nInvalid input, enter a valid number");
                     scanner.nextLine();
