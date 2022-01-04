@@ -146,11 +146,11 @@ public class MainUI {
         System.out.println("+====================+");
         int input = 0;
         boolean validInput = false;
-        System.out.println("\nChoose an option:\n\n1.Login\n2.Register");
+        System.out.println("\nChoose an option:\n\n1. Login\n2. Register\n3. Exit");
         System.out.print("\n> ");
         try {
             input = scanner.nextInt();
-            if (input <= 2 && input > 0){
+            if (input <= 3 && input > 0){
                 validInput = true;
             }
             else {
@@ -165,6 +165,7 @@ public class MainUI {
             switch (input) {
                 case 1 -> login();
                 case 2 -> register();
+                case 3 -> saveAndExit();
             }
         }
         else {
