@@ -28,6 +28,12 @@ public class MainUI {
         this.reservations = new HashMap<>();
         this.rooms = new HashMap<>();
 
+        File directory = new File("./data/");
+        if (!directory.exists()){
+            //noinspection ResultOfMethodCallIgnored
+            directory.mkdir();
+        }
+
         File f = new File("./data/reservations.dat");
         if(f.exists() && !f.isDirectory()) {
             try {
