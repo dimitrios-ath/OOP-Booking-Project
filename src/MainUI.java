@@ -146,11 +146,15 @@ public class MainUI {
     }
 
     public void optionHandlerGUI() {
-        JFrame frame = new JFrame("myBooking");
-        optionHandlerForm optionHandlerForm = new optionHandlerForm(frame); //login
-        optionHandlerForm.setPanel(optionHandlerForm);
-        frame.add(optionHandlerForm);
-        frame.setVisible(true);
+        JFrame jframe = new JFrame("myBooking");
+        jframe.setPreferredSize(new Dimension(400, 300));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
+        loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
+                this.providers, this.admins, this.messages);
+        loginForm.setCurrentForm(loginForm);
+        jframe.add(loginForm);
+        jframe.setVisible(true);
     }
 
     public void optionHandler(){
