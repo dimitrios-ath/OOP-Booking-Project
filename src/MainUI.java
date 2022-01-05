@@ -1,3 +1,5 @@
+import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -141,6 +143,14 @@ public class MainUI {
         this.reservations.put(1,new Reservation(1,2, 3, 3, LocalDate.of(2021, 3, 5), LocalDate.of(2021, 3, 7), "user2", 50));
         this.reservations.put(2,new Reservation(2,1, 3, 2, LocalDate.of(2021, 6, 15), LocalDate.of(2021, 7, 17), "user1", 40));
 
+    }
+
+    public void optionHandlerGUI() {
+        JFrame frame = new JFrame("myBooking");
+        optionHandlerForm optionHandlerForm = new optionHandlerForm(frame); //login
+        optionHandlerForm.setPanel(optionHandlerForm);
+        frame.add(optionHandlerForm);
+        frame.setVisible(true);
     }
 
     public void optionHandler(){

@@ -1,5 +1,5 @@
 # MyBooking
-Νίκος Μπασδάνης - 3458  
+Nikos Mpasdanis - 3458  
 Dimitrios Athanasiadis - 3724
 
 Demo credentials for login:
