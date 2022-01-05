@@ -1,0 +1,90 @@
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.12" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {comp panel4:::p:181:p, space :::p, par l {comp labelFirstName:::p:410:p, comp labelFirstName3::l:p::p}, space :0:130:x}}"
+			"$verticalGroup": "par l {comp panel4::t:::x, seq l {space :::p, comp labelFirstName:::p:14:p, space :::p, comp labelFirstName3:::p:14:p, space :131:441:x}}"
+		} ) {
+			name: "panel3"
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {space :::x, comp label2:::p:135:p, space :::p, comp label1:::p:107:p}, seq {space :p:53:p, comp label12:::p:94:p, space :0:0:x}}"
+				"$verticalGroup": "par l {seq {par l {seq {space :p:126:p, comp label1:::p::p}, seq l {space :p:8:p, comp label12:::p:30:p, space s:::p, comp label2:::p:120:p}}, space ::309:x}}"
+			} ) {
+				name: "panel4"
+				"background": new java.awt.Color( 51, 51, 255, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label1"
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"icon": new com.jformdesigner.model.SwingIcon( 0, "/calendar.png" )
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label12"
+					"text": "meTa"
+					"font": new java.awt.Font( "Century Gothic", 1, 28 )
+					"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelFirstName"
+				"text": "Find deals on hotels,home and much more.."
+				"foreground": &Color0 new java.awt.Color( 51, 51, 255, 255 )
+				"font": &Font0 new java.awt.Font( "Century Gothic", 1, 14 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelFirstName3"
+				"text": "From cosy country homes to funky city flats."
+				"foreground": #Color0
+				"font": #Font0
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 370, 90 )
+			"size": new java.awt.Dimension( 725, 485 )
+		} )
+		add( new FormComponent( "javax.swing.JButton" ) {
+			name: "ButtonRegister3"
+			"text": "Show all reservations"
+			"foreground": &Color1 new java.awt.Color( 51, 51, 255, 255 )
+			"font": &Font1 new java.awt.Font( "Century Gothic", 1, 18 )
+			"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, new java.awt.Color( 51, 51, 255, 255 ), new java.awt.Color( 51, 51, 255, 255 ), sfield java.awt.Color white, sfield java.awt.Color darkGray )
+			auxiliary() {
+				"JavaCodeGenerator.customCreate": true
+				"JavaCodeGenerator.variableGetter": true
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 1165, 660 )
+			"size": new java.awt.Dimension( 165, 29 )
+		} )
+		add( new FormComponent( "javax.swing.JButton" ) {
+			name: "ButtonRegister2"
+			"text": "Cance Reservation"
+			"foreground": #Color1
+			"font": #Font1
+			"border": #SoftBevelBorder0
+			auxiliary() {
+				"JavaCodeGenerator.customCreate": true
+				"JavaCodeGenerator.variableGetter": true
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 1035, 745 )
+			"size": new java.awt.Dimension( 155, 29 )
+		} )
+		add( new FormComponent( "javax.swing.JButton" ) {
+			name: "ButtonRegister"
+			"text": "Search/Reserve"
+			"foreground": #Color1
+			"font": #Font1
+			"border": #SoftBevelBorder0
+			auxiliary() {
+				"JavaCodeGenerator.customCreate": true
+				"JavaCodeGenerator.variableGetter": true
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 535, 695 )
+			"size": new java.awt.Dimension( 170, 35 )
+		} )
+	}
+}

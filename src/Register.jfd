@@ -1,0 +1,321 @@
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.12" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {comp panel2:::p::p, par l {seq l {space :::p, par l {seq {space :p:7:p, par l {seq {comp labelUserName:::p::p, space :::p, comp label30:::p:15:p}, seq l {par l:::p {comp textUserName::::168:x, comp textFirstName::::168:x}, space :p:87:p, comp textLastName:::p:203:p}, seq l {comp labelEmail:::p::p, space :::p, comp label31:::p:24:p}}}, seq {space :p:12:p, comp labelPhone:::p::p, space :::p, comp label33:::p:19:p}, comp textCountry::l:p:166:p, comp textField21::l:p:166:p, seq l {comp labelCountry:::p::p, space :::p, comp label37:::p:19:p}, comp labelBirthdate::l:p::p, seq l {comp labelRegion:::p::p, space :::p, comp label25:::p:32:p}, seq {comp textBirthdate:::p:166:p, space s:::p, comp ButtonRegister:::p:157:p, space u:::p, comp ButtonClear:::p:143:p}, comp commentsOfRegistration:::p:175:p, comp commentsOfRegistration2::l:p::p, seq {par l {seq {space :p:4:p, comp labelFirstName:::p:102:p, space :::p, comp label27:::p:15:p}, seq l {comp labelOffice:::p::p, space :::p, comp label24:::p:32:p}, comp textOffice::l:p:166:p, seq l {space :p:6:p, comp textEmail:::p:168:p}, seq l {space :p:6:p, comp textPhone:::p:166:p}}, space :p:79:p, par l {seq l {comp labelLastName:::p::p, space :::p, comp label35:::p:22:p}, seq l {comp labelPass:::p::p, space :::p, comp label28:::p:15:p}, seq l {comp labelCustomerOrProvider:::p::p, space :::p, comp label29:::p:15:p}, seq l {comp labelGender:::p::p, space :::p, comp label39:::p:19:p}, comp ComboBoxOfGender::l:p:203:p, comp textPassword::l:p:203:p, comp labelConfirmPass::l:p:174:p, seq l {par t {comp ComboBoxOfCustomerOrProvider::t:p:203:p, comp textConfirmPassword:::p:203:p}, space :::p, comp label36:::p:15:p}, comp label1:::p:1:p}}}, space :0:21:x}, seq l {space :p:139:p, comp labelRegestration:::p:209:p, space :::x}}, comp PanelOfBookinh:::p::p}}"
+			"$verticalGroup": "par l {seq {space :p:34:p, comp labelRegestration:::p::p, space s:::p, par l {seq l {par l {comp label27:::p::p, comp labelLastName:::p:29:p, comp label35:::p::p}, space :::p, comp textLastName:::p:29:p}, seq l {space :p:3:p, comp labelFirstName:::p:29:p, space :::p, comp textFirstName:::::p}}, space ::46:x, par l {seq l {par l {comp labelPass:::p::p, comp label28:::p::p}, space u:::p, comp textPassword:::p:29:p}, seq l {par l {seq l {space :p:1:p, comp labelUserName:::p::p}, comp label30::l:p:19:p}, space u:::p, comp textUserName:::p:29:p}}, par l {seq l {space :p:21:p, par l {comp labelEmail:::p::p, comp label31:::p::p}, space :::p, comp textEmail:::p:29:p}, seq l {space s:::p, comp labelConfirmPass:::p::p, par l {seq {space :p:4:p, comp label36:::p::p}, seq l {space u:::p, comp textConfirmPassword:::p:29:p}}}}, space :p:8:p, par l:::p {seq {par l {seq {comp label33:::p::p, space :p:21:p}, comp labelPhone::t:p::p}, par l {seq {space :p:18:p, comp label1:::p::p}, seq l {space :::p, comp textPhone:::p:29:p}}, space :p:10:p, par l {comp labelCountry:::p::p, comp label37:::p::p}, space :p:10:p, comp textCountry:::p:29:p}, seq {space :p:12:p, par l {comp labelCustomerOrProvider:::p::p, comp label29:::p::p}, space :::p, comp ComboBoxOfCustomerOrProvider:::p:28:p, space s:::p, par l {comp label39:::p::p, comp labelGender::l:p::p}, space :::x, comp ComboBoxOfGender:::p:26:p}}, space :::p, par l {comp labelOffice:::p::p, comp label24:::p::p}, space :::p, comp textOffice:::p:29:p, space :::p, par l {comp labelRegion:::p::p, comp label25:::p::p}, space :p:11:p, comp textField21:::p:29:p, space u:::p, comp labelBirthdate:::p::p, space :::p, par b {comp textBirthdate::b:p:29:p, comp ButtonRegister::b:p::p, comp ButtonClear::b:p::p}, space :::p, comp commentsOfRegistration:::p:17:p, space :::p, comp commentsOfRegistration2:::p:17:p, space :p:55:p}, comp panel2::l:::x, comp PanelOfBookinh::l:::x}"
+		} ) {
+			name: "this2"
+			"resizable": false
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq l {space :::p, comp label12:::p:98:p, space ::10:x}}"
+				"$verticalGroup": "par l {seq l {space :p:388:p, comp label12:::p:30:p, space ::400:x}}"
+			} ) {
+				name: "panel2"
+				"background": new java.awt.Color( 51, 51, 255, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label12"
+					"text": "meTa"
+					"font": new java.awt.Font( "Century Gothic", 1, 28 )
+					"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelRegestration"
+				"text": "REGISTRATION"
+				"foreground": new java.awt.Color( 51, 51, 255, 255 )
+				"font": new java.awt.Font( "Century Gothic", 1, 30 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelFirstName"
+				"text": "First Name"
+				"foreground": &Color1 new java.awt.Color( 51, 51, 255, 255 )
+				"font": &Font0 new java.awt.Font( "Century Gothic", 1, 20 )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textFirstName"
+				"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, new java.awt.Color( 51, 51, 255, 255 ), new java.awt.Color( 51, 51, 255, 255 ), sfield java.awt.Color white, sfield java.awt.Color darkGray )
+				"font": new java.awt.Font( "Century Gothic", 0, 14 )
+				"text": "e.g "
+				"cursor": new java.awt.Cursor( 0 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelPhone"
+				"text": "Phone"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "*"
+				"foreground": &Color2 new java.awt.Color( 255, 0, 102, 255 )
+				"font": &Font1 new java.awt.Font( "Tahoma", 0, 14 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label25"
+				"text": "**"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label27"
+				"text": "*"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label30"
+				"text": "*"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label31"
+				"text": "*"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label33"
+				"text": "*"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textLastName"
+				"border": #SoftBevelBorder0
+				"font": new java.awt.Font( "Century Gothic", 0, 14 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label35"
+				"text": "*"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textPhone"
+				"border": #SoftBevelBorder0
+				"font": &Font2 new java.awt.Font( "Century Gothic", 0, 14 )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textUserName"
+				"border": #SoftBevelBorder0
+				"font": new java.awt.Font( "Century Gothic", 0, 14 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelLastName"
+				"text": "Last Name"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelUserName"
+				"text": "Username"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelPass"
+				"text": "Password"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label28"
+				"text": "*"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textPassword"
+				"border": #SoftBevelBorder0
+				"font": &Font3 new java.awt.Font( "Century Gothic", 0, 14 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelEmail"
+				"text": "Email"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textEmail"
+				"border": #SoftBevelBorder0
+				"font": new java.awt.Font( "Century Gothic", 0, 14 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelCountry"
+				"text": "Country"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelOffice"
+				"text": "Office"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelRegion"
+				"text": "Region"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelGender"
+				"text": "Gender"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelBirthdate"
+				"text": "Birthdate"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelConfirmPass"
+				"text": "Confirm Password"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label36"
+				"text": "*"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textCountry"
+				"border": #SoftBevelBorder0
+				"font": #Font2
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textOffice"
+				"border": #SoftBevelBorder0
+				"font": #Font2
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textField21"
+				"border": #SoftBevelBorder0
+				"font": #Font2
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textBirthdate"
+				"border": #SoftBevelBorder0
+				"font": #Font2
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "textConfirmPassword"
+				"border": #SoftBevelBorder0
+				"font": #Font3
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label37"
+				"text": "*"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label39"
+				"text": "*"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label24"
+				"text": "**"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "labelCustomerOrProvider"
+				"text": "Customer/Provider"
+				"foreground": #Color1
+				"font": #Font0
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "ComboBoxOfGender"
+				"border": &SoftBevelBorder1 new javax.swing.border.SoftBevelBorder( 0, new java.awt.Color( 51, 51, 255, 255 ), new java.awt.Color( 51, 51, 255, 255 ), sfield java.awt.Color white, sfield java.awt.Color darkGray )
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Male"
+					addElement( "Male" )
+					addElement( "Female" )
+				}
+				"font": &Font4 new java.awt.Font( "Century Gothic", 1, 18 )
+				"foreground": &Color3 new java.awt.Color( 51, 51, 255, 255 )
+				"requestFocusEnabled": false
+				"verifyInputWhenFocusTarget": false
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "ComboBoxOfCustomerOrProvider"
+				"border": #SoftBevelBorder1
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Customer"
+					addElement( "Customer" )
+					addElement( "Provider" )
+				}
+				"font": #Font4
+				"foreground": #Color3
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "commentsOfRegistration"
+				"text": "* required field"
+				"foreground": #Color2
+				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "ButtonClear"
+				"text": "Clear"
+				"foreground": &Color4 new java.awt.Color( 51, 51, 255, 255 )
+				"font": &Font5 new java.awt.Font( "Century Gothic", 1, 18 )
+				"border": new javax.swing.border.SoftBevelBorder( 0, new java.awt.Color( 51, 51, 255, 255 ), new java.awt.Color( 51, 51, 255, 255 ), sfield java.awt.Color white, sfield java.awt.Color darkGray )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "ButtonRegister"
+				"text": "Register"
+				"foreground": #Color4
+				"font": #Font5
+				"border": new javax.swing.border.SoftBevelBorder( 0, new java.awt.Color( 51, 51, 255, 255 ), new java.awt.Color( 51, 51, 255, 255 ), sfield java.awt.Color white, sfield java.awt.Color darkGray )
+				"verifyInputWhenFocusTarget": false
+				"focusable": false
+				"defaultCapable": false
+				"contentAreaFilled": false
+				"selected": true
+				"focusPainted": false
+				auxiliary() {
+					"JavaCodeGenerator.variableGetter": true
+				}
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {seq t {space ::10:x, comp labelBooking:::p:100:p, space :::p}}"
+				"$verticalGroup": "par l {seq l {space :p:393:p, comp labelBooking:::p:30:p, space ::395:x}}"
+			} ) {
+				name: "PanelOfBookinh"
+				"background": new java.awt.Color( 51, 51, 255, 255 )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "labelBooking"
+					"text": ".Booking"
+					"font": new java.awt.Font( "Century Gothic", 1, 20 )
+					"foreground": #Color0
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "commentsOfRegistration2"
+				"text": "**informations that refers to providers"
+				"foreground": #Color2
+				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label29"
+				"text": "*"
+				"foreground": #Color2
+				"font": #Font1
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 755, 850 )
+			"location": new java.awt.Point( 395, 60 )
+		} )
+	}
+}
