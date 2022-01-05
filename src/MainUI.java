@@ -20,14 +20,11 @@ public class MainUI {
 
     /**
      * Constructor of MainUI
-     * This constructor initializes all the different HashMaps and some users in memory.
-     * Then it calls the login function
+     * Loads all serialized hashmaps from ./data/ if they exist, otherwise hashmaps are
+     * initialized in memory.
      */
     @SuppressWarnings("unchecked")
     public MainUI(){
-        this.reservations = new HashMap<>();
-        this.rooms = new HashMap<>();
-
         File directory = new File("./data/");
         if (!directory.exists()){
             //noinspection ResultOfMethodCallIgnored
@@ -119,7 +116,7 @@ public class MainUI {
         } else {this.messages = new HashMap<>();}
 
         scanner = new Scanner(System.in);
-/*
+
         // First time initialization
         this.users.put("user1", new Authentication("user1","pass1",1));
         this.users.put("user2", new Authentication("user2","pass2",1));
@@ -143,7 +140,7 @@ public class MainUI {
         this.rooms.put(4,new Room(4, "provider1","room1", "room",false,3, 25, 35, false, true, false, true, true, false, false, false, false));
         this.reservations.put(1,new Reservation(1,2, 3, 3, LocalDate.of(2021, 3, 5), LocalDate.of(2021, 3, 7), "user2", 50));
         this.reservations.put(2,new Reservation(2,1, 3, 2, LocalDate.of(2021, 6, 15), LocalDate.of(2021, 7, 17), "user1", 40));
-  */
+
     }
 
     public void optionHandler(){
