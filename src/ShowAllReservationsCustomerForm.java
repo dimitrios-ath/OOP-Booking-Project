@@ -92,14 +92,13 @@ public class ShowAllReservationsCustomerForm extends JPanel {
         scrollPane1 = new JScrollPane();
         list1 = new JList();
         button1 = new JButton();
-        button2 = new JButton();
 
         //======== this ========
         setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder
-        (0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder.CENTER,javax.swing.border
-        .TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt
+        (0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e",javax.swing.border.TitledBorder.CENTER,javax.swing.border
+        .TitledBorder.BOTTOM,new java.awt.Font("Dialo\u0067",java.awt.Font.BOLD,12),java.awt
         .Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void
-        propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException()
+        propertyChange(java.beans.PropertyChangeEvent e){if("borde\u0072".equals(e.getPropertyName()))throw new RuntimeException()
         ;}});
 
         //======== scrollPane1 ========
@@ -109,9 +108,7 @@ public class ShowAllReservationsCustomerForm extends JPanel {
 
         //---- button1 ----
         button1.setText("cancel");
-
-        //---- button2 ----
-        button2.setText("reserve");
+        button1.addActionListener(e ->cancelClick(e));
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
@@ -123,10 +120,8 @@ public class ShowAllReservationsCustomerForm extends JPanel {
                             .addGap(57, 57, 57)
                             .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 273, GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(76, 76, 76)
-                            .addComponent(button1, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-                            .addGap(72, 72, 72)
-                            .addComponent(button2, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)))
+                            .addGap(152, 152, 152)
+                            .addComponent(button1, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(70, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -134,11 +129,9 @@ public class ShowAllReservationsCustomerForm extends JPanel {
                 .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(26, Short.MAX_VALUE)
                     .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addGap(42, 42, 42)
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(button1)
-                        .addComponent(button2))
-                    .addGap(24, 24, 24))
+                    .addGap(41, 41, 41)
+                    .addComponent(button1)
+                    .addGap(25, 25, 25))
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -148,6 +141,5 @@ public class ShowAllReservationsCustomerForm extends JPanel {
     private JScrollPane scrollPane1;
     private JList list1;
     private JButton button1;
-    private JButton button2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

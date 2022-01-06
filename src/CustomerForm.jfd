@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space ::82:x, par t:::p {comp exit::l::301:x, comp message::l::301:x, comp showAllReservations::l::301:x, comp cancelReservation::l::301:x, comp SearchAndReserveRoom::l::301:x, comp Logout::l::301:x}, space ::42:x}, seq t {space ::211:x, comp label1:::p::p, space :p:144:p}}"
-			"$verticalGroup": "par l {seq l {space :p:27:p, comp label1:::p::p, space u:::p, comp SearchAndReserveRoom:::p::p, space u:::p, comp cancelReservation:::p::p, space u:::p, comp showAllReservations:::p::p, space u:::p, comp message:::p::p, space :p:8:p, comp Logout:::p::p, space :::p, comp exit:::p::p, space ::80:x}}"
+			"$horizontalGroup": "par l {seq t {space ::82:x, par t:::p {comp showAllReservations::l::301:x, comp cancelReservation::l::301:x, comp SearchAndReserveRoom::l::301:x, comp Logout::l::301:x, comp exit::t::301:x}, space ::42:x}, seq t {space ::211:x, comp label1:::p::p, space :p:144:p}}"
+			"$verticalGroup": "par l {seq l {space :p:27:p, comp label1:::p::p, space u:::p, comp SearchAndReserveRoom:::p::p, space u:::p, comp cancelReservation:::p::p, space u:::p, comp showAllReservations:::p::p, space s:::p, comp Logout:::p::p, space :::p, comp exit:::p::p, space ::95:x}}"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -23,10 +23,6 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "showAllReservations"
 				"text": "Show All Reservations"
-			} )
-			add( new FormComponent( "javax.swing.JButton" ) {
-				name: "message"
-				"text": "Messages"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "Logout"
