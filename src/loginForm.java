@@ -44,7 +44,8 @@ public class loginForm extends JPanel {
     private void loginButtonClick(ActionEvent e) {
         int role = 0;
         String username = textField1.getText();
-        String password = textField2.getText();
+        String password = String.valueOf(passwordField1.getPassword());
+        System.out.println(password);
         if (this.users.containsKey(username)) {
             Authentication temp = this.users.get(username);
             if (password.equals(temp.getPassword())){
@@ -107,17 +108,19 @@ public class loginForm extends JPanel {
         label2 = new JLabel();
         textField1 = new JTextField();
         label3 = new JLabel();
-        textField2 = new JTextField();
         button1 = new JButton();
         button2 = new JButton();
         label4 = new JLabel();
+        passwordField1 = new JPasswordField();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder (
-        0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder
-        . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .
-        red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java .
-        beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax
+        .swing.border.EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing
+        .border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.
+        Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt.Color.red
+        ), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override
+        public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName(
+        )))throw new RuntimeException();}});
 
         //---- label1 ----
         label1.setText("Login");
@@ -170,8 +173,8 @@ public class loginForm extends JPanel {
                                     .addGap(68, 68, 68)))
                             .addGroup(layout.createParallelGroup()
                                 .addComponent(textField1, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(textField2, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(button2)))
+                                .addComponent(button2)
+                                .addComponent(passwordField1, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(132, 132, 132)
                             .addComponent(label4)))
@@ -186,17 +189,17 @@ public class loginForm extends JPanel {
                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(label2)
                         .addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .addGap(32, 32, 32)
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addGap(37, 37, 37)
+                    .addGroup(layout.createParallelGroup()
                         .addComponent(label3)
-                        .addComponent(textField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .addGap(18, 18, 18)
+                        .addComponent(passwordField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addGap(34, 34, 34)
                     .addComponent(label4)
-                    .addGap(26, 26, 26)
+                    .addGap(38, 38, 38)
                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                         .addComponent(button2)
                         .addComponent(button1))
-                    .addContainerGap(124, Short.MAX_VALUE))
+                    .addContainerGap(95, Short.MAX_VALUE))
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -207,9 +210,9 @@ public class loginForm extends JPanel {
     private JLabel label2;
     private JTextField textField1;
     private JLabel label3;
-    private JTextField textField2;
     private JButton button1;
     private JButton button2;
     private JLabel label4;
+    private JPasswordField passwordField1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

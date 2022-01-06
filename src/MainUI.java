@@ -147,7 +147,7 @@ public class MainUI {
 
     public void optionHandlerGUI() {
         JFrame jframe = new JFrame("myBooking");
-        jframe.setPreferredSize(new Dimension(400, 300));
+        jframe.setPreferredSize(new Dimension(700, 700));
         jframe.pack();
         jframe.setLocationRelativeTo(null);
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,

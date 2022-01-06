@@ -4,8 +4,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq {space :p:178:p, comp label1:::p::p}, seq l {par l {seq {space :p:56:p, par l:::p {comp label3::::139:x, comp label2::::139:x}, space :p:41:p}, seq t {space :::p, comp button1:::p:97:p, space :p:68:p}}, par l {comp textField1:::p:97:p, comp textField2:::p:97:p, comp button2::l:p::p}}, seq l {space :p:132:p, comp label4:::p::p}}, space ::192:x}}"
-			"$verticalGroup": "par l {seq {space :p:29:p, comp label1:::p::p, space s:::p, par b {comp label2::b:p::p, comp textField1::b:p::p}, space :32:32:p, par b {comp label3::b:p::p, comp textField2::b:p::p}, space s:::p, comp label4:::p::p, space :p:26:p, par b {comp button2::b:p::p, comp button1::b:p::p}, space ::124:x}}"
+			"$horizontalGroup": "par l {seq {par l {seq {space :p:178:p, comp label1:::p::p}, seq l {par l {seq {space :p:56:p, par l:::p {comp label3::::139:x, comp label2::::139:x}, space :p:41:p}, seq t {space :::p, comp button1:::p:97:p, space :p:68:p}}, par l {comp textField1:::p:97:p, comp button2::l:p::p, comp passwordField1::l:p:91:p}}, seq l {space :p:132:p, comp label4:::p::p}}, space ::192:x}}"
+			"$verticalGroup": "par l {seq {space :p:29:p, comp label1:::p::p, space s:::p, par b {comp label2::b:p::p, comp textField1::b:p::p}, space :37:37:p, par l {comp label3:::p::p, comp passwordField1:::p::p}, space :p:34:p, comp label4:::p::p, space :p:38:p, par b {comp button2::b:p::p, comp button1::b:p::p}, space ::95:x}}"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -22,9 +22,6 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "Password:"
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField2"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
@@ -43,6 +40,9 @@ new FormModel {
 				name: "label4"
 				"text": "Wrong password, please try again"
 				"visible": false
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "passwordField1"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
