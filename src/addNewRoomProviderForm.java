@@ -119,7 +119,11 @@ public class addNewRoomProviderForm extends JPanel {
                 rooms.put(i, new Room(i, provider.getUsername(), name, type, longTime, capacity, price, size, wifi, parking,
                         airCondition, balcony, fridge, kitchen, tv, smoking, pets));
                 addedToHashMap = true;
-                System.out.println("\nAdded new room with id: " + i);
+                providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
+                        this.providers, this.admins, this.messages, this.mainUI, this.provider);
+                providerForm.setCurrentForm(providerForm);
+                this.jframe.add(providerForm);
+                this.currentForm.setVisible(false);
             }
             else {i++;}
         }
