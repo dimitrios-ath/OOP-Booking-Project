@@ -3,7 +3,6 @@ import javax.swing.*;
 import net.miginfocom.swing.*;
 
 import java.util.Map;
-import java.util.Scanner;
 /*
  * Created by JFormDesigner on Thu Jan 06 11:50:57 EET 2022
  */
@@ -82,6 +81,36 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    private void returnAllReservationsButtonClick(ActionEvent e) {
+        selectRoomAndReturnReservationsForm selectRoomAndReturnReservationsForm = new selectRoomAndReturnReservationsForm(
+                this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
+                this.admins, this.messages, this.mainUI, this.provider);
+        selectRoomAndReturnReservationsForm.setCurrentForm(selectRoomAndReturnReservationsForm);
+        this.jframe.add(selectRoomAndReturnReservationsForm);
+        this.currentForm.setVisible(false);
+    }
+
+    private void messagesButtonClick(ActionEvent e) {
+        messageForm messageForm = new messageForm(
+                this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
+                this.admins, this.messages, this.mainUI, this.provider.getUsername());
+        messageForm.setCurrentForm(messageForm);
+        this.jframe.add(messageForm);
+        this.currentForm.setVisible(false);
+    }
+
+    private void logoutButtonClick(ActionEvent e) {
+        loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
+                this.providers, this.admins, this.messages, this.mainUI);
+        loginForm.setCurrentForm(loginForm);
+        jframe.add(loginForm);
+        this.currentForm.setVisible(false);
+    }
+
+    private void exitButtonClick(ActionEvent e) {
+        this.mainUI.saveAndExit();
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - asdfasdfa
@@ -96,12 +125,12 @@ public class providerForm extends JPanel {
         button8 = new JButton();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
-        EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax . swing
-        . border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,
-        java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
-        { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName () ) )
-        throw new RuntimeException( ) ;} } );
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
+        border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER
+        , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
+        .BOLD ,12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
+        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r"
+        .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -150,18 +179,22 @@ public class providerForm extends JPanel {
 
         //---- button5 ----
         button5.setText("Return all reservations");
+        button5.addActionListener(e -> returnAllReservationsButtonClick(e));
         add(button5, "cell 6 6");
 
         //---- button6 ----
         button6.setText("Messages");
+        button6.addActionListener(e -> messagesButtonClick(e));
         add(button6, "cell 6 7");
 
         //---- button7 ----
         button7.setText("Log out");
+        button7.addActionListener(e -> logoutButtonClick(e));
         add(button7, "cell 6 8");
 
         //---- button8 ----
         button8.setText("Exit");
+        button8.addActionListener(e -> exitButtonClick(e));
         add(button8, "cell 6 9");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

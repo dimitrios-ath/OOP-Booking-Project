@@ -1,13 +1,13 @@
-import java.awt.*;
 import java.awt.event.*;
+import java.text.DecimalFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.*;
 import net.miginfocom.swing.*;
-
-import java.text.DecimalFormat;
-import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 /*
- * Created by JFormDesigner on Thu Jan 06 17:59:35 EET 2022
+ * Created by JFormDesigner on Thu Jan 06 21:42:13 EET 2022
  */
 
 
@@ -15,9 +15,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * @author asdfasdfa
  */
-public class selectRoomAndEditForm extends JPanel {
+public class returnAllReservationsForRoomForm extends JPanel {
     JFrame jframe;
-    selectRoomAndEditForm currentForm;
+    returnAllReservationsForRoomForm currentForm;
     private Provider provider;
     private MainUI mainUI;
     private Map<Integer,Reservation> reservations;
@@ -27,17 +27,17 @@ public class selectRoomAndEditForm extends JPanel {
     private Map<String,Provider> providers;
     private Map<String,Admin> admins;
     private Map<Integer,Message> messages;
-    DefaultListModel<String> model;
     private static DecimalFormat df;
-    private ArrayList<Integer> idsInList;
+    DefaultListModel<String> model;
+    private Integer id;
 
-    public void setCurrentForm(selectRoomAndEditForm currentForm) {
+    public void setCurrentForm(returnAllReservationsForRoomForm currentForm) {
         this.currentForm = currentForm;
     }
-
-    public selectRoomAndEditForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                                 Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                                 Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider) {
+    
+    public returnAllReservationsForRoomForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                Map<String,Authentication> users, Map<String,Customer> customers, Map<String, Provider> providers,
+                Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider, Integer id) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -46,51 +46,39 @@ public class selectRoomAndEditForm extends JPanel {
         this.providers = providers;
         this.admins = admins;
         this.messages = messages;
-        this.mainUI=mainUI;
+        this.mainUI = mainUI;
         this.provider = provider;
-        initComponents();
-
-        idsInList = new ArrayList<>();
+        this.id = id;
         df = new DecimalFormat("0.00");
+        initComponents();
+        label1.setText("Reservations for \"" + rooms.get(id).getName() + "\"");
         model = new DefaultListModel<String>();
-        AtomicBoolean noRoomsForProvider = new AtomicBoolean(true);
-        this.rooms.forEach((id, Room) -> {
-            if (Objects.equals(Room.getOwner(), this.provider.getUsername())){
-                model.addElement("Name: \"" + rooms.get(id).getName() +
-                        "\", type: " + rooms.get(id).getType() + ", capacity: " +
-                        rooms.get(id).getCapacity().toString()+ ", price: $" +
-                        df.format(rooms.get(id).getPrice()));
-                idsInList.add(id);
-                noRoomsForProvider.set(false);
+        AtomicBoolean roomFound = new AtomicBoolean(false);
+        AtomicInteger counter = new AtomicInteger(1);
+        reservations.forEach((reservationID, reservation) -> {
+            if (reservation.getRoomID() == id) {
+                model.addElement(counter + ". " + "reservation ID: " + reservation.getReservationID() + ", Username: \""
+                        + reservation.getUsername() + "\", Guests: " + reservation.getGuestNumber() + ", Check in: "
+                        + reservation.getCheckIn().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                        + ", Check out: " + reservation.getCheckOut().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                        + ", Total price: $" + df.format((reservation.getTotalPrice())));
+                roomFound.set(true);
+                counter.getAndIncrement();
             }
         });
-        if (noRoomsForProvider.get()) {
-            model.addElement("No rooms found");
+        if (!roomFound.get()) {
+            model.addElement("No reservations found for this room");
             list1.setEnabled(false);
         }
         list1.setModel(model);
     }
 
-    private void cancelButtonClick(ActionEvent e) {
+    private void returnButtonClick(ActionEvent e) {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
         providerForm.setCurrentForm(providerForm);
         this.jframe.add(providerForm);
         this.currentForm.setVisible(false);
-    }
-
-    private void nextButtonClick(ActionEvent e) {
-        if (!list1.isSelectionEmpty()) {
-            editExistingRoomProviderForm editExistingRoomProviderForm = new editExistingRoomProviderForm(this.jframe,
-                    this.reservations, this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
-                    this.mainUI, this.provider, idsInList.get(list1.getSelectedIndex()));
-            editExistingRoomProviderForm.setCurrentForm(editExistingRoomProviderForm);
-            this.jframe.add(editExistingRoomProviderForm);
-            this.currentForm.setVisible(false);
-        } else {
-            label2.setForeground(Color.red);
-            label2.setVisible(true);
-        }
     }
 
     private void initComponents() {
@@ -99,19 +87,21 @@ public class selectRoomAndEditForm extends JPanel {
         label1 = new JLabel();
         label2 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<String>();
         button1 = new JButton();
-        button2 = new JButton();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
-        0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
-        .BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt.Color.
-        red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
-        beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();}});
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
+        javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax
+        . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
+        .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt
+        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans.
+        PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .
+        equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
+            "[fill]" +
             "[fill]" +
             "[fill]" +
             "[fill]" +
@@ -150,7 +140,7 @@ public class selectRoomAndEditForm extends JPanel {
             "[]"));
 
         //---- label1 ----
-        label1.setText("Select a room to edit:");
+        label1.setText("Reservations for \"name\"");
         add(label1, "cell 7 0");
 
         //---- label2 ----
@@ -165,17 +155,12 @@ public class selectRoomAndEditForm extends JPanel {
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             scrollPane1.setViewportView(list1);
         }
-        add(scrollPane1, "cell 2 4 21 3");
+        add(scrollPane1, "cell 2 4 22 3");
 
         //---- button1 ----
-        button1.setText("Cancel");
-        button1.addActionListener(e -> cancelButtonClick(e));
-        add(button1, "cell 6 9");
-
-        //---- button2 ----
-        button2.setText("Next");
-        button2.addActionListener(e -> nextButtonClick(e));
-        add(button2, "cell 12 9");
+        button1.setText("Return");
+        button1.addActionListener(e -> returnButtonClick(e));
+        add(button1, "cell 7 9");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -184,8 +169,7 @@ public class selectRoomAndEditForm extends JPanel {
     private JLabel label1;
     private JLabel label2;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JButton button1;
-    private JButton button2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

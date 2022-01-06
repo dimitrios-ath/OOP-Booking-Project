@@ -46,24 +46,28 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button5"
 				"text": "Return all reservations"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "returnAllReservationsButtonClick", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 6 6"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button6"
 				"text": "Messages"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "messagesButtonClick", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 6 7"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button7"
 				"text": "Log out"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonClick", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 6 8"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button8"
 				"text": "Exit"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "exitButtonClick", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 6 9"
 			} )

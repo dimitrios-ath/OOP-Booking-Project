@@ -1,13 +1,14 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.*;
 import net.miginfocom.swing.*;
-
-import java.text.DecimalFormat;
-import java.util.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 /*
- * Created by JFormDesigner on Thu Jan 06 17:59:35 EET 2022
+ * Created by JFormDesigner on Thu Jan 06 21:35:44 EET 2022
  */
 
 
@@ -15,9 +16,9 @@ import java.util.concurrent.atomic.AtomicBoolean;
 /**
  * @author asdfasdfa
  */
-public class selectRoomAndEditForm extends JPanel {
+public class selectRoomAndReturnReservationsForm extends JPanel {
     JFrame jframe;
-    selectRoomAndEditForm currentForm;
+    selectRoomAndReturnReservationsForm currentForm;
     private Provider provider;
     private MainUI mainUI;
     private Map<Integer,Reservation> reservations;
@@ -30,14 +31,15 @@ public class selectRoomAndEditForm extends JPanel {
     DefaultListModel<String> model;
     private static DecimalFormat df;
     private ArrayList<Integer> idsInList;
-
-    public void setCurrentForm(selectRoomAndEditForm currentForm) {
+    
+    public void setCurrentForm(selectRoomAndReturnReservationsForm currentForm) {
         this.currentForm = currentForm;
     }
-
-    public selectRoomAndEditForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                                 Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                                 Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider) {
+    
+    public selectRoomAndReturnReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations, 
+                       Map<Integer,Room> rooms, Map<String,Authentication> users, Map<String,Customer> customers, 
+                       Map<String,Provider> providers, Map<String,Admin> admins, Map<Integer,Message> messages, 
+                       MainUI mainUI, Provider provider) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -81,11 +83,11 @@ public class selectRoomAndEditForm extends JPanel {
 
     private void nextButtonClick(ActionEvent e) {
         if (!list1.isSelectionEmpty()) {
-            editExistingRoomProviderForm editExistingRoomProviderForm = new editExistingRoomProviderForm(this.jframe,
+            returnAllReservationsForRoomForm returnAllReservationsForRoomForm = new returnAllReservationsForRoomForm(this.jframe,
                     this.reservations, this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                     this.mainUI, this.provider, idsInList.get(list1.getSelectedIndex()));
-            editExistingRoomProviderForm.setCurrentForm(editExistingRoomProviderForm);
-            this.jframe.add(editExistingRoomProviderForm);
+            returnAllReservationsForRoomForm.setCurrentForm(returnAllReservationsForRoomForm);
+            this.jframe.add(returnAllReservationsForRoomForm);
             this.currentForm.setVisible(false);
         } else {
             label2.setForeground(Color.red);
@@ -104,11 +106,13 @@ public class selectRoomAndEditForm extends JPanel {
         button2 = new JButton();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
-        0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
-        .BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt.Color.
-        red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
-        beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();}});
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing
+        .border.EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder
+        .CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.
+        awt.Font.BOLD,12),java.awt.Color.red), getBorder()))
+        ; addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
+        ){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();}})
+        ;
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -150,7 +154,7 @@ public class selectRoomAndEditForm extends JPanel {
             "[]"));
 
         //---- label1 ----
-        label1.setText("Select a room to edit:");
+        label1.setText("Select a room to return all reservations for:");
         add(label1, "cell 7 0");
 
         //---- label2 ----

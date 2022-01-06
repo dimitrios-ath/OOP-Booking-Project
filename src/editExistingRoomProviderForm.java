@@ -32,8 +32,8 @@ public class editExistingRoomProviderForm extends JPanel {
     }
     
     public editExistingRoomProviderForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                                        Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                                        Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider, Integer id) {
+                Map<String,Authentication> users, Map<String,Customer> customers, Map<String, Provider> providers,
+                Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider, Integer id) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
