@@ -25,12 +25,14 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Edit existing room"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "editRoomButtonClick", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 6 3"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button3"
 				"text": "Delete existing room"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "deleteExistingRoomButtonClick", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 6 4"
 			} )

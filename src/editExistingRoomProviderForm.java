@@ -1,12 +1,11 @@
 import java.awt.*;
 import java.awt.event.*;
-import javax.swing.*;
-import net.miginfocom.swing.*;
-
 import java.util.Map;
 import java.util.Objects;
+import javax.swing.*;
+import net.miginfocom.swing.*;
 /*
- * Created by JFormDesigner on Thu Jan 06 12:20:00 EET 2022
+ * Created by JFormDesigner on Thu Jan 06 17:56:07 EET 2022
  */
 
 
@@ -14,9 +13,9 @@ import java.util.Objects;
 /**
  * @author asdfasdfa
  */
-public class addNewRoomProviderForm extends JPanel {
+public class editExistingRoomProviderForm extends JPanel {
     JFrame jframe;
-    addNewRoomProviderForm currentForm;
+    editExistingRoomProviderForm currentForm;
     private Provider provider;
     private MainUI mainUI;
     private Map<Integer,Reservation> reservations;
@@ -26,14 +25,15 @@ public class addNewRoomProviderForm extends JPanel {
     private Map<String,Provider> providers;
     private Map<String,Admin> admins;
     private Map<Integer,Message> messages;
+    private Integer idToEdit;
 
-    public void setCurrentForm(addNewRoomProviderForm currentForm) {
+    public void setCurrentForm(editExistingRoomProviderForm currentForm) {
         this.currentForm = currentForm;
     }
-
-    public addNewRoomProviderForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                                  Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                                  Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider) {
+    
+    public editExistingRoomProviderForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                                        Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
+                                        Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider, Integer id) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -44,24 +44,48 @@ public class addNewRoomProviderForm extends JPanel {
         this.messages = messages;
         this.mainUI = mainUI;
         this.provider = provider;
+        this.idToEdit = id;
         initComponents();
+        
+        if (Objects.equals(rooms.get(idToEdit).getType(), "hotel")) {
+            comboBox1.setSelectedIndex(0);
+        } else if (Objects.equals(rooms.get(idToEdit).getType(), "room")) {
+            comboBox1.setSelectedIndex(1);
+        } else {comboBox1.setSelectedIndex(2);}
+        textField1.setText(rooms.get(idToEdit).getName());
+        textField2.setText(rooms.get(idToEdit).getPrice().toString());
+        textField3.setText(rooms.get(idToEdit).getM2().toString());
+        textField4.setText(rooms.get(idToEdit).getCapacity().toString());
+        if (rooms.get(idToEdit).getLongTime()) {checkBox1.setSelected(true);}
+        if (rooms.get(idToEdit).getWifi()) {checkBox2.setSelected(true);}
+        if (rooms.get(idToEdit).getParking()) {checkBox3.setSelected(true);}
+        if (rooms.get(idToEdit).getAirCondition()) {checkBox4.setSelected(true);}
+        if (rooms.get(idToEdit).getBalcony()) {checkBox5.setSelected(true);}
+        if (rooms.get(idToEdit).getFridge()) {checkBox6.setSelected(true);}
+        if (rooms.get(idToEdit).getKitchen()) {checkBox7.setSelected(true);}
+        if (rooms.get(idToEdit).getTv()) {checkBox8.setSelected(true);}
+        if (rooms.get(idToEdit).getSmoking()) {checkBox9.setSelected(true);}
+        if (rooms.get(idToEdit).getPets()) {checkBox10.setSelected(true);}
+        
     }
 
-    private void addRoomClick(ActionEvent e) {
-        String type = "";
+    private void cancelClick(ActionEvent e) {
+        providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
+                this.providers, this.admins, this.messages, this.mainUI, this.provider);
+        providerForm.setCurrentForm(providerForm);
+        this.jframe.add(providerForm);
+        this.currentForm.setVisible(false);
+    }
+
+    private void editRoomClick(ActionEvent e) {
         boolean validInput = true;
-        if (comboBox1.getSelectedItem() == "-") {
-            comboBox1.setForeground(Color.red);
-            validInput = false;
-        }
-        else {
-            if (comboBox1.getSelectedItem() == "Hotel") {
-                type = "hotel";
-            } else if (comboBox1.getSelectedItem() == "Room") {
-                type = "room";
-            } else {type = "apartment";}
-            comboBox1.setForeground(null);
-        }
+
+        String type = "";
+        if (comboBox1.getSelectedItem() == "Hotel") {
+            type = "hotel";
+        } else if (comboBox1.getSelectedItem() == "Room") {
+            type = "room";
+        } else {type = "apartment";}
 
         String name = textField1.getText();
         if (Objects.equals(name, "")){
@@ -113,40 +137,23 @@ public class addNewRoomProviderForm extends JPanel {
         boolean pets = checkBox10.isSelected();
 
         if (validInput) {
-            boolean addedToHashMap = false;
-            int i = 1;
-            while (!addedToHashMap && i < 1000) {
-                if (!rooms.containsKey(i)) {
-                    rooms.put(i, new Room(i, provider.getUsername(), name, type, longTime, capacity, price, size, wifi, parking,
-                            airCondition, balcony, fridge, kitchen, tv, smoking, pets));
-                    addedToHashMap = true;
-                    providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
-                            this.providers, this.admins, this.messages, this.mainUI, this.provider);
-                    providerForm.setCurrentForm(providerForm);
-                    this.jframe.add(providerForm);
-                    this.currentForm.setVisible(false);
-                } else {
-                    i++;
-                }
-            }
+            rooms.put(idToEdit, new Room(idToEdit, provider.getUsername(), name, type, longTime, capacity, price,
+                    size, wifi, parking, airCondition, balcony, fridge, kitchen, tv, smoking, pets));
+            providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users,
+                    this.customers, this.providers, this.admins, this.messages, this.mainUI, this.provider);
+            providerForm.setCurrentForm(providerForm);
+            this.jframe.add(providerForm);
+            this.currentForm.setVisible(false);
         }
-    }
-
-    private void cancelClick(ActionEvent e) {
-        providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
-                this.providers, this.admins, this.messages, this.mainUI, this.provider);
-        providerForm.setCurrentForm(providerForm);
-        this.jframe.add(providerForm);
-        this.currentForm.setVisible(false);
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label1 = new JLabel();
         label2 = new JLabel();
-        comboBox1 = new JComboBox<>();
         label3 = new JLabel();
+        comboBox1 = new JComboBox<>();
+        label4 = new JLabel();
         textField1 = new JTextField();
         label5 = new JLabel();
         textField2 = new JTextField();
@@ -154,7 +161,7 @@ public class addNewRoomProviderForm extends JPanel {
         textField3 = new JTextField();
         label16 = new JLabel();
         textField4 = new JTextField();
-        label4 = new JLabel();
+        label1 = new JLabel();
         checkBox1 = new JCheckBox();
         label7 = new JLabel();
         checkBox2 = new JCheckBox();
@@ -178,11 +185,12 @@ public class addNewRoomProviderForm extends JPanel {
         button1 = new JButton();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0
-        ,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
-        ,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.red),
-         getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-        ){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
+        .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax
+        . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,
+        12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans
+        .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e.
+        getPropertyName () ) )throw new RuntimeException( ) ;} } );
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -213,26 +221,25 @@ public class addNewRoomProviderForm extends JPanel {
             "[]" +
             "[]"));
 
-        //---- label1 ----
-        label1.setText("Add new Room");
-        add(label1, "cell 2 0");
-
         //---- label2 ----
-        label2.setText("Type:");
-        add(label2, "cell 1 2");
+        label2.setText("Edit existing Room");
+        add(label2, "cell 2 0");
+
+        //---- label3 ----
+        label3.setText("Type:");
+        add(label3, "cell 1 2");
 
         //---- comboBox1 ----
         comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
-            "-",
             "Hotel",
             "Room",
             "Apartment"
         }));
         add(comboBox1, "cell 2 2");
 
-        //---- label3 ----
-        label3.setText("Name:");
-        add(label3, "cell 1 3");
+        //---- label4 ----
+        label4.setText("Name:");
+        add(label4, "cell 1 3");
         add(textField1, "cell 2 3");
 
         //---- label5 ----
@@ -250,9 +257,9 @@ public class addNewRoomProviderForm extends JPanel {
         add(label16, "cell 1 6");
         add(textField4, "cell 2 6");
 
-        //---- label4 ----
-        label4.setText("Long term reservation:");
-        add(label4, "cell 1 7");
+        //---- label1 ----
+        label1.setText("Long term reservation:");
+        add(label1, "cell 1 7");
         add(checkBox1, "cell 2 7");
 
         //---- label7 ----
@@ -306,18 +313,18 @@ public class addNewRoomProviderForm extends JPanel {
         add(button2, "cell 1 17");
 
         //---- button1 ----
-        button1.setText("Add");
-        button1.addActionListener(e -> addRoomClick(e));
+        button1.setText("Edit");
+        button1.addActionListener(e -> editRoomClick(e));
         add(button1, "cell 3 17");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label1;
     private JLabel label2;
-    private JComboBox<String> comboBox1;
     private JLabel label3;
+    private JComboBox<String> comboBox1;
+    private JLabel label4;
     private JTextField textField1;
     private JLabel label5;
     private JTextField textField2;
@@ -325,7 +332,7 @@ public class addNewRoomProviderForm extends JPanel {
     private JTextField textField3;
     private JLabel label16;
     private JTextField textField4;
-    private JLabel label4;
+    private JLabel label1;
     private JCheckBox checkBox1;
     private JLabel label7;
     private JCheckBox checkBox2;

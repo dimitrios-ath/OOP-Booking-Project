@@ -399,8 +399,8 @@ public class ProviderUI {
             smoking = scanBooleanFilter("\nIs smoking allowed in the room?\n1. Yes\n2. No");
             pets = scanBooleanFilter("\nAre pets allowed in the room?\n1. Yes\n2. No");
 
-            rooms.put(id, new Room(id, provider.getUsername(), name, type, longTime, capacity, price, m2, wifi, parking,
-                    airCondition, balcony, fridge, kitchen, tv, smoking, pets));
+            rooms.put(id, new Room(id, provider.getUsername(), name, type, longTime, capacity, price,
+                    m2, wifi, parking, airCondition, balcony, fridge, kitchen, tv, smoking, pets));
             System.out.println("\nSuccessfully edited room with the following id: " + id);
         }
         else if (validInput){
@@ -439,12 +439,14 @@ public class ProviderUI {
                 reservationsForRoomExist.set(true);
             }
         });
-        if (rooms.containsKey(id) && Objects.equals(rooms.get(id).getOwner(), provider.getUsername()) && !reservationsForRoomExist.get() && validInput) {
+        if (rooms.containsKey(id) && Objects.equals(rooms.get(id).getOwner(), provider.getUsername()) &&
+                !reservationsForRoomExist.get() && validInput) {
             rooms.remove(id);
             System.out.println("\nSuccessfully removed room with the following id: " + id);
         }
         else if (validInput && reservationsForRoomExist.get()){
-            System.out.println("\nFailed to remove room with the following id: " + id + ", because there are existing reservations for this room.");
+            System.out.println("\nFailed to remove room with the following id: " + id + ", because there " +
+                    "are existing reservations for this room.");
         }
         else {
             System.out.println("\nFailed to remove room with the following id: " + id);
