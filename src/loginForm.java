@@ -15,6 +15,7 @@ import net.miginfocom.swing.*;
 public class loginForm extends JPanel {
     JFrame jframe;
     loginForm currentForm;
+    private MainUI mainUI;
     private Map<Integer,Reservation> reservations;
     private Map<Integer,Room> rooms;
     private Map<String,Authentication> users;
@@ -29,7 +30,7 @@ public class loginForm extends JPanel {
 
     public loginForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                      Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                     Map<String,Admin> admins, Map<Integer,Message> messages) {
+                     Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -38,6 +39,7 @@ public class loginForm extends JPanel {
         this.providers = providers;
         this.admins = admins;
         this.messages = messages;
+        this.mainUI=mainUI;
         initComponents();
     }
 
@@ -71,10 +73,13 @@ public class loginForm extends JPanel {
                 //        this.reservations, this.messages, this.users);
             }
             case 2 -> {
-                label4.setText("success as provider");
-                label4.setVisible(true);
-                //ProviderUI providerUI = new ProviderUI(this.mainUI, this.providers.get(username), this.rooms,
-                //        this.reservations, this.messages, this.users);
+                //label4.setText("success as provider");
+                //label4.setVisible(true);
+                providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
+                        this.providers, this.admins, this.messages, this.mainUI, this.providers.get(username));
+                providerForm.setCurrentForm(providerForm);
+                this.jframe.add(providerForm);
+                this.currentForm.setVisible(false);
             }
             case 3 -> {
                 label4.setText("success as admin");
@@ -87,7 +92,7 @@ public class loginForm extends JPanel {
 
     private void registerButtonClick(ActionEvent e) {
         registerForm registerForm = new registerForm(this.jframe, this.reservations, this.rooms, this.users,
-                this.customers, this.providers, this.admins, this.messages);
+                this.customers, this.providers, this.admins, this.messages, this.mainUI);
         registerForm.setCurrentForm(registerForm);
         this.jframe.add(registerForm);
         this.currentForm.setVisible(false);

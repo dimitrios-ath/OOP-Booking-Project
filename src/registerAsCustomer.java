@@ -18,6 +18,7 @@ import net.miginfocom.swing.*;
 public class registerAsCustomer extends JPanel {
     JFrame jframe;
     registerAsCustomer currentForm;
+    private MainUI mainUI;
     private Map<Integer,Reservation> reservations;
     private Map<Integer,Room> rooms;
     private Map<String,Authentication> users;
@@ -32,7 +33,7 @@ public class registerAsCustomer extends JPanel {
 
     public registerAsCustomer(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                               Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                              Map<String,Admin> admins, Map<Integer,Message> messages) {
+                              Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -41,6 +42,7 @@ public class registerAsCustomer extends JPanel {
         this.providers = providers;
         this.admins = admins;
         this.messages = messages;
+        this.mainUI=mainUI;
         initComponents();
     }
 
@@ -128,7 +130,7 @@ public class registerAsCustomer extends JPanel {
             this.customers.put(username, new Customer(username, email, password, firstName, lastName,
                     gender, country, phone, birthdate, false));
             loginForm loginForm = new loginForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
-                    this.providers, this.admins, this.messages);
+                    this.providers, this.admins, this.messages, this.mainUI);
             loginForm.setCurrentForm(loginForm);
             this.jframe.add(loginForm);
             this.currentForm.setVisible(false);

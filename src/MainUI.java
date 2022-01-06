@@ -151,7 +151,7 @@ public class MainUI {
         jframe.pack();
         jframe.setLocationRelativeTo(null);
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
-                this.providers, this.admins, this.messages);
+                this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
         jframe.add(loginForm);
         jframe.setVisible(true);

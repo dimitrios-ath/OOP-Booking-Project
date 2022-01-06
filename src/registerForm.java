@@ -14,6 +14,7 @@ import javax.swing.*;
 public class registerForm extends JPanel {
     JFrame jframe;
     registerForm currentForm;
+    private MainUI mainUI;
     private Map<Integer,Reservation> reservations;
     private Map<Integer,Room> rooms;
     private Map<String,Authentication> users;
@@ -28,7 +29,7 @@ public class registerForm extends JPanel {
 
     public registerForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                         Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                        Map<String,Admin> admins, Map<Integer,Message> messages) {
+                        Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -37,12 +38,13 @@ public class registerForm extends JPanel {
         this.providers = providers;
         this.admins = admins;
         this.messages = messages;
+        this.mainUI=mainUI;
         initComponents();
     }
 
     private void backToLogin(ActionEvent e) {
         loginForm loginForm = new loginForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
-                this.providers, this.admins, this.messages);
+                this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
         this.jframe.add(loginForm);
         this.currentForm.setVisible(false);
@@ -51,13 +53,13 @@ public class registerForm extends JPanel {
     private void registerWithRole(ActionEvent e) {
         if (comboBox1.getSelectedItem()=="Customer") {
             registerAsCustomer registerAsCustomer = new registerAsCustomer(this.jframe, this.reservations,
-                    this.rooms, this.users, this.customers, this.providers, this.admins, this.messages);
+                    this.rooms, this.users, this.customers, this.providers, this.admins, this.messages, this.mainUI);
             registerAsCustomer.setCurrentForm(registerAsCustomer);
             this.jframe.add(registerAsCustomer);
         }
         else {
             registerAsProvider registerAsProvider = new registerAsProvider(this.jframe, this.reservations,
-                    this.rooms, this.users, this.customers, this.providers, this.admins, this.messages);
+                    this.rooms, this.users, this.customers, this.providers, this.admins, this.messages, this.mainUI);
             registerAsProvider.setCurrentForm(registerAsProvider);
             this.jframe.add(registerAsProvider);
         }
