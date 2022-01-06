@@ -39,6 +39,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button4"
 				"text": "Show All rooms"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "showAllRoomsButtonClick", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 6 5"
 			} )

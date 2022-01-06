@@ -61,8 +61,8 @@ public class selectRoomAndEditForm extends JPanel {
                         rooms.get(id).getCapacity().toString()+ ", price: $" +
                         df.format(rooms.get(id).getPrice()));
                 idsInList.add(id);
+                noRoomsForProvider.set(false);
             }
-            noRoomsForProvider.set(false);
         });
         if (noRoomsForProvider.get()) {
             model.addElement("No rooms found");

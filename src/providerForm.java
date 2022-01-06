@@ -73,6 +73,15 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    private void showAllRoomsButtonClick(ActionEvent e) {
+        showAllRoomsForm showAllRoomsForm = new showAllRoomsForm(this.jframe,
+                this.reservations, this.rooms, this.users, this.customers, this.providers,
+                this.admins, this.messages, this.mainUI, this.provider);
+        showAllRoomsForm.setCurrentForm(showAllRoomsForm);
+        this.jframe.add(showAllRoomsForm);
+        this.currentForm.setVisible(false);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - asdfasdfa
@@ -87,11 +96,12 @@ public class providerForm extends JPanel {
         button8 = new JButton();
 
         //======== this ========
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
-        0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
-        . BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-        beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
+        EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax . swing
+        . border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,
+        java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
+        { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName () ) )
+        throw new RuntimeException( ) ;} } );
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -135,6 +145,7 @@ public class providerForm extends JPanel {
 
         //---- button4 ----
         button4.setText("Show All rooms");
+        button4.addActionListener(e -> showAllRoomsButtonClick(e));
         add(button4, "cell 6 5");
 
         //---- button5 ----
