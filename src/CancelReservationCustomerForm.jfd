@@ -1,0 +1,35 @@
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.12" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq t {space :p:100:p, comp buttonCancel:::p:82:p, space ::218:x, comp buttonCancelReservation:::p::p, space :p:62:p}, seq l {space :p:30:p, comp scrollPane1::::539:x, space :::p}, seq l {space :p:214:p, comp label1:::p:116:p, space ::245:x}}"
+			"$verticalGroup": "par l {seq l {space ::71:x, comp scrollPane1:::p::p, space s:::p, comp label1:::p::p, space :p:9:p, par t {comp buttonCancel:::p::p, comp buttonCancelReservation:::p::p}, space :::p}}"
+		} ) {
+			name: "this"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "buttonCancelReservation"
+				"text": "cancel reservation"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "buttonCancel"
+				"text": "cancel"
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list1"
+					"selectionMode": 0
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "text"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 10, 115 )
+			"size": new java.awt.Dimension( 575, 260 )
+		} )
+	}
+}
