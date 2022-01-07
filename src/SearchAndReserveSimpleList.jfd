@@ -1,0 +1,34 @@
+JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.12" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :p:64:p, par t {seq t {space :0:0:x, comp button1:::p::p, space :p:76:p, comp button2:::p:102:p, space :p:257:p}, seq l {par t {comp scrollPane1::l:p:421:p, seq l {space :104:104:p, comp label1:::p:266:p}}, space :::x}}}}"
+			"$verticalGroup": "par l {seq t {space ::45:x, comp scrollPane1:::p:146:p, space :p:41:p, comp label1:::p::p, space s:::p, par b {comp button1::b:p::p, comp button2::b:p::p}, space :p:16:p}}"
+		} ) {
+			name: "this"
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list1"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "cancel"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button2"
+				"text": "reserve"
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label1"
+				"text": "label"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 60, 145 )
+			"size": new java.awt.Dimension( 560, 300 )
+		} )
+	}
+}
