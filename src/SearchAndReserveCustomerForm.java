@@ -116,12 +116,12 @@ public class SearchAndReserveCustomerForm extends JPanel {
     }
 
     private void FiltersButtonClick(ActionEvent e){
-        FilteredSearchRoomCustomerForm filteredSearchRoomCustomerForm = new FilteredSearchRoomCustomerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
+        /*FilteredSearchRoomCustomerForm filteredSearchRoomCustomerForm = new FilteredSearchRoomCustomerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                this.providers, this.admins, this.messages, this.mainUI, this.customer);
         filteredSearchRoomCustomerForm.setCurrentForm(filteredSearchRoomCustomerForm);
         this.jframe.add(filteredSearchRoomCustomerForm);
         this.currentForm.setVisible(false);
-
+        */
     }
 
     private void initComponents() {

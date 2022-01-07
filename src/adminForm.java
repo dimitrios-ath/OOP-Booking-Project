@@ -73,6 +73,24 @@ public class adminForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    private void searchUserButtonClick(ActionEvent e) {
+        searchUsersForm searchUsersForm = new searchUsersForm(jframe, this.reservations,
+                this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
+                this.mainUI, this.admin);
+        searchUsersForm.setCurrentForm(searchUsersForm);
+        jframe.add(searchUsersForm);
+        this.currentForm.setVisible(false);
+    }
+
+    private void activateDeactivateAccountsButtonClick(ActionEvent e) {
+        changeAccountStateForm changeAccountStateForm = new changeAccountStateForm(jframe, this.reservations,
+                this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
+                this.mainUI, this.admin);
+        changeAccountStateForm.setCurrentForm(changeAccountStateForm);
+        jframe.add(changeAccountStateForm);
+        this.currentForm.setVisible(false);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - asdfasdfa
@@ -85,12 +103,11 @@ public class adminForm extends JPanel {
         button6 = new JButton();
 
         //======== this ========
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
-        ( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing. border
-        . TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
-        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
-        propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
-        ; }} );
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
+        0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
+        . BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
+        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
+        beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -122,10 +139,12 @@ public class adminForm extends JPanel {
 
         //---- button2 ----
         button2.setText("Search users");
+        button2.addActionListener(e -> searchUserButtonClick(e));
         add(button2, "cell 3 3");
 
         //---- button3 ----
-        button3.setText("Approve new user");
+        button3.setText("Change user state");
+        button3.addActionListener(e -> activateDeactivateAccountsButtonClick(e));
         add(button3, "cell 3 4");
 
         //---- button4 ----

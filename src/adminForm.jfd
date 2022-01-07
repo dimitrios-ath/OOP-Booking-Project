@@ -25,12 +25,14 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Search users"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchUserButtonClick", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 3 3"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button3"
-				"text": "Approve new user"
+				"text": "Change user state"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "activateDeactivateAccountsButtonClick", true ) )
 			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
 				"value": "cell 3 4"
 			} )
