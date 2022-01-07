@@ -46,15 +46,14 @@ public class customerForm extends JPanel {
         initComponents();
     }
 
-
     private void searchReserveButtonClick(ActionEvent e){
-        SearchAndReserveCustomerForm searchAndReserveCustomerForm=new SearchAndReserveCustomerForm(this.jframe,
+        /*SearchAndReserveCustomerForm searchAndReserveCustomerForm=new SearchAndReserveCustomerForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.customer,this.room);
         searchAndReserveCustomerForm.setCurrentForm(searchAndReserveCustomerForm);
         this.jframe.add(searchAndReserveCustomerForm);
         this.currentForm.setVisible(false);
-
+*/
     }
     private void cancelReservationButtonClick(ActionEvent e){
         CancelReservationCustomerForm cancelReservationCustomerForm= new CancelReservationCustomerForm(this.jframe,
@@ -65,21 +64,27 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
     private void showAllReservationsButtonClick(ActionEvent e){
-        ShowAllReservationsCustomerForm showAllReservationsCustomerForm=new ShowAllReservationsCustomerForm(this.jframe,
-                this.reservations, this.rooms, this.users, this.customers, this.providers,
+        ShowAllReservationsCustomerForm showAllReservationsCustomerForm=new ShowAllReservationsCustomerForm(
+                this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.customer);
         showAllReservationsCustomerForm.setCurrentForm(showAllReservationsCustomerForm);
         this.jframe.add(showAllReservationsCustomerForm);
         this.currentForm.setVisible(false);
     }
-
+    private void messagesClickButton(ActionEvent e){
+        /*MessagesCustomerForm messagesCustomerForm= new MessagesCustomerForm(this.jframe,
+                this.reservations, this.rooms, this.users, this.customers, this.providers,
+                this.admins, this.messages, this.mainUI, this.customer);
+        messagesCustomerForm.setCurrentForm(messagesCustomerForm);
+        this.jframe.add(messagesCustomerForm);
+        this.currentForm.setVisible(false);*/
+    }
     private void logoutClickButton(ActionEvent e) {
-        loginForm loginForm = new loginForm(this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
-                this.admins, this.messages,this.mainUI);
+        loginForm loginForm = new loginForm(this.jframe, this.reservations, this.rooms, this.users,
+                this.customers, this.providers, this.admins, this.messages,this.mainUI);
         loginForm.setCurrentForm(loginForm);
         this.jframe.add(loginForm);
         this.currentForm.setVisible(false);
-
     }
     private void exitClickButton (ActionEvent e){
             this.jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,24 +99,25 @@ public class customerForm extends JPanel {
         SearchAndReserveRoom = new JButton();
         cancelReservation = new JButton();
         showAllReservations = new JButton();
+        message = new JButton();
         Logout = new JButton();
         exit = new JButton();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax .
-        swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border
-        . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog"
-        , java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) , getBorder
-        () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java
-        . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName () ) )throw new RuntimeException
-        ( ) ;} } );
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
+        . border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder
+        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .
+        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
+        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+        ) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
+        ;
 
         //---- label1 ----
         label1.setText("Customer Form");
 
         //---- SearchAndReserveRoom ----
         SearchAndReserveRoom.setText("Search/ Reserve a room");
-        SearchAndReserveRoom.addActionListener(e ->searchReserveButtonClick(e));
+
         //---- cancelReservation ----
         cancelReservation.setText("Cancel Reservation");
         cancelReservation.addActionListener(e ->cancelReservationButtonClick(e));
@@ -120,6 +126,9 @@ public class customerForm extends JPanel {
         showAllReservations.setText("Show All Reservations");
         showAllReservations.addActionListener(e ->showAllReservationsButtonClick(e));
 
+        //---- message ----
+        message.setText("Messages");
+        message.addActionListener(e -> messagesClickButton(e));
 
         //---- Logout ----
         Logout.setText("Log Out");
@@ -127,7 +136,7 @@ public class customerForm extends JPanel {
 
         //---- exit ----
         exit.setText("Exit");
-        exit.addActionListener(e -> exitClickButton(e));
+        exit.addActionListener(e ->exitClickButton(e));
 
         GroupLayout layout = new GroupLayout(this);
         setLayout(layout);
@@ -136,11 +145,12 @@ public class customerForm extends JPanel {
                 .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(82, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(exit, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                        .addComponent(message, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                         .addComponent(showAllReservations, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                         .addComponent(cancelReservation, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
                         .addComponent(SearchAndReserveRoom, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-                        .addComponent(Logout, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
-                        .addComponent(exit, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE))
+                        .addComponent(Logout, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE))
                     .addContainerGap(42, Short.MAX_VALUE))
                 .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(211, Short.MAX_VALUE)
@@ -158,11 +168,13 @@ public class customerForm extends JPanel {
                     .addComponent(cancelReservation)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                     .addComponent(showAllReservations)
-                    .addGap(18, 18, 18)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(message)
+                    .addGap(8, 8, 8)
                     .addComponent(Logout)
                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addComponent(exit)
-                    .addContainerGap(95, Short.MAX_VALUE))
+                    .addContainerGap(80, Short.MAX_VALUE))
         );
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -173,6 +185,7 @@ public class customerForm extends JPanel {
     private JButton SearchAndReserveRoom;
     private JButton cancelReservation;
     private JButton showAllReservations;
+    private JButton message;
     private JButton Logout;
     private JButton exit;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

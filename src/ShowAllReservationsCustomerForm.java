@@ -57,13 +57,14 @@ public class ShowAllReservationsCustomerForm extends JPanel {
         model = new DefaultListModel<String>();
         AtomicBoolean noRoomsForCustomer = new AtomicBoolean(true);
 
-        this.reservations.forEach((id, Reservation) -> {
-            if (Objects.equals(Reservation.getUsername(),this.customer.getUsername())){
-                model.addElement("reservation's id:\"" + reservations.get(id).getReservationID()
-                        +"Guest number:\"" + reservations.get(id).getGuestNumber()+"total nights:\"" +reservations.get(id).getTotalNights()+
-                        "Room's id:\"" +reservations.get(id).getRoomID() +"check in:\"" + reservations.get(id).getCheckIn() + "check out:\""+
-                        reservations.get(id).getCheckOut() +"Customer's username:\"" + reservations.get(id).getUsername() +"Total cost:\""+
-                        df.format(reservations.get(id).getTotalPrice()));
+        this.reservations.forEach((id, reservation) -> {
+            if (Objects.equals(reservation.getUsername(),this.customer.getUsername())){
+                model.addElement("Reservation ID: \"" + reservation.getReservationID()
+                        +", Guest number: \"" + reservation.getGuestNumber()+", Total nights: \"" + reservation.getTotalNights()+
+                        ", Room id: \"" + reservation.getRoomID() +", Check in: \"" + reservation.getCheckIn() + ", Check out: \"" +
+                        reservation.getCheckOut() +", Customer: \"" + reservation.getUsername() + ", Price/night: \"" +
+                        df.format(reservation.getTotalNights()/reservation.getTotalNights()) + ", Total cost: \"" +
+                        df.format(reservation.getTotalPrice()));
                 idsInList.add(id);
                 noRoomsForCustomer.set(false);
 

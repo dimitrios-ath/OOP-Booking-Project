@@ -82,10 +82,13 @@ public class loginForm extends JPanel {
                 this.currentForm.setVisible(false);
             }
             case 3 -> {
-                label4.setText("success as admin");
-                label4.setVisible(true);
-                //AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username), this.reservations,
-                //        this.customers, this.providers, this.admins, this.rooms, this.messages, this.users);
+                //label4.setText("success as admin");
+                //label4.setVisible(true);
+                adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
+                        this.providers, this.admins, this.messages, this.mainUI, this.admins.get(username));
+                adminForm.setCurrentForm(adminForm);
+                this.jframe.add(adminForm);
+                this.currentForm.setVisible(false);
             }
         }
     }
