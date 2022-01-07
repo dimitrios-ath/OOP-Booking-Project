@@ -4,10 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 /*
  * Created by JFormDesigner on Thu Jan 06 18:18:46 EET 2022
  */
@@ -52,10 +49,10 @@ public class FilteredSearchRoomCustomerForm extends JPanel {
         initComponents();
     }
     private void backButtonClick(ActionEvent e){
-        SearchAndReserveCustomerForm searchAndReserveCustomerForm= new SearchAndReserveCustomerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
+        reserveRoomForm reserveRoomForm = new reserveRoomForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.customer,this.room);
-        searchAndReserveCustomerForm.setCurrentForm(searchAndReserveCustomerForm);
-        this.jframe.add(searchAndReserveCustomerForm);
+        reserveRoomForm.setCurrentForm(reserveRoomForm);
+        this.jframe.add(reserveRoomForm);
         this.currentForm.setVisible(false);
     }
     private void clearButtonClick(ActionEvent e){

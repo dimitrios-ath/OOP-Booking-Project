@@ -47,7 +47,13 @@ public class messageForm extends JPanel {
     }
 
     private void returnButtonClicked(ActionEvent e) {
-        if (this.users.get(currentUsername).getRole()==2) {
+        if (this.users.get(currentUsername).getRole()==1) {
+            customerForm customerForm = new customerForm(this.jframe, this.reservations, this.rooms, this.users,
+                    this.customers, this.providers, this.admins, this.messages, this.mainUI, this.customers.get(currentUsername));
+            customerForm.setCurrentForm(customerForm);
+            this.jframe.add(customerForm);
+            this.currentForm.setVisible(false);
+        } else if (this.users.get(currentUsername).getRole()==2) {
             providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, 
                     this.customers, this.providers, this.admins, this.messages, this.mainUI, this.providers.get(currentUsername));
             providerForm.setCurrentForm(providerForm);

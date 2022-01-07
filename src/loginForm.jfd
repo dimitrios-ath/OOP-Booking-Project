@@ -3,46 +3,68 @@ JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.12" encoding: "UTF-8"
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
-		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {par l {seq {space :p:178:p, comp label1:::p::p}, seq l {par l {seq {space :p:56:p, par l:::p {comp label3::::139:x, comp label2::::139:x}, space :p:41:p}, seq t {space :::p, comp button1:::p:97:p, space :p:68:p}}, par l {comp textField1:::p:97:p, comp button2::l:p::p, comp passwordField1::l:p:91:p}}, seq l {space :p:132:p, comp label4:::p::p}}, space ::192:x}}"
-			"$verticalGroup": "par l {seq {space :p:29:p, comp label1:::p::p, space s:::p, par b {comp label2::b:p::p, comp textField1::b:p::p}, space :37:37:p, par l {comp label3:::p::p, comp passwordField1:::p::p}, space :p:34:p, comp label4:::p::p, space :p:38:p, par b {comp button2::b:p::p, comp button1::b:p::p}, space ::95:x}}"
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "insets 0,hidemode 3,gap 5 5"
+			"$columnConstraints": "[fill][fill][fill][fill][fill][fill][fill]"
+			"$rowConstraints": "[fill][fill][fill][fill][fill][fill][][][][]"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Login"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 0"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
 				"text": "Username:"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 2 2 1"
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 4 2"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "Password:"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 3 2 1"
+			} )
+			add( new FormComponent( "javax.swing.JPasswordField" ) {
+				name: "passwordField1"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 4 3"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Login"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "loginButton", true ) )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "loginButtonClick", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 2 4"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Register"
 				"actionCommand": "Register"
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "register", true ) )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "registerButtonClick", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 4 4"
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"text": "Wrong password, please try again"
 				"visible": false
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 6"
 			} )
-			add( new FormComponent( "javax.swing.JPasswordField" ) {
-				name: "passwordField1"
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button3"
+				"text": "Exit"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "exitButtonClick", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 8 3 1"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

@@ -67,10 +67,13 @@ public class loginForm extends JPanel {
         }
         switch (role) {
             case 1 -> {
-                label4.setText("success as customer");
-                label4.setVisible(true);
-                //CustomerUI customerUI = new CustomerUI(this.mainUI, this.customers.get(username), this.rooms,
-                //        this.reservations, this.messages, this.users);
+                //label4.setText("success as customer");
+                //label4.setVisible(true);
+                customerForm customerForm = new customerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
+                        this.providers, this.admins, this.messages, this.mainUI, this.customers.get(username));
+                customerForm.setCurrentForm(customerForm);
+                this.jframe.add(customerForm);
+                this.currentForm.setVisible(false);
             }
             case 2 -> {
                 //label4.setText("success as provider");
@@ -101,8 +104,8 @@ public class loginForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void loginButton(ActionEvent e) {
-        // TODO add your code here
+    private void exitButtonClick(ActionEvent e) {
+        this.mainUI.saveAndExit();
     }
 
     private void register(ActionEvent e) {
@@ -116,99 +119,75 @@ public class loginForm extends JPanel {
         label2 = new JLabel();
         textField1 = new JTextField();
         label3 = new JLabel();
+        passwordField1 = new JPasswordField();
         button1 = new JButton();
         button2 = new JButton();
         label4 = new JLabel();
-        passwordField1 = new JPasswordField();
+        button3 = new JButton();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax
-        .swing.border.EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing
-        .border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.
-        Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt.Color.red
-        ), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override
-        public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName(
-        )))throw new RuntimeException();}});
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
+        .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax
+        . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,
+        12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans
+        .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e.
+        getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        setLayout(new MigLayout(
+            "insets 0,hidemode 3,gap 5 5",
+            // columns
+            "[fill]" +
+            "[fill]" +
+            "[fill]" +
+            "[fill]" +
+            "[fill]" +
+            "[fill]" +
+            "[fill]",
+            // rows
+            "[fill]" +
+            "[fill]" +
+            "[fill]" +
+            "[fill]" +
+            "[fill]" +
+            "[fill]" +
+            "[]" +
+            "[]" +
+            "[]" +
+            "[]"));
 
         //---- label1 ----
         label1.setText("Login");
+        add(label1, "cell 3 0");
 
         //---- label2 ----
         label2.setText("Username:");
+        add(label2, "cell 2 2 2 1");
+        add(textField1, "cell 4 2");
 
         //---- label3 ----
         label3.setText("Password:");
+        add(label3, "cell 2 3 2 1");
+        add(passwordField1, "cell 4 3");
 
         //---- button1 ----
         button1.setText("Login");
-        button1.addActionListener(e -> {
-			loginButton(e);
-			loginButtonClick(e);
-		});
+        button1.addActionListener(e -> loginButtonClick(e));
+        add(button1, "cell 2 4");
 
         //---- button2 ----
         button2.setText("Register");
         button2.setActionCommand("Register");
-        button2.addActionListener(e -> {
-			register(e);
-			registerButtonClick(e);
-		});
+        button2.addActionListener(e -> registerButtonClick(e));
+        add(button2, "cell 4 4");
 
         //---- label4 ----
         label4.setText("Wrong password, please try again");
         label4.setVisible(false);
+        add(label4, "cell 3 6");
 
-        GroupLayout layout = new GroupLayout(this);
-        setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup()
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup()
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(178, 178, 178)
-                            .addComponent(label1))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup()
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(56, 56, 56)
-                                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(label3, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                                        .addComponent(label2, GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
-                                    .addGap(41, 41, 41))
-                                .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(button1, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-                                    .addGap(68, 68, 68)))
-                            .addGroup(layout.createParallelGroup()
-                                .addComponent(textField1, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(button2)
-                                .addComponent(passwordField1, GroupLayout.PREFERRED_SIZE, 91, GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(132, 132, 132)
-                            .addComponent(label4)))
-                    .addContainerGap(192, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup()
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(29, 29, 29)
-                    .addComponent(label1)
-                    .addGap(18, 18, 18)
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(label2)
-                        .addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .addGap(37, 37, 37)
-                    .addGroup(layout.createParallelGroup()
-                        .addComponent(label3)
-                        .addComponent(passwordField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                    .addGap(34, 34, 34)
-                    .addComponent(label4)
-                    .addGap(38, 38, 38)
-                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                        .addComponent(button2)
-                        .addComponent(button1))
-                    .addContainerGap(95, Short.MAX_VALUE))
-        );
+        //---- button3 ----
+        button3.setText("Exit");
+        button3.addActionListener(e -> exitButtonClick(e));
+        add(button3, "cell 3 8 3 1");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -218,9 +197,10 @@ public class loginForm extends JPanel {
     private JLabel label2;
     private JTextField textField1;
     private JLabel label3;
+    private JPasswordField passwordField1;
     private JButton button1;
     private JButton button2;
     private JLabel label4;
-    private JPasswordField passwordField1;
+    private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

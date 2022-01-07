@@ -3,38 +3,63 @@ JFDML JFormDesigner: "7.0.5.1.409" Java: "11.0.12" encoding: "UTF-8"
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
-		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space ::82:x, par t:::p {comp showAllReservations::l::301:x, comp cancelReservation::l::301:x, comp SearchAndReserveRoom::l::301:x, comp Logout::l::301:x, comp exit::t::301:x}, space ::42:x}, seq t {space ::211:x, comp label1:::p::p, space :p:144:p}}"
-			"$verticalGroup": "par l {seq l {space :p:27:p, comp label1:::p::p, space u:::p, comp SearchAndReserveRoom:::p::p, space u:::p, comp cancelReservation:::p::p, space u:::p, comp showAllReservations:::p::p, space s:::p, comp Logout:::p::p, space :::p, comp exit:::p::p, space ::95:x}}"
+		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
+			"$layoutConstraints": "insets 0,hidemode 3,gap 5 5"
+			"$columnConstraints": "[fill][fill][fill][fill][fill]"
+			"$rowConstraints": "[fill][fill][fill][fill][fill][fill][][][]"
 		} ) {
 			name: "this"
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Customer Form"
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 0"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "SearchAndReserveRoom"
-				"text": "Search/ Reserve a room"
+				"text": "Reserve room"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "reserveRoomButtonClick", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 2"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "cancelReservation"
 				"text": "Cancel Reservation"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelReservationButtonClick", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 3"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "showAllReservations"
 				"text": "Show All Reservations"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "showAllReservationsButtonClick", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 4"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Messages"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "messagesButtonClick", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 5"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "Logout"
 				"text": "Log Out"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonClick", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 6"
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "exit"
 				"text": "Exit"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "exitButtonClick", true ) )
+			}, new FormLayoutConstraints( class net.miginfocom.layout.CC ) {
+				"value": "cell 3 7"
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 195, 145 )
-			"size": new java.awt.Dimension( 425, 300 )
+			"location": new java.awt.Point( 0, 5 )
+			"size": new java.awt.Dimension( 600, 385 )
 		} )
 	}
 }
