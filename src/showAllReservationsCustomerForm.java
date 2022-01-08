@@ -1,7 +1,5 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -18,16 +16,15 @@ import net.miginfocom.swing.*;
 public class showAllReservationsCustomerForm extends JPanel {
     JFrame jframe;
     showAllReservationsCustomerForm currentForm;
-    private Customer customer;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
-    private ArrayList<Integer> idsInList;
+    private final Customer customer;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
     DefaultListModel<String> model;
     private static DecimalFormat df;
 
@@ -50,9 +47,8 @@ public class showAllReservationsCustomerForm extends JPanel {
         this.customer=customer;
         initComponents();
 
-        idsInList = new ArrayList<>() ;
         df = new DecimalFormat("0.00");
-        model = new DefaultListModel<String>();
+        model = new DefaultListModel<>();
         AtomicBoolean noRoomsForCustomer = new AtomicBoolean(true);
         this.reservations.forEach((id, reservation) -> {
             if (Objects.equals(reservation.getUsername(),this.customer.getUsername())){
@@ -62,7 +58,6 @@ public class showAllReservationsCustomerForm extends JPanel {
                         "\", Check in: " + reservation.getCheckIn() + ", Check out: " + reservation.getCheckOut() + ", Price/night: $" +
                         df.format(reservation.getTotalPrice()/reservation.getTotalNights()) + ", Total cost: $" +
                         df.format(reservation.getTotalPrice()));
-                idsInList.add(id);
                 noRoomsForCustomer.set(false);
             }
         });
@@ -73,7 +68,7 @@ public class showAllReservationsCustomerForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClick(ActionEvent e) {
+    private void returnButtonClick() {
         customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers,this.providers,this.admins, this.messages, this.mainUI, this.customer);
         customerForm.setCurrentForm(customerForm);
@@ -86,7 +81,7 @@ public class showAllReservationsCustomerForm extends JPanel {
         // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         button1 = new JButton();
 
         //======== this ========
@@ -94,8 +89,7 @@ public class showAllReservationsCustomerForm extends JPanel {
         . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder
         . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .
         awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
-        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
+        ;  addPropertyChangeListener (e -> {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); })
         ;
         setLayout(new MigLayout(
             "insets 0,hidemode 3,gap 5 5",
@@ -149,7 +143,7 @@ public class showAllReservationsCustomerForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Return");
-        button1.addActionListener(e -> returnButtonClick(e));
+        button1.addActionListener(e -> returnButtonClick());
         add(button1, "cell 11 4");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -158,7 +152,7 @@ public class showAllReservationsCustomerForm extends JPanel {
     // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

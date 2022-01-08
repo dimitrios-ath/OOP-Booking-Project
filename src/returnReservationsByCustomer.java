@@ -1,4 +1,3 @@
-import java.awt.event.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
@@ -18,15 +17,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class returnReservationsByCustomer extends JPanel {
     JFrame jframe;
     returnReservationsByCustomer currentForm;
-    private Admin admin;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Admin admin;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
     DefaultListModel<String> model;
     private static DecimalFormat df;
     AtomicBoolean noReservationsFound;
@@ -53,7 +52,7 @@ public class returnReservationsByCustomer extends JPanel {
 
         label1.setText("Reservations for " + username + ":");
         df = new DecimalFormat("0.00");
-        model = new DefaultListModel<String>();
+        model = new DefaultListModel<>();
         noReservationsFound = new AtomicBoolean(true);
         this.reservations.forEach((reservationID, reservation) -> {
             if (Objects.equals(username, reservation.getUsername())){
@@ -72,7 +71,7 @@ public class returnReservationsByCustomer extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClick(ActionEvent e) {
+    private void returnButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
         adminForm.setCurrentForm(adminForm);
@@ -85,7 +84,7 @@ public class returnReservationsByCustomer extends JPanel {
         // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         button1 = new JButton();
 
         //======== this ========
@@ -94,9 +93,8 @@ public class returnReservationsByCustomer extends JPanel {
         , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
         , new java. awt .Font ( "D\u0069al\u006fg", java .awt . Font. BOLD ,12 )
         ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener(
-        new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
-        ) { if( "\u0062or\u0064er" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
-        ;} } );
+                e -> { if( "\u0062or\u0064er" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
+                ;});
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -128,7 +126,7 @@ public class returnReservationsByCustomer extends JPanel {
 
         //---- button1 ----
         button1.setText("Return");
-        button1.addActionListener(e -> returnButtonClick(e));
+        button1.addActionListener(e -> returnButtonClick());
         add(button1, "cell 5 4");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -137,7 +135,7 @@ public class returnReservationsByCustomer extends JPanel {
     // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -1,6 +1,4 @@
 import javax.swing.*;
-import javax.swing.GroupLayout;
-import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -8,7 +6,6 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import net.miginfocom.swing.*;
 
-import static java.time.LocalDate.parse;
 /*
  * Created by JFormDesigner on Thu Jan 06 23:00:15 EET 2022
  */
@@ -21,25 +18,24 @@ import static java.time.LocalDate.parse;
 public class reserveRoomCustomerForm extends JPanel {
     JFrame jframe;
     reserveRoomCustomerForm currentForm;
-    private Room room;
-    private Customer customer;
-    private MainUI mainUI;
-    private Map<Integer, Reservation> reservations;
-    private Map<Integer, Room> rooms;
-    private Map<String, Authentication> users;
-    private Map<String, Customer> customers;
-    private Map<String, Provider> providers;
-    private Map<String, Admin> admins;
-    private Map<Integer, Message> messages;
-    private ArrayList<Integer> idsInList;
+    private final Customer customer;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
+    private final ArrayList<Integer> idsInList;
     DefaultListModel<String> model;
     private static DecimalFormat df;
-    private int guests;
+    private final int guests;
     LocalDate checkIn;
     LocalDate checkOut;
     Map<Integer, Room> filteredRooms;
     Map<String,Boolean> previousFilters;
-    private long nights;
+    private final long nights;
     String type;
     String maxPrice;
 
@@ -94,7 +90,7 @@ public class reserveRoomCustomerForm extends JPanel {
         list1.setModel(model);
     }
 
-        private void reserveButtonClick (ActionEvent e) {
+        private void reserveButtonClick() {
             if (list1.isEnabled() && !list1.isSelectionEmpty()) {
                 boolean addedToHashMap = false;
                 int i=1;
@@ -105,24 +101,23 @@ public class reserveRoomCustomerForm extends JPanel {
                                 checkIn, checkOut, this.customer.getUsername(),
                                 this.rooms.get(roomID).getPrice()*nights));
                         addedToHashMap = true;
-                        cancelButtonClick(null);
+                        cancelButtonClick();
                     }
                     else {i++;}
                 }
             }
         }
 
-        public void backButtonClick(ActionEvent e){
+        public void backButtonClick(){
             reserveRoomForm reserveRoomForm = new reserveRoomForm(this.jframe, this.reservations, this.rooms,
-                    this.users,this.customers,this.providers,this.admins, this.messages, this.mainUI, this.customer,
-                    this.room);
+                    this.users,this.customers,this.providers,this.admins, this.messages, this.mainUI, this.customer);
             reserveRoomForm.setCurrentForm(reserveRoomForm);
             reserveRoomForm.returnToPreviousFormState(guests, checkIn, checkOut, maxPrice, type, previousFilters);
             this.jframe.add(reserveRoomForm);
             this.currentForm.setVisible(false);
         }
 
-        private void cancelButtonClick(ActionEvent e) {
+        private void cancelButtonClick() {
             customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users,
                     this.customers, this.providers, this.admins, this.messages, this.mainUI, this.customer);
             customerForm.setCurrentForm(customerForm);
@@ -135,7 +130,7 @@ public class reserveRoomCustomerForm extends JPanel {
             // Generated using JFormDesigner Evaluation license - asdfasdfa
             label1 = new JLabel();
             scrollPane1 = new JScrollPane();
-            list1 = new JList();
+            list1 = new JList<>();
             button3 = new JButton();
             button1 = new JButton();
             button2 = new JButton();
@@ -145,8 +140,7 @@ public class reserveRoomCustomerForm extends JPanel {
             .border.EmptyBorder(0,0,0,0), "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e",javax.swing.border.TitledBorder
             .CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069al\u006fg",java.
             awt.Font.BOLD,12),java.awt.Color.red), getBorder()))
-            ; addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-            ){if("\u0062or\u0064er".equals(e.getPropertyName()))throw new RuntimeException();}})
+            ; addPropertyChangeListener(e -> {if("\u0062or\u0064er".equals(e.getPropertyName()))throw new RuntimeException();})
             ;
             setLayout(new MigLayout(
                 "insets 0,hidemode 3,gap 5 5",
@@ -189,17 +183,17 @@ public class reserveRoomCustomerForm extends JPanel {
 
             //---- button3 ----
             button3.setText("Cancel");
-            button3.addActionListener(e -> cancelButtonClick(e));
+            button3.addActionListener(e -> cancelButtonClick());
             add(button3, "cell 3 6");
 
             //---- button1 ----
             button1.setText("Back");
-            button1.addActionListener(e -> backButtonClick(e));
+            button1.addActionListener(e -> backButtonClick());
             add(button1, "cell 6 6");
 
             //---- button2 ----
             button2.setText("Reserve");
-            button2.addActionListener(e -> reserveButtonClick(e));
+            button2.addActionListener(e -> reserveButtonClick());
             add(button2, "cell 9 6");
             // JFormDesigner - End of component initialization  //GEN-END:initComponents
         }
@@ -208,7 +202,7 @@ public class reserveRoomCustomerForm extends JPanel {
             // Generated using JFormDesigner Evaluation license - asdfasdfa
             private JLabel label1;
             private JScrollPane scrollPane1;
-            private JList list1;
+            private JList<String> list1;
             private JButton button3;
             private JButton button1;
             private JButton button2;

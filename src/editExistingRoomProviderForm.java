@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Map;
 import java.util.Objects;
 import javax.swing.*;
@@ -16,16 +15,16 @@ import net.miginfocom.swing.*;
 public class editExistingRoomProviderForm extends JPanel {
     JFrame jframe;
     editExistingRoomProviderForm currentForm;
-    private Provider provider;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
-    private Integer idToEdit;
+    private final Provider provider;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
+    private final Integer idToEdit;
 
     public void setCurrentForm(editExistingRoomProviderForm currentForm) {
         this.currentForm = currentForm;
@@ -69,7 +68,7 @@ public class editExistingRoomProviderForm extends JPanel {
         
     }
 
-    private void cancelClick(ActionEvent e) {
+    private void cancelClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
         providerForm.setCurrentForm(providerForm);
@@ -77,10 +76,10 @@ public class editExistingRoomProviderForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void editRoomClick(ActionEvent e) {
+    private void editRoomClick() {
         boolean validInput = true;
 
-        String type = "";
+        String type;
         if (comboBox1.getSelectedItem() == "Hotel") {
             type = "hotel";
         } else if (comboBox1.getSelectedItem() == "Room") {
@@ -188,9 +187,8 @@ public class editExistingRoomProviderForm extends JPanel {
         setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
         .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax
         . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,
-        12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans
-        .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e.
-        getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener(e -> { if( "\u0062order" .equals ( e.
+        getPropertyName () ) )throw new RuntimeException( ) ;});
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -309,12 +307,12 @@ public class editExistingRoomProviderForm extends JPanel {
 
         //---- button2 ----
         button2.setText("Cancel");
-        button2.addActionListener(e -> cancelClick(e));
+        button2.addActionListener(e -> cancelClick());
         add(button2, "cell 1 17");
 
         //---- button1 ----
         button1.setText("Edit");
-        button1.addActionListener(e -> editRoomClick(e));
+        button1.addActionListener(e -> editRoomClick());
         add(button1, "cell 3 17");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

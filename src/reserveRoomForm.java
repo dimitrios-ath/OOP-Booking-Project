@@ -1,11 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -25,16 +23,15 @@ import net.miginfocom.swing.*;
 public class reserveRoomForm extends JPanel {
     JFrame jframe;
     reserveRoomForm currentForm;
-    private Room room;
-    private Customer customer;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Customer customer;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
 
     public void setCurrentForm(reserveRoomForm currentForm) {
         this.currentForm = currentForm;
@@ -73,7 +70,7 @@ public class reserveRoomForm extends JPanel {
 
     public reserveRoomForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                            Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                           Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Customer customer, Room room) {
+                           Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Customer customer) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -84,11 +81,10 @@ public class reserveRoomForm extends JPanel {
         this.messages = messages;
         this.mainUI = mainUI;
         this.customer=customer;
-        this.room=room;
         initComponents();
     }
     
-    private void cancelButtonClick(ActionEvent e) {
+    private void cancelButtonClick() {
         customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.customer);
         customerForm.setCurrentForm(customerForm);
@@ -96,7 +92,7 @@ public class reserveRoomForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void clearButtonClick(ActionEvent e) {
+    private void clearButtonClick() {
         textCheckout.setText("");
         textCheckin.setText("");
         BoxOfGuests.setSelectedIndex(0);
@@ -115,7 +111,7 @@ public class reserveRoomForm extends JPanel {
 
     }
 
-    private void searchButtonClick(ActionEvent e) {
+    private void searchButtonClick() {
         int guests = BoxOfGuests.getSelectedIndex()+1;
 
         boolean validInput = true;
@@ -314,8 +310,7 @@ public class reserveRoomForm extends JPanel {
         setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
         0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
         . BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-        beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        red) , getBorder( )) );  addPropertyChangeListener (e -> {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); });
         setLayout(new MigLayout(
             "insets 0,hidemode 3,gap 5 5",
             // columns
@@ -458,17 +453,17 @@ public class reserveRoomForm extends JPanel {
 
         //---- buttonBack ----
         buttonBack.setText("Cancel");
-        buttonBack.addActionListener(e -> cancelButtonClick(e));
+        buttonBack.addActionListener(e -> cancelButtonClick());
         add(buttonBack, "cell 2 23");
 
         //---- buttonClear ----
         buttonClear.setText("Clear");
-        buttonClear.addActionListener(e -> clearButtonClick(e));
+        buttonClear.addActionListener(e -> clearButtonClick());
         add(buttonClear, "cell 3 23");
 
         //---- buttonSearch ----
         buttonSearch.setText("Search");
-        buttonSearch.addActionListener(e -> searchButtonClick(e));
+        buttonSearch.addActionListener(e -> searchButtonClick());
         add(buttonSearch, "cell 4 23");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

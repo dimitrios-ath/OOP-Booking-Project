@@ -1,9 +1,6 @@
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
-import net.miginfocom.swing.*;
 
-import java.text.DecimalFormat;
+import net.miginfocom.swing.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
@@ -21,14 +18,14 @@ public class inboxForm extends JPanel {
     JFrame jframe;
     inboxForm currentForm;
     String currentUsername;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
     DefaultListModel<String> model;
     private ArrayList<Integer> idsInList;
 
@@ -53,7 +50,7 @@ public class inboxForm extends JPanel {
         initComponents();
 
         idsInList = new ArrayList<>();
-        model = new DefaultListModel<String>();
+        model = new DefaultListModel<>();
         AtomicBoolean noMessages = new AtomicBoolean(true);
         this.messages.forEach((id, message) -> {
             if (Objects.equals(message.getRecipient(), currentUsername)){
@@ -96,13 +93,13 @@ public class inboxForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void listValueSelected(ListSelectionEvent e) {
+    private void listValueSelected() {
         label3.setText(messages.get(idsInList.get(list1.getSelectedIndex())).getSender());
         textArea1.setText(messages.get(idsInList.get(list1.getSelectedIndex())).getContent());
         messages.get(idsInList.get(list1.getSelectedIndex())).setRead(true);
 
         idsInList = new ArrayList<>();
-        model = new DefaultListModel<String>();
+        model = new DefaultListModel<>();
         AtomicBoolean noMessages = new AtomicBoolean(true);
         this.messages.forEach((id, message) -> {
             if (Objects.equals(message.getRecipient(), currentUsername)){
@@ -145,7 +142,7 @@ public class inboxForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClicked(ActionEvent e) {
+    private void returnButtonClicked() {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, currentUsername);
@@ -159,7 +156,7 @@ public class inboxForm extends JPanel {
         // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         label2 = new JLabel();
         label3 = new JLabel();
         scrollPane2 = new JScrollPane();
@@ -170,9 +167,8 @@ public class inboxForm extends JPanel {
         setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border
         .EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder.CENTER,javax
         .swing.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.awt.Font.BOLD,
-        12),java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans
-        .PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order".equals(e.
-        getPropertyName()))throw new RuntimeException();}});
+        12),java.awt.Color.red), getBorder())); addPropertyChangeListener(e -> {if("\u0062order".equals(e.
+        getPropertyName()))throw new RuntimeException();});
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -216,7 +212,7 @@ public class inboxForm extends JPanel {
         {
 
             //---- list1 ----
-            list1.addListSelectionListener(e -> listValueSelected(e));
+            list1.addListSelectionListener(e -> listValueSelected());
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1, "cell 2 2 14 1");
@@ -239,7 +235,7 @@ public class inboxForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Return");
-        button1.addActionListener(e -> returnButtonClicked(e));
+        button1.addActionListener(e -> returnButtonClicked());
         add(button1, "cell 7 10");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -248,7 +244,7 @@ public class inboxForm extends JPanel {
     // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JLabel label2;
     private JLabel label3;
     private JScrollPane scrollPane2;

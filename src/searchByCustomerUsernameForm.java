@@ -2,11 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
-
-import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 /*
  * Created by JFormDesigner on Fri Jan 07 13:49:10 EET 2022
@@ -20,15 +16,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class searchByCustomerUsernameForm extends JPanel {
     JFrame jframe;
     searchByCustomerUsernameForm currentForm;
-    private Admin admin;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Admin admin;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
     DefaultListModel<String> model;
     AtomicBoolean noCustomersFound;
 
@@ -50,7 +46,7 @@ public class searchByCustomerUsernameForm extends JPanel {
         this.mainUI = mainUI;
         this.admin = admin;
         initComponents();
-        model = new DefaultListModel<String>();
+        model = new DefaultListModel<>();
         noCustomersFound = new AtomicBoolean(true);
         this.customers.forEach((username, Customer) -> {
                 model.addElement(username);
@@ -70,21 +66,21 @@ public class searchByCustomerUsernameForm extends JPanel {
         }
     }
 
-    private void list1Click(MouseEvent e) {
+    private void list1Click() {
         if (!noCustomersFound.get()) {
             list1.setEnabled(true);
             textField1.setEnabled(false);
         }
     }
 
-    private void textField1Click(MouseEvent e) {
+    private void textField1Click() {
         if (!noCustomersFound.get()) {
             list1.setEnabled(false);
             textField1.setEnabled(true);
         }
     }
 
-    private void backButtonClick(ActionEvent e) {
+    private void backButtonClick() {
         searchReservationsForm searchReservationsForm = new searchReservationsForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
@@ -93,12 +89,12 @@ public class searchByCustomerUsernameForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void nextButtonClick(ActionEvent e) {
+    private void nextButtonClick() {
         if (!noCustomersFound.get()) {
             if (list1.isEnabled() && !textField1.isEnabled()) {
                 returnReservationsByCustomer returnReservationsByCustomer = new returnReservationsByCustomer(
                         jframe, this.reservations, this.rooms, this.users, this.customers, this.providers, this.admins,
-                        this.messages, this.mainUI, this.admin, list1.getSelectedValue().toString());
+                        this.messages, this.mainUI, this.admin, list1.getSelectedValue());
                 returnReservationsByCustomer.setCurrentForm(returnReservationsByCustomer);
                 jframe.add(returnReservationsByCustomer);
                 this.currentForm.setVisible(false);
@@ -129,7 +125,7 @@ public class searchByCustomerUsernameForm extends JPanel {
         textField1 = new JTextField();
         label4 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         button1 = new JButton();
         button2 = new JButton();
         label3 = new JLabel();
@@ -139,9 +135,8 @@ public class searchByCustomerUsernameForm extends JPanel {
         swing.border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border
         .TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog"
         ,java.awt.Font.BOLD,12),java.awt.Color.red), getBorder
-        ())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java
-        .beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException
-        ();}});
+        ())); addPropertyChangeListener(e -> {if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException
+        ();});
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -179,7 +174,7 @@ public class searchByCustomerUsernameForm extends JPanel {
         textField1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                textField1Click(e);
+                textField1Click();
             }
         });
         add(textField1, "cell 6 1");
@@ -197,7 +192,7 @@ public class searchByCustomerUsernameForm extends JPanel {
             list1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    list1Click(e);
+                    list1Click();
                 }
             });
             scrollPane1.setViewportView(list1);
@@ -206,12 +201,12 @@ public class searchByCustomerUsernameForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Back");
-        button1.addActionListener(e -> backButtonClick(e));
+        button1.addActionListener(e -> backButtonClick());
         add(button1, "cell 5 5");
 
         //---- button2 ----
         button2.setText("Next");
-        button2.addActionListener(e -> nextButtonClick(e));
+        button2.addActionListener(e -> nextButtonClick());
         add(button2, "cell 7 5");
 
         //---- label3 ----
@@ -228,7 +223,7 @@ public class searchByCustomerUsernameForm extends JPanel {
     private JTextField textField1;
     private JLabel label4;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JButton button1;
     private JButton button2;
     private JLabel label3;

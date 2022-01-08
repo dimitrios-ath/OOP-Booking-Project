@@ -1,7 +1,5 @@
-import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.*;
 import net.miginfocom.swing.*;
@@ -17,15 +15,15 @@ import net.miginfocom.swing.*;
 public class returnAllReservationsAdminForm extends JPanel {
     JFrame jframe;
     returnAllReservationsAdminForm currentForm;
-    private Admin admin;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Admin admin;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
     DefaultListModel<String> model;
     private static DecimalFormat df;
     AtomicBoolean noReservationsFound;
@@ -68,7 +66,7 @@ public class returnAllReservationsAdminForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClick(ActionEvent e) {
+    private void returnButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
         adminForm.setCurrentForm(adminForm);
@@ -81,7 +79,7 @@ public class returnAllReservationsAdminForm extends JPanel {
         // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         button1 = new JButton();
 
         //======== this ========
@@ -89,8 +87,8 @@ public class returnAllReservationsAdminForm extends JPanel {
         border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e" , javax. swing .border . TitledBorder. CENTER
         ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069al\u006fg", java .awt . Font
         . BOLD ,12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener(
-        new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062or\u0064er"
-        .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+                e -> { if( "\u0062or\u0064er"
+                .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;});
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -126,7 +124,7 @@ public class returnAllReservationsAdminForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Return");
-        button1.addActionListener(e -> returnButtonClick(e));
+        button1.addActionListener(e -> returnButtonClick());
         add(button1, "cell 6 4");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -135,7 +133,7 @@ public class returnAllReservationsAdminForm extends JPanel {
     // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

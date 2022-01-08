@@ -1,4 +1,3 @@
-import java.awt.event.*;
 import java.util.Map;
 import javax.swing.*;
 import net.miginfocom.swing.*;
@@ -14,15 +13,15 @@ import net.miginfocom.swing.*;
 public class searchReservationsForm extends JPanel {
     JFrame jframe;
     searchReservationsForm currentForm;
-    private Admin admin;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Admin admin;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
     
     public void setCurrentForm(searchReservationsForm currentForm) {
         this.currentForm = currentForm;
@@ -44,7 +43,7 @@ public class searchReservationsForm extends JPanel {
         initComponents();
     }
 
-    private void searchByCustomerUsernameButtonClick(ActionEvent e) {
+    private void searchByCustomerUsernameButtonClick() {
         searchByCustomerUsernameForm searchByCustomerUsernameForm = new searchByCustomerUsernameForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin);
@@ -53,7 +52,7 @@ public class searchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void searchByRoomButtonClick(ActionEvent e) {
+    private void searchByRoomButtonClick() {
         searchByRoomIDForm searchByRoomIDForm = new searchByRoomIDForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin);
@@ -62,7 +61,7 @@ public class searchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void showAllReservationsButtonClick(ActionEvent e) {
+    private void showAllReservationsButtonClick() {
         returnAllReservationsAdminForm returnAllReservationsAdminForm = new returnAllReservationsAdminForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin);
@@ -71,7 +70,7 @@ public class searchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void cancelButtonClick(ActionEvent e) {
+    private void cancelButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
         adminForm.setCurrentForm(adminForm);
@@ -93,8 +92,7 @@ public class searchReservationsForm extends JPanel {
         . border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border . TitledBorder
         . CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .
         awt . Font. BOLD ,12 ) ,java . awt. Color .red ) , getBorder () ) )
-        ;  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
-        ) { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } )
+        ;  addPropertyChangeListener(e -> { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;})
         ;
         setLayout(new MigLayout(
             "hidemode 3",
@@ -120,22 +118,22 @@ public class searchReservationsForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Search by customer");
-        button1.addActionListener(e -> searchByCustomerUsernameButtonClick(e));
+        button1.addActionListener(e -> searchByCustomerUsernameButtonClick());
         add(button1, "cell 3 2");
 
         //---- button2 ----
         button2.setText("Search by room");
-        button2.addActionListener(e -> searchByRoomButtonClick(e));
+        button2.addActionListener(e -> searchByRoomButtonClick());
         add(button2, "cell 3 3");
 
         //---- button3 ----
         button3.setText("Show all reservations");
-        button3.addActionListener(e -> showAllReservationsButtonClick(e));
+        button3.addActionListener(e -> showAllReservationsButtonClick());
         add(button3, "cell 3 4");
 
         //---- button4 ----
         button4.setText("Cancel");
-        button4.addActionListener(e -> cancelButtonClick(e));
+        button4.addActionListener(e -> cancelButtonClick());
         add(button4, "cell 3 5");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

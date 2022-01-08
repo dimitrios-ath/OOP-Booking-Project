@@ -1,7 +1,5 @@
 import javax.swing.*;
-import javax.swing.GroupLayout;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Map;
@@ -20,16 +18,16 @@ import net.miginfocom.swing.*;
 public class cancelReservationCustomerForm extends JPanel {
     JFrame jframe;
     cancelReservationCustomerForm currentForm;
-    private Customer customer;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
-    private ArrayList<Integer> idsInList;
+    private final Customer customer;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
+    private final ArrayList<Integer> idsInList;
     DefaultListModel<String> model;
     private static DecimalFormat df;
 
@@ -78,13 +76,10 @@ public class cancelReservationCustomerForm extends JPanel {
 
     }
 
-   private void cancelReservationButtonClick(ActionEvent e) {
-       int id = 0;
+   private void cancelReservationButtonClick() {
+       int id;
        if (!list1.isSelectionEmpty()){
            id=idsInList.get(list1.getSelectedIndex());
-           AtomicBoolean res= new AtomicBoolean(false);
-           int finalid = id;
-
            if (reservations.containsKey(id) && Objects.equals(reservations.get(id).getUsername(),customer.getUsername())){
                reservations.remove(id);
                label1.setText("Successfully canceled reservation");
@@ -106,7 +101,7 @@ public class cancelReservationCustomerForm extends JPanel {
        }
    }
 
-   private void returnButtonClick(ActionEvent e) {
+   private void returnButtonClick() {
        customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                this.providers, this.admins, this.messages, this.mainUI, this.customer);
        customerForm.setCurrentForm(customerForm);
@@ -119,7 +114,7 @@ public class cancelReservationCustomerForm extends JPanel {
         // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         buttonCancel = new JButton();
         buttonCancelReservation = new JButton();
 
@@ -128,8 +123,7 @@ public class cancelReservationCustomerForm extends JPanel {
         .border.EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder
         .CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.
         awt.Font.BOLD,12),java.awt.Color.red), getBorder()))
-        ; addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-        ){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();}})
+        ; addPropertyChangeListener(e -> {if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();})
         ;
         setLayout(new MigLayout(
             "insets 0,hidemode 3,gap 5 5",
@@ -165,12 +159,12 @@ public class cancelReservationCustomerForm extends JPanel {
 
         //---- buttonCancel ----
         buttonCancel.setText("Return");
-        buttonCancel.addActionListener(e -> returnButtonClick(e));
+        buttonCancel.addActionListener(e -> returnButtonClick());
         add(buttonCancel, "cell 3 4");
 
         //---- buttonCancelReservation ----
         buttonCancelReservation.setText("Cancel");
-        buttonCancelReservation.addActionListener(e -> cancelReservationButtonClick(e));
+        buttonCancelReservation.addActionListener(e -> cancelReservationButtonClick());
         add(buttonCancelReservation, "cell 8 4");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -179,7 +173,7 @@ public class cancelReservationCustomerForm extends JPanel {
     // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JButton buttonCancel;
     private JButton buttonCancelReservation;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

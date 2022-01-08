@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
@@ -17,15 +16,15 @@ import java.util.Objects;
 public class addNewRoomProviderForm extends JPanel {
     JFrame jframe;
     addNewRoomProviderForm currentForm;
-    private Provider provider;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Provider provider;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
 
     public void setCurrentForm(addNewRoomProviderForm currentForm) {
         this.currentForm = currentForm;
@@ -47,7 +46,7 @@ public class addNewRoomProviderForm extends JPanel {
         initComponents();
     }
 
-    private void addRoomClick(ActionEvent e) {
+    private void addRoomClick() {
         String type = "";
         boolean validInput = true;
         if (comboBox1.getSelectedItem() == "-") {
@@ -132,7 +131,7 @@ public class addNewRoomProviderForm extends JPanel {
         }
     }
 
-    private void cancelClick(ActionEvent e) {
+    private void cancelClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
         providerForm.setCurrentForm(providerForm);
@@ -178,11 +177,11 @@ public class addNewRoomProviderForm extends JPanel {
         button1 = new JButton();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0
-        ,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
-        ,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.red),
-         getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-        ){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder
+        (0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border
+        .TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt
+        .Color.red), getBorder())); addPropertyChangeListener(e -> {if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException()
+        ;});
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -302,12 +301,12 @@ public class addNewRoomProviderForm extends JPanel {
 
         //---- button2 ----
         button2.setText("Cancel");
-        button2.addActionListener(e -> cancelClick(e));
+        button2.addActionListener(e -> cancelClick());
         add(button2, "cell 1 17");
 
         //---- button1 ----
         button1.setText("Add");
-        button1.addActionListener(e -> addRoomClick(e));
+        button1.addActionListener(e -> addRoomClick());
         add(button1, "cell 3 17");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

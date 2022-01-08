@@ -1,6 +1,4 @@
-import java.awt.event.*;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -18,15 +16,15 @@ import net.miginfocom.swing.*;
 public class showAllRoomsForm extends JPanel {
     JFrame jframe;
     showAllRoomsForm currentForm;
-    private Provider provider;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Provider provider;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
     DefaultListModel<String> model;
     private static DecimalFormat df;
 
@@ -50,7 +48,7 @@ public class showAllRoomsForm extends JPanel {
         initComponents();
 
         df = new DecimalFormat("0.00");
-        model = new DefaultListModel<String>();
+        model = new DefaultListModel<>();
         AtomicBoolean noRoomsForProvider = new AtomicBoolean(true);
         this.rooms.forEach((id, Room) -> {
             if (Objects.equals(Room.getOwner(), this.provider.getUsername())){
@@ -68,7 +66,7 @@ public class showAllRoomsForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClick(ActionEvent e) {
+    private void returnButtonClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
         providerForm.setCurrentForm(providerForm);
@@ -82,7 +80,7 @@ public class showAllRoomsForm extends JPanel {
         label1 = new JLabel();
         label2 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         button1 = new JButton();
 
         //======== this ========
@@ -90,9 +88,8 @@ public class showAllRoomsForm extends JPanel {
         . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing
         .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .
         Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red
-        ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override
-        public void propertyChange (java . beans. PropertyChangeEvent e) { if( "bord\u0065r" .equals ( e. getPropertyName (
-        ) ) )throw new RuntimeException( ) ;} } );
+        ) , getBorder () ) );  addPropertyChangeListener(e -> { if( "bord\u0065r" .equals ( e. getPropertyName (
+        ) ) )throw new RuntimeException( ) ;});
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -154,7 +151,7 @@ public class showAllRoomsForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Return");
-        button1.addActionListener(e -> returnButtonClick(e));
+        button1.addActionListener(e -> returnButtonClick());
         add(button1, "cell 7 9");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -164,7 +161,7 @@ public class showAllRoomsForm extends JPanel {
     private JLabel label1;
     private JLabel label2;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

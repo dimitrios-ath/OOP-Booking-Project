@@ -1,5 +1,3 @@
-import java.awt.*;
-import java.awt.event.*;
 import java.util.Map;
 import javax.swing.*;
 import net.miginfocom.swing.*;
@@ -15,14 +13,14 @@ import net.miginfocom.swing.*;
 public class loginForm extends JPanel {
     JFrame jframe;
     loginForm currentForm;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
 
     public void setCurrentForm(loginForm currentForm) {
         this.currentForm = currentForm;
@@ -43,19 +41,16 @@ public class loginForm extends JPanel {
         initComponents();
     }
 
-    private void loginButtonClick(ActionEvent e) {
+    private void loginButtonClick() {
         int role = 0;
         String username = textField1.getText();
         String password = String.valueOf(passwordField1.getPassword());
-        System.out.println(password);
         if (this.users.containsKey(username)) {
             Authentication temp = this.users.get(username);
             if (password.equals(temp.getPassword())){
-                System.out.println("\nLogin successful, welcome " + temp.getUsername() + "!");
                 role = temp.getRole();
             }
             else {
-                System.out.println("\nLogin failed, please try again");
                 label4.setText("Wrong password");
                 label4.setVisible(true);
 
@@ -67,8 +62,6 @@ public class loginForm extends JPanel {
         }
         switch (role) {
             case 1 -> {
-                //label4.setText("success as customer");
-                //label4.setVisible(true);
                 customerForm customerForm = new customerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                         this.providers, this.admins, this.messages, this.mainUI, this.customers.get(username));
                 customerForm.setCurrentForm(customerForm);
@@ -76,8 +69,6 @@ public class loginForm extends JPanel {
                 this.currentForm.setVisible(false);
             }
             case 2 -> {
-                //label4.setText("success as provider");
-                //label4.setVisible(true);
                 providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                         this.providers, this.admins, this.messages, this.mainUI, this.providers.get(username));
                 providerForm.setCurrentForm(providerForm);
@@ -85,8 +76,6 @@ public class loginForm extends JPanel {
                 this.currentForm.setVisible(false);
             }
             case 3 -> {
-                //label4.setText("success as admin");
-                //label4.setVisible(true);
                 adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                         this.providers, this.admins, this.messages, this.mainUI, this.admins.get(username));
                 adminForm.setCurrentForm(adminForm);
@@ -96,7 +85,7 @@ public class loginForm extends JPanel {
         }
     }
 
-    private void registerButtonClick(ActionEvent e) {
+    private void registerButtonClick() {
         registerForm registerForm = new registerForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI);
         registerForm.setCurrentForm(registerForm);
@@ -104,12 +93,8 @@ public class loginForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void exitButtonClick(ActionEvent e) {
+    private void exitButtonClick() {
         this.mainUI.saveAndExit();
-    }
-
-    private void register(ActionEvent e) {
-        // TODO add your code here
     }
 
     private void initComponents() {
@@ -129,9 +114,8 @@ public class loginForm extends JPanel {
         setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
         .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax
         . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,
-        12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans
-        .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e.
-        getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener(e -> { if( "\u0062order" .equals ( e.
+        getPropertyName () ) )throw new RuntimeException( ) ;});
         setLayout(new MigLayout(
             "insets 0,hidemode 3,gap 5 5",
             // columns
@@ -170,13 +154,13 @@ public class loginForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Login");
-        button1.addActionListener(e -> loginButtonClick(e));
+        button1.addActionListener(e -> loginButtonClick());
         add(button1, "cell 2 4");
 
         //---- button2 ----
         button2.setText("Register");
         button2.setActionCommand("Register");
-        button2.addActionListener(e -> registerButtonClick(e));
+        button2.addActionListener(e -> registerButtonClick());
         add(button2, "cell 4 4");
 
         //---- label4 ----
@@ -186,7 +170,7 @@ public class loginForm extends JPanel {
 
         //---- button3 ----
         button3.setText("Exit");
-        button3.addActionListener(e -> exitButtonClick(e));
+        button3.addActionListener(e -> exitButtonClick());
         add(button3, "cell 3 8 3 1");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

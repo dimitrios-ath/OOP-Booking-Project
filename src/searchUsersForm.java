@@ -1,10 +1,6 @@
-import java.awt.event.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
-
-import java.text.DecimalFormat;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 /*
  * Created by JFormDesigner on Fri Jan 07 16:29:55 EET 2022
@@ -18,15 +14,15 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class searchUsersForm extends JPanel {
     JFrame jframe;
     searchUsersForm currentForm;
-    private Admin admin;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Admin admin;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
     DefaultListModel<String> model;
 
     public void setCurrentForm(searchUsersForm currentForm) {
@@ -48,7 +44,7 @@ public class searchUsersForm extends JPanel {
         this.admin = admin;
         initComponents();
         
-        model = new DefaultListModel<String>();
+        model = new DefaultListModel<>();
         AtomicBoolean noUsersFound = new AtomicBoolean(true);
         this.users.forEach((username, auth) -> {
             if (auth.getRole()==1){
@@ -72,8 +68,8 @@ public class searchUsersForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void searchButtonClick(ActionEvent e) {
-        model = new DefaultListModel<String>();
+    private void searchButtonClick() {
+        model = new DefaultListModel<>();
         AtomicBoolean noUsersFound = new AtomicBoolean(true);
         this.users.forEach((username, auth) -> {
             if (username.contains(textField1.getText())) {
@@ -123,7 +119,7 @@ public class searchUsersForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClick(ActionEvent e) {
+    private void returnButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
         adminForm.setCurrentForm(adminForm);
@@ -140,7 +136,7 @@ public class searchUsersForm extends JPanel {
         label3 = new JLabel();
         textField1 = new JTextField();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         button2 = new JButton();
         button1 = new JButton();
 
@@ -148,9 +144,8 @@ public class searchUsersForm extends JPanel {
         setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
         . EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax
         . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,
-        12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans
-        . PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .
-        getPropertyName () )) throw new RuntimeException( ); }} );
+        12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (e -> {if ("bord\u0065r" .equals (e .
+        getPropertyName () )) throw new RuntimeException( ); });
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -216,12 +211,12 @@ public class searchUsersForm extends JPanel {
 
         //---- button2 ----
         button2.setText("Return");
-        button2.addActionListener(e -> returnButtonClick(e));
+        button2.addActionListener(e -> returnButtonClick());
         add(button2, "cell 4 15");
 
         //---- button1 ----
         button1.setText("Search");
-        button1.addActionListener(e -> searchButtonClick(e));
+        button1.addActionListener(e -> searchButtonClick());
         add(button1, "cell 11 15");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -234,7 +229,7 @@ public class searchUsersForm extends JPanel {
     private JLabel label3;
     private JTextField textField1;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JButton button2;
     private JButton button1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

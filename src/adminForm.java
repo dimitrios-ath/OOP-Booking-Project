@@ -1,4 +1,3 @@
-import java.awt.event.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
@@ -13,15 +12,15 @@ import java.util.Map;
 public class adminForm extends JPanel {
     JFrame jframe;
     adminForm currentForm;
-    private Admin admin;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Admin admin;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
 
     public void setCurrentForm(adminForm currentForm) {
         this.currentForm = currentForm;
@@ -43,7 +42,7 @@ public class adminForm extends JPanel {
         initComponents();
     }
 
-    private void messagesButtonClick(ActionEvent e) {
+    private void messagesButtonClick() {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin.getUsername());
@@ -52,7 +51,7 @@ public class adminForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void logoutButtonClick(ActionEvent e) {
+    private void logoutButtonClick() {
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
@@ -60,9 +59,9 @@ public class adminForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void exitButtonClick(ActionEvent e) {this.mainUI.saveAndExit();}
+    private void exitButtonClick() {this.mainUI.saveAndExit();}
 
-    private void searchReservationsButtonClick(ActionEvent e) {
+    private void searchReservationsButtonClick() {
         searchReservationsForm searchReservationsForm = new searchReservationsForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
@@ -71,7 +70,7 @@ public class adminForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void searchUserButtonClick(ActionEvent e) {
+    private void searchUserButtonClick() {
         searchUsersForm searchUsersForm = new searchUsersForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
@@ -80,7 +79,7 @@ public class adminForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void activateDeactivateAccountsButtonClick(ActionEvent e) {
+    private void activateDeactivateAccountsButtonClick() {
         changeAccountStateForm changeAccountStateForm = new changeAccountStateForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
@@ -104,8 +103,7 @@ public class adminForm extends JPanel {
         setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
         0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
         . BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-        beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        red) , getBorder( )) );  addPropertyChangeListener (e -> {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); });
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -132,32 +130,32 @@ public class adminForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Search reservations");
-        button1.addActionListener(e -> searchReservationsButtonClick(e));
+        button1.addActionListener(e -> searchReservationsButtonClick());
         add(button1, "cell 3 2");
 
         //---- button2 ----
         button2.setText("Search users");
-        button2.addActionListener(e -> searchUserButtonClick(e));
+        button2.addActionListener(e -> searchUserButtonClick());
         add(button2, "cell 3 3");
 
         //---- button3 ----
         button3.setText("Change user state");
-        button3.addActionListener(e -> activateDeactivateAccountsButtonClick(e));
+        button3.addActionListener(e -> activateDeactivateAccountsButtonClick());
         add(button3, "cell 3 4");
 
         //---- button4 ----
         button4.setText("Messages");
-        button4.addActionListener(e -> messagesButtonClick(e));
+        button4.addActionListener(e -> messagesButtonClick());
         add(button4, "cell 3 5");
 
         //---- button5 ----
         button5.setText("Log out");
-        button5.addActionListener(e -> logoutButtonClick(e));
+        button5.addActionListener(e -> logoutButtonClick());
         add(button5, "cell 3 6");
 
         //---- button6 ----
         button6.setText("Exit");
-        button6.addActionListener(e -> exitButtonClick(e));
+        button6.addActionListener(e -> exitButtonClick());
         add(button6, "cell 3 7");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

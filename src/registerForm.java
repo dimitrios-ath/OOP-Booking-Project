@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Map;
 import javax.swing.*;
 /*
@@ -14,14 +13,14 @@ import javax.swing.*;
 public class registerForm extends JPanel {
     JFrame jframe;
     registerForm currentForm;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
 
     public void setCurrentForm(registerForm currentForm) {
         this.currentForm = currentForm;
@@ -42,7 +41,7 @@ public class registerForm extends JPanel {
         initComponents();
     }
 
-    private void backToLogin(ActionEvent e) {
+    private void backToLogin() {
         loginForm loginForm = new loginForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
@@ -50,7 +49,7 @@ public class registerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void registerWithRole(ActionEvent e) {
+    private void registerWithRole() {
         if (comboBox1.getSelectedItem()=="Customer") {
             registerAsCustomer registerAsCustomer = new registerAsCustomer(this.jframe, this.reservations,
                     this.rooms, this.users, this.customers, this.providers, this.admins, this.messages, this.mainUI);
@@ -79,9 +78,8 @@ public class registerForm extends JPanel {
         setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
         EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing
         . border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ),
-        java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( )
-        { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () ))
-        throw new RuntimeException( ); }} );
+        java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (e -> {if ("bord\u0065r" .equals (e .getPropertyName () ))
+        throw new RuntimeException( ); });
         setLayout(null);
 
         //---- label1 ----
@@ -91,7 +89,7 @@ public class registerForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Back");
-        button1.addActionListener(e -> backToLogin(e));
+        button1.addActionListener(e -> backToLogin());
         add(button1);
         button1.setBounds(95, 240, 97, 42);
 
@@ -106,9 +104,7 @@ public class registerForm extends JPanel {
 
         //---- button2 ----
         button2.setText("Next");
-        button2.addActionListener(e -> {
-			registerWithRole(e);
-		});
+        button2.addActionListener(e -> registerWithRole());
         add(button2);
         button2.setBounds(255, 240, 100, 45);
 

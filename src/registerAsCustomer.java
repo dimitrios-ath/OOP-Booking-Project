@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
@@ -18,14 +17,14 @@ import net.miginfocom.swing.*;
 public class registerAsCustomer extends JPanel {
     JFrame jframe;
     registerAsCustomer currentForm;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
 
     public void setCurrentForm(registerAsCustomer currentForm) {
         this.currentForm = currentForm;
@@ -46,7 +45,7 @@ public class registerAsCustomer extends JPanel {
         initComponents();
     }
 
-    private void register(ActionEvent e) {
+    private void register() {
         String username = textField5.getText();
         boolean validInput = true;
         if (username.matches("^[a-zA-Z0-9_]*$")) {
@@ -170,8 +169,8 @@ public class registerAsCustomer extends JPanel {
         border.EmptyBorder(0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER
         ,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font
         .BOLD,12),java.awt.Color.red), getBorder())); addPropertyChangeListener(
-        new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062ord\u0065r"
-        .equals(e.getPropertyName()))throw new RuntimeException();}});
+                e -> {if("\u0062ord\u0065r"
+                .equals(e.getPropertyName()))throw new RuntimeException();});
         setLayout(new MigLayout(
             "insets 0,hidemode 3,gap 5 5",
             // columns
@@ -262,7 +261,7 @@ public class registerAsCustomer extends JPanel {
 
         //---- button1 ----
         button1.setText("Register");
-        button1.addActionListener(e -> register(e));
+        button1.addActionListener(e -> register());
         add(button1, "cell 3 12");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

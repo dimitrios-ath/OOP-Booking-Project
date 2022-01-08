@@ -559,16 +559,16 @@ public class MainUI {
         }
         switch (role){
             case 1 -> {
-                CustomerUI customerUI = new CustomerUI(this.mainUI, this.customers.get(username), this.rooms,
-                        this.reservations, this.messages, this.users);
+                // CustomerUI customerUI = new CustomerUI(this.mainUI, this.customers.get(username), this.rooms,
+                //        this.reservations, this.messages, this.users);
             }
             case 2 -> {
-                ProviderUI providerUI = new ProviderUI(this.mainUI, this.providers.get(username), this.rooms,
-                        this.reservations, this.messages, this.users);
+                // ProviderUI providerUI = new ProviderUI(this.mainUI, this.providers.get(username), this.rooms,
+                //        this.reservations, this.messages, this.users);
             }
             case 3 -> {
-                AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username), this.reservations,
-                        this.customers, this.providers, this.admins, this.rooms, this.messages, this.users);
+                // AdminUI adminUI = new AdminUI(this.mainUI, this.admins.get(username), this.reservations,
+                //        this.customers, this.providers, this.admins, this.rooms, this.messages, this.users);
             }
             default -> System.exit(0);
         }

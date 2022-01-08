@@ -1,4 +1,3 @@
-import java.awt.event.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
@@ -16,14 +15,14 @@ public class messageForm extends JPanel {
     JFrame jframe;
     messageForm currentForm;
     String currentUsername;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
 
     public void setCurrentForm(messageForm currentForm) {
         this.currentForm = currentForm;
@@ -46,7 +45,7 @@ public class messageForm extends JPanel {
         initComponents();
     }
 
-    private void returnButtonClicked(ActionEvent e) {
+    private void returnButtonClicked() {
         if (this.users.get(currentUsername).getRole()==1) {
             customerForm customerForm = new customerForm(this.jframe, this.reservations, this.rooms, this.users,
                     this.customers, this.providers, this.admins, this.messages, this.mainUI, this.customers.get(currentUsername));
@@ -68,7 +67,7 @@ public class messageForm extends JPanel {
         }
     }
 
-    private void newMessageButtonClick(ActionEvent e) {
+    private void newMessageButtonClick() {
         newMessageForm newMessageForm = new newMessageForm(this.jframe, this.reservations, this.rooms, this.users, 
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, currentUsername);
         newMessageForm.setCurrentForm(newMessageForm);
@@ -76,7 +75,7 @@ public class messageForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void inboxButtonClick(ActionEvent e) {
+    private void inboxButtonClick() {
         inboxForm inboxForm = new inboxForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, currentUsername);
         inboxForm.setCurrentForm(inboxForm);
@@ -96,8 +95,7 @@ public class messageForm extends JPanel {
         setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder (
         0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder
         . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .
-        red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java .
-        beans. PropertyChangeEvent e) { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        red ) , getBorder () ) );  addPropertyChangeListener(e -> { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;});
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -123,17 +121,17 @@ public class messageForm extends JPanel {
 
         //---- button3 ----
         button3.setText("New message");
-        button3.addActionListener(e -> newMessageButtonClick(e));
+        button3.addActionListener(e -> newMessageButtonClick());
         add(button3, "cell 4 2");
 
         //---- button1 ----
         button1.setText("Inbox");
-        button1.addActionListener(e -> inboxButtonClick(e));
+        button1.addActionListener(e -> inboxButtonClick());
         add(button1, "cell 4 3");
 
         //---- button2 ----
         button2.setText("Return");
-        button2.addActionListener(e -> returnButtonClicked(e));
+        button2.addActionListener(e -> returnButtonClicked());
         add(button2, "cell 4 4");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }

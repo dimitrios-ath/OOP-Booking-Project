@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
@@ -18,15 +17,15 @@ import net.miginfocom.swing.*;
 public class changeAccountStateForm extends JPanel {
     JFrame jframe;
     changeAccountStateForm currentForm;
-    private Admin admin;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Admin admin;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
     DefaultListModel<String> model;
     private ArrayList<String> usernamesInList;
 
@@ -79,7 +78,7 @@ public class changeAccountStateForm extends JPanel {
     }
 
     private void updateList() {
-        model = new DefaultListModel<String>();
+        model = new DefaultListModel<>();
         AtomicBoolean noUsersFound = new AtomicBoolean(true);
         usernamesInList = new ArrayList<>();
         this.users.forEach((username, auth) -> {
@@ -139,7 +138,7 @@ public class changeAccountStateForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClick(ActionEvent e) {
+    private void returnButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
         adminForm.setCurrentForm(adminForm);
@@ -147,12 +146,12 @@ public class changeAccountStateForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void searchButtonClick(ActionEvent e) {
+    private void searchButtonClick() {
         label1.setVisible(false);
         updateList();
     }
 
-    private void changeStateButtonClick(ActionEvent e) {
+    private void changeStateButtonClick() {
         String username = usernamesInList.get(list1.getSelectedIndex());
         int role = this.users.get(username).getRole();
         if (!Objects.equals(username, this.admin.getUsername())) {
@@ -200,7 +199,7 @@ public class changeAccountStateForm extends JPanel {
         label4 = new JLabel();
         textField1 = new JTextField();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         label1 = new JLabel();
         button2 = new JButton();
         button1 = new JButton();
@@ -210,9 +209,8 @@ public class changeAccountStateForm extends JPanel {
         setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
         EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing
         . border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ),
-        java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( )
-        { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () ))
-        throw new RuntimeException( ); }} );
+        java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (e -> {if ("\u0062order" .equals (e .getPropertyName () ))
+        throw new RuntimeException( ); });
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -283,17 +281,17 @@ public class changeAccountStateForm extends JPanel {
 
         //---- button2 ----
         button2.setText("Return");
-        button2.addActionListener(e -> returnButtonClick(e));
+        button2.addActionListener(e -> returnButtonClick());
         add(button2, "cell 4 15");
 
         //---- button1 ----
         button1.setText("Search");
-        button1.addActionListener(e -> searchButtonClick(e));
+        button1.addActionListener(e -> searchButtonClick());
         add(button1, "cell 6 15");
 
         //---- button3 ----
         button3.setText("Change state");
-        button3.addActionListener(e -> changeStateButtonClick(e));
+        button3.addActionListener(e -> changeStateButtonClick());
         add(button3, "cell 9 15");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
@@ -306,7 +304,7 @@ public class changeAccountStateForm extends JPanel {
     private JLabel label4;
     private JTextField textField1;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JLabel label1;
     private JButton button2;
     private JButton button1;

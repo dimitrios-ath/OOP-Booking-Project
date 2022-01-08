@@ -1,4 +1,3 @@
-import java.awt.event.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
@@ -15,15 +14,15 @@ import java.util.Map;
 public class providerForm extends JPanel {
     JFrame jframe;
     providerForm currentForm;
-    private Provider provider;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final Provider provider;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
 
     public void setCurrentForm(providerForm currentForm) {
         this.currentForm = currentForm;
@@ -45,7 +44,7 @@ public class providerForm extends JPanel {
         initComponents();
     }
 
-    private void addRoomButtonClick(ActionEvent e) {
+    private void addRoomButtonClick() {
         addNewRoomProviderForm addNewRoomProviderForm = new addNewRoomProviderForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -54,7 +53,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void editRoomButtonClick(ActionEvent e) {
+    private void editRoomButtonClick() {
         selectRoomAndEditForm selectRoomAndEditForm = new selectRoomAndEditForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -63,7 +62,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void deleteExistingRoomButtonClick(ActionEvent e) {
+    private void deleteExistingRoomButtonClick() {
         selectRoomAndDeleteForm selectRoomAndDeleteForm = new selectRoomAndDeleteForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -72,7 +71,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void showAllRoomsButtonClick(ActionEvent e) {
+    private void showAllRoomsButtonClick() {
         showAllRoomsForm showAllRoomsForm = new showAllRoomsForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -81,7 +80,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void returnAllReservationsButtonClick(ActionEvent e) {
+    private void returnAllReservationsButtonClick() {
         selectRoomAndReturnReservationsForm selectRoomAndReturnReservationsForm = new selectRoomAndReturnReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -90,7 +89,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void messagesButtonClick(ActionEvent e) {
+    private void messagesButtonClick() {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider.getUsername());
@@ -99,7 +98,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void logoutButtonClick(ActionEvent e) {
+    private void logoutButtonClick() {
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
@@ -107,7 +106,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void exitButtonClick(ActionEvent e) {
+    private void exitButtonClick() {
         this.mainUI.saveAndExit();
     }
 
@@ -128,9 +127,8 @@ public class providerForm extends JPanel {
         setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
         . EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax
         . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,
-        12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans
-        . PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .
-        getPropertyName () )) throw new RuntimeException( ); }} );
+        12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (e -> {if ("borde\u0072" .equals (e .
+        getPropertyName () )) throw new RuntimeException( ); });
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -159,42 +157,42 @@ public class providerForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Add new room");
-        button1.addActionListener(e -> addRoomButtonClick(e));
+        button1.addActionListener(e -> addRoomButtonClick());
         add(button1, "cell 6 2");
 
         //---- button2 ----
         button2.setText("Edit existing room");
-        button2.addActionListener(e -> editRoomButtonClick(e));
+        button2.addActionListener(e -> editRoomButtonClick());
         add(button2, "cell 6 3");
 
         //---- button3 ----
         button3.setText("Delete existing room");
-        button3.addActionListener(e -> deleteExistingRoomButtonClick(e));
+        button3.addActionListener(e -> deleteExistingRoomButtonClick());
         add(button3, "cell 6 4");
 
         //---- button4 ----
         button4.setText("Show All rooms");
-        button4.addActionListener(e -> showAllRoomsButtonClick(e));
+        button4.addActionListener(e -> showAllRoomsButtonClick());
         add(button4, "cell 6 5");
 
         //---- button5 ----
         button5.setText("Return all reservations");
-        button5.addActionListener(e -> returnAllReservationsButtonClick(e));
+        button5.addActionListener(e -> returnAllReservationsButtonClick());
         add(button5, "cell 6 6");
 
         //---- button6 ----
         button6.setText("Messages");
-        button6.addActionListener(e -> messagesButtonClick(e));
+        button6.addActionListener(e -> messagesButtonClick());
         add(button6, "cell 6 7");
 
         //---- button7 ----
         button7.setText("Log out");
-        button7.addActionListener(e -> logoutButtonClick(e));
+        button7.addActionListener(e -> logoutButtonClick());
         add(button7, "cell 6 8");
 
         //---- button8 ----
         button8.setText("Exit");
-        button8.addActionListener(e -> exitButtonClick(e));
+        button8.addActionListener(e -> exitButtonClick());
         add(button8, "cell 6 9");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
