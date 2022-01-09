@@ -1,3 +1,5 @@
+import java.awt.*;
+import java.awt.event.*;
 import java.util.Map;
 import javax.swing.*;
 import net.miginfocom.swing.*;
@@ -41,6 +43,9 @@ public class searchReservationsForm extends JPanel {
         this.mainUI = mainUI;
         this.admin = admin;
         initComponents();
+        jframe.setPreferredSize(new Dimension(365, 295));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
     }
 
     private void searchByCustomerUsernameButtonClick() {
@@ -78,6 +83,22 @@ public class searchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    private void searchByCustomerUsernameButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void searchByRoomButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void showAllReservationsButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void cancelButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - asdfasdfa
@@ -88,53 +109,64 @@ public class searchReservationsForm extends JPanel {
         button4 = new JButton();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing
-        . border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border . TitledBorder
-        . CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .
-        awt . Font. BOLD ,12 ) ,java . awt. Color .red ) , getBorder () ) )
-        ;  addPropertyChangeListener(e -> { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;})
-        ;
-        setLayout(new MigLayout(
-            "hidemode 3",
-            // columns
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]",
-            // rows
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]"));
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax
+        . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing
+        .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .
+        Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red
+        ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override
+        public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName (
+        ) ) )throw new RuntimeException( ) ;} } );
+        setLayout(null);
 
         //---- label1 ----
         label1.setText("Search reservations");
-        add(label1, "cell 3 0");
+        label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
+        add(label1);
+        label1.setBounds(65, 40, 240, label1.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("Search by customer");
-        button1.addActionListener(e -> searchByCustomerUsernameButtonClick());
-        add(button1, "cell 3 2");
+        button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.addActionListener(e -> searchByCustomerUsernameButtonClick(e));
+        add(button1);
+        button1.setBounds(65, 105, 238, button1.getPreferredSize().height);
 
         //---- button2 ----
         button2.setText("Search by room");
-        button2.addActionListener(e -> searchByRoomButtonClick());
-        add(button2, "cell 3 3");
+        button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button2.addActionListener(e -> searchByRoomButtonClick(e));
+        add(button2);
+        button2.setBounds(65, 140, 238, button2.getPreferredSize().height);
 
         //---- button3 ----
         button3.setText("Show all reservations");
-        button3.addActionListener(e -> showAllReservationsButtonClick());
-        add(button3, "cell 3 4");
+        button3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button3.addActionListener(e -> showAllReservationsButtonClick(e));
+        add(button3);
+        button3.setBounds(65, 175, 238, button3.getPreferredSize().height);
 
         //---- button4 ----
         button4.setText("Cancel");
-        button4.addActionListener(e -> cancelButtonClick());
-        add(button4, "cell 3 5");
+        button4.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button4.addActionListener(e -> cancelButtonClick(e));
+        add(button4);
+        button4.setBounds(65, 220, 238, button4.getPreferredSize().height);
+
+        {
+            // compute preferred size
+            Dimension preferredSize = new Dimension();
+            for(int i = 0; i < getComponentCount(); i++) {
+                Rectangle bounds = getComponent(i).getBounds();
+                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+            }
+            Insets insets = getInsets();
+            preferredSize.width += insets.right;
+            preferredSize.height += insets.bottom;
+            setMinimumSize(preferredSize);
+            setPreferredSize(preferredSize);
+        }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
