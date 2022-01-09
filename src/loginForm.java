@@ -123,12 +123,13 @@ public class loginForm extends JPanel {
         setFont(new Font("Droid Sans", Font.PLAIN, 12));
         setAlignmentY(2.5F);
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
-        EmptyBorder( 0, 0, 0, 0) , "", javax. swing. border. TitledBorder. CENTER, javax. swing
-        . border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ),
-        java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( )
-        { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () ))
-        throw new RuntimeException( ); }} );
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing
+        . border .EmptyBorder ( 0, 0 ,0 , 0) ,  "" , javax. swing .border . TitledBorder
+        . CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .
+        awt . Font. BOLD ,12 ) ,java . awt. Color .red ) , getBorder () ) )
+        ;  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
+        ) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } )
+        ;
         setLayout(null);
 
         //---- label4 ----
@@ -152,7 +153,7 @@ public class loginForm extends JPanel {
         label2.setBounds(65, 100, 87, 20);
 
         //---- textField1 ----
-        textField1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField1);
         textField1.setBounds(185, 100, 160, textField1.getPreferredSize().height);
 
@@ -164,7 +165,7 @@ public class loginForm extends JPanel {
         label3.setBounds(65, 135, 87, label3.getPreferredSize().height);
 
         //---- passwordField1 ----
-        passwordField1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        passwordField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(passwordField1);
         passwordField1.setBounds(185, 130, 160, passwordField1.getPreferredSize().height);
 

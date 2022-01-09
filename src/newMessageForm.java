@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import java.util.Map;
 import java.util.Objects;
 /*
@@ -42,12 +43,15 @@ public class newMessageForm extends JPanel {
         this.messages = messages;
         this.mainUI=mainUI;
         this.currentUsername = currentUsername;
+        jframe.setPreferredSize(new Dimension(419 , 218));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
         initComponents();
         textField1.setText(currentUsername);
         textField1.setEnabled(false);
     }
 
-    private void cancelButtonClick() {
+    private void cancelButtonClick(ActionEvent e) {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, currentUsername);
@@ -56,7 +60,7 @@ public class newMessageForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void sendButtonClick() {
+    private void sendButtonClick(ActionEvent e) {
         if (users.containsKey(textField2.getText()) && !Objects.equals(textField2.getText(), "")) {
             label4.setForeground(null);
             label4.setVisible(false);
@@ -93,7 +97,7 @@ public class newMessageForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         label2 = new JLabel();
         textField1 = new JTextField();
@@ -107,35 +111,47 @@ public class newMessageForm extends JPanel {
         button2 = new JButton();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax
-        . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e" , javax. swing
-        .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .
-        Font ( "Dialo\u0067", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red
-        ) , getBorder () ) );  addPropertyChangeListener(e -> { if( "borde\u0072" .equals ( e. getPropertyName (
-        ) ) )throw new RuntimeException( ) ;});
+        setBackground(new Color(51, 102, 255));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
+        javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "", javax
+        . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
+        .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
+        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans.
+        PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .
+        equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(null);
 
         //---- label1 ----
         label1.setText("New message");
+        label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label1.setForeground(Color.white);
         add(label1);
-        label1.setBounds(117, 25, 93, label1.getPreferredSize().height);
+        label1.setBounds(110, 5, 170, label1.getPreferredSize().height);
 
         //---- label2 ----
         label2.setText("From:");
+        label2.setForeground(Color.white);
+        label2.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label2);
-        label2.setBounds(25, 46, 87, 26);
+        label2.setBounds(5, 45, 50, 26);
 
         //---- textField1 ----
-        textField1.setText("currentName");
+        textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField1.setBackground(Color.white);
         add(textField1);
-        textField1.setBounds(new Rectangle(new Point(117, 46), textField1.getPreferredSize()));
+        textField1.setBounds(80, 45, 85, textField1.getPreferredSize().height);
 
         //---- label3 ----
         label3.setText("To:");
+        label3.setForeground(Color.white);
+        label3.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label3);
-        label3.setBounds(25, 77, 87, 26);
+        label3.setBounds(5, 80, 55, 26);
+
+        //---- textField2 ----
+        textField2.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField2);
-        textField2.setBounds(117, 77, 93, textField2.getPreferredSize().height);
+        textField2.setBounds(80, 75, 83, textField2.getPreferredSize().height);
 
         //---- label5 ----
         label5.setText("Content can't be empty");
@@ -155,22 +171,27 @@ public class newMessageForm extends JPanel {
             //---- textArea1 ----
             textArea1.setRows(6);
             textArea1.setLineWrap(true);
+            textArea1.setFont(new Font("Tahoma", Font.PLAIN, 14));
             scrollPane1.setViewportView(textArea1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(new Rectangle(new Point(25, 108), scrollPane1.getPreferredSize()));
+        scrollPane1.setBounds(80, 105, 265, scrollPane1.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("Cancel");
-        button1.addActionListener(e -> cancelButtonClick());
+        button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setForeground(new Color(51, 102, 255));
+        button1.addActionListener(e -> cancelButtonClick(e));
         add(button1);
-        button1.setBounds(new Rectangle(new Point(25, 255), button1.getPreferredSize()));
+        button1.setBounds(new Rectangle(new Point(80, 215), button1.getPreferredSize()));
 
         //---- button2 ----
         button2.setText("Send");
-        button2.addActionListener(e -> sendButtonClick());
+        button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button2.setForeground(new Color(51, 102, 255));
+        button2.addActionListener(e -> sendButtonClick(e));
         add(button2);
-        button2.setBounds(235, 270, 172, button2.getPreferredSize().height);
+        button2.setBounds(185, 215, 160, button2.getPreferredSize().height);
 
         {
             // compute preferred size
@@ -190,7 +211,7 @@ public class newMessageForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JLabel label2;
     private JTextField textField1;

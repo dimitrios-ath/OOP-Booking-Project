@@ -50,7 +50,7 @@ public class providerForm extends JPanel {
         initComponents();
     }
 
-    private void addRoomButtonClick() {
+    private void addRoomButtonClick(ActionEvent e) {
         addNewRoomProviderForm addNewRoomProviderForm = new addNewRoomProviderForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -59,7 +59,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void editRoomButtonClick() {
+    private void editRoomButtonClick(ActionEvent e) {
         selectRoomAndEditForm selectRoomAndEditForm = new selectRoomAndEditForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -68,7 +68,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void deleteExistingRoomButtonClick() {
+    private void deleteExistingRoomButtonClick(ActionEvent e) {
         selectRoomAndDeleteForm selectRoomAndDeleteForm = new selectRoomAndDeleteForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -77,7 +77,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void showAllRoomsButtonClick() {
+    private void showAllRoomsButtonClick(ActionEvent e) {
         showAllRoomsForm showAllRoomsForm = new showAllRoomsForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -86,7 +86,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void returnAllReservationsButtonClick() {
+    private void returnAllReservationsButtonClick(ActionEvent e) {
         selectRoomAndReturnReservationsForm selectRoomAndReturnReservationsForm = new selectRoomAndReturnReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -95,7 +95,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void messagesButtonClick() {
+    private void messagesButtonClick(ActionEvent e) {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider.getUsername());
@@ -104,7 +104,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void logoutButtonClick() {
+    private void logoutButtonClick(ActionEvent e) {
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
@@ -112,41 +112,10 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void exitButtonClick() {
+    private void exitButtonClick(ActionEvent e) {
         this.mainUI.saveAndExit();
     }
 
-    private void addRoomButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void editRoomButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void deleteExistingRoomButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void showAllRoomsButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void returnAllReservationsButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void messagesButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void logoutButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void exitButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -165,13 +134,12 @@ public class providerForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax.
-        swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e", javax. swing. border
-        . TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069al\u006fg"
-        ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder
-        ( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java
-        .beans .PropertyChangeEvent e) {if ("\u0062or\u0064er" .equals (e .getPropertyName () )) throw new RuntimeException
-        ( ); }} );
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
+        .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax
+        . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,
+        12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans
+        .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e.
+        getPropertyName () ) )throw new RuntimeException( ) ;} } );
         setLayout(null);
 
         //---- label1 ----

@@ -43,7 +43,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
-				"font": &Font1 new java.awt.Font( "Tahoma", 0, 11 )
+				"font": new java.awt.Font( "Tahoma", 0, 14 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 160
 				"x": 185
@@ -61,7 +61,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JPasswordField" ) {
 				name: "passwordField1"
-				"font": #Font1
+				"font": new java.awt.Font( "Tahoma", 0, 14 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 160
 				"x": 185
@@ -70,7 +70,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Login"
-				"font": &Font2 new java.awt.Font( "Tahoma", 1, 14 )
+				"font": &Font1 new java.awt.Font( "Tahoma", 1, 14 )
 				"foreground": &Color1 new java.awt.Color( 0, 51, 255, 255 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "loginButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
@@ -83,7 +83,7 @@ new FormModel {
 				name: "button2"
 				"text": "Register"
 				"actionCommand": "Register"
-				"font": #Font2
+				"font": #Font1
 				"foreground": #Color1
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "registerButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
@@ -95,7 +95,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button3"
 				"text": "Exit"
-				"font": #Font2
+				"font": #Font1
 				"foreground": #Color1
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "exitButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {

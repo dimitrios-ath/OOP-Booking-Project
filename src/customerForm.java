@@ -43,13 +43,13 @@ public class customerForm extends JPanel {
         this.messages = messages;
         this.mainUI = mainUI;
         this.customer= customer;
-        jframe.setPreferredSize(new Dimension(320 , 325));
+        jframe.setPreferredSize(new Dimension(385 , 318));
         jframe.pack();
         jframe.setLocationRelativeTo(null);
         initComponents();
     }
     
-    private void cancelReservationButtonClick(){
+    private void cancelReservationButtonClick(ActionEvent e){
         cancelReservationCustomerForm cancelReservationCustomerForm= new cancelReservationCustomerForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.customer);
@@ -58,7 +58,7 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void showAllReservationsButtonClick(){
+    private void showAllReservationsButtonClick(ActionEvent e){
         showAllReservationsCustomerForm showAllReservationsCustomerForm=new showAllReservationsCustomerForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.customer);
@@ -67,7 +67,7 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
     
-    private void messagesButtonClick() {
+    private void messagesButtonClick(ActionEvent e) {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.customer.getUsername());
@@ -76,7 +76,7 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void logoutButtonClick() {
+    private void logoutButtonClick(ActionEvent e) {
         loginForm loginForm = new loginForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages,this.mainUI);
         loginForm.setCurrentForm(loginForm);
@@ -84,11 +84,11 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void exitButtonClick() {
+    private void exitButtonClick(ActionEvent e) {
         this.mainUI.saveAndExit();
     }
 
-    private void reserveRoomButtonClick() {
+    private void reserveRoomButtonClick(ActionEvent e) {
         reserveRoomForm reserveRoomForm =new reserveRoomForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.customer);
@@ -97,29 +97,7 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void reserveRoomButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
 
-    private void cancelReservationButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void showAllReservationsButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void messagesButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void logoutButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void exitButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
 
 
 
@@ -138,13 +116,12 @@ public class customerForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
-        javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax
-        . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
-        .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
-        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans.
-        PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .
-        equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder
+        ( 0, 0 ,0 , 0) ,  "" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border
+        .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt
+        . Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void
+        propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
+        ;} } );
         setLayout(null);
 
         //---- label1 ----
@@ -160,7 +137,7 @@ public class customerForm extends JPanel {
         SearchAndReserveRoom.setForeground(new Color(51, 102, 255));
         SearchAndReserveRoom.addActionListener(e -> reserveRoomButtonClick(e));
         add(SearchAndReserveRoom);
-        SearchAndReserveRoom.setBounds(95, 95, 200, SearchAndReserveRoom.getPreferredSize().height);
+        SearchAndReserveRoom.setBounds(90, 80, 200, SearchAndReserveRoom.getPreferredSize().height);
 
         //---- cancelReservation ----
         cancelReservation.setText("Cancel Reservation");
@@ -168,7 +145,7 @@ public class customerForm extends JPanel {
         cancelReservation.setForeground(new Color(51, 102, 255));
         cancelReservation.addActionListener(e -> cancelReservationButtonClick(e));
         add(cancelReservation);
-        cancelReservation.setBounds(95, 125, 200, cancelReservation.getPreferredSize().height);
+        cancelReservation.setBounds(90, 110, 200, cancelReservation.getPreferredSize().height);
 
         //---- showAllReservations ----
         showAllReservations.setText("Show All Reservations");
@@ -176,7 +153,7 @@ public class customerForm extends JPanel {
         showAllReservations.setForeground(new Color(51, 102, 255));
         showAllReservations.addActionListener(e -> showAllReservationsButtonClick(e));
         add(showAllReservations);
-        showAllReservations.setBounds(95, 185, 200, showAllReservations.getPreferredSize().height);
+        showAllReservations.setBounds(90, 170, 200, showAllReservations.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("Messages");
@@ -184,7 +161,7 @@ public class customerForm extends JPanel {
         button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> messagesButtonClick(e));
         add(button1);
-        button1.setBounds(95, 155, 200, button1.getPreferredSize().height);
+        button1.setBounds(90, 140, 200, button1.getPreferredSize().height);
 
         //---- Logout ----
         Logout.setText("Log Out");
@@ -192,7 +169,7 @@ public class customerForm extends JPanel {
         Logout.setForeground(new Color(51, 102, 255));
         Logout.addActionListener(e -> logoutButtonClick(e));
         add(Logout);
-        Logout.setBounds(95, 225, 200, Logout.getPreferredSize().height);
+        Logout.setBounds(90, 215, 200, Logout.getPreferredSize().height);
 
         //---- exit ----
         exit.setText("Exit");
@@ -200,16 +177,18 @@ public class customerForm extends JPanel {
         exit.setForeground(new Color(51, 102, 255));
         exit.addActionListener(e -> exitButtonClick(e));
         add(exit);
-        exit.setBounds(95, 255, 200, exit.getPreferredSize().height);
+        exit.setBounds(90, 245, 200, exit.getPreferredSize().height);
 
         //---- label2 ----
         label2.setFont(new Font("Tahoma", Font.BOLD, 14));
         label2.setForeground(Color.white);
+        label2.setBackground(new Color(51, 102, 255));
         add(label2);
         label2.setBounds(20, 35, 300, 15);
 
         //---- label3 ----
         label3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label3.setBackground(new Color(51, 102, 255));
         add(label3);
         label3.setBounds(20, 55, 300, 15);
 

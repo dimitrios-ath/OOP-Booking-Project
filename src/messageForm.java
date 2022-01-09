@@ -1,5 +1,6 @@
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
-import net.miginfocom.swing.*;
 
 import java.util.Map;
 /*
@@ -42,10 +43,14 @@ public class messageForm extends JPanel {
         this.messages = messages;
         this.mainUI=mainUI;
         this.currentUsername = currentUsername;
+        jframe.setPreferredSize(new Dimension(315 , 173));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
+        initComponents();
         initComponents();
     }
 
-    private void returnButtonClicked() {
+    private void returnButtonClicked(ActionEvent e) {
         if (this.users.get(currentUsername).getRole()==1) {
             customerForm customerForm = new customerForm(this.jframe, this.reservations, this.rooms, this.users,
                     this.customers, this.providers, this.admins, this.messages, this.mainUI, this.customers.get(currentUsername));
@@ -67,7 +72,7 @@ public class messageForm extends JPanel {
         }
     }
 
-    private void newMessageButtonClick() {
+    private void newMessageButtonClick(ActionEvent e) {
         newMessageForm newMessageForm = new newMessageForm(this.jframe, this.reservations, this.rooms, this.users, 
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, currentUsername);
         newMessageForm.setCurrentForm(newMessageForm);
@@ -75,7 +80,7 @@ public class messageForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void inboxButtonClick() {
+    private void inboxButtonClick(ActionEvent e) {
         inboxForm inboxForm = new inboxForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, currentUsername);
         inboxForm.setCurrentForm(inboxForm);
@@ -83,61 +88,75 @@ public class messageForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         button3 = new JButton();
         button1 = new JButton();
         button2 = new JButton();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder (
-        0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder
-        . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .
-        red ) , getBorder () ) );  addPropertyChangeListener(e -> { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;});
-        setLayout(new MigLayout(
-            "hidemode 3",
-            // columns
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]",
-            // rows
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]"));
+        setBackground(new Color(51, 102, 255));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
+        0, 0, 0, 0) , "", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
+        . BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
+        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
+        beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setLayout(null);
 
         //---- label1 ----
-        label1.setText("Message");
-        add(label1, "cell 4 0");
+        label1.setText("Messages");
+        label1.setForeground(Color.white);
+        label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        add(label1);
+        label1.setBounds(100, 10, 110, label1.getPreferredSize().height);
 
         //---- button3 ----
         button3.setText("New message");
-        button3.addActionListener(e -> newMessageButtonClick());
-        add(button3, "cell 4 2");
+        button3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button3.setForeground(new Color(51, 102, 255));
+        button3.addActionListener(e -> newMessageButtonClick(e));
+        add(button3);
+        button3.setBounds(90, 50, 130, button3.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("Inbox");
-        button1.addActionListener(e -> inboxButtonClick());
-        add(button1, "cell 4 3");
+        button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setForeground(new Color(51, 102, 255));
+        button1.addActionListener(e -> inboxButtonClick(e));
+        add(button1);
+        button1.setBounds(90, 80, 130, button1.getPreferredSize().height);
 
         //---- button2 ----
         button2.setText("Return");
-        button2.addActionListener(e -> returnButtonClicked());
-        add(button2, "cell 4 4");
+        button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button2.setForeground(new Color(51, 102, 255));
+        button2.addActionListener(e -> returnButtonClicked(e));
+        add(button2);
+        button2.setBounds(90, 120, 130, button2.getPreferredSize().height);
+
+        {
+            // compute preferred size
+            Dimension preferredSize = new Dimension();
+            for(int i = 0; i < getComponentCount(); i++) {
+                Rectangle bounds = getComponent(i).getBounds();
+                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+            }
+            Insets insets = getInsets();
+            preferredSize.width += insets.right;
+            preferredSize.height += insets.bottom;
+            setMinimumSize(preferredSize);
+            setPreferredSize(preferredSize);
+        }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JButton button3;
     private JButton button1;

@@ -1,3 +1,4 @@
+import java.awt.event.*;
 import javax.swing.*;
 import java.awt.*;
 import java.text.DecimalFormat;
@@ -5,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
-import net.miginfocom.swing.*;
+
 /*
  * Created by JFormDesigner on Thu Jan 06 16:02:24 EET 2022
  */
@@ -49,6 +50,9 @@ public class cancelReservationCustomerForm extends JPanel {
         this.mainUI = mainUI;
         this.customer=customer;
         initComponents();
+        jframe.setPreferredSize(new Dimension(611 , 282));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
 
         idsInList = new ArrayList<>() ;
         df = new DecimalFormat("0.00");
@@ -76,7 +80,7 @@ public class cancelReservationCustomerForm extends JPanel {
 
     }
 
-   private void cancelReservationButtonClick() {
+   private void cancelReservationButtonClick(ActionEvent e) {
        int id;
        if (!list1.isSelectionEmpty()){
            id=idsInList.get(list1.getSelectedIndex());
@@ -101,7 +105,7 @@ public class cancelReservationCustomerForm extends JPanel {
        }
    }
 
-   private void returnButtonClick() {
+   private void returnButtonClick(ActionEvent e) {
        customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                this.providers, this.admins, this.messages, this.mainUI, this.customer);
        customerForm.setCurrentForm(customerForm);
@@ -109,71 +113,84 @@ public class cancelReservationCustomerForm extends JPanel {
        this.currentForm.setVisible(false);
    }
 
+
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList<>();
+        list1 = new JList();
         buttonCancel = new JButton();
         buttonCancelReservation = new JButton();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing
-        .border.EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder
-        .CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.
-        awt.Font.BOLD,12),java.awt.Color.red), getBorder()))
-        ; addPropertyChangeListener(e -> {if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();})
+        setBackground(new Color(51, 102, 255));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
+        . border. EmptyBorder( 0, 0, 0, 0) , "", javax. swing. border. TitledBorder
+        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .
+        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
+        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+        ) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
         ;
-        setLayout(new MigLayout(
-            "insets 0,hidemode 3,gap 5 5",
-            // columns
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]",
-            // rows
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[]" +
-            "[]"));
+        setLayout(null);
 
         //---- label1 ----
         label1.setText("Cancel Reservation");
-        add(label1, "cell 5 0");
+        label1.setForeground(Color.white);
+        label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        add(label1);
+        label1.setBounds(new Rectangle(new Point(205, 10), label1.getPreferredSize()));
 
         //======== scrollPane1 ========
         {
 
             //---- list1 ----
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
             scrollPane1.setViewportView(list1);
         }
-        add(scrollPane1, "cell 4 2 3 1");
+        add(scrollPane1);
+        scrollPane1.setBounds(35, 45, 535, scrollPane1.getPreferredSize().height);
 
         //---- buttonCancel ----
         buttonCancel.setText("Return");
-        buttonCancel.addActionListener(e -> returnButtonClick());
-        add(buttonCancel, "cell 3 4");
+        buttonCancel.setFont(new Font("Tahoma", Font.BOLD, 14));
+        buttonCancel.setForeground(new Color(0, 102, 255));
+        buttonCancel.addActionListener(e -> returnButtonClick(e));
+        add(buttonCancel);
+        buttonCancel.setBounds(35, 210, 170, buttonCancel.getPreferredSize().height);
 
         //---- buttonCancelReservation ----
         buttonCancelReservation.setText("Cancel");
-        buttonCancelReservation.addActionListener(e -> cancelReservationButtonClick());
-        add(buttonCancelReservation, "cell 8 4");
+        buttonCancelReservation.setFont(new Font("Tahoma", Font.BOLD, 14));
+        buttonCancelReservation.setForeground(new Color(0, 102, 255));
+        buttonCancelReservation.addActionListener(e -> cancelReservationButtonClick(e));
+        add(buttonCancelReservation);
+        buttonCancelReservation.setBounds(400, 210, 170, buttonCancelReservation.getPreferredSize().height);
+
+        {
+            // compute preferred size
+            Dimension preferredSize = new Dimension();
+            for(int i = 0; i < getComponentCount(); i++) {
+                Rectangle bounds = getComponent(i).getBounds();
+                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+            }
+            Insets insets = getInsets();
+            preferredSize.width += insets.right;
+            preferredSize.height += insets.bottom;
+            setMinimumSize(preferredSize);
+            setPreferredSize(preferredSize);
+        }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JScrollPane scrollPane1;
-    private JList<String> list1;
+    private JList list1;
     private JButton buttonCancel;
     private JButton buttonCancelReservation;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
