@@ -1,3 +1,4 @@
+import java.awt.event.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
@@ -110,9 +111,41 @@ public class providerForm extends JPanel {
         this.mainUI.saveAndExit();
     }
 
+    private void addRoomButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void editRoomButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void deleteExistingRoomButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void showAllRoomsButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void returnAllReservationsButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void messagesButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void logoutButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void exitButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         button1 = new JButton();
         button2 = new JButton();
@@ -125,10 +158,11 @@ public class providerForm extends JPanel {
 
         //======== this ========
         setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
-        . EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax
-        . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,
-        12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (e -> {if ("borde\u0072" .equals (e .
-        getPropertyName () )) throw new RuntimeException( ); });
+        . EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax
+        . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,
+        12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans
+        . PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .
+        getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(new MigLayout(
             "hidemode 3",
             // columns
@@ -157,48 +191,48 @@ public class providerForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Add new room");
-        button1.addActionListener(e -> addRoomButtonClick());
+        button1.addActionListener(e -> addRoomButtonClick(e));
         add(button1, "cell 6 2");
 
         //---- button2 ----
         button2.setText("Edit existing room");
-        button2.addActionListener(e -> editRoomButtonClick());
+        button2.addActionListener(e -> editRoomButtonClick(e));
         add(button2, "cell 6 3");
 
         //---- button3 ----
         button3.setText("Delete existing room");
-        button3.addActionListener(e -> deleteExistingRoomButtonClick());
+        button3.addActionListener(e -> deleteExistingRoomButtonClick(e));
         add(button3, "cell 6 4");
 
         //---- button4 ----
         button4.setText("Show All rooms");
-        button4.addActionListener(e -> showAllRoomsButtonClick());
+        button4.addActionListener(e -> showAllRoomsButtonClick(e));
         add(button4, "cell 6 5");
 
         //---- button5 ----
         button5.setText("Return all reservations");
-        button5.addActionListener(e -> returnAllReservationsButtonClick());
+        button5.addActionListener(e -> returnAllReservationsButtonClick(e));
         add(button5, "cell 6 6");
 
         //---- button6 ----
         button6.setText("Messages");
-        button6.addActionListener(e -> messagesButtonClick());
+        button6.addActionListener(e -> messagesButtonClick(e));
         add(button6, "cell 6 7");
 
         //---- button7 ----
         button7.setText("Log out");
-        button7.addActionListener(e -> logoutButtonClick());
+        button7.addActionListener(e -> logoutButtonClick(e));
         add(button7, "cell 6 8");
 
         //---- button8 ----
         button8.setText("Exit");
-        button8.addActionListener(e -> exitButtonClick());
+        button8.addActionListener(e -> exitButtonClick(e));
         add(button8, "cell 6 9");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JButton button1;
     private JButton button2;

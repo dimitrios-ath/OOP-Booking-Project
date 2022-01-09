@@ -1,3 +1,4 @@
+import java.awt.event.*;
 import java.util.Map;
 import javax.swing.*;
 import net.miginfocom.swing.*;
@@ -97,9 +98,21 @@ public class loginForm extends JPanel {
         this.mainUI.saveAndExit();
     }
 
+    private void loginButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void registerButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void exitButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         label2 = new JLabel();
         textField1 = new JTextField();
@@ -111,11 +124,11 @@ public class loginForm extends JPanel {
         button3 = new JButton();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
-        .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax
-        . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,
-        12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener(e -> { if( "\u0062order" .equals ( e.
-        getPropertyName () ) )throw new RuntimeException( ) ;});
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder (
+        0, 0 ,0 , 0) ,  "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder
+        . BOTTOM, new java. awt .Font ( "Dialo\u0067", java .awt . Font. BOLD ,12 ) ,java . awt. Color .
+        red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java .
+        beans. PropertyChangeEvent e) { if( "borde\u0072" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
         setLayout(new MigLayout(
             "insets 0,hidemode 3,gap 5 5",
             // columns
@@ -154,13 +167,13 @@ public class loginForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Login");
-        button1.addActionListener(e -> loginButtonClick());
+        button1.addActionListener(e -> loginButtonClick(e));
         add(button1, "cell 2 4");
 
         //---- button2 ----
         button2.setText("Register");
         button2.setActionCommand("Register");
-        button2.addActionListener(e -> registerButtonClick());
+        button2.addActionListener(e -> registerButtonClick(e));
         add(button2, "cell 4 4");
 
         //---- label4 ----
@@ -170,13 +183,13 @@ public class loginForm extends JPanel {
 
         //---- button3 ----
         button3.setText("Exit");
-        button3.addActionListener(e -> exitButtonClick());
+        button3.addActionListener(e -> exitButtonClick(e));
         add(button3, "cell 3 8 3 1");
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JLabel label2;
     private JTextField textField1;
