@@ -16,6 +16,13 @@ public class MainUI {
     private MainUI mainUI;
     Scanner scanner;
 
+    public Map<Integer, Reservation> getReservations() {return reservations;}
+    public Map<Integer, Room> getRooms() {return rooms;}
+    public Map<String, Authentication> getUsers() {return users;}
+    public Map<String, Customer> getCustomers() {return customers;}
+    public Map<String, Provider> getProviders() {return providers;}
+    public Map<String, Admin> getAdmins() {return admins;}
+    public Map<Integer, Message> getMessages() {return messages;}
     public void setMainUI(MainUI mainUI) {
         this.mainUI = mainUI;
     }

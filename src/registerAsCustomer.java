@@ -125,7 +125,6 @@ public class registerAsCustomer extends JPanel {
 
         if (validInput){
             this.users.put(username, new Authentication(username, password, 1));
-            System.out.println(this.customers);
             this.customers.put(username, new Customer(username, email, password, firstName, lastName,
                     gender, country, phone, birthdate, false));
             loginForm loginForm = new loginForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
