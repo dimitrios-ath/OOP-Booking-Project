@@ -1,3 +1,5 @@
+import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 
@@ -49,8 +51,11 @@ public class returnReservationsByCustomer extends JPanel {
         this.mainUI = mainUI;
         this.admin = admin;
         initComponents();
+        jframe.setPreferredSize(new Dimension(930, 425));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
 
-        label1.setText("Reservations for " + username + ":");
+        label1.setText("User \"" + username + "\" reservations:");
         df = new DecimalFormat("0.00");
         model = new DefaultListModel<>();
         noReservationsFound = new AtomicBoolean(true);
@@ -79,55 +84,75 @@ public class returnReservationsByCustomer extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    private void returnButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList<>();
+        list1 = new JList();
         button1 = new JButton();
+        label2 = new JLabel();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder (
-        new javax . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e"
-        , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
-        , new java. awt .Font ( "D\u0069al\u006fg", java .awt . Font. BOLD ,12 )
-        ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener(
-                e -> { if( "\u0062or\u0064er" .equals ( e. getPropertyName () ) )throw new RuntimeException( )
-                ;});
-        setLayout(new MigLayout(
-            "hidemode 3",
-            // columns
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]",
-            // rows
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]"));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (
+        new javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion"
+        , javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
+        , new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 )
+        , java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
+        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+        ) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
+        ; }} );
+        setLayout(null);
 
         //---- label1 ----
-        label1.setText("Reservations for username");
-        add(label1, "cell 5 0");
+        label1.setText("User \"user\" reservations:");
+        label1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        add(label1);
+        label1.setBounds(new Rectangle(new Point(375, 75), label1.getPreferredSize()));
 
         //======== scrollPane1 ========
         {
+            scrollPane1.setFont(new Font("Tahoma", Font.BOLD, 14));
 
             //---- list1 ----
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
             scrollPane1.setViewportView(list1);
         }
-        add(scrollPane1, "cell 5 2");
+        add(scrollPane1);
+        scrollPane1.setBounds(55, 100, 820, 240);
 
         //---- button1 ----
         button1.setText("Return");
-        button1.addActionListener(e -> returnButtonClick());
-        add(button1, "cell 5 4");
+        button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.addActionListener(e -> returnButtonClick(e));
+        add(button1);
+        button1.setBounds(390, 370, 145, button1.getPreferredSize().height);
+
+        //---- label2 ----
+        label2.setText("Reservations");
+        label2.setFont(new Font("Tahoma", Font.BOLD, 22));
+        add(label2);
+        label2.setBounds(new Rectangle(new Point(395, 20), label2.getPreferredSize()));
+
+        {
+            // compute preferred size
+            Dimension preferredSize = new Dimension();
+            for(int i = 0; i < getComponentCount(); i++) {
+                Rectangle bounds = getComponent(i).getBounds();
+                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+            }
+            Insets insets = getInsets();
+            preferredSize.width += insets.right;
+            preferredSize.height += insets.bottom;
+            setMinimumSize(preferredSize);
+            setPreferredSize(preferredSize);
+        }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -135,7 +160,8 @@ public class returnReservationsByCustomer extends JPanel {
     // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JScrollPane scrollPane1;
-    private JList<String> list1;
+    private JList list1;
     private JButton button1;
+    private JLabel label2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
