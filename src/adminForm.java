@@ -41,10 +41,13 @@ public class adminForm extends JPanel {
         this.messages = messages;
         this.mainUI = mainUI;
         this.admin = admin;
+        jframe.setPreferredSize(new Dimension(393 , 333));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
         initComponents();
     }
 
-    private void messagesButtonClick() {
+    private void messagesButtonClick(ActionEvent e) {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin.getUsername());
@@ -53,7 +56,7 @@ public class adminForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void logoutButtonClick() {
+    private void logoutButtonClick(ActionEvent e) {
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
@@ -61,9 +64,9 @@ public class adminForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void exitButtonClick() {this.mainUI.saveAndExit();}
+    private void exitButtonClick(ActionEvent e) {this.mainUI.saveAndExit();}
 
-    private void searchReservationsButtonClick() {
+    private void searchReservationsButtonClick(ActionEvent e) {
         searchReservationsForm searchReservationsForm = new searchReservationsForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
@@ -72,7 +75,7 @@ public class adminForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void searchUserButtonClick() {
+    private void searchUserButtonClick(ActionEvent e) {
         searchUsersForm searchUsersForm = new searchUsersForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
@@ -81,7 +84,7 @@ public class adminForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void activateDeactivateAccountsButtonClick() {
+    private void activateDeactivateAccountsButtonClick(ActionEvent e) {
         changeAccountStateForm changeAccountStateForm = new changeAccountStateForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
@@ -90,29 +93,6 @@ public class adminForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void searchReservationsButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void searchUserButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void activateDeactivateAccountsButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void messagesButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void logoutButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void exitButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -121,75 +101,84 @@ public class adminForm extends JPanel {
         button1 = new JButton();
         button2 = new JButton();
         button3 = new JButton();
+        label2 = new JLabel();
         button4 = new JButton();
         button5 = new JButton();
         button6 = new JButton();
-        label2 = new JLabel();
 
         //======== this ========
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
-        . border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder
-        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .
-        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
-        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
-        ;
+        setForeground(new Color(51, 102, 255));
+        setBackground(new Color(51, 102, 255));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border
+        . EmptyBorder( 0, 0, 0, 0) , "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e", javax. swing. border. TitledBorder. CENTER, javax
+        . swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069al\u006fg" ,java .awt .Font .BOLD ,
+        12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans
+        . PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062or\u0064er" .equals (e .
+        getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(null);
 
         //---- label1 ----
         label1.setText("Admin panel");
-        label1.setFont(new Font("Century Gothic", Font.BOLD, 18));
+        label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label1.setForeground(Color.white);
         add(label1);
-        label1.setBounds(165, 10, 121, label1.getPreferredSize().height);
+        label1.setBounds(125, 10, 171, label1.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("Search reservations");
-        button1.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> searchReservationsButtonClick(e));
         add(button1);
-        button1.setBounds(85, 130, 245, button1.getPreferredSize().height);
+        button1.setBounds(110, 85, 170, button1.getPreferredSize().height);
 
         //---- button2 ----
         button2.setText("Search users");
-        button2.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button2.setForeground(new Color(51, 102, 255));
         button2.addActionListener(e -> searchUserButtonClick(e));
         add(button2);
-        button2.setBounds(85, 160, 245, button2.getPreferredSize().height);
+        button2.setBounds(110, 115, 170, button2.getPreferredSize().height);
 
         //---- button3 ----
         button3.setText("Change user state");
-        button3.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        button3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button3.setForeground(new Color(51, 102, 255));
         button3.addActionListener(e -> activateDeactivateAccountsButtonClick(e));
         add(button3);
-        button3.setBounds(85, 190, 245, button3.getPreferredSize().height);
+        button3.setBounds(110, 145, 170, button3.getPreferredSize().height);
+
+        //---- label2 ----
+        label2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        label2.setForeground(Color.white);
+        add(label2);
+        label2.setBounds(15, 60, 215, 15);
 
         //---- button4 ----
         button4.setText("Messages");
-        button4.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        button4.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button4.setForeground(new Color(51, 102, 255));
         button4.addActionListener(e -> messagesButtonClick(e));
         add(button4);
-        button4.setBounds(85, 220, 245, button4.getPreferredSize().height);
+        button4.setBounds(110, 175, 170, button4.getPreferredSize().height);
 
         //---- button5 ----
         button5.setText("Log out");
-        button5.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        button5.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button5.setForeground(new Color(51, 102, 255));
         button5.addActionListener(e -> logoutButtonClick(e));
         add(button5);
-        button5.setBounds(85, 250, 245, button5.getPreferredSize().height);
+        button5.setBounds(110, 220, 170, button5.getPreferredSize().height);
 
         //---- button6 ----
         button6.setText("Exit");
-        button6.setFont(new Font("Century Gothic", Font.BOLD, 14));
+        button6.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button6.setForeground(new Color(51, 102, 255));
         button6.addActionListener(e -> exitButtonClick(e));
         add(button6);
-        button6.setBounds(85, 280, 245, button6.getPreferredSize().height);
+        button6.setBounds(110, 250, 170, button6.getPreferredSize().height);
 
-        //---- label2 ----
-        label2.setFont(new Font("Century Gothic", Font.PLAIN, 14));
-        add(label2);
-        label2.setBounds(20, 80, 215, 15);
-
-        setPreferredSize(new Dimension(415, 335));
+        setPreferredSize(new Dimension(395, 335));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
@@ -199,9 +188,9 @@ public class adminForm extends JPanel {
     private JButton button1;
     private JButton button2;
     private JButton button3;
+    private JLabel label2;
     private JButton button4;
     private JButton button5;
     private JButton button6;
-    private JLabel label2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

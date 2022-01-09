@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Map;
@@ -42,6 +43,9 @@ public class customerForm extends JPanel {
         this.messages = messages;
         this.mainUI = mainUI;
         this.customer= customer;
+        jframe.setPreferredSize(new Dimension(320 , 325));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
         initComponents();
     }
     
@@ -93,11 +97,35 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    private void reserveRoomButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void cancelReservationButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void showAllReservationsButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void messagesButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void logoutButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
+    private void exitButtonClick(ActionEvent e) {
+        // TODO add your code here
+    }
+
 
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         SearchAndReserveRoom = new JButton();
         cancelReservation = new JButton();
@@ -105,72 +133,105 @@ public class customerForm extends JPanel {
         button1 = new JButton();
         Logout = new JButton();
         exit = new JButton();
+        label2 = new JLabel();
+        label3 = new JLabel();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax
-        .swing.border.EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing
-        .border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.
-        Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt.Color.red
-        ), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override
-        public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName(
-        )))throw new RuntimeException();}});
-        setLayout(new MigLayout(
-            "insets 0,hidemode 3,gap 5 5",
-            // columns
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]",
-            // rows
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[]" +
-            "[]" +
-            "[]"));
+        setBackground(new Color(51, 102, 255));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
+        javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax
+        . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
+        .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
+        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans.
+        PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .
+        equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setLayout(null);
 
         //---- label1 ----
         label1.setText("Customer Form");
-        add(label1, "cell 3 0");
+        label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label1.setForeground(Color.white);
+        add(label1);
+        label1.setBounds(105, 5, 180, label1.getPreferredSize().height);
 
         //---- SearchAndReserveRoom ----
         SearchAndReserveRoom.setText("Reserve room");
-        SearchAndReserveRoom.addActionListener(e -> reserveRoomButtonClick());
-        add(SearchAndReserveRoom, "cell 3 2");
+        SearchAndReserveRoom.setFont(new Font("Tahoma", Font.BOLD, 14));
+        SearchAndReserveRoom.setForeground(new Color(51, 102, 255));
+        SearchAndReserveRoom.addActionListener(e -> reserveRoomButtonClick(e));
+        add(SearchAndReserveRoom);
+        SearchAndReserveRoom.setBounds(95, 95, 200, SearchAndReserveRoom.getPreferredSize().height);
 
         //---- cancelReservation ----
         cancelReservation.setText("Cancel Reservation");
-        cancelReservation.addActionListener(e -> cancelReservationButtonClick());
-        add(cancelReservation, "cell 3 3");
+        cancelReservation.setFont(new Font("Tahoma", Font.BOLD, 14));
+        cancelReservation.setForeground(new Color(51, 102, 255));
+        cancelReservation.addActionListener(e -> cancelReservationButtonClick(e));
+        add(cancelReservation);
+        cancelReservation.setBounds(95, 125, 200, cancelReservation.getPreferredSize().height);
 
         //---- showAllReservations ----
         showAllReservations.setText("Show All Reservations");
-        showAllReservations.addActionListener(e -> showAllReservationsButtonClick());
-        add(showAllReservations, "cell 3 4");
+        showAllReservations.setFont(new Font("Tahoma", Font.BOLD, 14));
+        showAllReservations.setForeground(new Color(51, 102, 255));
+        showAllReservations.addActionListener(e -> showAllReservationsButtonClick(e));
+        add(showAllReservations);
+        showAllReservations.setBounds(95, 185, 200, showAllReservations.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("Messages");
-        button1.addActionListener(e -> messagesButtonClick());
-        add(button1, "cell 3 5");
+        button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setForeground(new Color(51, 102, 255));
+        button1.addActionListener(e -> messagesButtonClick(e));
+        add(button1);
+        button1.setBounds(95, 155, 200, button1.getPreferredSize().height);
 
         //---- Logout ----
         Logout.setText("Log Out");
-        Logout.addActionListener(e -> logoutButtonClick());
-        add(Logout, "cell 3 6");
+        Logout.setFont(new Font("Tahoma", Font.BOLD, 14));
+        Logout.setForeground(new Color(51, 102, 255));
+        Logout.addActionListener(e -> logoutButtonClick(e));
+        add(Logout);
+        Logout.setBounds(95, 225, 200, Logout.getPreferredSize().height);
 
         //---- exit ----
         exit.setText("Exit");
-        exit.addActionListener(e -> exitButtonClick());
-        add(exit, "cell 3 7");
+        exit.setFont(new Font("Tahoma", Font.BOLD, 14));
+        exit.setForeground(new Color(51, 102, 255));
+        exit.addActionListener(e -> exitButtonClick(e));
+        add(exit);
+        exit.setBounds(95, 255, 200, exit.getPreferredSize().height);
+
+        //---- label2 ----
+        label2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label2.setForeground(Color.white);
+        add(label2);
+        label2.setBounds(20, 35, 300, 15);
+
+        //---- label3 ----
+        label3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        add(label3);
+        label3.setBounds(20, 55, 300, 15);
+
+        {
+            // compute preferred size
+            Dimension preferredSize = new Dimension();
+            for(int i = 0; i < getComponentCount(); i++) {
+                Rectangle bounds = getComponent(i).getBounds();
+                preferredSize.width = Math.max(bounds.x + bounds.width, preferredSize.width);
+                preferredSize.height = Math.max(bounds.y + bounds.height, preferredSize.height);
+            }
+            Insets insets = getInsets();
+            preferredSize.width += insets.right;
+            preferredSize.height += insets.bottom;
+            setMinimumSize(preferredSize);
+            setPreferredSize(preferredSize);
+        }
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JButton SearchAndReserveRoom;
     private JButton cancelReservation;
@@ -178,5 +239,7 @@ public class customerForm extends JPanel {
     private JButton button1;
     private JButton Logout;
     private JButton exit;
+    private JLabel label2;
+    private JLabel label3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

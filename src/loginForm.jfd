@@ -11,6 +11,7 @@ new FormModel {
 			"maximumSize": new java.awt.Dimension( 423, 278 )
 			"font": new java.awt.Font( "Droid Sans", 0, 12 )
 			"alignmentY": 2.5f
+			"background": new java.awt.Color( 51, 102, 255, 255 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"text": "Wrong password, please try again"
@@ -19,107 +20,93 @@ new FormModel {
 				"width": 0
 				"height": 0
 			} )
-			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {space :0:55:x}"
-				"$verticalGroup": "par l {space :0:280:x}"
-			} ) {
-				name: "panel1"
-				"background": new java.awt.Color( 51, 102, 255, 255 )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 0
-				"y": 0
-				"width": 55
-				"height": 280
-			} )
-			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {space :0:55:x}"
-				"$verticalGroup": "par l {space :0:280:x}"
-			} ) {
-				name: "panel2"
-				"background": new java.awt.Color( 51, 102, 255, 255 )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 370
-				"y": 0
-				"height": 280
-				"width": 55
-			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Login"
-				"font": new java.awt.Font( "Century Gothic", 1, 26 )
+				"font": new java.awt.Font( "Tahoma", 1, 22 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 140
-				"x": 195
-				"y": 35
+				"width": 70
+				"x": 175
+				"y": 30
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
 				"text": "Username:"
-				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": &Font0 new java.awt.Font( "Tahoma", 1, 14 )
+				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 87
-				"x": 75
-				"y": 95
+				"x": 65
+				"y": 100
+				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
-				"font": new java.awt.Font( "Century Gothic", 0, 11 )
+				"font": &Font1 new java.awt.Font( "Tahoma", 0, 11 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 160
 				"x": 185
-				"y": 95
+				"y": 100
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "Password:"
-				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 87
-				"x": 75
-				"y": 120
+				"x": 65
+				"y": 135
 			} )
 			add( new FormComponent( "javax.swing.JPasswordField" ) {
 				name: "passwordField1"
-				"font": new java.awt.Font( "Century Gothic", 1, 11 )
+				"font": #Font1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 160
 				"x": 185
-				"y": 125
+				"y": 130
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Login"
-				"font": &Font0 new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": &Font2 new java.awt.Font( "Tahoma", 1, 14 )
+				"foreground": &Color1 new java.awt.Color( 0, 51, 255, 255 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "loginButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 145
-				"x": 120
-				"y": 195
+				"width": 120
+				"x": 85
+				"y": 185
+				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Register"
 				"actionCommand": "Register"
-				"font": #Font0
+				"font": #Font2
+				"foreground": #Color1
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "registerButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 90
-				"x": 275
-				"y": 195
+				"width": 120
+				"x": 235
+				"y": 185
+				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button3"
 				"text": "Exit"
-				"font": #Font0
+				"font": #Font2
+				"foreground": #Color1
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "exitButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 100
-				"x": 215
-				"y": 240
+				"width": 110
+				"x": 165
+				"y": 225
+				"height": 20
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 40, 30 )
-			"size": new java.awt.Dimension( 425, 280 )
+			"size": new java.awt.Dimension( 430, 280 )
 		} )
 	}
 }

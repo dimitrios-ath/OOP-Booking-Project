@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.awt.event.*;
 import java.util.Map;
 import javax.swing.*;
@@ -40,9 +41,12 @@ public class loginForm extends JPanel {
         this.messages = messages;
         this.mainUI=mainUI;
         initComponents();
+        jframe.setPreferredSize(new Dimension(423 , 300));
+        jframe.pack();
+        jframe.setLocationRelativeTo(null);
     }
 
-    private void loginButtonClick() {
+    private void loginButtonClick(ActionEvent e) {
         int role = 0;
         String username = textField1.getText();
         String password = String.valueOf(passwordField1.getPassword());
@@ -86,7 +90,7 @@ public class loginForm extends JPanel {
         }
     }
 
-    private void registerButtonClick() {
+    private void registerButtonClick(ActionEvent e) {
         registerForm registerForm = new registerForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI);
         registerForm.setCurrentForm(registerForm);
@@ -94,25 +98,16 @@ public class loginForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void exitButtonClick() {
+    private void exitButtonClick(ActionEvent e) {
         this.mainUI.saveAndExit();
     }
 
-    private void loginButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
 
-    private void registerButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void exitButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+        label4 = new JLabel();
         label1 = new JLabel();
         label2 = new JLabel();
         textField1 = new JTextField();
@@ -120,76 +115,91 @@ public class loginForm extends JPanel {
         passwordField1 = new JPasswordField();
         button1 = new JButton();
         button2 = new JButton();
-        label4 = new JLabel();
         button3 = new JButton();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder (
-        0, 0 ,0 , 0) ,  "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder
-        . BOTTOM, new java. awt .Font ( "Dialo\u0067", java .awt . Font. BOLD ,12 ) ,java . awt. Color .
-        red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java .
-        beans. PropertyChangeEvent e) { if( "borde\u0072" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
-        setLayout(new MigLayout(
-            "insets 0,hidemode 3,gap 5 5",
-            // columns
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]",
-            // rows
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[fill]" +
-            "[]" +
-            "[]" +
-            "[]" +
-            "[]"));
-
-        //---- label1 ----
-        label1.setText("Login");
-        add(label1, "cell 3 0");
-
-        //---- label2 ----
-        label2.setText("Username:");
-        add(label2, "cell 2 2 2 1");
-        add(textField1, "cell 4 2");
-
-        //---- label3 ----
-        label3.setText("Password:");
-        add(label3, "cell 2 3 2 1");
-        add(passwordField1, "cell 4 3");
-
-        //---- button1 ----
-        button1.setText("Login");
-        button1.addActionListener(e -> loginButtonClick(e));
-        add(button1, "cell 2 4");
-
-        //---- button2 ----
-        button2.setText("Register");
-        button2.setActionCommand("Register");
-        button2.addActionListener(e -> registerButtonClick(e));
-        add(button2, "cell 4 4");
+        setPreferredSize(new Dimension(423, 278));
+        setMaximumSize(new Dimension(423, 278));
+        setFont(new Font("Droid Sans", Font.PLAIN, 12));
+        setAlignmentY(2.5F);
+        setBackground(new Color(51, 102, 255));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
+        EmptyBorder( 0, 0, 0, 0) , "", javax. swing. border. TitledBorder. CENTER, javax. swing
+        . border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ),
+        java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( )
+        { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () ))
+        throw new RuntimeException( ); }} );
+        setLayout(null);
 
         //---- label4 ----
         label4.setText("Wrong password, please try again");
         label4.setVisible(false);
-        add(label4, "cell 3 6");
+        add(label4);
+        label4.setBounds(0, 0, 0, 0);
+
+        //---- label1 ----
+        label1.setText("Login");
+        label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label1.setForeground(Color.white);
+        add(label1);
+        label1.setBounds(175, 30, 70, label1.getPreferredSize().height);
+
+        //---- label2 ----
+        label2.setText("Username:");
+        label2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label2.setForeground(Color.white);
+        add(label2);
+        label2.setBounds(65, 100, 87, 20);
+
+        //---- textField1 ----
+        textField1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        add(textField1);
+        textField1.setBounds(185, 100, 160, textField1.getPreferredSize().height);
+
+        //---- label3 ----
+        label3.setText("Password:");
+        label3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label3.setForeground(Color.white);
+        add(label3);
+        label3.setBounds(65, 135, 87, label3.getPreferredSize().height);
+
+        //---- passwordField1 ----
+        passwordField1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+        add(passwordField1);
+        passwordField1.setBounds(185, 130, 160, passwordField1.getPreferredSize().height);
+
+        //---- button1 ----
+        button1.setText("Login");
+        button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setForeground(new Color(0, 51, 255));
+        button1.addActionListener(e -> loginButtonClick(e));
+        add(button1);
+        button1.setBounds(85, 185, 120, 20);
+
+        //---- button2 ----
+        button2.setText("Register");
+        button2.setActionCommand("Register");
+        button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button2.setForeground(new Color(0, 51, 255));
+        button2.addActionListener(e -> registerButtonClick(e));
+        add(button2);
+        button2.setBounds(235, 185, 120, 20);
 
         //---- button3 ----
         button3.setText("Exit");
+        button3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button3.setForeground(new Color(0, 51, 255));
         button3.addActionListener(e -> exitButtonClick(e));
-        add(button3, "cell 3 8 3 1");
+        add(button3);
+        button3.setBounds(165, 225, 110, 20);
+
+        setPreferredSize(new Dimension(430, 280));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+    private JLabel label4;
     private JLabel label1;
     private JLabel label2;
     private JTextField textField1;
@@ -197,7 +207,6 @@ public class loginForm extends JPanel {
     private JPasswordField passwordField1;
     private JButton button1;
     private JButton button2;
-    private JLabel label4;
     private JButton button3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

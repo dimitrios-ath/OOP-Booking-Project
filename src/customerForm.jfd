@@ -5,96 +5,105 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
+			"background": new java.awt.Color( 51, 102, 255, 255 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Customer Form"
-				"font": new java.awt.Font( "Century Gothic", 1, 18 )
+				"font": new java.awt.Font( "Tahoma", 1, 22 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 140
-				"width": 165
-				"y": 20
+				"x": 105
+				"width": 180
+				"y": 5
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "SearchAndReserveRoom"
 				"text": "Reserve room"
-				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": &Font0 new java.awt.Font( "Tahoma", 1, 14 )
+				"foreground": &Color0 new java.awt.Color( 51, 102, 255, 255 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "reserveRoomButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 110
-				"y": 135
-				"width": 225
+				"x": 95
+				"y": 95
+				"width": 200
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "cancelReservation"
 				"text": "Cancel Reservation"
-				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": #Font0
+				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelReservationButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 110
-				"y": 165
-				"width": 225
+				"x": 95
+				"y": 125
+				"width": 200
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "showAllReservations"
 				"text": "Show All Reservations"
-				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": #Font0
+				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "showAllReservationsButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 110
-				"y": 195
-				"width": 225
+				"x": 95
+				"y": 185
+				"width": 200
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Messages"
-				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": #Font0
+				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "messagesButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 110
-				"y": 225
-				"width": 225
+				"x": 95
+				"y": 155
+				"width": 200
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "Logout"
 				"text": "Log Out"
-				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": #Font0
+				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 110
-				"y": 255
-				"width": 225
+				"x": 95
+				"y": 225
+				"width": 200
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "exit"
 				"text": "Exit"
-				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": #Font0
+				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "exitButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 110
-				"y": 280
-				"width": 225
+				"x": 95
+				"y": 255
+				"width": 200
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
-				"font": new java.awt.Font( "Century Gothic", 2, 14 )
+				"font": new java.awt.Font( "Tahoma", 1, 14 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 20
-				"y": 65
+				"y": 35
 				"width": 300
 				"height": 15
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
-				"font": new java.awt.Font( "Century Gothic", 0, 14 )
+				"font": new java.awt.Font( "Tahoma", 1, 14 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 20
-				"y": 85
+				"y": 55
 				"width": 300
 				"height": 15
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 85, 30 )
-			"size": new java.awt.Dimension( 440, 325 )
+			"size": new java.awt.Dimension( 380, 300 )
 		} )
 	}
 }

@@ -8,8 +8,9 @@ new FormModel {
 			"background": new java.awt.Color( 51, 102, 255, 255 )
 			"alignmentX": 0.1f
 			"alignmentY": 0.1f
-			"maximumSize": new java.awt.Dimension( 370, 495 )
+			"maximumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 			"preferredSize": new java.awt.Dimension( 150, 150 )
+			"minimumSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Add new Room"
@@ -23,7 +24,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
 				"text": "Type:"
-				"font": &Font0 new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": &Font0 new java.awt.Font( "Tahoma", 1, 14 )
 				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 70
@@ -39,9 +40,10 @@ new FormModel {
 					addElement( "Room" )
 					addElement( "Apartment" )
 				}
-				"font": &Font1 new java.awt.Font( "Century Gothic", 0, 11 )
+				"font": &Font1 new java.awt.Font( "Tahoma", 0, 14 )
 				"editable": true
 				"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 1, sfield java.awt.Color black, sfield java.awt.Color gray, sfield java.awt.Color white, sfield java.awt.Color lightGray )
+				"foreground": new java.awt.Color( 51, 102, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 250
 				"y": 65
@@ -50,7 +52,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "Name:"
-				"font": new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": #Font0
 				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 70
@@ -60,7 +62,6 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
 				"font": #Font1
-				"border": #SoftBevelBorder0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 250
 				"y": 100
@@ -326,14 +327,14 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Cancel"
-				"font": &Font2 new java.awt.Font( "Century Gothic", 1, 14 )
+				"font": &Font2 new java.awt.Font( "Tahoma", 1, 14 )
 				"foreground": new java.awt.Color( 51, 102, 255, 255 )
 				"border": &SoftBevelBorder2 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 70
-				"y": 475
-				"width": 125
+				"y": 480
+				"width": 120
 				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -345,12 +346,12 @@ new FormModel {
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "addRoomClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 255
-				"y": 475
+				"y": 480
 				"width": 115
 				"height": 20
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 70, 0 )
+			"location": new java.awt.Point( 120, 60 )
 			"size": new java.awt.Dimension( 430, 510 )
 		} )
 	}
