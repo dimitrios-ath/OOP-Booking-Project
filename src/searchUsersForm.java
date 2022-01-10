@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.*;
 import net.miginfocom.swing.*;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -45,10 +46,9 @@ public class searchUsersForm extends JPanel {
         this.mainUI=mainUI;
         this.admin = admin;
         initComponents();
-        jframe.setPreferredSize(new Dimension(490, 520));
+        jframe.setPreferredSize(new Dimension(365, 480));
         jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        
+
         model = new DefaultListModel<>();
         AtomicBoolean noUsersFound = new AtomicBoolean(true);
         this.users.forEach((username, auth) -> {
@@ -73,7 +73,7 @@ public class searchUsersForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void searchButtonClick() {
+    private void searchButtonClick(ActionEvent e) {
         model = new DefaultListModel<>();
         AtomicBoolean noUsersFound = new AtomicBoolean(true);
         this.users.forEach((username, auth) -> {
@@ -124,7 +124,7 @@ public class searchUsersForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClick() {
+    private void returnButtonClick(ActionEvent e) {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
         adminForm.setCurrentForm(adminForm);
@@ -132,17 +132,9 @@ public class searchUsersForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void returnButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void searchButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+        // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         label2 = new JLabel();
         comboBox1 = new JComboBox<>();
@@ -155,13 +147,12 @@ public class searchUsersForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing
-        .border.EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing.border.TitledBorder
-        .CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("D\u0069alog",java.
-        awt.Font.BOLD,12),java.awt.Color.red), getBorder()))
-        ; addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-        ){if("\u0062order".equals(e.getPropertyName()))throw new RuntimeException();}})
-        ;
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
+        EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER ,javax . swing
+        . border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,
+        java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
+        { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )
+        throw new RuntimeException( ) ;} } );
         setLayout(null);
 
         //---- label1 ----
@@ -169,14 +160,14 @@ public class searchUsersForm extends JPanel {
         label1.setFont(new Font("Tahoma", Font.BOLD, 22));
         label1.setForeground(Color.white);
         add(label1);
-        label1.setBounds(new Rectangle(new Point(180, 30), label1.getPreferredSize()));
+        label1.setBounds(new Rectangle(new Point(120, 20), label1.getPreferredSize()));
 
         //---- label2 ----
         label2.setText("User type:");
         label2.setFont(new Font("Tahoma", Font.BOLD, 14));
         label2.setForeground(Color.white);
         add(label2);
-        label2.setBounds(35, 95, 70, 15);
+        label2.setBounds(75, 80, 80, 20);
 
         //---- comboBox1 ----
         comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -186,20 +177,22 @@ public class searchUsersForm extends JPanel {
             "Admin"
         }));
         comboBox1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        comboBox1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        comboBox1.setForeground(Color.black);
         add(comboBox1);
-        comboBox1.setBounds(110, 95, 89, comboBox1.getPreferredSize().height);
+        comboBox1.setBounds(160, 70, 145, comboBox1.getPreferredSize().height);
 
         //---- label3 ----
         label3.setText("Name filter:");
         label3.setFont(new Font("Tahoma", Font.BOLD, 14));
         label3.setForeground(Color.white);
         add(label3);
-        label3.setBounds(new Rectangle(new Point(225, 95), label3.getPreferredSize()));
+        label3.setBounds(new Rectangle(new Point(65, 125), label3.getPreferredSize()));
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField1);
-        textField1.setBounds(310, 95, 115, textField1.getPreferredSize().height);
+        textField1.setBounds(160, 120, 145, textField1.getPreferredSize().height);
 
         //======== scrollPane1 ========
         {
@@ -207,26 +200,31 @@ public class searchUsersForm extends JPanel {
 
             //---- list1 ----
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+            list1.setBackground(Color.white);
+            list1.setForeground(Color.black);
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(60, 160, 365, 245);
+        scrollPane1.setBounds(40, 170, 285, 205);
 
         //---- button2 ----
         button2.setText("Return");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(new Color(51, 102, 255));
+        button2.setForeground(Color.white);
+        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button2.addActionListener(e -> returnButtonClick(e));
         add(button2);
-        button2.setBounds(60, 410, 116, button2.getPreferredSize().height);
+        button2.setBounds(35, 400, 120, 40);
 
         //---- button1 ----
         button1.setText("Search");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(new Color(51, 102, 255));
+        button1.setForeground(Color.white);
+        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button1.addActionListener(e -> searchButtonClick(e));
         add(button1);
-        button1.setBounds(270, 410, 155, button1.getPreferredSize().height);
+        button1.setBounds(210, 400, 120, 40);
 
         {
             // compute preferred size
@@ -246,7 +244,7 @@ public class searchUsersForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JLabel label2;
     private JComboBox<String> comboBox1;

@@ -11,101 +11,93 @@ new FormModel {
 				"text": "Customer Form"
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
 				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				"horizontalAlignment": 0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 105
+				"x": 65
 				"width": 180
-				"y": 5
+				"y": 20
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "SearchAndReserveRoom"
 				"text": "Reserve room"
 				"font": &Font0 new java.awt.Font( "Tahoma", 1, 14 )
-				"foreground": &Color0 new java.awt.Color( 51, 102, 255, 255 )
+				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
+				"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "reserveRoomButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 95
-				"y": 90
+				"x": 50
+				"y": 70
 				"width": 210
+				"height": 40
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "cancelReservation"
 				"text": "Cancel Reservation"
 				"font": #Font0
 				"foreground": #Color0
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelReservationButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 95
-				"y": 120
+				"x": 50
+				"y": 115
 				"width": 210
+				"height": 40
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "showAllReservations"
-				"text": "Show All Reservations"
+				"text": "Show Reservations"
 				"font": #Font0
 				"foreground": #Color0
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "showAllReservationsButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 95
-				"y": 180
+				"x": 50
+				"y": 160
 				"width": 210
+				"height": 40
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Messages"
 				"font": #Font0
 				"foreground": #Color0
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "messagesButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 95
-				"y": 150
+				"x": 50
+				"y": 205
 				"width": 210
+				"height": 40
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "Logout"
 				"text": "Log Out"
 				"font": #Font0
 				"foreground": #Color0
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "logoutButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 125
-				"y": 225
-				"width": 150
+				"x": 95
+				"y": 270
+				"width": 125
+				"height": 40
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "exit"
 				"text": "Exit"
 				"font": #Font0
 				"foreground": #Color0
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "exitButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 125
-				"y": 255
-				"width": 150
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label2"
-				"font": new java.awt.Font( "Tahoma", 1, 14 )
-				"foreground": new java.awt.Color( 255, 255, 255, 255 )
-				"background": new java.awt.Color( 51, 102, 255, 255 )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 15
-				"y": 45
-				"width": 300
-				"height": 15
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label3"
-				"font": new java.awt.Font( "Tahoma", 1, 14 )
-				"background": new java.awt.Color( 51, 102, 255, 255 )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 15
-				"y": 65
-				"width": 300
-				"height": 15
+				"x": 95
+				"y": 315
+				"width": 125
+				"height": 40
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 85, 30 )
-			"size": new java.awt.Dimension( 390, 335 )
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 310, 375 )
 		} )
 	}
 }

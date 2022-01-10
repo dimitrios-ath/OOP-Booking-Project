@@ -3,6 +3,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import java.util.Map;
+import javax.swing.border.*;
 /*
  * Created by JFormDesigner on Thu Jan 06 22:15:53 EET 2022
  */
@@ -43,11 +44,9 @@ public class messageForm extends JPanel {
         this.messages = messages;
         this.mainUI=mainUI;
         this.currentUsername = currentUsername;
-        jframe.setPreferredSize(new Dimension(315 , 173));
+        initComponents();
+        jframe.setPreferredSize(new Dimension(270 , 250));
         jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        initComponents();
-        initComponents();
     }
 
     private void returnButtonClicked(ActionEvent e) {
@@ -92,7 +91,7 @@ public class messageForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+        // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         button3 = new JButton();
         button1 = new JButton();
@@ -100,43 +99,49 @@ public class messageForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder( 0
-        , 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-        , new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,
-         getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
+        . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder
+        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .
+        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
+        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+        ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
+        ;
         setLayout(null);
 
         //---- label1 ----
         label1.setText("Messages");
         label1.setForeground(Color.white);
         label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
         add(label1);
-        label1.setBounds(105, 10, 110, label1.getPreferredSize().height);
+        label1.setBounds(80, 15, 110, label1.getPreferredSize().height);
 
         //---- button3 ----
         button3.setText("New message");
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button3.setForeground(new Color(51, 102, 255));
+        button3.setForeground(Color.white);
+        button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button3.addActionListener(e -> newMessageButtonClick(e));
         add(button3);
-        button3.setBounds(70, 50, 200, button3.getPreferredSize().height);
+        button3.setBounds(50, 60, 170, 40);
 
         //---- button1 ----
         button1.setText("Inbox");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(new Color(51, 102, 255));
+        button1.setForeground(Color.white);
+        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button1.addActionListener(e -> inboxButtonClick(e));
         add(button1);
-        button1.setBounds(70, 80, 200, button1.getPreferredSize().height);
+        button1.setBounds(50, 105, 170, 40);
 
         //---- button2 ----
         button2.setText("Return");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(new Color(51, 102, 255));
+        button2.setForeground(Color.white);
+        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button2.addActionListener(e -> returnButtonClicked(e));
         add(button2);
-        button2.setBounds(95, 120, 145, button2.getPreferredSize().height);
+        button2.setBounds(75, 165, 125, 40);
 
         {
             // compute preferred size
@@ -156,7 +161,7 @@ public class messageForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JButton button3;
     private JButton button1;

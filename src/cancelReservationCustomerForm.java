@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
+import javax.swing.border.*;
 
 /*
  * Created by JFormDesigner on Thu Jan 06 16:02:24 EET 2022
@@ -50,9 +51,8 @@ public class cancelReservationCustomerForm extends JPanel {
         this.mainUI = mainUI;
         this.customer=customer;
         initComponents();
-        jframe.setPreferredSize(new Dimension(611 , 282));
+        jframe.setPreferredSize(new Dimension(805 , 425));
         jframe.pack();
-        jframe.setLocationRelativeTo(null);
 
         idsInList = new ArrayList<>() ;
         df = new DecimalFormat("0.00");
@@ -117,29 +117,30 @@ public class cancelReservationCustomerForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+        // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
-        buttonCancel = new JButton();
+        list1 = new JList<>();
+        label2 = new JLabel();
         buttonCancelReservation = new JButton();
+        buttonCancel = new JButton();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
-        border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER
-        , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font
-        .BOLD ,12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
-        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order"
-        .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
+        0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
+        .BOTTOM,new java.awt.Font("Dialo\u0067",java.awt.Font.BOLD,12),java.awt.Color.
+        red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
+        beans.PropertyChangeEvent e){if("borde\u0072".equals(e.getPropertyName()))throw new RuntimeException();}});
         setLayout(null);
 
         //---- label1 ----
         label1.setText("Cancel Reservation");
         label1.setForeground(Color.white);
         label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
         add(label1);
-        label1.setBounds(new Rectangle(new Point(205, 10), label1.getPreferredSize()));
+        label1.setBounds(new Rectangle(new Point(300, 15), label1.getPreferredSize()));
 
         //======== scrollPane1 ========
         {
@@ -147,26 +148,48 @@ public class cancelReservationCustomerForm extends JPanel {
             //---- list1 ----
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            list1.setModel(new AbstractListModel<String>() {
+                String[] values = {
+                    "Reservation ID: 123, Guests: 1, Check in: 01-03-2022, Check out: 03-03-2022, Total price: $80.00"
+                };
+                @Override
+                public int getSize() { return values.length; }
+                @Override
+                public String getElementAt(int i) { return values[i]; }
+            });
+            list1.setBorder(new BevelBorder(BevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+            list1.setBackground(Color.white);
+            list1.setForeground(Color.black);
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(35, 45, 535, scrollPane1.getPreferredSize().height);
+        scrollPane1.setBounds(55, 85, 695, 235);
 
-        //---- buttonCancel ----
-        buttonCancel.setText("Return");
-        buttonCancel.setFont(new Font("Tahoma", Font.BOLD, 14));
-        buttonCancel.setForeground(new Color(0, 102, 255));
-        buttonCancel.addActionListener(e -> returnButtonClick(e));
-        add(buttonCancel);
-        buttonCancel.setBounds(35, 215, 125, buttonCancel.getPreferredSize().height);
+        //---- label2 ----
+        label2.setText("Select a reservation:");
+        label2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label2.setHorizontalAlignment(SwingConstants.CENTER);
+        label2.setForeground(Color.white);
+        add(label2);
+        label2.setBounds(new Rectangle(new Point(335, 60), label2.getPreferredSize()));
 
         //---- buttonCancelReservation ----
         buttonCancelReservation.setText("Cancel");
         buttonCancelReservation.setFont(new Font("Tahoma", Font.BOLD, 14));
-        buttonCancelReservation.setForeground(new Color(0, 102, 255));
+        buttonCancelReservation.setForeground(Color.white);
+        buttonCancelReservation.setBorder(new BevelBorder(BevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         buttonCancelReservation.addActionListener(e -> cancelReservationButtonClick(e));
         add(buttonCancelReservation);
-        buttonCancelReservation.setBounds(400, 210, 170, buttonCancelReservation.getPreferredSize().height);
+        buttonCancelReservation.setBounds(475, 340, 125, 40);
+
+        //---- buttonCancel ----
+        buttonCancel.setText("Return");
+        buttonCancel.setFont(new Font("Tahoma", Font.BOLD, 14));
+        buttonCancel.setForeground(Color.white);
+        buttonCancel.setBorder(new BevelBorder(BevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        buttonCancel.addActionListener(e -> returnButtonClick(e));
+        add(buttonCancel);
+        buttonCancel.setBounds(185, 340, 125, 40);
 
         {
             // compute preferred size
@@ -186,11 +209,12 @@ public class cancelReservationCustomerForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JScrollPane scrollPane1;
-    private JList list1;
-    private JButton buttonCancel;
+    private JList<String> list1;
+    private JLabel label2;
     private JButton buttonCancelReservation;
+    private JButton buttonCancel;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

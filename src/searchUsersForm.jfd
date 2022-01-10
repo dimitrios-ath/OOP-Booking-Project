@@ -12,8 +12,8 @@ new FormModel {
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
 				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 180
-				"y": 30
+				"x": 120
+				"y": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
@@ -21,10 +21,10 @@ new FormModel {
 				"font": &Font0 new java.awt.Font( "Tahoma", 1, 14 )
 				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 35
-				"y": 95
-				"width": 70
-				"height": 15
+				"x": 75
+				"y": 80
+				"width": 80
+				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "comboBox1"
@@ -36,10 +36,12 @@ new FormModel {
 					addElement( "Admin" )
 				}
 				"font": #Font0
+				"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 110
-				"y": 95
-				"width": 89
+				"x": 160
+				"y": 70
+				"width": 145
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
@@ -47,16 +49,16 @@ new FormModel {
 				"font": #Font0
 				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 225
-				"y": 95
+				"x": 65
+				"y": 125
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
 				"font": new java.awt.Font( "Tahoma", 0, 14 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 310
-				"y": 95
-				"width": 115
+				"x": 160
+				"y": 120
+				"width": 145
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"
@@ -64,38 +66,45 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JList" ) {
 					name: "list1"
 					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					"border": #SoftBevelBorder0
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 60
-				"y": 160
-				"width": 365
-				"height": 245
+				"x": 40
+				"y": 170
+				"width": 285
+				"height": 205
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Return"
 				"font": #Font0
-				"foreground": &Color0 new java.awt.Color( 51, 102, 255, 255 )
+				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "returnButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 60
-				"y": 410
-				"width": 116
+				"x": 35
+				"y": 400
+				"width": 120
+				"height": 40
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Search"
 				"font": #Font0
 				"foreground": #Color0
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 270
-				"y": 410
-				"width": 155
+				"x": 210
+				"y": 400
+				"width": 120
+				"height": 40
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 90, 10 )
-			"size": new java.awt.Dimension( 490, 455 )
+			"location": new java.awt.Point( 0, 0 )
+			"size": new java.awt.Dimension( 365, 455 )
 		} )
 	}
 }

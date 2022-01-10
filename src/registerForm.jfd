@@ -11,23 +11,25 @@ new FormModel {
 				"text": "Registration"
 				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
+				"horizontalAlignment": 0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 105
-				"y": 5
+				"x": 100
+				"y": 10
 				"width": 145
 				"height": 50
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Back"
-				"foreground": &Color0 new java.awt.Color( 51, 102, 255, 255 )
+				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
 				"font": &Font0 new java.awt.Font( "Tahoma", 1, 14 )
+				"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "backToLogin", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 97
-				"height": 25
-				"x": 55
-				"y": 155
+				"width": 110
+				"height": 35
+				"x": 45
+				"y": 170
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "comboBox1"
@@ -37,40 +39,43 @@ new FormModel {
 					addElement( "Customer" )
 					addElement( "Provider" )
 				}
-				"foreground": new java.awt.Color( 51, 102, 255, 255 )
+				"foreground": sfield java.awt.Color black
 				"font": new java.awt.Font( "Tahoma", 0, 14 )
+				"border": #SoftBevelBorder0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 115
+				"x": 110
 				"y": 105
-				"width": 115
+				"width": 125
+				"height": 40
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Next"
 				"foreground": #Color0
 				"font": #Font0
-				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button2", true ) )
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "registerWithRole", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 195
-				"y": 155
-				"width": 100
-				"height": 25
+				"x": 185
+				"y": 170
+				"width": 110
+				"height": 35
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
 				"text": "Select account type:"
 				"font": new java.awt.Font( "Tahoma", 1, 14 )
 				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				"horizontalAlignment": 0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 105
+				"x": 85
 				"y": 70
-				"width": 140
+				"width": 175
 				"height": 25
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 345, 235 )
+			"size": new java.awt.Dimension( 345, 230 )
 		} )
 	}
 }

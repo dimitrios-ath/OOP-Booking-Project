@@ -2,6 +2,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.Map;
+import javax.swing.border.*;
 import net.miginfocom.swing.*;
 /*
  * Created by JFormDesigner on Thu Jan 06 13:42:26 EET 2022
@@ -43,9 +44,8 @@ public class customerForm extends JPanel {
         this.messages = messages;
         this.mainUI = mainUI;
         this.customer= customer;
-        jframe.setPreferredSize(new Dimension(385 , 318));
+        jframe.setPreferredSize(new Dimension(310 , 400));
         jframe.pack();
-        jframe.setLocationRelativeTo(null);
         initComponents();
     }
     
@@ -103,7 +103,7 @@ public class customerForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+        // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         SearchAndReserveRoom = new JButton();
         cancelReservation = new JButton();
@@ -111,85 +111,78 @@ public class customerForm extends JPanel {
         button1 = new JButton();
         Logout = new JButton();
         exit = new JButton();
-        label2 = new JLabel();
-        label3 = new JLabel();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder (
-        0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder
-        . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .
-        red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java .
-        beans. PropertyChangeEvent e) { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
+        EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border . TitledBorder. CENTER ,javax . swing
+        . border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,
+        java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
+        { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "bord\u0065r" .equals ( e. getPropertyName () ) )
+        throw new RuntimeException( ) ;} } );
         setLayout(null);
 
         //---- label1 ----
         label1.setText("Customer Form");
         label1.setFont(new Font("Tahoma", Font.BOLD, 22));
         label1.setForeground(Color.white);
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
         add(label1);
-        label1.setBounds(105, 5, 180, label1.getPreferredSize().height);
+        label1.setBounds(65, 20, 180, label1.getPreferredSize().height);
 
         //---- SearchAndReserveRoom ----
         SearchAndReserveRoom.setText("Reserve room");
         SearchAndReserveRoom.setFont(new Font("Tahoma", Font.BOLD, 14));
-        SearchAndReserveRoom.setForeground(new Color(51, 102, 255));
+        SearchAndReserveRoom.setForeground(Color.white);
+        SearchAndReserveRoom.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         SearchAndReserveRoom.addActionListener(e -> reserveRoomButtonClick(e));
         add(SearchAndReserveRoom);
-        SearchAndReserveRoom.setBounds(95, 90, 210, SearchAndReserveRoom.getPreferredSize().height);
+        SearchAndReserveRoom.setBounds(50, 70, 210, 40);
 
         //---- cancelReservation ----
         cancelReservation.setText("Cancel Reservation");
         cancelReservation.setFont(new Font("Tahoma", Font.BOLD, 14));
-        cancelReservation.setForeground(new Color(51, 102, 255));
+        cancelReservation.setForeground(Color.white);
+        cancelReservation.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         cancelReservation.addActionListener(e -> cancelReservationButtonClick(e));
         add(cancelReservation);
-        cancelReservation.setBounds(95, 120, 210, cancelReservation.getPreferredSize().height);
+        cancelReservation.setBounds(50, 115, 210, 40);
 
         //---- showAllReservations ----
-        showAllReservations.setText("Show All Reservations");
+        showAllReservations.setText("Show Reservations");
         showAllReservations.setFont(new Font("Tahoma", Font.BOLD, 14));
-        showAllReservations.setForeground(new Color(51, 102, 255));
+        showAllReservations.setForeground(Color.white);
+        showAllReservations.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         showAllReservations.addActionListener(e -> showAllReservationsButtonClick(e));
         add(showAllReservations);
-        showAllReservations.setBounds(95, 180, 210, showAllReservations.getPreferredSize().height);
+        showAllReservations.setBounds(50, 160, 210, 40);
 
         //---- button1 ----
         button1.setText("Messages");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(new Color(51, 102, 255));
+        button1.setForeground(Color.white);
+        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button1.addActionListener(e -> messagesButtonClick(e));
         add(button1);
-        button1.setBounds(95, 150, 210, button1.getPreferredSize().height);
+        button1.setBounds(50, 205, 210, 40);
 
         //---- Logout ----
         Logout.setText("Log Out");
         Logout.setFont(new Font("Tahoma", Font.BOLD, 14));
-        Logout.setForeground(new Color(51, 102, 255));
+        Logout.setForeground(Color.white);
+        Logout.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         Logout.addActionListener(e -> logoutButtonClick(e));
         add(Logout);
-        Logout.setBounds(125, 225, 150, Logout.getPreferredSize().height);
+        Logout.setBounds(95, 270, 125, 40);
 
         //---- exit ----
         exit.setText("Exit");
         exit.setFont(new Font("Tahoma", Font.BOLD, 14));
-        exit.setForeground(new Color(51, 102, 255));
+        exit.setForeground(Color.white);
+        exit.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         exit.addActionListener(e -> exitButtonClick(e));
         add(exit);
-        exit.setBounds(125, 255, 150, exit.getPreferredSize().height);
-
-        //---- label2 ----
-        label2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        label2.setForeground(Color.white);
-        label2.setBackground(new Color(51, 102, 255));
-        add(label2);
-        label2.setBounds(15, 45, 300, 15);
-
-        //---- label3 ----
-        label3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        label3.setBackground(new Color(51, 102, 255));
-        add(label3);
-        label3.setBounds(15, 65, 300, 15);
+        exit.setBounds(95, 315, 125, 40);
 
         {
             // compute preferred size
@@ -209,7 +202,7 @@ public class customerForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JButton SearchAndReserveRoom;
     private JButton cancelReservation;
@@ -217,7 +210,5 @@ public class customerForm extends JPanel {
     private JButton button1;
     private JButton Logout;
     private JButton exit;
-    private JLabel label2;
-    private JLabel label3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

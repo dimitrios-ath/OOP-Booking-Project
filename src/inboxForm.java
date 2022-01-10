@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.*;
 import javax.swing.event.*;
 import java.util.ArrayList;
 import java.util.Map;
@@ -48,9 +49,8 @@ public class inboxForm extends JPanel {
         this.messages = messages;
         this.mainUI=mainUI;
         this.currentUsername = currentUsername;
-        jframe.setPreferredSize(new Dimension(540 , 346));
+        jframe.setPreferredSize(new Dimension(435 , 455));
         jframe.pack();
-        jframe.setLocationRelativeTo(null);
         initComponents();
 
         idsInList = new ArrayList<>();
@@ -159,7 +159,7 @@ public class inboxForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+        // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         scrollPane1 = new JScrollPane();
         list1 = new JList();
@@ -171,39 +171,48 @@ public class inboxForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0
-        ,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
-        ,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.red),
-         getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-        ){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.
+        swing.border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border
+        .TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog"
+        ,java.awt.Font.BOLD,12),java.awt.Color.red), getBorder
+        ())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java
+        .beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException
+        ();}});
         setLayout(null);
 
         //---- label1 ----
         label1.setText("Inbox");
         label1.setForeground(Color.white);
         label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
         add(label1);
-        label1.setBounds(240, 5, label1.getPreferredSize().width, 30);
+        label1.setBounds(180, 20, 80, 30);
 
         //======== scrollPane1 ========
         {
 
             //---- list1 ----
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+            list1.setForeground(Color.black);
+            list1.setBackground(Color.white);
             list1.addListSelectionListener(e -> listValueSelected(e));
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(40, 35, 455, scrollPane1.getPreferredSize().height);
+        scrollPane1.setBounds(45, 70, 345, 120);
 
         //---- label2 ----
         label2.setText("From:");
         label2.setFont(new Font("Tahoma", Font.BOLD, 14));
         label2.setForeground(Color.white);
         add(label2);
-        label2.setBounds(new Rectangle(new Point(40, 220), label2.getPreferredSize()));
+        label2.setBounds(140, 210, 50, 22);
+
+        //---- label3 ----
+        label3.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(label3);
-        label3.setBounds(150, 217, 20, label3.getPreferredSize().height);
+        label3.setBounds(200, 205, 115, 32);
 
         //======== scrollPane2 ========
         {
@@ -213,18 +222,22 @@ public class inboxForm extends JPanel {
             textArea1.setLineWrap(true);
             textArea1.setEnabled(false);
             textArea1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            textArea1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+            textArea1.setForeground(Color.black);
+            textArea1.setBackground(Color.white);
             scrollPane2.setViewportView(textArea1);
         }
         add(scrollPane2);
-        scrollPane2.setBounds(160, 210, 225, 50);
+        scrollPane2.setBounds(80, 240, 280, 110);
 
         //---- button1 ----
         button1.setText("Return");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(new Color(51, 102, 255));
+        button1.setForeground(Color.white);
+        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button1.addActionListener(e -> returnButtonClicked(e));
         add(button1);
-        button1.setBounds(200, 285, 140, button1.getPreferredSize().height);
+        button1.setBounds(150, 370, 125, 40);
 
         {
             // compute preferred size
@@ -244,7 +257,7 @@ public class inboxForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JScrollPane scrollPane1;
     private JList list1;

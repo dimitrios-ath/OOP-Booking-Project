@@ -13,16 +13,8 @@ new FormModel {
 				"font": &Font0 new java.awt.Font( "Tahoma", 1, 14 )
 				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 210
-				"y": 85
-			} )
-			add( new FormComponent( "javax.swing.JLabel" ) {
-				name: "label2"
-				"text": "Please select a room"
-				"visible": false
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 0
-				"height": 0
+				"x": 245
+				"y": 90
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"
@@ -30,34 +22,44 @@ new FormModel {
 					name: "list1"
 					"selectionMode": 0
 					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					"model": new javax.swing.DefaultListModel {
+						addElement( "Name: \"test\", type: hotel, capacity: 2, price: $40.00" )
+					}
+					"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 55
+				"x": 50
 				"y": 115
-				"width": 500
-				"height": 220
+				"width": 565
+				"height": 190
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Cancel"
 				"font": #Font0
-				"foreground": &Color0 new java.awt.Color( 51, 102, 255, 255 )
+				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 55
-				"y": 340
-				"width": 115
+				"x": 140
+				"y": 320
+				"width": 120
+				"height": 40
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Remove"
 				"font": #Font0
 				"foreground": #Color0
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "removeButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 400
-				"y": 340
-				"width": 155
+				"x": 410
+				"y": 320
+				"width": 120
+				"height": 40
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
@@ -65,12 +67,25 @@ new FormModel {
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
 				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 190
-				"y": 10
+				"x": 210
+				"y": 15
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label2"
+				"text": "Please select a room"
+				"font": new java.awt.Font( "Tahoma", 0, 14 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				"visible": false
+				"horizontalAlignment": 0
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 560
+				"height": 25
+				"x": 55
+				"y": 55
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 610, 425 )
+			"size": new java.awt.Dimension( 665, 375 )
 		} )
 	}
 }

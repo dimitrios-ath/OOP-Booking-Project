@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.*;
+import javax.swing.border.*;
 import net.miginfocom.swing.*;
 /*
  * Created by JFormDesigner on Thu Jan 06 21:42:13 EET 2022
@@ -50,10 +51,9 @@ public class returnAllReservationsForRoomForm extends JPanel {
         this.provider = provider;
         df = new DecimalFormat("0.00");
         initComponents();
-        jframe.setPreferredSize(new Dimension(930, 425));
+        jframe.setPreferredSize(new Dimension(1000, 425));
         jframe.pack();
-        jframe.setLocationRelativeTo(null);
-        
+
         label1.setText("Room \"" + rooms.get(id).getName() + "\" reservations:");
         model = new DefaultListModel<>();
         AtomicBoolean roomFound = new AtomicBoolean(false);
@@ -76,7 +76,7 @@ public class returnAllReservationsForRoomForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClick() {
+    private void returnButtonClick(ActionEvent e) {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
         providerForm.setCurrentForm(providerForm);
@@ -84,27 +84,24 @@ public class returnAllReservationsForRoomForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void returnButtonClick(ActionEvent e) {
-        // TODO add your code here
-    }
-
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+        // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         label2 = new JLabel();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         button1 = new JButton();
         label3 = new JLabel();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
-        0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
-        . BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-        beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
+        ( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing. border
+        . TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
+        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
+        propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
+        ; }} );
         setLayout(null);
 
         //---- label1 ----
@@ -113,7 +110,7 @@ public class returnAllReservationsForRoomForm extends JPanel {
         label1.setHorizontalAlignment(SwingConstants.CENTER);
         label1.setForeground(Color.white);
         add(label1);
-        label1.setBounds(new Rectangle(new Point(230, 100), label1.getPreferredSize()));
+        label1.setBounds(new Rectangle(new Point(410, 65), label1.getPreferredSize()));
 
         //---- label2 ----
         label2.setText("Please select a room");
@@ -128,25 +125,38 @@ public class returnAllReservationsForRoomForm extends JPanel {
             //---- list1 ----
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            list1.setModel(new AbstractListModel<String>() {
+                String[] values = {
+                    "Reservation ID: 123 Username: \"testCustomer\", Guests: 1, Check in: 01-03-2022, Check out: 03-03-2022, Total price: $80.00"
+                };
+                @Override
+                public int getSize() { return values.length; }
+                @Override
+                public String getElementAt(int i) { return values[i]; }
+            });
+            list1.setForeground(Color.black);
+            list1.setBackground(Color.white);
+            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(52, 120, 553, 210);
+        scrollPane1.setBounds(55, 90, 890, 225);
 
         //---- button1 ----
         button1.setText("Return");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(new Color(51, 102, 255));
+        button1.setForeground(Color.white);
+        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button1.addActionListener(e -> returnButtonClick(e));
         add(button1);
-        button1.setBounds(55, 340, 145, button1.getPreferredSize().height);
+        button1.setBounds(435, 340, 125, 40);
 
         //---- label3 ----
         label3.setText("Reservations");
         label3.setFont(new Font("Tahoma", Font.BOLD, 22));
         label3.setForeground(Color.white);
         add(label3);
-        label3.setBounds(new Rectangle(new Point(260, 20), label3.getPreferredSize()));
+        label3.setBounds(new Rectangle(new Point(430, 20), label3.getPreferredSize()));
 
         {
             // compute preferred size
@@ -166,11 +176,11 @@ public class returnAllReservationsForRoomForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JLabel label2;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JButton button1;
     private JLabel label3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

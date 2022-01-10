@@ -13,35 +13,43 @@ new FormModel {
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
 				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 225
-				"y": 10
+				"x": 430
+				"y": 20
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane1"
 				add( new FormComponent( "javax.swing.JList" ) {
 					name: "list1"
 					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					"model": new javax.swing.DefaultListModel {
+						addElement( "Reservation ID: 123 Username: \"testCustomer\", Guests: 1, Check in: 01-03-2022, Check out: 03-03-2022, Total price: $80.00" )
+					}
+					"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 40
-				"y": 75
-				"width": 500
+				"x": 55
+				"y": 65
+				"width": 890
 				"height": 260
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Return"
 				"font": new java.awt.Font( "Tahoma", 1, 14 )
-				"foreground": new java.awt.Color( 0, 51, 255, 255 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "returnButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 40
+				"x": 435
 				"y": 340
-				"width": 98
+				"width": 125
+				"height": 40
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 5, 5 )
-			"size": new java.awt.Dimension( 585, 395 )
+			"size": new java.awt.Dimension( 1000, 395 )
 		} )
 	}
 }

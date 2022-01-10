@@ -14,8 +14,8 @@ new FormModel {
 				"font": new java.awt.Font( "Tahoma", 1, 14 )
 				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 165
-				"y": 90
+				"x": 340
+				"y": 65
 				"width": 325
 				"height": 24
 			} )
@@ -26,11 +26,17 @@ new FormModel {
 					name: "list1"
 					"selectionMode": 0
 					"font": #Font0
+					"model": new javax.swing.DefaultListModel {
+						addElement( "Reservation ID: 123 Username: \"testCustomer\", Guests: 1, Check in: 01-03-2022, Check out: 03-03-2022, Total price: $80.00" )
+					}
+					"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+					"background": new java.awt.Color( 255, 255, 255, 255 )
+					"foreground": new java.awt.Color( 0, 0, 0, 255 )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 50
-				"y": 120
-				"width": 570
+				"x": 55
+				"y": 95
+				"width": 890
 				"height": 225
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -39,24 +45,25 @@ new FormModel {
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
 				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 255
+				"x": 430
 				"y": 15
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Return"
 				"font": #Font0
-				"background": new java.awt.Color( 255, 255, 255, 255 )
-				"foreground": new java.awt.Color( 51, 102, 255, 255 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
+				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "returnButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 167
-				"x": 50
-				"y": 350
+				"width": 125
+				"x": 435
+				"y": 340
+				"height": 40
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 675, 400 )
+			"size": new java.awt.Dimension( 1000, 400 )
 		} )
 	}
 }

@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import javax.swing.*;
+import javax.swing.border.*;
 
 /*
  * Created by JFormDesigner on Thu Jan 06 03:28:51 EET 2022
@@ -42,9 +43,8 @@ public class registerAsProvider extends JPanel {
         this.admins = admins;
         this.messages = messages;
         this.mainUI=mainUI;
-        jframe.setPreferredSize(new Dimension(440 , 370));
+        jframe.setPreferredSize(new Dimension(380 , 480));
         jframe.pack();
-        jframe.setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -135,9 +135,17 @@ public class registerAsProvider extends JPanel {
         }
     }
 
+    private void cancelButtonClick(ActionEvent e) {
+        loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
+                this.providers, this.admins, this.messages, this.mainUI);
+        loginForm.setCurrentForm(loginForm);
+        jframe.add(loginForm);
+        jframe.setVisible(true);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+        // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
         label2 = new JLabel();
         textField5 = new JTextField();
@@ -160,102 +168,116 @@ public class registerAsProvider extends JPanel {
         label10 = new JLabel();
         textField12 = new JTextField();
         button1 = new JButton();
+        button2 = new JButton();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
-        ( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing. border
-        . TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
-        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
-        propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
-        ; }} );
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing
+        .border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder
+        .CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.
+        awt.Font.BOLD,12),java.awt.Color.red), getBorder()))
+        ; addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
+        ){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}})
+        ;
         setLayout(null);
 
         //---- label1 ----
-        label1.setText("Provider Registration Form");
+        label1.setText("Provider registration");
         label1.setForeground(Color.white);
         label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
         add(label1);
-        label1.setBounds(50, 0, 305, label1.getPreferredSize().height);
+        label1.setBounds(40, 20, 305, label1.getPreferredSize().height);
 
         //---- label2 ----
         label2.setText("Username:");
         label2.setForeground(Color.white);
         label2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label2.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label2);
-        label2.setBounds(50, 45, 86, 15);
+        label2.setBounds(30, 75, 140, 25);
 
         //---- textField5 ----
         textField5.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField5);
-        textField5.setBounds(240, 45, 160, 20);
+        textField5.setBounds(185, 75, 150, 25);
 
         //---- label3 ----
         label3.setText("Password:");
         label3.setForeground(Color.white);
         label3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label3.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label3);
-        label3.setBounds(50, 75, 86, 15);
+        label3.setBounds(30, 105, 140, 25);
 
         //---- passwordField1 ----
         passwordField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        passwordField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        passwordField1.setForeground(Color.black);
         add(passwordField1);
-        passwordField1.setBounds(240, 75, 160, 20);
+        passwordField1.setBounds(185, 105, 150, 25);
 
         //---- label11 ----
         label11.setText("Confirm Password:");
         label11.setForeground(Color.white);
         label11.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label11.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label11);
-        label11.setBounds(50, 105, label11.getPreferredSize().width, 15);
+        label11.setBounds(30, 135, 140, 25);
 
         //---- passwordField2 ----
         passwordField2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        passwordField2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        passwordField2.setForeground(Color.black);
         add(passwordField2);
-        passwordField2.setBounds(240, 105, 160, 20);
+        passwordField2.setBounds(185, 135, 150, 25);
 
         //---- label5 ----
         label5.setText("First name:");
         label5.setForeground(Color.white);
         label5.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label5.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label5);
-        label5.setBounds(50, 135, 86, 15);
+        label5.setBounds(30, 165, 140, 25);
 
         //---- textField8 ----
         textField8.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField8);
-        textField8.setBounds(240, 135, 160, 20);
+        textField8.setBounds(185, 165, 150, 25);
 
         //---- label6 ----
         label6.setText("Last name:");
         label6.setForeground(Color.white);
         label6.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label6.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label6);
-        label6.setBounds(50, 165, 86, 15);
+        label6.setBounds(30, 195, 140, 25);
 
         //---- textField9 ----
         textField9.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField9);
-        textField9.setBounds(240, 165, 160, 20);
+        textField9.setBounds(185, 195, 150, 25);
 
         //---- label4 ----
         label4.setText("Email:");
         label4.setForeground(Color.white);
         label4.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label4.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label4);
-        label4.setBounds(50, 195, 86, 15);
+        label4.setBounds(30, 225, 140, 25);
 
         //---- textField10 ----
         textField10.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField10);
-        textField10.setBounds(240, 195, 160, 20);
+        textField10.setBounds(185, 225, 150, 25);
 
         //---- label9 ----
         label9.setText("Type");
         label9.setForeground(Color.white);
         label9.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label9.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label9);
-        label9.setBounds(50, 225, 86, 15);
+        label9.setBounds(30, 255, 140, 25);
 
         //---- comboBox1 ----
         comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -264,52 +286,67 @@ public class registerAsProvider extends JPanel {
             "Private"
         }));
         comboBox1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        comboBox1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        comboBox1.setForeground(Color.black);
         add(comboBox1);
-        comboBox1.setBounds(240, 225, 160, 20);
+        comboBox1.setBounds(185, 255, 150, 25);
 
         //---- label8 ----
         label8.setText("Country:");
         label8.setForeground(Color.white);
         label8.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label8.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label8);
-        label8.setBounds(50, 255, 86, 15);
+        label8.setBounds(30, 285, 140, 25);
 
         //---- textField7 ----
         textField7.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField7);
-        textField7.setBounds(240, 255, 160, 20);
+        textField7.setBounds(185, 285, 150, 25);
 
         //---- label7 ----
         label7.setText("Region:");
         label7.setForeground(Color.white);
         label7.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label7.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label7);
-        label7.setBounds(50, 285, 86, 15);
+        label7.setBounds(30, 315, 140, 25);
 
         //---- textField11 ----
         textField11.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField11);
-        textField11.setBounds(240, 285, 160, 20);
+        textField11.setBounds(185, 315, 150, 25);
 
         //---- label10 ----
         label10.setText("Office address:");
         label10.setForeground(Color.white);
         label10.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label10.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label10);
-        label10.setBounds(50, 315, 125, 15);
+        label10.setBounds(30, 345, 140, 25);
 
         //---- textField12 ----
         textField12.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField12);
-        textField12.setBounds(240, 315, 160, 20);
+        textField12.setBounds(185, 345, 150, 25);
 
         //---- button1 ----
         button1.setText("Register");
-        button1.setForeground(new Color(51, 102, 255));
+        button1.setForeground(Color.white);
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button1.addActionListener(e -> register(e));
         add(button1);
-        button1.setBounds(255, 355, 130, 20);
+        button1.setBounds(210, 395, 125, 40);
+
+        //---- button2 ----
+        button2.setText("Cancel");
+        button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(Color.white);
+        button2.addActionListener(e -> cancelButtonClick(e));
+        add(button2);
+        button2.setBounds(45, 395, 125, 40);
 
         {
             // compute preferred size
@@ -329,7 +366,7 @@ public class registerAsProvider extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JLabel label2;
     private JTextField textField5;
@@ -352,5 +389,6 @@ public class registerAsProvider extends JPanel {
     private JLabel label10;
     private JTextField textField12;
     private JButton button1;
+    private JButton button2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

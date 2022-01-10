@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.*;
+import javax.swing.border.*;
 
 /*
  * Created by JFormDesigner on Fri Jan 07 16:58:50 EET 2022
@@ -47,9 +48,8 @@ public class changeAccountStateForm extends JPanel {
         this.messages = messages;
         this.mainUI=mainUI;
         this.admin = admin;
-        jframe.setPreferredSize(new Dimension(611 , 282));
+        jframe.setPreferredSize(new Dimension(505 , 415));
         jframe.pack();
-        jframe.setLocationRelativeTo(null);
         initComponents();
 
         model = new DefaultListModel<>();
@@ -198,14 +198,14 @@ public class changeAccountStateForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+        // Generated using JFormDesigner Evaluation license - asdfasdfa
         label2 = new JLabel();
         label3 = new JLabel();
         comboBox1 = new JComboBox<>();
         label4 = new JLabel();
         textField1 = new JTextField();
         scrollPane1 = new JScrollPane();
-        list1 = new JList();
+        list1 = new JList<>();
         label1 = new JLabel();
         button2 = new JButton();
         button1 = new JButton();
@@ -213,27 +213,29 @@ public class changeAccountStateForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.
-        border.EmptyBorder(0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e",javax.swing.border.TitledBorder.CENTER
-        ,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dialo\u0067",java.awt.Font
-        .BOLD,12),java.awt.Color.red), getBorder())); addPropertyChangeListener(
-        new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("borde\u0072"
-        .equals(e.getPropertyName()))throw new RuntimeException();}});
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
+        ( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border
+        . TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt
+        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
+        propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
+        ; }} );
         setLayout(null);
 
         //---- label2 ----
         label2.setText("Change account state");
         label2.setFont(new Font("Tahoma", Font.BOLD, 22));
         label2.setForeground(Color.white);
+        label2.setHorizontalAlignment(SwingConstants.CENTER);
         add(label2);
-        label2.setBounds(210, 7, 259, label2.getPreferredSize().height);
+        label2.setBounds(120, 20, 259, label2.getPreferredSize().height);
 
         //---- label3 ----
         label3.setText("User type:");
         label3.setForeground(Color.white);
         label3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label3.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label3);
-        label3.setBounds(70, 40, 94, label3.getPreferredSize().height);
+        label3.setBounds(135, 65, 90, 25);
 
         //---- comboBox1 ----
         comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -242,31 +244,47 @@ public class changeAccountStateForm extends JPanel {
             "Provider",
             "Admin"
         }));
-        comboBox1.setFont(new Font("Tahoma", Font.BOLD, 12));
+        comboBox1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        comboBox1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        comboBox1.setForeground(Color.black);
         add(comboBox1);
-        comboBox1.setBounds(150, 40, comboBox1.getPreferredSize().width, 15);
+        comboBox1.setBounds(235, 65, comboBox1.getPreferredSize().width, 25);
 
         //---- label4 ----
         label4.setText("Name filter:");
         label4.setForeground(Color.white);
         label4.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label4.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label4);
-        label4.setBounds(330, 40, 85, label4.getPreferredSize().height);
+        label4.setBounds(135, 100, 90, 25);
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField1);
-        textField1.setBounds(420, 40, 110, textField1.getPreferredSize().height);
+        textField1.setBounds(235, 100, 120, 25);
 
         //======== scrollPane1 ========
         {
+            scrollPane1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
 
             //---- list1 ----
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            list1.setModel(new AbstractListModel<String>() {
+                String[] values = {
+                    "Name: \"userExample\", Type: Customer, Account: Suspended"
+                };
+                @Override
+                public int getSize() { return values.length; }
+                @Override
+                public String getElementAt(int i) { return values[i]; }
+            });
+            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+            list1.setBackground(Color.white);
+            list1.setForeground(Color.black);
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(75, 115, 457, 121);
+        scrollPane1.setBounds(45, 145, 415, 121);
 
         //---- label1 ----
         label1.setText("\"user\" Account ...");
@@ -277,26 +295,29 @@ public class changeAccountStateForm extends JPanel {
         //---- button2 ----
         button2.setText("Return");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(new Color(51, 102, 255));
+        button2.setForeground(Color.white);
+        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button2.addActionListener(e -> returnButtonClick(e));
         add(button2);
-        button2.setBounds(75, 250, 120, button2.getPreferredSize().height);
+        button2.setBounds(200, 335, 105, 40);
 
         //---- button1 ----
         button1.setText("Search");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(new Color(51, 102, 255));
+        button1.setForeground(Color.white);
+        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button1.addActionListener(e -> searchButtonClick(e));
         add(button1);
-        button1.setBounds(245, 250, 130, button1.getPreferredSize().height);
+        button1.setBounds(110, 280, 130, 40);
 
         //---- button3 ----
         button3.setText("Change state");
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button3.setForeground(new Color(51, 102, 255));
+        button3.setForeground(Color.white);
+        button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button3.addActionListener(e -> changeStateButtonClick(e));
         add(button3);
-        button3.setBounds(410, 250, 125, button3.getPreferredSize().height);
+        button3.setBounds(260, 280, 130, 40);
 
         {
             // compute preferred size
@@ -316,14 +337,14 @@ public class changeAccountStateForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
+    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label2;
     private JLabel label3;
     private JComboBox<String> comboBox1;
     private JLabel label4;
     private JTextField textField1;
     private JScrollPane scrollPane1;
-    private JList list1;
+    private JList<String> list1;
     private JLabel label1;
     private JButton button2;
     private JButton button1;
