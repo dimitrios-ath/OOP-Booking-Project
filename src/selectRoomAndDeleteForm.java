@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Map;
@@ -7,16 +6,7 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.*;
 import javax.swing.border.*;
-import net.miginfocom.swing.*;
-/*
- * Created by JFormDesigner on Thu Jan 06 19:26:31 EET 2022
- */
 
-
-
-/**
- * @author asdfasdfa
- */
 public class selectRoomAndDeleteForm extends JPanel {
     JFrame jframe;
     selectRoomAndDeleteForm currentForm;
@@ -77,7 +67,7 @@ public class selectRoomAndDeleteForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void cancelButtonClick(ActionEvent e) {
+    private void cancelButtonClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
         providerForm.setCurrentForm(providerForm);
@@ -85,7 +75,7 @@ public class selectRoomAndDeleteForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void removeButtonClick(ActionEvent e) {
+    private void removeButtonClick() {
         int id;
         if (!list1.isSelectionEmpty()) {
             id = idsInList.get(list1.getSelectedIndex());
@@ -126,25 +116,17 @@ public class selectRoomAndDeleteForm extends JPanel {
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label1 = new JLabel();
-        scrollPane1 = new JScrollPane();
+        JLabel label1 = new JLabel();
+        JScrollPane scrollPane1 = new JScrollPane();
         list1 = new JList<>();
-        button1 = new JButton();
-        button2 = new JButton();
-        label3 = new JLabel();
+        JButton button1 = new JButton();
+        JButton button2 = new JButton();
+        JLabel label3 = new JLabel();
         label2 = new JLabel();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
         setForeground(Color.white);
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
-        ( 0, 0, 0, 0) , "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border
-        . TitledBorder. BOTTOM, new java .awt .Font ("D\u0069al\u006fg" ,java .awt .Font .BOLD ,12 ), java. awt
-        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
-        propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062or\u0064er" .equals (e .getPropertyName () )) throw new RuntimeException( )
-        ; }} );
         setLayout(null);
 
         //---- label1 ----
@@ -160,14 +142,20 @@ public class selectRoomAndDeleteForm extends JPanel {
             //---- list1 ----
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            list1.setModel(new AbstractListModel<String>() {
-                String[] values = {
-                    "Name: \"test\", type: hotel, capacity: 2, price: $40.00"
+            list1.setModel(new AbstractListModel<>() {
+                final String[] values = {
+                        "Name: \"test\", type: hotel, capacity: 2, price: $40.00"
                 };
+
                 @Override
-                public int getSize() { return values.length; }
+                public int getSize() {
+                    return values.length;
+                }
+
                 @Override
-                public String getElementAt(int i) { return values[i]; }
+                public String getElementAt(int i) {
+                    return values[i];
+                }
             });
             list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
             list1.setBackground(Color.white);
@@ -182,7 +170,7 @@ public class selectRoomAndDeleteForm extends JPanel {
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setForeground(Color.white);
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> cancelButtonClick(e));
+        button1.addActionListener(e -> cancelButtonClick());
         add(button1);
         button1.setBounds(140, 320, 120, 40);
 
@@ -191,7 +179,7 @@ public class selectRoomAndDeleteForm extends JPanel {
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
         button2.setForeground(Color.white);
         button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button2.addActionListener(e -> removeButtonClick(e));
+        button2.addActionListener(e -> removeButtonClick());
         add(button2);
         button2.setBounds(410, 320, 120, 40);
 
@@ -225,17 +213,7 @@ public class selectRoomAndDeleteForm extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label1;
-    private JScrollPane scrollPane1;
     private JList<String> list1;
-    private JButton button1;
-    private JButton button2;
-    private JLabel label3;
     private JLabel label2;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

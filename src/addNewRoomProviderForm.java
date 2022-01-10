@@ -1,20 +1,9 @@
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-
-
 import java.util.Map;
 import java.util.Objects;
 import javax.swing.border.*;
-/*
- * Created by JFormDesigner on Thu Jan 06 12:20:00 EET 2022
- */
 
-
-
-/**
- * @author asdfasdfa
- */
 public class addNewRoomProviderForm extends JPanel {
     JFrame jframe;
     addNewRoomProviderForm currentForm;
@@ -51,7 +40,7 @@ public class addNewRoomProviderForm extends JPanel {
         jframe.pack();
     }
 
-    private void addRoomClick(ActionEvent e) {
+    private void addRoomClick() {
         String type = "";
         boolean validInput = true;
         if (comboBox1.getSelectedItem() == "-") {
@@ -136,7 +125,7 @@ public class addNewRoomProviderForm extends JPanel {
         }
     }
 
-    private void cancelClick(ActionEvent e) {
+    private void cancelClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
         providerForm.setCurrentForm(providerForm);
@@ -145,38 +134,36 @@ public class addNewRoomProviderForm extends JPanel {
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label1 = new JLabel();
-        label2 = new JLabel();
+        JLabel label1 = new JLabel();
+        JLabel label2 = new JLabel();
         comboBox1 = new JComboBox<>();
-        label3 = new JLabel();
+        JLabel label3 = new JLabel();
         textField1 = new JTextField();
-        label5 = new JLabel();
-        label6 = new JLabel();
-        label16 = new JLabel();
-        label4 = new JLabel();
+        JLabel label5 = new JLabel();
+        JLabel label6 = new JLabel();
+        JLabel label16 = new JLabel();
+        JLabel label4 = new JLabel();
         checkBox1 = new JCheckBox();
-        label7 = new JLabel();
+        JLabel label7 = new JLabel();
         checkBox2 = new JCheckBox();
-        label8 = new JLabel();
+        JLabel label8 = new JLabel();
         checkBox3 = new JCheckBox();
-        label9 = new JLabel();
+        JLabel label9 = new JLabel();
         checkBox4 = new JCheckBox();
-        label10 = new JLabel();
+        JLabel label10 = new JLabel();
         checkBox5 = new JCheckBox();
-        label11 = new JLabel();
+        JLabel label11 = new JLabel();
         checkBox6 = new JCheckBox();
-        label12 = new JLabel();
+        JLabel label12 = new JLabel();
         checkBox7 = new JCheckBox();
-        label13 = new JLabel();
+        JLabel label13 = new JLabel();
         checkBox8 = new JCheckBox();
-        label14 = new JLabel();
+        JLabel label14 = new JLabel();
         checkBox9 = new JCheckBox();
-        label15 = new JLabel();
+        JLabel label15 = new JLabel();
         checkBox10 = new JCheckBox();
-        button2 = new JButton();
-        button1 = new JButton();
+        JButton button2 = new JButton();
+        JButton button1 = new JButton();
         spinner1 = new JSpinner();
         spinner2 = new JSpinner();
         spinner3 = new JSpinner();
@@ -188,12 +175,6 @@ public class addNewRoomProviderForm extends JPanel {
         setMaximumSize(null);
         setPreferredSize(new Dimension(150, 150));
         setMinimumSize(null);
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.
-        EmptyBorder(0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing
-        .border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),
-        java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener()
-        {@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062ord\u0065r".equals(e.getPropertyName()))
-        throw new RuntimeException();}});
         setLayout(null);
 
         //---- label1 ----
@@ -419,7 +400,7 @@ public class addNewRoomProviderForm extends JPanel {
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
         button2.setForeground(Color.white);
         button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button2.addActionListener(e -> cancelClick(e));
+        button2.addActionListener(e -> cancelClick());
         add(button2);
         button2.setBounds(55, 590, 125, 40);
 
@@ -428,7 +409,7 @@ public class addNewRoomProviderForm extends JPanel {
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setForeground(Color.white);
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> addRoomClick(e));
+        button1.addActionListener(e -> addRoomClick());
         add(button1);
         button1.setBounds(220, 590, 125, 40);
 
@@ -470,43 +451,21 @@ public class addNewRoomProviderForm extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label1;
-    private JLabel label2;
     private JComboBox<String> comboBox1;
-    private JLabel label3;
     private JTextField textField1;
-    private JLabel label5;
-    private JLabel label6;
-    private JLabel label16;
-    private JLabel label4;
     private JCheckBox checkBox1;
-    private JLabel label7;
     private JCheckBox checkBox2;
-    private JLabel label8;
     private JCheckBox checkBox3;
-    private JLabel label9;
     private JCheckBox checkBox4;
-    private JLabel label10;
     private JCheckBox checkBox5;
-    private JLabel label11;
     private JCheckBox checkBox6;
-    private JLabel label12;
     private JCheckBox checkBox7;
-    private JLabel label13;
     private JCheckBox checkBox8;
-    private JLabel label14;
     private JCheckBox checkBox9;
-    private JLabel label15;
     private JCheckBox checkBox10;
-    private JButton button2;
-    private JButton button1;
     private JSpinner spinner1;
     private JSpinner spinner2;
     private JSpinner spinner3;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

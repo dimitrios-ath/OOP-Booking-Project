@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
@@ -7,15 +6,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.*;
 import javax.swing.border.*;
 
-/*
- * Created by JFormDesigner on Fri Jan 07 16:58:50 EET 2022
- */
-
-
-
-/**
- * @author asdfasdfa
- */
 public class changeAccountStateForm extends JPanel {
     JFrame jframe;
     changeAccountStateForm currentForm;
@@ -142,7 +132,7 @@ public class changeAccountStateForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClick(ActionEvent e) {
+    private void returnButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
         adminForm.setCurrentForm(adminForm);
@@ -150,12 +140,12 @@ public class changeAccountStateForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void searchButtonClick(ActionEvent e) {
+    private void searchButtonClick() {
         label1.setVisible(false);
         updateList();
     }
 
-    private void changeStateButtonClick(ActionEvent e) {
+    private void changeStateButtonClick() {
         String username = usernamesInList.get(list1.getSelectedIndex());
         int role = this.users.get(username).getRole();
         if (!Objects.equals(username, this.admin.getUsername())) {
@@ -197,30 +187,20 @@ public class changeAccountStateForm extends JPanel {
 
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label2 = new JLabel();
-        label3 = new JLabel();
+        JLabel label2 = new JLabel();
+        JLabel label3 = new JLabel();
         comboBox1 = new JComboBox<>();
-        label4 = new JLabel();
+        JLabel label4 = new JLabel();
         textField1 = new JTextField();
-        scrollPane1 = new JScrollPane();
+        JScrollPane scrollPane1 = new JScrollPane();
         list1 = new JList<>();
         label1 = new JLabel();
-        button2 = new JButton();
-        button1 = new JButton();
-        button3 = new JButton();
+        JButton button2 = new JButton();
+        JButton button1 = new JButton();
+        JButton button3 = new JButton();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(
-        new javax.swing.border.EmptyBorder(0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e"
-        ,javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
-        ,new java.awt.Font("Dialo\u0067",java.awt.Font.BOLD,12)
-        ,java.awt.Color.red), getBorder())); addPropertyChangeListener(
-        new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-        ){if("borde\u0072".equals(e.getPropertyName()))throw new RuntimeException()
-        ;}});
         setLayout(null);
 
         //---- label2 ----
@@ -273,14 +253,20 @@ public class changeAccountStateForm extends JPanel {
 
             //---- list1 ----
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            list1.setModel(new AbstractListModel<String>() {
-                String[] values = {
-                    "Name: \"userExample\", Type: Customer, Account: Suspended"
+            list1.setModel(new AbstractListModel<>() {
+                final String[] values = {
+                        "Name: \"userExample\", Type: Customer, Account: Suspended"
                 };
+
                 @Override
-                public int getSize() { return values.length; }
+                public int getSize() {
+                    return values.length;
+                }
+
                 @Override
-                public String getElementAt(int i) { return values[i]; }
+                public String getElementAt(int i) {
+                    return values[i];
+                }
             });
             list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
             list1.setBackground(Color.white);
@@ -302,7 +288,7 @@ public class changeAccountStateForm extends JPanel {
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
         button2.setForeground(Color.white);
         button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button2.addActionListener(e -> returnButtonClick(e));
+        button2.addActionListener(e -> returnButtonClick());
         add(button2);
         button2.setBounds(200, 335, 105, 40);
 
@@ -311,7 +297,7 @@ public class changeAccountStateForm extends JPanel {
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setForeground(Color.white);
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> searchButtonClick(e));
+        button1.addActionListener(e -> searchButtonClick());
         add(button1);
         button1.setBounds(110, 280, 130, 40);
 
@@ -320,7 +306,7 @@ public class changeAccountStateForm extends JPanel {
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
         button3.setForeground(Color.white);
         button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button3.addActionListener(e -> changeStateButtonClick(e));
+        button3.addActionListener(e -> changeStateButtonClick());
         add(button3);
         button3.setBounds(260, 280, 130, 40);
 
@@ -338,21 +324,9 @@ public class changeAccountStateForm extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label2;
-    private JLabel label3;
     private JComboBox<String> comboBox1;
-    private JLabel label4;
     private JTextField textField1;
-    private JScrollPane scrollPane1;
     private JList<String> list1;
     private JLabel label1;
-    private JButton button2;
-    private JButton button1;
-    private JButton button3;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -1,19 +1,8 @@
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import net.miginfocom.swing.*;
-
 import java.util.Map;
-/*
- * Created by JFormDesigner on Thu Jan 06 11:50:57 EET 2022
- */
 
-
-
-/**
- * @author asdfasdfa
- */
 public class providerForm extends JPanel {
     JFrame jframe;
     providerForm currentForm;
@@ -49,7 +38,7 @@ public class providerForm extends JPanel {
         jframe.pack();
     }
 
-    private void addRoomButtonClick(ActionEvent e) {
+    private void addRoomButtonClick() {
         addNewRoomProviderForm addNewRoomProviderForm = new addNewRoomProviderForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -58,7 +47,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void editRoomButtonClick(ActionEvent e) {
+    private void editRoomButtonClick() {
         selectRoomAndEditForm selectRoomAndEditForm = new selectRoomAndEditForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -67,7 +56,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void deleteExistingRoomButtonClick(ActionEvent e) {
+    private void deleteExistingRoomButtonClick() {
         selectRoomAndDeleteForm selectRoomAndDeleteForm = new selectRoomAndDeleteForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -76,7 +65,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void showAllRoomsButtonClick(ActionEvent e) {
+    private void showAllRoomsButtonClick() {
         showAllRoomsForm showAllRoomsForm = new showAllRoomsForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -85,7 +74,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void returnAllReservationsButtonClick(ActionEvent e) {
+    private void returnAllReservationsButtonClick() {
         selectRoomAndReturnReservationsForm selectRoomAndReturnReservationsForm = new selectRoomAndReturnReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
@@ -94,7 +83,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void messagesButtonClick(ActionEvent e) {
+    private void messagesButtonClick() {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider.getUsername());
@@ -103,7 +92,7 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void logoutButtonClick(ActionEvent e) {
+    private void logoutButtonClick() {
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
@@ -111,33 +100,24 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void exitButtonClick(ActionEvent e) {
+    private void exitButtonClick() {
         this.mainUI.saveAndExit();
     }
 
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label1 = new JLabel();
-        button2 = new JButton();
-        button3 = new JButton();
-        button4 = new JButton();
-        button5 = new JButton();
-        button6 = new JButton();
-        button7 = new JButton();
-        button8 = new JButton();
-        button1 = new JButton();
+        JLabel label1 = new JLabel();
+        JButton button2 = new JButton();
+        JButton button3 = new JButton();
+        JButton button4 = new JButton();
+        JButton button5 = new JButton();
+        JButton button6 = new JButton();
+        JButton button7 = new JButton();
+        JButton button8 = new JButton();
+        JButton button1 = new JButton();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
-        . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e", javax. swing. border. TitledBorder
-        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069al\u006fg" ,java .
-        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
-        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("\u0062or\u0064er" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
-        ;
         setLayout(null);
 
         //---- label1 ----
@@ -153,7 +133,7 @@ public class providerForm extends JPanel {
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
         button2.setForeground(Color.white);
         button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button2.addActionListener(e -> editRoomButtonClick(e));
+        button2.addActionListener(e -> editRoomButtonClick());
         add(button2);
         button2.setBounds(60, 105, 210, 40);
 
@@ -162,7 +142,7 @@ public class providerForm extends JPanel {
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
         button3.setForeground(Color.white);
         button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button3.addActionListener(e -> deleteExistingRoomButtonClick(e));
+        button3.addActionListener(e -> deleteExistingRoomButtonClick());
         add(button3);
         button3.setBounds(60, 150, 210, 40);
 
@@ -171,7 +151,7 @@ public class providerForm extends JPanel {
         button4.setFont(new Font("Tahoma", Font.BOLD, 14));
         button4.setForeground(Color.white);
         button4.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button4.addActionListener(e -> showAllRoomsButtonClick(e));
+        button4.addActionListener(e -> showAllRoomsButtonClick());
         add(button4);
         button4.setBounds(60, 195, 210, 40);
 
@@ -180,7 +160,7 @@ public class providerForm extends JPanel {
         button5.setFont(new Font("Tahoma", Font.BOLD, 14));
         button5.setForeground(Color.white);
         button5.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button5.addActionListener(e -> returnAllReservationsButtonClick(e));
+        button5.addActionListener(e -> returnAllReservationsButtonClick());
         add(button5);
         button5.setBounds(60, 240, 210, 40);
 
@@ -189,7 +169,7 @@ public class providerForm extends JPanel {
         button6.setFont(new Font("Tahoma", Font.BOLD, 14));
         button6.setForeground(Color.white);
         button6.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button6.addActionListener(e -> messagesButtonClick(e));
+        button6.addActionListener(e -> messagesButtonClick());
         add(button6);
         button6.setBounds(60, 285, 210, 40);
 
@@ -198,7 +178,7 @@ public class providerForm extends JPanel {
         button7.setFont(new Font("Tahoma", Font.BOLD, 14));
         button7.setForeground(Color.white);
         button7.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button7.addActionListener(e -> logoutButtonClick(e));
+        button7.addActionListener(e -> logoutButtonClick());
         add(button7);
         button7.setBounds(100, 350, 125, 40);
 
@@ -207,7 +187,7 @@ public class providerForm extends JPanel {
         button8.setFont(new Font("Tahoma", Font.BOLD, 14));
         button8.setForeground(Color.white);
         button8.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button8.addActionListener(e -> exitButtonClick(e));
+        button8.addActionListener(e -> exitButtonClick());
         add(button8);
         button8.setBounds(100, 395, 125, 40);
 
@@ -216,7 +196,7 @@ public class providerForm extends JPanel {
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setForeground(Color.white);
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> addRoomButtonClick(e));
+        button1.addActionListener(e -> addRoomButtonClick());
         add(button1);
         button1.setBounds(60, 60, 210, 40);
 
@@ -234,19 +214,5 @@ public class providerForm extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    private JButton button5;
-    private JButton button6;
-    private JButton button7;
-    private JButton button8;
-    private JButton button1;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

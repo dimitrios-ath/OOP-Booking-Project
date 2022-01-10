@@ -2,18 +2,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import net.miginfocom.swing.*;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-/*
- * Created by JFormDesigner on Fri Jan 07 13:49:10 EET 2022
- */
 
-
-
-/**
- * @author asdfasdfa
- */
 public class searchByCustomerUsernameForm extends JPanel {
     JFrame jframe;
     searchByCustomerUsernameForm currentForm;
@@ -70,21 +61,21 @@ public class searchByCustomerUsernameForm extends JPanel {
         }
     }
 
-    private void list1Click(MouseEvent e) {
+    private void list1Click() {
         if (!noCustomersFound.get()) {
             list1.setEnabled(true);
             textField1.setEnabled(false);
         }
     }
 
-    private void textField1Click(MouseEvent e) {
+    private void textField1Click() {
         if (!noCustomersFound.get()) {
             list1.setEnabled(false);
             textField1.setEnabled(true);
         }
     }
 
-    private void backButtonClick(ActionEvent e) {
+    private void backButtonClick() {
         searchReservationsForm searchReservationsForm = new searchReservationsForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
@@ -93,13 +84,13 @@ public class searchByCustomerUsernameForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void nextButtonClick(ActionEvent e) {
+    private void nextButtonClick() {
         if (!noCustomersFound.get()) {
             if (list1.isEnabled() && !textField1.isEnabled()) {
                 if (!list1.isSelectionEmpty()) {
                     returnReservationsByCustomer returnReservationsByCustomer = new returnReservationsByCustomer(
                             jframe, this.reservations, this.rooms, this.users, this.customers, this.providers, this.admins,
-                            this.messages, this.mainUI, this.admin, list1.getSelectedValue().toString());
+                            this.messages, this.mainUI, this.admin, list1.getSelectedValue());
                     returnReservationsByCustomer.setCurrentForm(returnReservationsByCustomer);
                     jframe.add(returnReservationsByCustomer);
                     this.currentForm.setVisible(false);
@@ -130,27 +121,20 @@ public class searchByCustomerUsernameForm extends JPanel {
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label1 = new JLabel();
+        JLabel label1 = new JLabel();
         textField1 = new JTextField();
-        label4 = new JLabel();
-        scrollPane1 = new JScrollPane();
-        list1 = new JList();
-        button1 = new JButton();
+        JLabel label4 = new JLabel();
+        JScrollPane scrollPane1 = new JScrollPane();
+        list1 = new JList<>();
+        JButton button1 = new JButton();
         button2 = new JButton();
         label3 = new JLabel();
-        label5 = new JLabel();
-        label6 = new JLabel();
+        JLabel label5 = new JLabel();
+        JLabel label6 = new JLabel();
 
         //======== this ========
         setFont(new Font("Tahoma", Font.BOLD, 14));
         setBackground(new Color(51, 102, 255));
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder ( 0
-        , 0 ,0 , 0) ,  "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
-        , new java. awt .Font ( "D\u0069al\u006fg", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,
-         getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
-        ) { if( "\u0062or\u0064er" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
         setLayout(null);
 
         //---- label1 ----
@@ -167,7 +151,7 @@ public class searchByCustomerUsernameForm extends JPanel {
         textField1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                textField1Click(e);
+                textField1Click();
             }
         });
         add(textField1);
@@ -195,7 +179,7 @@ public class searchByCustomerUsernameForm extends JPanel {
             list1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    list1Click(e);
+                    list1Click();
                 }
             });
             scrollPane1.setViewportView(list1);
@@ -208,7 +192,7 @@ public class searchByCustomerUsernameForm extends JPanel {
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setForeground(Color.white);
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> backButtonClick(e));
+        button1.addActionListener(e -> backButtonClick());
         add(button1);
         button1.setBounds(50, 400, 100, 40);
 
@@ -217,7 +201,7 @@ public class searchByCustomerUsernameForm extends JPanel {
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
         button2.setForeground(Color.white);
         button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button2.addActionListener(e -> nextButtonClick(e));
+        button2.addActionListener(e -> nextButtonClick());
         add(button2);
         button2.setBounds(170, 400, 100, 40);
 
@@ -258,20 +242,9 @@ public class searchByCustomerUsernameForm extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label1;
     private JTextField textField1;
-    private JLabel label4;
-    private JScrollPane scrollPane1;
-    private JList list1;
-    private JButton button1;
+    private JList<String> list1;
     private JButton button2;
     private JLabel label3;
-    private JLabel label5;
-    private JLabel label6;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

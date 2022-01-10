@@ -1,31 +1,20 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Map;
 import javax.swing.*;
 import javax.swing.border.*;
 
-/*
- * Created by JFormDesigner on Thu Jan 06 03:28:51 EET 2022
- */
-
-
-
-/**
- * @author asdfasdfa
- */
 public class registerAsProvider extends JPanel {
     JFrame jframe;
     registerAsProvider currentForm;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
 
     public void setCurrentForm(registerAsProvider currentForm) {
         this.currentForm = currentForm;
@@ -48,7 +37,7 @@ public class registerAsProvider extends JPanel {
         initComponents();
     }
 
-    private void register(ActionEvent e) {
+    private void register() {
         String username = textField5.getText();
         boolean validInput = true;
         if (username.matches("^[a-zA-Z0-9_]*$")) {
@@ -135,7 +124,7 @@ public class registerAsProvider extends JPanel {
         }
     }
 
-    private void cancelButtonClick(ActionEvent e) {
+    private void cancelButtonClick() {
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
@@ -144,46 +133,38 @@ public class registerAsProvider extends JPanel {
         jframe.setVisible(true);
     }
 
-    private void textField10MouseClicked(MouseEvent e) {
+    private void textField10MouseClicked() {
         textField10.setText("");
         textField10.setForeground(Color.black);
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label1 = new JLabel();
-        label2 = new JLabel();
+        JLabel label1 = new JLabel();
+        JLabel label2 = new JLabel();
         textField5 = new JTextField();
-        label3 = new JLabel();
+        JLabel label3 = new JLabel();
         passwordField1 = new JPasswordField();
-        label11 = new JLabel();
+        JLabel label11 = new JLabel();
         passwordField2 = new JPasswordField();
-        label5 = new JLabel();
+        JLabel label5 = new JLabel();
         textField8 = new JTextField();
-        label6 = new JLabel();
+        JLabel label6 = new JLabel();
         textField9 = new JTextField();
-        label4 = new JLabel();
+        JLabel label4 = new JLabel();
         textField10 = new JTextField();
-        label9 = new JLabel();
+        JLabel label9 = new JLabel();
         comboBox1 = new JComboBox<>();
-        label8 = new JLabel();
+        JLabel label8 = new JLabel();
         textField7 = new JTextField();
-        label7 = new JLabel();
+        JLabel label7 = new JLabel();
         textField11 = new JTextField();
-        label10 = new JLabel();
-        textField12 = new JTextField();
-        button1 = new JButton();
-        button2 = new JButton();
+        JLabel label10 = new JLabel();
+        JTextField textField12 = new JTextField();
+        JButton button1 = new JButton();
+        JButton button2 = new JButton();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing.
-        border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER
-        ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font
-        . BOLD ,12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener(
-        new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r"
-        .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
         setLayout(null);
 
         //---- label1 ----
@@ -285,7 +266,7 @@ public class registerAsProvider extends JPanel {
         textField10.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                textField10MouseClicked(e);
+                textField10MouseClicked();
             }
         });
         add(textField10);
@@ -361,7 +342,7 @@ public class registerAsProvider extends JPanel {
         button1.setForeground(Color.white);
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> register(e));
+        button1.addActionListener(e -> register());
         add(button1);
         button1.setBounds(210, 395, 125, 40);
 
@@ -370,7 +351,7 @@ public class registerAsProvider extends JPanel {
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
         button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         button2.setForeground(Color.white);
-        button2.addActionListener(e -> cancelButtonClick(e));
+        button2.addActionListener(e -> cancelButtonClick());
         add(button2);
         button2.setBounds(45, 395, 125, 40);
 
@@ -388,33 +369,14 @@ public class registerAsProvider extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label1;
-    private JLabel label2;
     private JTextField textField5;
-    private JLabel label3;
     private JPasswordField passwordField1;
-    private JLabel label11;
     private JPasswordField passwordField2;
-    private JLabel label5;
     private JTextField textField8;
-    private JLabel label6;
     private JTextField textField9;
-    private JLabel label4;
     private JTextField textField10;
-    private JLabel label9;
     private JComboBox<String> comboBox1;
-    private JLabel label8;
     private JTextField textField7;
-    private JLabel label7;
     private JTextField textField11;
-    private JLabel label10;
-    private JTextField textField12;
-    private JButton button1;
-    private JButton button2;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

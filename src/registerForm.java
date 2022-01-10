@@ -1,28 +1,19 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Map;
 import javax.swing.*;
 import javax.swing.border.*;
-/*
- * Created by JFormDesigner on Wed Jan 05 23:06:58 EET 2022
- */
 
-
-
-/**
- * @author asdfasdfa
- */
 public class registerForm extends JPanel {
     JFrame jframe;
     registerForm currentForm;
-    private MainUI mainUI;
-    private Map<Integer,Reservation> reservations;
-    private Map<Integer,Room> rooms;
-    private Map<String,Authentication> users;
-    private Map<String,Customer> customers;
-    private Map<String,Provider> providers;
-    private Map<String,Admin> admins;
-    private Map<Integer,Message> messages;
+    private final MainUI mainUI;
+    private final Map<Integer,Reservation> reservations;
+    private final Map<Integer,Room> rooms;
+    private final Map<String,Authentication> users;
+    private final Map<String,Customer> customers;
+    private final Map<String,Provider> providers;
+    private final Map<String,Admin> admins;
+    private final Map<Integer,Message> messages;
 
     public void setCurrentForm(registerForm currentForm) {
         this.currentForm = currentForm;
@@ -45,7 +36,7 @@ public class registerForm extends JPanel {
         initComponents();
     }
 
-    private void backToLogin(ActionEvent e) {
+    private void backToLogin() {
         loginForm loginForm = new loginForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
@@ -53,7 +44,7 @@ public class registerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void registerWithRole(ActionEvent e) {
+    private void registerWithRole() {
         if (comboBox1.getSelectedItem()=="Customer") {
             registerAsCustomer registerAsCustomer = new registerAsCustomer(this.jframe, this.reservations,
                     this.rooms, this.users, this.customers, this.providers, this.admins, this.messages, this.mainUI);
@@ -70,21 +61,14 @@ public class registerForm extends JPanel {
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label1 = new JLabel();
-        button1 = new JButton();
+        JLabel label1 = new JLabel();
+        JButton button1 = new JButton();
         comboBox1 = new JComboBox<>();
-        button2 = new JButton();
-        label2 = new JLabel();
+        JButton button2 = new JButton();
+        JLabel label2 = new JLabel();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
-        0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
-        . BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-        beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(null);
 
         //---- label1 ----
@@ -100,7 +84,7 @@ public class registerForm extends JPanel {
         button1.setForeground(Color.white);
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> backToLogin(e));
+        button1.addActionListener(e -> backToLogin());
         add(button1);
         button1.setBounds(45, 170, 110, 35);
 
@@ -121,7 +105,7 @@ public class registerForm extends JPanel {
         button2.setForeground(Color.white);
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
         button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button2.addActionListener(e -> registerWithRole(e));
+        button2.addActionListener(e -> registerWithRole());
         add(button2);
         button2.setBounds(185, 170, 110, 35);
 
@@ -147,15 +131,6 @@ public class registerForm extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label1;
-    private JButton button1;
     private JComboBox<String> comboBox1;
-    private JButton button2;
-    private JLabel label2;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -12,16 +12,6 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.border.*;
 
-import net.miginfocom.swing.*;
-/*
- * Created by JFormDesigner on Thu Jan 06 14:04:23 EET 2022
- */
-
-
-
-/**
- * @author Nikos Mpasdanis
- */
 public class reserveRoomForm extends JPanel {
     JFrame jframe;
     reserveRoomForm currentForm;
@@ -88,7 +78,7 @@ public class reserveRoomForm extends JPanel {
         jframe.pack();
     }
     
-    private void cancelButtonClick(ActionEvent e) {
+    private void cancelButtonClick() {
         customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.customer);
         customerForm.setCurrentForm(customerForm);
@@ -96,7 +86,7 @@ public class reserveRoomForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void clearButtonClick(ActionEvent e) {
+    private void clearButtonClick() {
         textCheckout.setText("");
         textCheckin.setText("");
         BoxOfGuests.setSelectedIndex(0);
@@ -115,7 +105,7 @@ public class reserveRoomForm extends JPanel {
 
     }
 
-    private void searchButtonClick(ActionEvent e) {
+    private void searchButtonClick() {
         int guests = BoxOfGuests.getSelectedIndex()+1;
 
         boolean validInput = true;
@@ -273,61 +263,53 @@ public class reserveRoomForm extends JPanel {
         }
     }
 
-    private void textCheckinMouseClicked(MouseEvent e) {
+    private void textCheckinMouseClicked() {
         textCheckin.setText("");
         textCheckin.setForeground(Color.black);
     }
 
-    private void textCheckoutMouseClicked(MouseEvent e) {
+    private void textCheckoutMouseClicked() {
         textCheckout.setText("");
         textCheckout.setForeground(Color.black);
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label2 = new JLabel();
-        labelGuests = new JLabel();
+        JLabel label2 = new JLabel();
+        JLabel labelGuests = new JLabel();
         BoxOfGuests = new JComboBox<>();
-        labelCheckin = new JLabel();
+        JLabel labelCheckin = new JLabel();
         textCheckin = new JTextField();
-        labelCheckout = new JLabel();
+        JLabel labelCheckout = new JLabel();
         textCheckout = new JTextField();
-        label1 = new JLabel();
-        label3 = new JLabel();
+        JLabel label1 = new JLabel();
+        JLabel label3 = new JLabel();
         spinner1 = new JSpinner();
-        label4 = new JLabel();
+        JLabel label4 = new JLabel();
         comboBox1 = new JComboBox<>();
-        label5 = new JLabel();
+        JLabel label5 = new JLabel();
         checkBox1 = new JCheckBox();
-        label6 = new JLabel();
+        JLabel label6 = new JLabel();
         checkBox2 = new JCheckBox();
-        label7 = new JLabel();
+        JLabel label7 = new JLabel();
         checkBox3 = new JCheckBox();
-        label13 = new JLabel();
+        JLabel label13 = new JLabel();
         checkBox10 = new JCheckBox();
-        label8 = new JLabel();
+        JLabel label8 = new JLabel();
         checkBox4 = new JCheckBox();
-        label9 = new JLabel();
+        JLabel label9 = new JLabel();
         checkBox9 = new JCheckBox();
-        label10 = new JLabel();
+        JLabel label10 = new JLabel();
         checkBox6 = new JCheckBox();
-        label11 = new JLabel();
+        JLabel label11 = new JLabel();
         checkBox7 = new JCheckBox();
-        label12 = new JLabel();
+        JLabel label12 = new JLabel();
         checkBox8 = new JCheckBox();
-        buttonBack = new JButton();
-        buttonClear = new JButton();
-        buttonSearch = new JButton();
+        JButton buttonBack = new JButton();
+        JButton buttonClear = new JButton();
+        JButton buttonSearch = new JButton();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing.
-        border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER
-        ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font
-        . BOLD ,12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener(
-        new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r"
-        .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
         setLayout(null);
 
         //---- label2 ----
@@ -381,7 +363,7 @@ public class reserveRoomForm extends JPanel {
         textCheckin.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                textCheckinMouseClicked(e);
+                textCheckinMouseClicked();
             }
         });
         add(textCheckin);
@@ -403,7 +385,7 @@ public class reserveRoomForm extends JPanel {
         textCheckout.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                textCheckoutMouseClicked(e);
+                textCheckoutMouseClicked();
             }
         });
         add(textCheckout);
@@ -584,7 +566,7 @@ public class reserveRoomForm extends JPanel {
         buttonBack.setFont(new Font("Tahoma", Font.BOLD, 14));
         buttonBack.setForeground(Color.white);
         buttonBack.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        buttonBack.addActionListener(e -> cancelButtonClick(e));
+        buttonBack.addActionListener(e -> cancelButtonClick());
         add(buttonBack);
         buttonBack.setBounds(20, 655, 120, 40);
 
@@ -593,7 +575,7 @@ public class reserveRoomForm extends JPanel {
         buttonClear.setFont(new Font("Tahoma", Font.BOLD, 14));
         buttonClear.setForeground(Color.white);
         buttonClear.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        buttonClear.addActionListener(e -> clearButtonClick(e));
+        buttonClear.addActionListener(e -> clearButtonClick());
         add(buttonClear);
         buttonClear.setBounds(155, 655, 120, 40);
 
@@ -602,7 +584,7 @@ public class reserveRoomForm extends JPanel {
         buttonSearch.setFont(new Font("Tahoma", Font.BOLD, 14));
         buttonSearch.setForeground(Color.white);
         buttonSearch.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        buttonSearch.addActionListener(e -> searchButtonClick(e));
+        buttonSearch.addActionListener(e -> searchButtonClick());
         add(buttonSearch);
         buttonSearch.setBounds(290, 655, 120, 40);
 
@@ -620,43 +602,19 @@ public class reserveRoomForm extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label2;
-    private JLabel labelGuests;
     private JComboBox<String> BoxOfGuests;
-    private JLabel labelCheckin;
     private JTextField textCheckin;
-    private JLabel labelCheckout;
     private JTextField textCheckout;
-    private JLabel label1;
-    private JLabel label3;
     private JSpinner spinner1;
-    private JLabel label4;
     private JComboBox<String> comboBox1;
-    private JLabel label5;
     private JCheckBox checkBox1;
-    private JLabel label6;
     private JCheckBox checkBox2;
-    private JLabel label7;
     private JCheckBox checkBox3;
-    private JLabel label13;
     private JCheckBox checkBox10;
-    private JLabel label8;
     private JCheckBox checkBox4;
-    private JLabel label9;
     private JCheckBox checkBox9;
-    private JLabel label10;
     private JCheckBox checkBox6;
-    private JLabel label11;
     private JCheckBox checkBox7;
-    private JLabel label12;
     private JCheckBox checkBox8;
-    private JButton buttonBack;
-    private JButton buttonClear;
-    private JButton buttonSearch;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

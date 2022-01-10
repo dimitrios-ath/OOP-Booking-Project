@@ -1,18 +1,8 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Map;
 import javax.swing.*;
 import javax.swing.border.*;
-import net.miginfocom.swing.*;
-/*
- * Created by JFormDesigner on Wed Jan 05 22:50:03 EET 2022
- */
 
-
-
-/**
- * @author asdfasdfa
- */
 public class loginForm extends JPanel {
     JFrame jframe;
     loginForm currentForm;
@@ -46,7 +36,7 @@ public class loginForm extends JPanel {
         jframe.pack();
     }
 
-    private void loginButtonClick(ActionEvent e) {
+    private void loginButtonClick() {
         int role = 0;
         String username = textField1.getText();
         String password = String.valueOf(passwordField1.getPassword());
@@ -90,7 +80,7 @@ public class loginForm extends JPanel {
         }
     }
 
-    private void registerButtonClick(ActionEvent e) {
+    private void registerButtonClick() {
         registerForm registerForm = new registerForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI);
         registerForm.setCurrentForm(registerForm);
@@ -98,24 +88,22 @@ public class loginForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void exitButtonClick(ActionEvent e) {
+    private void exitButtonClick() {
         this.mainUI.saveAndExit();
     }
 
 
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
         label4 = new JLabel();
-        label1 = new JLabel();
-        label2 = new JLabel();
+        JLabel label1 = new JLabel();
+        JLabel label2 = new JLabel();
         textField1 = new JTextField();
-        label3 = new JLabel();
+        JLabel label3 = new JLabel();
         passwordField1 = new JPasswordField();
-        button1 = new JButton();
-        button2 = new JButton();
-        button3 = new JButton();
+        JButton button1 = new JButton();
+        JButton button2 = new JButton();
+        JButton button3 = new JButton();
 
         //======== this ========
         setPreferredSize(new Dimension(423, 278));
@@ -123,13 +111,6 @@ public class loginForm extends JPanel {
         setFont(new Font("Droid Sans", Font.PLAIN, 12));
         setAlignmentY(2.5F);
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
-        . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder
-        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .
-        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
-        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
-        ;
         setLayout(null);
 
         //---- label4 ----
@@ -183,7 +164,7 @@ public class loginForm extends JPanel {
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setForeground(Color.white);
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> loginButtonClick(e));
+        button1.addActionListener(e -> loginButtonClick());
         add(button1);
         button1.setBounds(175, 175, 120, 35);
 
@@ -193,7 +174,7 @@ public class loginForm extends JPanel {
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
         button2.setForeground(Color.white);
         button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button2.addActionListener(e -> registerButtonClick(e));
+        button2.addActionListener(e -> registerButtonClick());
         add(button2);
         button2.setBounds(35, 175, 120, 35);
 
@@ -202,24 +183,13 @@ public class loginForm extends JPanel {
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
         button3.setForeground(Color.white);
         button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button3.addActionListener(e -> exitButtonClick(e));
+        button3.addActionListener(e -> exitButtonClick());
         add(button3);
         button3.setBounds(120, 225, 90, 35);
 
         setPreferredSize(new Dimension(330, 280));
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label4;
-    private JLabel label1;
-    private JLabel label2;
     private JTextField textField1;
-    private JLabel label3;
     private JPasswordField passwordField1;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

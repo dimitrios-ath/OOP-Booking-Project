@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Map;
@@ -7,16 +6,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.*;
 import javax.swing.border.*;
-import net.miginfocom.swing.*;
-/*
- * Created by JFormDesigner on Thu Jan 06 21:42:13 EET 2022
- */
 
-
-
-/**
- * @author asdfasdfa
- */
 public class returnAllReservationsForRoomForm extends JPanel {
     JFrame jframe;
     returnAllReservationsForRoomForm currentForm;
@@ -76,7 +66,7 @@ public class returnAllReservationsForRoomForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void returnButtonClick(ActionEvent e) {
+    private void returnButtonClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
         providerForm.setCurrentForm(providerForm);
@@ -85,22 +75,15 @@ public class returnAllReservationsForRoomForm extends JPanel {
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
         label1 = new JLabel();
-        label2 = new JLabel();
-        scrollPane1 = new JScrollPane();
+        JLabel label2 = new JLabel();
+        JScrollPane scrollPane1 = new JScrollPane();
         list1 = new JList<>();
-        button1 = new JButton();
-        label3 = new JLabel();
+        JButton button1 = new JButton();
+        JLabel label3 = new JLabel();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder( 0
-        , 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-        , new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,
-         getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(null);
 
         //---- label1 ----
@@ -124,14 +107,20 @@ public class returnAllReservationsForRoomForm extends JPanel {
             //---- list1 ----
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            list1.setModel(new AbstractListModel<String>() {
-                String[] values = {
-                    "Reservation ID: 123 Username: \"testCustomer\", Guests: 1, Check in: 01-03-2022, Check out: 03-03-2022, Total price: $80.00"
+            list1.setModel(new AbstractListModel<>() {
+                final String[] values = {
+                        "Reservation ID: 123 Username: \"testCustomer\", Guests: 1, Check in: 01-03-2022, Check out: 03-03-2022, Total price: $80.00"
                 };
+
                 @Override
-                public int getSize() { return values.length; }
+                public int getSize() {
+                    return values.length;
+                }
+
                 @Override
-                public String getElementAt(int i) { return values[i]; }
+                public String getElementAt(int i) {
+                    return values[i];
+                }
             });
             list1.setForeground(Color.black);
             list1.setBackground(Color.white);
@@ -146,7 +135,7 @@ public class returnAllReservationsForRoomForm extends JPanel {
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setForeground(Color.white);
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> returnButtonClick(e));
+        button1.addActionListener(e -> returnButtonClick());
         add(button1);
         button1.setBounds(435, 340, 125, 40);
 
@@ -171,16 +160,7 @@ public class returnAllReservationsForRoomForm extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
-    private JLabel label2;
-    private JScrollPane scrollPane1;
     private JList<String> list1;
-    private JButton button1;
-    private JLabel label3;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

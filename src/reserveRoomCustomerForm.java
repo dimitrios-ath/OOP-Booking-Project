@@ -1,5 +1,4 @@
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
@@ -7,17 +6,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.border.*;
-import net.miginfocom.swing.*;
 
-/*
- * Created by JFormDesigner on Thu Jan 06 23:00:15 EET 2022
- */
-
-
-
-/**
- * @author Nikos Mpasdanis
- */
 public class reserveRoomCustomerForm extends JPanel {
     JFrame jframe;
     reserveRoomCustomerForm currentForm;
@@ -95,7 +84,7 @@ public class reserveRoomCustomerForm extends JPanel {
         list1.setModel(model);
     }
 
-        private void reserveButtonClick(ActionEvent e) {
+        private void reserveButtonClick() {
             if (list1.isEnabled() && !list1.isSelectionEmpty()) {
                 boolean addedToHashMap = false;
                 int i=1;
@@ -106,14 +95,14 @@ public class reserveRoomCustomerForm extends JPanel {
                                 checkIn, checkOut, this.customer.getUsername(),
                                 this.rooms.get(roomID).getPrice()*nights));
                         addedToHashMap = true;
-                        cancelButtonClick(e);
+                        cancelButtonClick();
                     }
                     else {i++;}
                 }
             }
         }
 
-        public void backButtonClick(ActionEvent e){
+        public void backButtonClick(){
             reserveRoomForm reserveRoomForm = new reserveRoomForm(this.jframe, this.reservations, this.rooms,
                     this.users,this.customers,this.providers,this.admins, this.messages, this.mainUI, this.customer);
             reserveRoomForm.setCurrentForm(reserveRoomForm);
@@ -122,7 +111,7 @@ public class reserveRoomCustomerForm extends JPanel {
             this.currentForm.setVisible(false);
         }
 
-        private void cancelButtonClick(ActionEvent e) {
+        private void cancelButtonClick() {
             customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users,
                     this.customers, this.providers, this.admins, this.messages, this.mainUI, this.customer);
             customerForm.setCurrentForm(customerForm);
@@ -131,24 +120,16 @@ public class reserveRoomCustomerForm extends JPanel {
         }
 
         private void initComponents () {
-            // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-            // Generated using JFormDesigner Evaluation license - asdfasdfa
-            label2 = new JLabel();
-            label1 = new JLabel();
-            scrollPane1 = new JScrollPane();
+            JLabel label2 = new JLabel();
+            JLabel label1 = new JLabel();
+            JScrollPane scrollPane1 = new JScrollPane();
             list1 = new JList<>();
-            button3 = new JButton();
-            button1 = new JButton();
+            JButton button3 = new JButton();
+            JButton button1 = new JButton();
             button2 = new JButton();
 
             //======== this ========
             setBackground(new Color(51, 102, 255));
-            setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
-            EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER ,javax . swing
-            . border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font. BOLD ,12 ) ,
-            java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
-            { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )
-            throw new RuntimeException( ) ;} } );
             setLayout(null);
 
             //---- label2 ----
@@ -173,14 +154,20 @@ public class reserveRoomCustomerForm extends JPanel {
 
                 //---- list1 ----
                 list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-                list1.setModel(new AbstractListModel<String>() {
-                    String[] values = {
-                        "Name: \"test\", type: hotel, capacity: 2, price: $40.00"
+                list1.setModel(new AbstractListModel<>() {
+                    final String[] values = {
+                            "Name: \"test\", type: hotel, capacity: 2, price: $40.00"
                     };
+
                     @Override
-                    public int getSize() { return values.length; }
+                    public int getSize() {
+                        return values.length;
+                    }
+
                     @Override
-                    public String getElementAt(int i) { return values[i]; }
+                    public String getElementAt(int i) {
+                        return values[i];
+                    }
                 });
                 list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
                 list1.setBackground(Color.white);
@@ -195,7 +182,7 @@ public class reserveRoomCustomerForm extends JPanel {
             button3.setFont(new Font("Tahoma", Font.BOLD, 14));
             button3.setForeground(Color.white);
             button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-            button3.addActionListener(e -> cancelButtonClick(e));
+            button3.addActionListener(e -> cancelButtonClick());
             add(button3);
             button3.setBounds(95, 320, 125, 40);
 
@@ -204,7 +191,7 @@ public class reserveRoomCustomerForm extends JPanel {
             button1.setFont(new Font("Tahoma", Font.BOLD, 14));
             button1.setForeground(Color.white);
             button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-            button1.addActionListener(e -> backButtonClick(e));
+            button1.addActionListener(e -> backButtonClick());
             add(button1);
             button1.setBounds(270, 320, 125, 40);
 
@@ -213,7 +200,7 @@ public class reserveRoomCustomerForm extends JPanel {
             button2.setFont(new Font("Tahoma", Font.BOLD, 14));
             button2.setForeground(Color.white);
             button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-            button2.addActionListener(e -> reserveButtonClick(e));
+            button2.addActionListener(e -> reserveButtonClick());
             add(button2);
             button2.setBounds(445, 320, 125, 40);
 
@@ -231,17 +218,7 @@ public class reserveRoomCustomerForm extends JPanel {
                 setMinimumSize(preferredSize);
                 setPreferredSize(preferredSize);
             }
-            // JFormDesigner - End of component initialization  //GEN-END:initComponents
         }
-
-            // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-            // Generated using JFormDesigner Evaluation license - asdfasdfa
-            private JLabel label2;
-            private JLabel label1;
-            private JScrollPane scrollPane1;
-            private JList<String> list1;
-            private JButton button3;
-            private JButton button1;
-            private JButton button2;
-            // JFormDesigner - End of variables declaration  //GEN-END:variables
-        }
+    private JList<String> list1;
+    private JButton button2;
+}

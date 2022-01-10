@@ -1,18 +1,8 @@
 import java.awt.*;
-import java.awt.event.*;
 import java.util.Map;
 import javax.swing.*;
 import javax.swing.border.*;
-import net.miginfocom.swing.*;
-/*
- * Created by JFormDesigner on Fri Jan 07 13:41:10 EET 2022
- */
 
-
-
-/**
- * @author asdfasdfa
- */
 public class searchReservationsForm extends JPanel {
     JFrame jframe;
     searchReservationsForm currentForm;
@@ -48,7 +38,7 @@ public class searchReservationsForm extends JPanel {
         jframe.pack();
     }
 
-    private void searchByCustomerUsernameButtonClick(ActionEvent e) {
+    private void searchByCustomerUsernameButtonClick() {
         searchByCustomerUsernameForm searchByCustomerUsernameForm = new searchByCustomerUsernameForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin);
@@ -57,7 +47,7 @@ public class searchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void searchByRoomButtonClick(ActionEvent e) {
+    private void searchByRoomButtonClick() {
         searchByRoomIDForm searchByRoomIDForm = new searchByRoomIDForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin);
@@ -66,7 +56,7 @@ public class searchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void showAllReservationsButtonClick(ActionEvent e) {
+    private void showAllReservationsButtonClick() {
         returnAllReservationsAdminForm returnAllReservationsAdminForm = new returnAllReservationsAdminForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin);
@@ -75,7 +65,7 @@ public class searchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void cancelButtonClick(ActionEvent e) {
+    private void cancelButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
         adminForm.setCurrentForm(adminForm);
@@ -84,23 +74,14 @@ public class searchReservationsForm extends JPanel {
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label1 = new JLabel();
-        button1 = new JButton();
-        button2 = new JButton();
-        button3 = new JButton();
-        button4 = new JButton();
+        JLabel label1 = new JLabel();
+        JButton button1 = new JButton();
+        JButton button2 = new JButton();
+        JButton button3 = new JButton();
+        JButton button4 = new JButton();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.
-        swing.border.EmptyBorder(0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border
-        .TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog"
-        ,java.awt.Font.BOLD,12),java.awt.Color.red), getBorder
-        ())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java
-        .beans.PropertyChangeEvent e){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException
-        ();}});
         setLayout(null);
 
         //---- label1 ----
@@ -117,7 +98,7 @@ public class searchReservationsForm extends JPanel {
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setForeground(Color.white);
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> searchByCustomerUsernameButtonClick(e));
+        button1.addActionListener(e -> searchByCustomerUsernameButtonClick());
         add(button1);
         button1.setBounds(55, 80, 210, 40);
 
@@ -126,7 +107,7 @@ public class searchReservationsForm extends JPanel {
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
         button2.setForeground(Color.white);
         button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button2.addActionListener(e -> searchByRoomButtonClick(e));
+        button2.addActionListener(e -> searchByRoomButtonClick());
         add(button2);
         button2.setBounds(55, 125, 210, 40);
 
@@ -135,7 +116,7 @@ public class searchReservationsForm extends JPanel {
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
         button3.setForeground(Color.white);
         button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button3.addActionListener(e -> showAllReservationsButtonClick(e));
+        button3.addActionListener(e -> showAllReservationsButtonClick());
         add(button3);
         button3.setBounds(55, 170, 210, 40);
 
@@ -144,7 +125,7 @@ public class searchReservationsForm extends JPanel {
         button4.setFont(new Font("Tahoma", Font.BOLD, 14));
         button4.setForeground(Color.white);
         button4.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button4.addActionListener(e -> cancelButtonClick(e));
+        button4.addActionListener(e -> cancelButtonClick());
         add(button4);
         button4.setBounds(100, 235, 125, 40);
 
@@ -162,15 +143,5 @@ public class searchReservationsForm extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label1;
-    private JButton button1;
-    private JButton button2;
-    private JButton button3;
-    private JButton button4;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

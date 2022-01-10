@@ -1,21 +1,10 @@
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
-import net.miginfocom.swing.*;
-
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
-/*
- * Created by JFormDesigner on Thu Jan 06 17:59:35 EET 2022
- */
 
-
-
-/**
- * @author asdfasdfa
- */
 public class selectRoomAndEditForm extends JPanel {
     JFrame jframe;
     selectRoomAndEditForm currentForm;
@@ -74,7 +63,7 @@ public class selectRoomAndEditForm extends JPanel {
         list1.setModel(model);
     }
 
-    private void cancelButtonClick(ActionEvent e) {
+    private void cancelButtonClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
         providerForm.setCurrentForm(providerForm);
@@ -82,7 +71,7 @@ public class selectRoomAndEditForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-    private void nextButtonClick(ActionEvent e) {
+    private void nextButtonClick() {
         if (!list1.isSelectionEmpty()) {
             editExistingRoomProviderForm editExistingRoomProviderForm = new editExistingRoomProviderForm(this.jframe,
                     this.reservations, this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
@@ -97,23 +86,16 @@ public class selectRoomAndEditForm extends JPanel {
     }
 
     private void initComponents() {
-        // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
-        label1 = new JLabel();
+        JLabel label1 = new JLabel();
         label2 = new JLabel();
-        scrollPane1 = new JScrollPane();
+        JScrollPane scrollPane1 = new JScrollPane();
         list1 = new JList<>();
-        button1 = new JButton();
-        button2 = new JButton();
-        label3 = new JLabel();
+        JButton button1 = new JButton();
+        JButton button2 = new JButton();
+        JLabel label3 = new JLabel();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
-        0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
-        . BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-        beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(null);
 
         //---- label1 ----
@@ -137,14 +119,20 @@ public class selectRoomAndEditForm extends JPanel {
             //---- list1 ----
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            list1.setModel(new AbstractListModel<String>() {
-                String[] values = {
-                    "Name: \"test\", type: hotel, capacity: 2, price: $40.00"
+            list1.setModel(new AbstractListModel<>() {
+                final String[] values = {
+                        "Name: \"test\", type: hotel, capacity: 2, price: $40.00"
                 };
+
                 @Override
-                public int getSize() { return values.length; }
+                public int getSize() {
+                    return values.length;
+                }
+
                 @Override
-                public String getElementAt(int i) { return values[i]; }
+                public String getElementAt(int i) {
+                    return values[i];
+                }
             });
             list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
             list1.setBackground(Color.white);
@@ -159,7 +147,7 @@ public class selectRoomAndEditForm extends JPanel {
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.setForeground(Color.white);
         button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button1.addActionListener(e -> cancelButtonClick(e));
+        button1.addActionListener(e -> cancelButtonClick());
         add(button1);
         button1.setBounds(120, 320, 120, 40);
 
@@ -168,7 +156,7 @@ public class selectRoomAndEditForm extends JPanel {
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
         button2.setForeground(Color.white);
         button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button2.addActionListener(e -> nextButtonClick(e));
+        button2.addActionListener(e -> nextButtonClick());
         add(button2);
         button2.setBounds(425, 320, 120, 40);
 
@@ -193,17 +181,7 @@ public class selectRoomAndEditForm extends JPanel {
             setMinimumSize(preferredSize);
             setPreferredSize(preferredSize);
         }
-        // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
-
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
-    private JLabel label1;
     private JLabel label2;
-    private JScrollPane scrollPane1;
     private JList<String> list1;
-    private JButton button1;
-    private JButton button2;
-    private JLabel label3;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
