@@ -44,7 +44,7 @@ new FormModel {
 				}
 				"font": &Font1 new java.awt.Font( "Tahoma", 0, 14 )
 				"editable": true
-				"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+				"border": new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
 				"foreground": new java.awt.Color( 51, 102, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 215
@@ -67,6 +67,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
 				"font": #Font1
+				"border": new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 215
 				"y": 115
@@ -85,16 +87,6 @@ new FormModel {
 				"width": 165
 				"height": 25
 			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField2"
-				"font": #Font1
-				"border": #SoftBevelBorder0
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 215
-				"y": 155
-				"width": 95
-				"height": 25
-			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
 				"text": "Size (m2):"
@@ -107,16 +99,6 @@ new FormModel {
 				"width": 165
 				"height": 25
 			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField3"
-				"font": #Font1
-				"border": #SoftBevelBorder0
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 215
-				"y": 195
-				"width": 95
-				"height": 25
-			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label16"
 				"text": "Capacity:"
@@ -127,16 +109,6 @@ new FormModel {
 				"x": 40
 				"y": 235
 				"width": 165
-				"height": 25
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField4"
-				"font": #Font1
-				"border": new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 215
-				"y": 235
-				"width": 95
 				"height": 25
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -154,7 +126,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox1"
 				"font": #Font1
-				"border": &SoftBevelBorder1 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color black, sfield java.awt.Color white, sfield java.awt.Color gray, sfield java.awt.Color white )
+				"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color black, sfield java.awt.Color white, sfield java.awt.Color gray, sfield java.awt.Color white )
 				"background": &Color0 new java.awt.Color( 51, 102, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -177,7 +149,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox2"
 				"font": #Font1
-				"border": #SoftBevelBorder1
+				"border": #SoftBevelBorder0
 				"background": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -200,7 +172,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox3"
 				"font": #Font1
-				"border": #SoftBevelBorder1
+				"border": #SoftBevelBorder0
 				"background": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -223,7 +195,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox4"
 				"font": #Font1
-				"border": #SoftBevelBorder1
+				"border": #SoftBevelBorder0
 				"background": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -246,7 +218,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox5"
 				"font": #Font1
-				"border": #SoftBevelBorder1
+				"border": #SoftBevelBorder0
 				"background": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -269,7 +241,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox6"
 				"font": #Font1
-				"border": #SoftBevelBorder1
+				"border": #SoftBevelBorder0
 				"background": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -292,7 +264,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox7"
 				"font": #Font1
-				"border": #SoftBevelBorder1
+				"border": #SoftBevelBorder0
 				"background": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -315,7 +287,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox8"
 				"font": #Font1
-				"border": #SoftBevelBorder1
+				"border": #SoftBevelBorder0
 				"background": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -338,7 +310,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox9"
 				"font": #Font1
-				"border": #SoftBevelBorder1
+				"border": #SoftBevelBorder0
 				"background": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -361,7 +333,7 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox10"
 				"font": #Font1
-				"border": #SoftBevelBorder1
+				"border": #SoftBevelBorder0
 				"background": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -374,7 +346,7 @@ new FormModel {
 				"text": "Cancel"
 				"font": &Font2 new java.awt.Font( "Tahoma", 1, 14 )
 				"foreground": &Color1 new java.awt.Color( 255, 255, 255, 255 )
-				"border": &SoftBevelBorder2 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+				"border": &SoftBevelBorder1 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 55
@@ -387,13 +359,49 @@ new FormModel {
 				"text": "Add"
 				"font": #Font2
 				"foreground": #Color1
-				"border": #SoftBevelBorder2
+				"border": #SoftBevelBorder1
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "addRoomClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 220
 				"y": 590
 				"height": 40
 				"width": 125
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinner1"
+				"border": &SoftBevelBorder2 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+				"model": new javax.swing.SpinnerNumberModel( 1, 1, 99, 1 )
+				"foreground": &Color2 new java.awt.Color( 0, 0, 0, 255 )
+				"font": &Font3 new java.awt.Font( "Tahoma", 0, 14 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"x": 215
+				"y": 235
+				"height": 25
+				"width": 95
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinner2"
+				"border": #SoftBevelBorder2
+				"model": new javax.swing.SpinnerNumberModel( 10, 1, 9999, 5 )
+				"foreground": #Color2
+				"font": #Font3
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 95
+				"height": 25
+				"x": 215
+				"y": 195
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinner3"
+				"border": #SoftBevelBorder2
+				"model": new javax.swing.SpinnerNumberModel( 10.0, 0.01, 9999.0, 5.0 )
+				"foreground": #Color2
+				"font": #Font3
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 95
+				"height": 25
+				"x": 215
+				"y": 155
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

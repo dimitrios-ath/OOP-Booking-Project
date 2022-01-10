@@ -77,31 +77,31 @@ public class addNewRoomProviderForm extends JPanel {
 
         double price = 0;
         try {
-            double scannedPrice = Double.parseDouble(textField2.getText());
-            textField2.setForeground(null);
+            double scannedPrice = Double.parseDouble(spinner3.getValue().toString());
+            spinner3.setForeground(null);
             price = scannedPrice;
         } catch (NumberFormatException ignored) {
-            textField2.setForeground(Color.red);
+            spinner3.setForeground(Color.red);
             validInput = false;
         }
 
         int size = 0;
         try {
-            int scannedSize = Integer.parseInt(textField3.getText());
-            textField3.setForeground(null);
+            int scannedSize = Integer.parseInt(spinner2.getValue().toString());
+            spinner2.setForeground(null);
             size = scannedSize;
         } catch (NumberFormatException ignored) {
-            textField3.setForeground(Color.red);
+            spinner2.setForeground(Color.red);
             validInput = false;
         }
 
         int capacity = 0;
         try {
-            int scannedCapacity = Integer.parseInt(textField4.getText());
-            textField4.setForeground(null);
+            int scannedCapacity = Integer.parseInt(spinner1.getValue().toString());
+            spinner1.setForeground(null);
             capacity = scannedCapacity;
         } catch (NumberFormatException ignored) {
-            textField4.setForeground(Color.red);
+            spinner1.setForeground(Color.red);
             validInput = false;
         }
 
@@ -153,11 +153,8 @@ public class addNewRoomProviderForm extends JPanel {
         label3 = new JLabel();
         textField1 = new JTextField();
         label5 = new JLabel();
-        textField2 = new JTextField();
         label6 = new JLabel();
-        textField3 = new JTextField();
         label16 = new JLabel();
-        textField4 = new JTextField();
         label4 = new JLabel();
         checkBox1 = new JCheckBox();
         label7 = new JLabel();
@@ -180,6 +177,9 @@ public class addNewRoomProviderForm extends JPanel {
         checkBox10 = new JCheckBox();
         button2 = new JButton();
         button1 = new JButton();
+        spinner1 = new JSpinner();
+        spinner2 = new JSpinner();
+        spinner3 = new JSpinner();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
@@ -188,12 +188,12 @@ public class addNewRoomProviderForm extends JPanel {
         setMaximumSize(null);
         setPreferredSize(new Dimension(150, 150));
         setMinimumSize(null);
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
-        ( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing. border
-        . TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
-        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
-        propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
-        ; }} );
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.
+        EmptyBorder(0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing
+        .border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),
+        java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener()
+        {@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062ord\u0065r".equals(e.getPropertyName()))
+        throw new RuntimeException();}});
         setLayout(null);
 
         //---- label1 ----
@@ -235,6 +235,8 @@ public class addNewRoomProviderForm extends JPanel {
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textField1.setForeground(Color.black);
         add(textField1);
         textField1.setBounds(215, 115, 135, 25);
 
@@ -246,12 +248,6 @@ public class addNewRoomProviderForm extends JPanel {
         add(label5);
         label5.setBounds(40, 155, 165, 25);
 
-        //---- textField2 ----
-        textField2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        add(textField2);
-        textField2.setBounds(215, 155, 95, 25);
-
         //---- label6 ----
         label6.setText("Size (m2):");
         label6.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -260,12 +256,6 @@ public class addNewRoomProviderForm extends JPanel {
         add(label6);
         label6.setBounds(40, 195, 165, 25);
 
-        //---- textField3 ----
-        textField3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        add(textField3);
-        textField3.setBounds(215, 195, 95, 25);
-
         //---- label16 ----
         label16.setText("Capacity:");
         label16.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -273,12 +263,6 @@ public class addNewRoomProviderForm extends JPanel {
         label16.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label16);
         label16.setBounds(40, 235, 165, 25);
-
-        //---- textField4 ----
-        textField4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField4.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        add(textField4);
-        textField4.setBounds(215, 235, 95, 25);
 
         //---- label4 ----
         label4.setText("Long term reservation:");
@@ -448,6 +432,30 @@ public class addNewRoomProviderForm extends JPanel {
         add(button1);
         button1.setBounds(220, 590, 125, 40);
 
+        //---- spinner1 ----
+        spinner1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        spinner1.setModel(new SpinnerNumberModel(1, 1, 99, 1));
+        spinner1.setForeground(Color.black);
+        spinner1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        add(spinner1);
+        spinner1.setBounds(215, 235, 95, 25);
+
+        //---- spinner2 ----
+        spinner2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        spinner2.setModel(new SpinnerNumberModel(10, 1, 9999, 5));
+        spinner2.setForeground(Color.black);
+        spinner2.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        add(spinner2);
+        spinner2.setBounds(215, 195, 95, 25);
+
+        //---- spinner3 ----
+        spinner3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        spinner3.setModel(new SpinnerNumberModel(10.0, 0.01, 9999.0, 5.0));
+        spinner3.setForeground(Color.black);
+        spinner3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        add(spinner3);
+        spinner3.setBounds(215, 155, 95, 25);
+
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
@@ -473,11 +481,8 @@ public class addNewRoomProviderForm extends JPanel {
     private JLabel label3;
     private JTextField textField1;
     private JLabel label5;
-    private JTextField textField2;
     private JLabel label6;
-    private JTextField textField3;
     private JLabel label16;
-    private JTextField textField4;
     private JLabel label4;
     private JCheckBox checkBox1;
     private JLabel label7;
@@ -500,5 +505,8 @@ public class addNewRoomProviderForm extends JPanel {
     private JCheckBox checkBox10;
     private JButton button2;
     private JButton button1;
+    private JSpinner spinner1;
+    private JSpinner spinner2;
+    private JSpinner spinner3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

@@ -56,9 +56,9 @@ public class editExistingRoomProviderForm extends JPanel {
             comboBox1.setSelectedIndex(1);
         } else {comboBox1.setSelectedIndex(2);}
         textField1.setText(rooms.get(idToEdit).getName());
-        textField2.setText(rooms.get(idToEdit).getPrice().toString());
-        textField3.setText(rooms.get(idToEdit).getM2().toString());
-        textField4.setText(rooms.get(idToEdit).getCapacity().toString());
+        spinner3.setValue(rooms.get(idToEdit).getPrice());
+        spinner2.setValue(rooms.get(idToEdit).getM2());
+        spinner1.setValue(rooms.get(idToEdit).getCapacity());
         if (rooms.get(idToEdit).getLongTime()) {checkBox1.setSelected(true);}
         if (rooms.get(idToEdit).getWifi()) {checkBox2.setSelected(true);}
         if (rooms.get(idToEdit).getParking()) {checkBox3.setSelected(true);}
@@ -100,31 +100,31 @@ public class editExistingRoomProviderForm extends JPanel {
 
         double price = 0;
         try {
-            double scannedPrice = Double.parseDouble(textField2.getText());
-            textField2.setForeground(null);
+            double scannedPrice = Double.parseDouble(spinner3.getValue().toString());
+            spinner3.setForeground(null);
             price = scannedPrice;
         } catch (NumberFormatException ignored) {
-            textField2.setForeground(Color.red);
+            spinner3.setForeground(Color.red);
             validInput = false;
         }
 
         int size = 0;
         try {
-            int scannedSize = Integer.parseInt(textField3.getText());
-            textField3.setForeground(null);
+            int scannedSize = Integer.parseInt(spinner2.getValue().toString());
+            spinner2.setForeground(null);
             size = scannedSize;
         } catch (NumberFormatException ignored) {
-            textField3.setForeground(Color.red);
+            spinner2.setForeground(Color.red);
             validInput = false;
         }
 
         int capacity = 0;
         try {
-            int scannedCapacity = Integer.parseInt(textField4.getText());
-            textField4.setForeground(null);
+            int scannedCapacity = Integer.parseInt(spinner1.getValue().toString());
+            spinner1.setForeground(null);
             capacity = scannedCapacity;
         } catch (NumberFormatException ignored) {
-            textField4.setForeground(Color.red);
+            spinner1.setForeground(Color.red);
             validInput = false;
         }
 
@@ -161,11 +161,8 @@ public class editExistingRoomProviderForm extends JPanel {
         label4 = new JLabel();
         textField1 = new JTextField();
         label5 = new JLabel();
-        textField2 = new JTextField();
         label6 = new JLabel();
-        textField3 = new JTextField();
         label16 = new JLabel();
-        textField4 = new JTextField();
         label1 = new JLabel();
         checkBox1 = new JCheckBox();
         label7 = new JLabel();
@@ -188,16 +185,20 @@ public class editExistingRoomProviderForm extends JPanel {
         checkBox10 = new JCheckBox();
         button2 = new JButton();
         button1 = new JButton();
+        spinner1 = new JSpinner();
+        spinner2 = new JSpinner();
+        spinner3 = new JSpinner();
 
         //======== this ========
         setForeground(Color.white);
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing.
-        border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER
-        , javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font
-        .BOLD ,12 ), java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
-        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r"
-        .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.
+        swing.border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border
+        .TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog"
+        ,java.awt.Font.BOLD,12),java.awt.Color.red), getBorder
+        ())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java
+        .beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException
+        ();}});
         setLayout(null);
 
         //---- label2 ----
@@ -226,7 +227,7 @@ public class editExistingRoomProviderForm extends JPanel {
         comboBox1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         comboBox1.setForeground(Color.black);
         add(comboBox1);
-        comboBox1.setBounds(225, 65, 115, 25);
+        comboBox1.setBounds(225, 70, 115, 25);
 
         //---- label4 ----
         label4.setText("Name:");
@@ -238,34 +239,26 @@ public class editExistingRoomProviderForm extends JPanel {
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textField1.setForeground(Color.black);
         add(textField1);
         textField1.setBounds(225, 100, 115, 25);
 
         //---- label5 ----
-        label5.setText("Price:");
+        label5.setText("Price ($/night):");
         label5.setFont(new Font("Tahoma", Font.BOLD, 14));
         label5.setForeground(Color.white);
         label5.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label5);
         label5.setBounds(35, 130, 165, 25);
 
-        //---- textField2 ----
-        textField2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        add(textField2);
-        textField2.setBounds(225, 130, 115, 25);
-
         //---- label6 ----
-        label6.setText("Size:");
+        label6.setText("Size (m2):");
         label6.setFont(new Font("Tahoma", Font.BOLD, 14));
         label6.setForeground(Color.white);
         label6.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label6);
         label6.setBounds(35, 160, 165, 25);
-
-        //---- textField3 ----
-        textField3.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        add(textField3);
-        textField3.setBounds(225, 160, 115, 25);
 
         //---- label16 ----
         label16.setText("Capacity:");
@@ -274,11 +267,6 @@ public class editExistingRoomProviderForm extends JPanel {
         label16.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label16);
         label16.setBounds(35, 190, 165, 25);
-
-        //---- textField4 ----
-        textField4.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        add(textField4);
-        textField4.setBounds(225, 190, 115, 25);
 
         //---- label1 ----
         label1.setText("Long term reservation:");
@@ -428,6 +416,28 @@ public class editExistingRoomProviderForm extends JPanel {
         add(button1);
         button1.setBounds(245, 540, 125, 40);
 
+        //---- spinner1 ----
+        spinner1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        spinner1.setModel(new SpinnerNumberModel(1, 1, 99, 1));
+        spinner1.setForeground(Color.black);
+        add(spinner1);
+        spinner1.setBounds(225, 190, 95, 25);
+
+        //---- spinner2 ----
+        spinner2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        spinner2.setModel(new SpinnerNumberModel(10, 1, 9999, 5));
+        spinner2.setForeground(Color.black);
+        add(spinner2);
+        spinner2.setBounds(225, 160, 95, 25);
+
+        //---- spinner3 ----
+        spinner3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        spinner3.setModel(new SpinnerNumberModel(10.0, 0.01, 9999.0, 5.0));
+        spinner3.setForeground(Color.black);
+        spinner3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        add(spinner3);
+        spinner3.setBounds(225, 130, 95, 25);
+
         {
             // compute preferred size
             Dimension preferredSize = new Dimension();
@@ -453,11 +463,8 @@ public class editExistingRoomProviderForm extends JPanel {
     private JLabel label4;
     private JTextField textField1;
     private JLabel label5;
-    private JTextField textField2;
     private JLabel label6;
-    private JTextField textField3;
     private JLabel label16;
-    private JTextField textField4;
     private JLabel label1;
     private JCheckBox checkBox1;
     private JLabel label7;
@@ -480,5 +487,8 @@ public class editExistingRoomProviderForm extends JPanel {
     private JCheckBox checkBox10;
     private JButton button2;
     private JButton button1;
+    private JSpinner spinner1;
+    private JSpinner spinner2;
+    private JSpinner spinner3;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

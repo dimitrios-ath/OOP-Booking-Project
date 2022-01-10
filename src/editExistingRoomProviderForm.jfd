@@ -42,7 +42,7 @@ new FormModel {
 				"foreground": new java.awt.Color( 0, 0, 0, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 225
-				"y": 65
+				"y": 70
 				"width": 115
 				"height": 25
 			} )
@@ -60,7 +60,9 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
-				"font": &Font1 new java.awt.Font( "Tahoma", 0, 14 )
+				"font": new java.awt.Font( "Tahoma", 0, 14 )
+				"border": new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+				"foreground": new java.awt.Color( 0, 0, 0, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 225
 				"y": 100
@@ -69,7 +71,7 @@ new FormModel {
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
-				"text": "Price:"
+				"text": "Price ($/night):"
 				"font": #Font0
 				"foreground": #Color0
 				"horizontalAlignment": 4
@@ -77,20 +79,11 @@ new FormModel {
 				"x": 35
 				"y": 130
 				"width": 165
-				"height": 25
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField2"
-				"font": #Font1
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 225
-				"y": 130
-				"width": 115
 				"height": 25
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
-				"text": "Size:"
+				"text": "Size (m2):"
 				"font": #Font0
 				"foreground": #Color0
 				"horizontalAlignment": 4
@@ -98,15 +91,6 @@ new FormModel {
 				"x": 35
 				"y": 160
 				"width": 165
-				"height": 25
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField3"
-				"font": #Font1
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 225
-				"y": 160
-				"width": 115
 				"height": 25
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -119,15 +103,6 @@ new FormModel {
 				"x": 35
 				"y": 190
 				"width": 165
-				"height": 25
-			} )
-			add( new FormComponent( "javax.swing.JTextField" ) {
-				name: "textField4"
-				"font": #Font1
-			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 225
-				"y": 190
-				"width": 115
 				"height": 25
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -334,7 +309,7 @@ new FormModel {
 				name: "button2"
 				"text": "Cancel"
 				"foreground": &Color2 new java.awt.Color( 255, 255, 255, 255 )
-				"font": &Font2 new java.awt.Font( "Tahoma", 1, 14 )
+				"font": &Font1 new java.awt.Font( "Tahoma", 1, 14 )
 				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
@@ -347,7 +322,7 @@ new FormModel {
 				name: "button1"
 				"text": "Edit"
 				"foreground": #Color2
-				"font": #Font2
+				"font": #Font1
 				"border": #SoftBevelBorder0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "editRoomClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
@@ -355,6 +330,40 @@ new FormModel {
 				"x": 245
 				"y": 540
 				"height": 40
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinner1"
+				"border": &SoftBevelBorder1 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+				"model": new javax.swing.SpinnerNumberModel( 1, 1, 99, 1 )
+				"foreground": &Color3 new java.awt.Color( 0, 0, 0, 255 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 95
+				"height": 25
+				"x": 225
+				"y": 190
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinner2"
+				"border": #SoftBevelBorder1
+				"model": new javax.swing.SpinnerNumberModel( 10, 1, 9999, 5 )
+				"foreground": #Color3
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 95
+				"height": 25
+				"x": 225
+				"y": 160
+			} )
+			add( new FormComponent( "javax.swing.JSpinner" ) {
+				name: "spinner3"
+				"border": #SoftBevelBorder1
+				"model": new javax.swing.SpinnerNumberModel( 10.0, 0.01, 9999.0, 5.0 )
+				"foreground": #Color3
+				"font": new java.awt.Font( "Tahoma", 0, 14 )
+			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
+				"width": 95
+				"height": 25
+				"x": 225
+				"y": 130
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 5, 0 )
