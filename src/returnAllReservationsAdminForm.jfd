@@ -13,9 +13,9 @@ new FormModel {
 				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
 				"horizontalAlignment": 0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 440
+				"x": 415
 				"y": 65
-				"width": 120
+				"width": 170
 				"height": 20
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {

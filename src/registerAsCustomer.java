@@ -126,7 +126,7 @@ public class registerAsCustomer extends JPanel {
             textField12.setForeground(Color.red);
             validInput = false;
         }
-
+        System.out.println(validInput);
         if (validInput){
             this.users.put(username, new Authentication(username, password, 1));
             this.customers.put(username, new Customer(username, email, password, firstName, lastName,
@@ -145,7 +145,23 @@ public class registerAsCustomer extends JPanel {
                 this.providers, this.admins, this.messages, this.mainUI);
         loginForm.setCurrentForm(loginForm);
         jframe.add(loginForm);
+        this.currentForm.setVisible(false);
         jframe.setVisible(true);
+    }
+
+    private void birthdayMouseClicked(MouseEvent e) {
+        textField12.setText("");
+        textField12.setForeground(Color.black);
+    }
+
+    private void textField10MouseClicked(MouseEvent e) {
+        textField10.setText("");
+        textField10.setForeground(Color.black);
+    }
+
+    private void textField11MouseClicked(MouseEvent e) {
+        textField11.setText("");
+        textField11.setForeground(Color.black);
     }
 
 
@@ -170,19 +186,21 @@ public class registerAsCustomer extends JPanel {
         label8 = new JLabel();
         textField7 = new JTextField();
         label7 = new JLabel();
-        textField11 = new JTextField();
         label10 = new JLabel();
         textField12 = new JTextField();
         button1 = new JButton();
         button2 = new JButton();
+        textField11 = new JTextField();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder( 0
-        , 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-        , new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,
-         getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing
+        . border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JFor\u006dDesi\u0067ner \u0045valu\u0061tion" , javax. swing .border . TitledBorder
+        . CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .
+        awt . Font. BOLD ,12 ) ,java . awt. Color .red ) , getBorder () ) )
+        ;  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
+        ) { if( "bord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } )
+        ;
         setLayout(null);
 
         //---- label1 ----
@@ -203,6 +221,8 @@ public class registerAsCustomer extends JPanel {
 
         //---- textField5 ----
         textField5.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField5.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textField5.setForeground(Color.black);
         add(textField5);
         textField5.setBounds(195, 65, 160, 25);
 
@@ -246,6 +266,8 @@ public class registerAsCustomer extends JPanel {
 
         //---- textField8 ----
         textField8.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField8.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textField8.setForeground(Color.black);
         add(textField8);
         textField8.setBounds(195, 155, 160, 25);
 
@@ -259,6 +281,8 @@ public class registerAsCustomer extends JPanel {
 
         //---- textField9 ----
         textField9.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField9.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textField9.setForeground(Color.black);
         add(textField9);
         textField9.setBounds(195, 185, 160, 25);
 
@@ -272,6 +296,15 @@ public class registerAsCustomer extends JPanel {
 
         //---- textField10 ----
         textField10.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField10.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textField10.setForeground(Color.gray);
+        textField10.setText("mail@example.com");
+        textField10.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                textField10MouseClicked(e);
+            }
+        });
         add(textField10);
         textField10.setBounds(195, 215, 160, 25);
 
@@ -305,8 +338,10 @@ public class registerAsCustomer extends JPanel {
 
         //---- textField7 ----
         textField7.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField7.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textField7.setForeground(Color.black);
         add(textField7);
-        textField7.setBounds(195, 305, 160, 25);
+        textField7.setBounds(195, 275, 160, 25);
 
         //---- label7 ----
         label7.setText("Phone number:");
@@ -315,11 +350,6 @@ public class registerAsCustomer extends JPanel {
         label7.setHorizontalAlignment(SwingConstants.RIGHT);
         add(label7);
         label7.setBounds(30, 305, 140, 25);
-
-        //---- textField11 ----
-        textField11.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        add(textField11);
-        textField11.setBounds(195, 275, 160, 25);
 
         //---- label10 ----
         label10.setText("Birthdate:");
@@ -331,6 +361,15 @@ public class registerAsCustomer extends JPanel {
 
         //---- textField12 ----
         textField12.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField12.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textField12.setForeground(Color.gray);
+        textField12.setText("dd-MM-yyyy");
+        textField12.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                birthdayMouseClicked(e);
+            }
+        });
         add(textField12);
         textField12.setBounds(195, 335, 160, 25);
 
@@ -351,6 +390,20 @@ public class registerAsCustomer extends JPanel {
         button2.addActionListener(e -> CancelButtonClick(e));
         add(button2);
         button2.setBounds(40, 385, 125, 40);
+
+        //---- textField11 ----
+        textField11.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField11.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textField11.setForeground(Color.gray);
+        textField11.setText("+xx xxxxxxxxxx");
+        textField11.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                textField11MouseClicked(e);
+            }
+        });
+        add(textField11);
+        textField11.setBounds(195, 305, 160, 25);
 
         {
             // compute preferred size
@@ -389,10 +442,10 @@ public class registerAsCustomer extends JPanel {
     private JLabel label8;
     private JTextField textField7;
     private JLabel label7;
-    private JTextField textField11;
     private JLabel label10;
     private JTextField textField12;
     private JButton button1;
     private JButton button2;
+    private JTextField textField11;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

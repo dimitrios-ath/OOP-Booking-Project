@@ -213,12 +213,14 @@ public class changeAccountStateForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
-        ( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border
-        . TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt
-        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
-        propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
-        ; }} );
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(
+        new javax.swing.border.EmptyBorder(0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e"
+        ,javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
+        ,new java.awt.Font("Dialo\u0067",java.awt.Font.BOLD,12)
+        ,java.awt.Color.red), getBorder())); addPropertyChangeListener(
+        new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
+        ){if("borde\u0072".equals(e.getPropertyName()))throw new RuntimeException()
+        ;}});
         setLayout(null);
 
         //---- label2 ----
@@ -260,8 +262,10 @@ public class changeAccountStateForm extends JPanel {
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textField1.setForeground(Color.black);
         add(textField1);
-        textField1.setBounds(235, 100, 120, 25);
+        textField1.setBounds(235, 100, 135, 25);
 
         //======== scrollPane1 ========
         {
@@ -284,13 +288,14 @@ public class changeAccountStateForm extends JPanel {
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(45, 145, 415, 121);
+        scrollPane1.setBounds(45, 160, 415, 106);
 
         //---- label1 ----
         label1.setText("\"user\" Account ...");
         label1.setVisible(false);
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
         add(label1);
-        label1.setBounds(0, 0, 0, 0);
+        label1.setBounds(80, 130, 350, 25);
 
         //---- button2 ----
         button2.setText("Return");

@@ -32,6 +32,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField5"
 				"font": &Font1 new java.awt.Font( "Tahoma", 0, 14 )
+				"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+				"foreground": &Color1 new java.awt.Color( 0, 0, 0, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 185
 				"y": 75
@@ -53,8 +55,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JPasswordField" ) {
 				name: "passwordField1"
 				"font": #Font1
-				"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
-				"foreground": &Color1 new java.awt.Color( 0, 0, 0, 255 )
+				"border": &SoftBevelBorder1 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+				"foreground": &Color2 new java.awt.Color( 0, 0, 0, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 185
 				"y": 105
@@ -76,8 +78,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JPasswordField" ) {
 				name: "passwordField2"
 				"font": #Font1
-				"border": #SoftBevelBorder0
-				"foreground": #Color1
+				"border": #SoftBevelBorder1
+				"foreground": #Color2
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 185
 				"y": 135
@@ -99,6 +101,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField8"
 				"font": #Font1
+				"border": #SoftBevelBorder0
+				"foreground": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 185
 				"y": 165
@@ -120,6 +124,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField9"
 				"font": #Font1
+				"border": #SoftBevelBorder0
+				"foreground": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 185
 				"y": 195
@@ -141,6 +147,10 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField10"
 				"font": #Font1
+				"border": #SoftBevelBorder0
+				"text": "mail@example.com"
+				"foreground": sfield java.awt.Color gray
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "textField10MouseClicked", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 185
 				"y": 225
@@ -168,8 +178,8 @@ new FormModel {
 					addElement( "Private" )
 				}
 				"font": #Font1
-				"border": #SoftBevelBorder0
-				"foreground": #Color1
+				"border": #SoftBevelBorder1
+				"foreground": #Color2
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 185
 				"y": 255
@@ -191,6 +201,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField7"
 				"font": #Font1
+				"border": #SoftBevelBorder0
+				"foreground": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 185
 				"y": 285
@@ -212,6 +224,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField11"
 				"font": #Font1
+				"border": #SoftBevelBorder0
+				"foreground": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 185
 				"y": 315
@@ -233,6 +247,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField12"
 				"font": #Font1
+				"border": #SoftBevelBorder0
+				"foreground": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 185
 				"y": 345
@@ -242,9 +258,9 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Register"
-				"foreground": &Color2 new java.awt.Color( 255, 255, 255, 255 )
+				"foreground": &Color3 new java.awt.Color( 255, 255, 255, 255 )
 				"font": new java.awt.Font( "Tahoma", 1, 14 )
-				"border": #SoftBevelBorder0
+				"border": #SoftBevelBorder1
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "register", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
@@ -256,8 +272,8 @@ new FormModel {
 				name: "button2"
 				"text": "Cancel"
 				"font": new java.awt.Font( "Tahoma", 1, 14 )
-				"border": #SoftBevelBorder0
-				"foreground": #Color2
+				"border": #SoftBevelBorder1
+				"foreground": #Color3
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 45

@@ -1,12 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4b91168f-e298-4276-b2df-14e4bee53e12" name="Changes" comment="Finish graphics and error messages">
+    <list default="true" id="4b91168f-e298-4276-b2df-14e4bee53e12" name="Changes" comment="Provider add and edit room spinners">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/addNewRoomProviderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/addNewRoomProviderForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/addNewRoomProviderForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/addNewRoomProviderForm.jfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editExistingRoomProviderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editExistingRoomProviderForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editExistingRoomProviderForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/editExistingRoomProviderForm.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AdminUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CustomerUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MessageUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProviderUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/changeAccountStateForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/changeAccountStateForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/changeAccountStateForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/changeAccountStateForm.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/loginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/loginForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/loginForm.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/newMessageForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/newMessageForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/newMessageForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/newMessageForm.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registerAsCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerAsCustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registerAsCustomer.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerAsCustomer.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registerAsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerAsProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registerAsProvider.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerAsProvider.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reserveRoomForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reserveRoomForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reserveRoomForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/reserveRoomForm.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/returnAllReservationsAdminForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/returnAllReservationsAdminForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/returnAllReservationsAdminForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/returnAllReservationsAdminForm.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/returnAllReservationsForRoomForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/returnAllReservationsForRoomForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/returnAllReservationsForRoomForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/returnAllReservationsForRoomForm.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/returnReservationsByCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/returnReservationsByCustomer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/returnReservationsByCustomer.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/returnReservationsByCustomer.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/returnReservationsByRoomID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/returnReservationsByRoomID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/returnReservationsByRoomID.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/returnReservationsByRoomID.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchByCustomerUsernameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchByCustomerUsernameForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchByCustomerUsernameForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchByCustomerUsernameForm.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchByRoomIDForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchByRoomIDForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchByRoomIDForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchByRoomIDForm.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchUsersForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchUsersForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/searchUsersForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/searchUsersForm.jfd" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +70,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/Customer.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/providerForm.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ProviderUI.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/adminForm.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/CustomerUI.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Provider.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/loginForm.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Reservation.java" root0="FORCE_HIGHLIGHTING" />
@@ -104,9 +129,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Welcome1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Welcome1" />
+    <configuration name="All in MyBooking" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyBooking" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -123,17 +149,17 @@
     <list>
       <item itemvalue="Application.LogInToMeTaBooking" />
       <item itemvalue="Application.Welcome" />
-      <item itemvalue="Application.Welcome1" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.providerTests" />
+      <item itemvalue="JUnit.All in MyBooking" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in MyBooking" />
         <item itemvalue="JUnit.providerTests" />
         <item itemvalue="Application.Welcome" />
         <item itemvalue="Application.LogInToMeTaBooking" />
-        <item itemvalue="Application.Welcome1" />
       </list>
     </recent_temporary>
   </component>
@@ -286,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641824994238</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Provider add and edit room spinners">
+      <created>1641834173146</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1641834173146</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -331,7 +364,8 @@
     <MESSAGE value="The pre-last dance :)" />
     <MESSAGE value="graphics" />
     <MESSAGE value="Finish graphics and error messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish graphics and error messages" />
+    <MESSAGE value="Provider add and edit room spinners" />
+    <option name="LAST_COMMIT_MESSAGE" value="Provider add and edit room spinners" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

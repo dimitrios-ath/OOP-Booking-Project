@@ -273,6 +273,16 @@ public class reserveRoomForm extends JPanel {
         }
     }
 
+    private void textCheckinMouseClicked(MouseEvent e) {
+        textCheckin.setText("");
+        textCheckin.setForeground(Color.black);
+    }
+
+    private void textCheckoutMouseClicked(MouseEvent e) {
+        textCheckout.setText("");
+        textCheckout.setForeground(Color.black);
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - asdfasdfa
@@ -312,13 +322,12 @@ public class reserveRoomForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
-        . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder
-        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .
-        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
-        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
-        ;
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing.
+        border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn" , javax. swing .border . TitledBorder. CENTER
+        ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .awt . Font
+        . BOLD ,12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener(
+        new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062ord\u0065r"
+        .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
         setLayout(null);
 
         //---- label2 ----
@@ -366,6 +375,15 @@ public class reserveRoomForm extends JPanel {
 
         //---- textCheckin ----
         textCheckin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textCheckin.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textCheckin.setText("dd-MM-yyyy");
+        textCheckin.setForeground(Color.gray);
+        textCheckin.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                textCheckinMouseClicked(e);
+            }
+        });
         add(textCheckin);
         textCheckin.setBounds(200, 95, 130, 25);
 
@@ -379,6 +397,15 @@ public class reserveRoomForm extends JPanel {
 
         //---- textCheckout ----
         textCheckout.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        textCheckout.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        textCheckout.setText("dd-MM-yyyy");
+        textCheckout.setForeground(Color.gray);
+        textCheckout.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                textCheckoutMouseClicked(e);
+            }
+        });
         add(textCheckout);
         textCheckout.setBounds(200, 125, 130, 25);
 

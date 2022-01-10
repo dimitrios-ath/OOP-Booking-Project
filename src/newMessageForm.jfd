@@ -31,8 +31,8 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
 				"font": new java.awt.Font( "Tahoma", 0, 14 )
-				"background": new java.awt.Color( 255, 255, 255, 255 )
 				"foreground": &Color1 new java.awt.Color( 0, 0, 0, 255 )
+				"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 170
 				"y": 65
@@ -55,6 +55,7 @@ new FormModel {
 				name: "textField2"
 				"font": new java.awt.Font( "Tahoma", 0, 14 )
 				"foreground": #Color1
+				"border": #SoftBevelBorder0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 170
 				"y": 95
@@ -89,7 +90,7 @@ new FormModel {
 					"rows": 6
 					"lineWrap": true
 					"font": new java.awt.Font( "Tahoma", 0, 14 )
-					"border": &SoftBevelBorder0 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+					"border": &SoftBevelBorder1 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
 					"foreground": new java.awt.Color( 0, 0, 0, 255 )
 					"background": new java.awt.Color( 255, 255, 255, 255 )
 				} )
@@ -104,7 +105,7 @@ new FormModel {
 				"text": "Cancel"
 				"font": &Font1 new java.awt.Font( "Tahoma", 1, 14 )
 				"foreground": &Color2 new java.awt.Color( 255, 255, 255, 255 )
-				"border": #SoftBevelBorder0
+				"border": #SoftBevelBorder1
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 80
@@ -117,7 +118,7 @@ new FormModel {
 				"text": "Send"
 				"font": #Font1
 				"foreground": #Color2
-				"border": #SoftBevelBorder0
+				"border": #SoftBevelBorder1
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "sendButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 245

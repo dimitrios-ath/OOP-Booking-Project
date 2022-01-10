@@ -13,8 +13,9 @@ new FormModel {
 				"horizontalAlignment": 0
 				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 410
+				"x": 300
 				"y": 65
+				"width": 410
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"

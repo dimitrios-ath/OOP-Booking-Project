@@ -69,6 +69,10 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textCheckin"
 				"font": &Font2 new java.awt.Font( "Tahoma", 0, 14 )
+				"border": &SoftBevelBorder1 new javax.swing.border.SoftBevelBorder( 0, sfield java.awt.Color white, sfield java.awt.Color white, sfield java.awt.Color blue, sfield java.awt.Color blue )
+				"text": "dd-MM-yyyy"
+				"foreground": sfield java.awt.Color gray
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "textCheckinMouseClicked", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 200
 				"y": 95
@@ -90,6 +94,10 @@ new FormModel {
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textCheckout"
 				"font": #Font2
+				"border": #SoftBevelBorder1
+				"text": "dd-MM-yyyy"
+				"foreground": sfield java.awt.Color gray
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "textCheckoutMouseClicked", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 200
 				"y": 125
