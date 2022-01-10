@@ -50,9 +50,6 @@ public class searchByRoomIDForm extends JPanel {
         this.mainUI = mainUI;
         this.admin = admin;
         initComponents();
-        jframe.setPreferredSize(new Dimension(680, 460));
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
 
         roomIDsInList = new ArrayList<>();
         df = new DecimalFormat("0.00");
@@ -158,7 +155,7 @@ public class searchByRoomIDForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         textField1 = new JTextField();
         label4 = new JLabel();
@@ -171,17 +168,20 @@ public class searchByRoomIDForm extends JPanel {
         label6 = new JLabel();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder
-        (0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax.swing.border
-        .TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt
-        .Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void
-        propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException()
-        ;}});
+        setBackground(new Color(51, 102, 255));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
+        . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder
+        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069alog" ,java .
+        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
+        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+        ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
+        ;
         setLayout(null);
 
         //---- label1 ----
         label1.setText("Type the room ID:");
         label1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label1.setForeground(Color.white);
         add(label1);
         label1.setBounds(new Rectangle(new Point(235, 85), label1.getPreferredSize()));
 
@@ -200,6 +200,7 @@ public class searchByRoomIDForm extends JPanel {
         label4.setText("Select one from the list below:");
         label4.setFont(new Font("Tahoma", Font.BOLD, 14));
         label4.setHorizontalAlignment(SwingConstants.CENTER);
+        label4.setForeground(Color.white);
         add(label4);
         label4.setBounds(210, 155, 275, 30);
 
@@ -225,16 +226,18 @@ public class searchByRoomIDForm extends JPanel {
         //---- button1 ----
         button1.setText("Back");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> backButtonClick(e));
         add(button1);
-        button1.setBounds(145, 410, 120, button1.getPreferredSize().height);
+        button1.setBounds(45, 395, 120, button1.getPreferredSize().height);
 
         //---- button2 ----
         button2.setText("Next");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button2.setForeground(new Color(51, 102, 255));
         button2.addActionListener(e -> nextButtonClick(e));
         add(button2);
-        button2.setBounds(410, 410, 120, button2.getPreferredSize().height);
+        button2.setBounds(480, 395, 150, button2.getPreferredSize().height);
 
         //---- label3 ----
         label3.setText("Username not found");
@@ -245,12 +248,15 @@ public class searchByRoomIDForm extends JPanel {
         //---- label5 ----
         label5.setText("Reservations");
         label5.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label5.setForeground(Color.white);
         add(label5);
         label5.setBounds(new Rectangle(new Point(265, 25), label5.getPreferredSize()));
 
         //---- label6 ----
         label6.setText("Or");
         label6.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label6.setBackground(Color.white);
+        label6.setForeground(Color.white);
         add(label6);
         label6.setBounds(new Rectangle(new Point(335, 125), label6.getPreferredSize()));
 
@@ -272,7 +278,7 @@ public class searchByRoomIDForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JTextField textField1;
     private JLabel label4;

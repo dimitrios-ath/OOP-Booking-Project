@@ -287,7 +287,7 @@ public class reserveRoomForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label2 = new JLabel();
         labelGuests = new JLabel();
         BoxOfGuests = new JComboBox<>();
@@ -323,26 +323,28 @@ public class reserveRoomForm extends JPanel {
         buttonSearch = new JButton();
 
         //======== this ========
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax
-        . swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing
-        . border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .
-        Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red
-        ) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override
-        public void propertyChange (java .beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName (
-        ) )) throw new RuntimeException( ); }} );
+        setBackground(new Color(51, 102, 255));
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .
+        EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax . swing
+        . border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,
+        java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( )
+        { @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName () ) )
+        throw new RuntimeException( ) ;} } );
         setLayout(null);
 
         //---- label2 ----
         label2.setText("Room reservation");
         label2.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label2.setForeground(Color.white);
         add(label2);
-        label2.setBounds(105, 45, 225, 40);
+        label2.setBounds(95, 5, 225, 40);
 
         //---- labelGuests ----
         labelGuests.setText("Total guests:");
         labelGuests.setFont(new Font("Tahoma", Font.BOLD, 14));
+        labelGuests.setForeground(Color.white);
         add(labelGuests);
-        labelGuests.setBounds(80, 120, 125, 32);
+        labelGuests.setBounds(45, 65, 125, 15);
 
         //---- BoxOfGuests ----
         BoxOfGuests.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -359,53 +361,58 @@ public class reserveRoomForm extends JPanel {
         }));
         BoxOfGuests.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(BoxOfGuests);
-        BoxOfGuests.setBounds(205, 115, 107, BoxOfGuests.getPreferredSize().height);
+        BoxOfGuests.setBounds(220, 65, 130, 20);
 
         //---- labelCheckin ----
         labelCheckin.setText("Check-in:");
         labelCheckin.setFont(new Font("Tahoma", Font.BOLD, 14));
+        labelCheckin.setForeground(Color.white);
         add(labelCheckin);
-        labelCheckin.setBounds(80, 155, 125, 26);
+        labelCheckin.setBounds(45, 95, 125, 15);
 
         //---- textCheckin ----
         textCheckin.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textCheckin);
-        textCheckin.setBounds(210, 155, 120, textCheckin.getPreferredSize().height);
+        textCheckin.setBounds(220, 95, 130, 20);
 
         //---- labelCheckout ----
         labelCheckout.setText("Check-out:");
         labelCheckout.setFont(new Font("Tahoma", Font.BOLD, 14));
+        labelCheckout.setForeground(Color.white);
         add(labelCheckout);
-        labelCheckout.setBounds(80, 185, 125, 26);
+        labelCheckout.setBounds(45, 125, 125, 15);
 
         //---- textCheckout ----
         textCheckout.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textCheckout);
-        textCheckout.setBounds(210, 185, 120, textCheckout.getPreferredSize().height);
+        textCheckout.setBounds(220, 235, 130, 20);
 
         //---- label1 ----
         label1.setText("Filters:");
         label1.setFont(new Font("Tahoma", Font.BOLD, 16));
+        label1.setForeground(Color.white);
         add(label1);
-        label1.setBounds(190, 255, 98, label1.getPreferredSize().height);
+        label1.setBounds(155, 170, 60, label1.getPreferredSize().height);
 
         //---- label3 ----
         label3.setText("Max price ($/night):");
         label3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label3.setForeground(Color.white);
         add(label3);
-        label3.setBounds(new Rectangle(new Point(80, 295), label3.getPreferredSize()));
+        label3.setBounds(45, 235, label3.getPreferredSize().width, 15);
 
         //---- spinner1 ----
         spinner1.setModel(new SpinnerNumberModel(0.0, 0.0, null, 5.0));
         spinner1.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(spinner1);
-        spinner1.setBounds(235, 285, 72, spinner1.getPreferredSize().height);
+        spinner1.setBounds(220, 265, 130, 20);
 
         //---- label4 ----
         label4.setText("Type:");
         label4.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label4.setForeground(Color.white);
         add(label4);
-        label4.setBounds(80, 335, 125, label4.getPreferredSize().height);
+        label4.setBounds(45, 265, 125, 15);
 
         //---- comboBox1 ----
         comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -416,127 +423,148 @@ public class reserveRoomForm extends JPanel {
         }));
         comboBox1.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(comboBox1);
-        comboBox1.setBounds(235, 325, 105, comboBox1.getPreferredSize().height);
+        comboBox1.setBounds(220, 125, 130, 20);
 
         //---- label5 ----
         label5.setText("Balcony:");
         label5.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label5.setForeground(Color.white);
         add(label5);
-        label5.setBounds(80, 375, 125, label5.getPreferredSize().height);
+        label5.setBounds(45, 305, 125, label5.getPreferredSize().height);
 
         //---- checkBox1 ----
         checkBox1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        checkBox1.setBackground(new Color(51, 102, 255));
         add(checkBox1);
-        checkBox1.setBounds(230, 370, 98, checkBox1.getPreferredSize().height);
+        checkBox1.setBounds(290, 320, 20, checkBox1.getPreferredSize().height);
 
         //---- label6 ----
         label6.setText("Kitchen:");
         label6.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label6.setForeground(Color.white);
         add(label6);
-        label6.setBounds(80, 410, 125, label6.getPreferredSize().height);
+        label6.setBounds(45, 340, 125, label6.getPreferredSize().height);
 
         //---- checkBox2 ----
         checkBox2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        checkBox2.setBackground(new Color(51, 102, 255));
         add(checkBox2);
-        checkBox2.setBounds(230, 405, 98, checkBox2.getPreferredSize().height);
+        checkBox2.setBounds(290, 355, 20, checkBox2.getPreferredSize().height);
 
         //---- label7 ----
         label7.setText("Free WiFi:");
         label7.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label7.setForeground(Color.white);
         add(label7);
-        label7.setBounds(80, 445, 125, label7.getPreferredSize().height);
+        label7.setBounds(45, 375, 125, label7.getPreferredSize().height);
 
         //---- checkBox3 ----
         checkBox3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        checkBox3.setBackground(new Color(51, 102, 255));
         add(checkBox3);
-        checkBox3.setBounds(230, 440, 98, checkBox3.getPreferredSize().height);
+        checkBox3.setBounds(290, 390, 20, checkBox3.getPreferredSize().height);
 
         //---- label13 ----
         label13.setText("Free parking:");
         label13.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label13.setForeground(Color.white);
         add(label13);
-        label13.setBounds(80, 480, 125, label13.getPreferredSize().height);
+        label13.setBounds(45, 410, 125, label13.getPreferredSize().height);
 
         //---- checkBox10 ----
         checkBox10.setFont(new Font("Tahoma", Font.BOLD, 14));
+        checkBox10.setBackground(new Color(51, 102, 255));
         add(checkBox10);
-        checkBox10.setBounds(230, 475, 98, checkBox10.getPreferredSize().height);
+        checkBox10.setBounds(290, 425, 20, checkBox10.getPreferredSize().height);
 
         //---- label8 ----
         label8.setText("Air condition:");
         label8.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label8.setForeground(Color.white);
         add(label8);
-        label8.setBounds(80, 515, 125, label8.getPreferredSize().height);
+        label8.setBounds(45, 445, 125, label8.getPreferredSize().height);
 
         //---- checkBox4 ----
         checkBox4.setFont(new Font("Tahoma", Font.BOLD, 14));
+        checkBox4.setBackground(new Color(51, 102, 255));
         add(checkBox4);
-        checkBox4.setBounds(230, 510, 98, checkBox4.getPreferredSize().height);
+        checkBox4.setBounds(290, 460, 20, checkBox4.getPreferredSize().height);
 
         //---- label9 ----
         label9.setText("Fridge:");
         label9.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label9.setForeground(Color.white);
         add(label9);
-        label9.setBounds(80, 550, 125, label9.getPreferredSize().height);
+        label9.setBounds(45, 480, 125, label9.getPreferredSize().height);
 
         //---- checkBox9 ----
         checkBox9.setFont(new Font("Tahoma", Font.BOLD, 14));
+        checkBox9.setBackground(new Color(51, 102, 255));
         add(checkBox9);
-        checkBox9.setBounds(230, 545, 98, checkBox9.getPreferredSize().height);
+        checkBox9.setBounds(290, 495, 20, checkBox9.getPreferredSize().height);
 
         //---- label10 ----
         label10.setText("TV:");
         label10.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label10.setForeground(Color.white);
         add(label10);
-        label10.setBounds(80, 585, 125, label10.getPreferredSize().height);
+        label10.setBounds(45, 515, 125, label10.getPreferredSize().height);
 
         //---- checkBox6 ----
         checkBox6.setFont(new Font("Tahoma", Font.BOLD, 14));
+        checkBox6.setBackground(new Color(51, 102, 255));
         add(checkBox6);
-        checkBox6.setBounds(230, 580, 98, checkBox6.getPreferredSize().height);
+        checkBox6.setBounds(290, 530, 20, checkBox6.getPreferredSize().height);
 
         //---- label11 ----
         label11.setText("Smoking allowed:");
         label11.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label11.setForeground(Color.white);
         add(label11);
-        label11.setBounds(80, 620, 125, label11.getPreferredSize().height);
+        label11.setBounds(45, 550, 125, label11.getPreferredSize().height);
 
         //---- checkBox7 ----
         checkBox7.setFont(new Font("Tahoma", Font.BOLD, 14));
+        checkBox7.setBackground(new Color(51, 102, 255));
         add(checkBox7);
-        checkBox7.setBounds(230, 615, 98, checkBox7.getPreferredSize().height);
+        checkBox7.setBounds(290, 565, 20, checkBox7.getPreferredSize().height);
 
         //---- label12 ----
         label12.setText("Pets allowed:");
         label12.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label12.setForeground(Color.white);
         add(label12);
-        label12.setBounds(80, 655, 125, label12.getPreferredSize().height);
+        label12.setBounds(45, 585, 125, label12.getPreferredSize().height);
 
         //---- checkBox8 ----
         checkBox8.setFont(new Font("Tahoma", Font.BOLD, 14));
+        checkBox8.setBackground(new Color(51, 102, 255));
         add(checkBox8);
-        checkBox8.setBounds(230, 650, 98, checkBox8.getPreferredSize().height);
+        checkBox8.setBounds(290, 600, 20, checkBox8.getPreferredSize().height);
 
         //---- buttonBack ----
         buttonBack.setText("Cancel");
         buttonBack.setFont(new Font("Tahoma", Font.BOLD, 14));
+        buttonBack.setForeground(new Color(0, 102, 255));
         buttonBack.addActionListener(e -> cancelButtonClick(e));
         add(buttonBack);
-        buttonBack.setBounds(55, 715, 95, buttonBack.getPreferredSize().height);
+        buttonBack.setBounds(45, 665, 80, buttonBack.getPreferredSize().height);
 
         //---- buttonClear ----
         buttonClear.setText("Clear");
         buttonClear.setFont(new Font("Tahoma", Font.BOLD, 14));
+        buttonClear.setForeground(new Color(0, 102, 255));
         buttonClear.addActionListener(e -> clearButtonClick(e));
         add(buttonClear);
-        buttonClear.setBounds(170, 715, 95, buttonClear.getPreferredSize().height);
+        buttonClear.setBounds(135, 665, 70, buttonClear.getPreferredSize().height);
 
         //---- buttonSearch ----
         buttonSearch.setText("Search");
         buttonSearch.setFont(new Font("Tahoma", Font.BOLD, 14));
+        buttonSearch.setForeground(new Color(0, 102, 255));
         buttonSearch.addActionListener(e -> searchButtonClick(e));
         add(buttonSearch);
-        buttonSearch.setBounds(285, 715, 95, buttonSearch.getPreferredSize().height);
+        buttonSearch.setBounds(220, 665, 120, buttonSearch.getPreferredSize().height);
 
         {
             // compute preferred size
@@ -556,7 +584,7 @@ public class reserveRoomForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label2;
     private JLabel labelGuests;
     private JComboBox<String> BoxOfGuests;

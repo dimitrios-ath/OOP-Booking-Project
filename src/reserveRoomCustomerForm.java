@@ -69,9 +69,6 @@ public class reserveRoomCustomerForm extends JPanel {
         this.type = type;
         this.maxPrice = maxPrice;
         initComponents();
-        jframe.setPreferredSize(new Dimension(930, 425));
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
 
         idsInList = new ArrayList<>();
         df = new DecimalFormat("0.00");
@@ -144,7 +141,7 @@ public class reserveRoomCustomerForm extends JPanel {
 
         private void initComponents () {
             // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-            // Generated using JFormDesigner Evaluation license - asdfasdfa
+            // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
             label2 = new JLabel();
             label1 = new JLabel();
             scrollPane1 = new JScrollPane();
@@ -154,25 +151,29 @@ public class reserveRoomCustomerForm extends JPanel {
             button2 = new JButton();
 
             //======== this ========
-            setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
-            0,0,0,0), "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder
-            .BOTTOM,new java.awt.Font("D\u0069al\u006fg",java.awt.Font.BOLD,12),java.awt.Color.
-            red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.
-            beans.PropertyChangeEvent e){if("\u0062or\u0064er".equals(e.getPropertyName()))throw new RuntimeException();}});
+            setBackground(new Color(51, 102, 255));
+            setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.
+            border.EmptyBorder(0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e",javax.swing.border.TitledBorder.CENTER
+            ,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dialo\u0067",java.awt.Font
+            .BOLD,12),java.awt.Color.red), getBorder())); addPropertyChangeListener(
+            new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("borde\u0072"
+            .equals(e.getPropertyName()))throw new RuntimeException();}});
             setLayout(null);
 
             //---- label2 ----
             label2.setText("Room reservation");
             label2.setFont(new Font("Tahoma", Font.BOLD, 22));
             label2.setHorizontalAlignment(SwingConstants.CENTER);
+            label2.setForeground(Color.white);
             add(label2);
-            label2.setBounds(355, 20, 214, 40);
+            label2.setBounds(270, 10, 214, 40);
 
             //---- label1 ----
             label1.setText("Select a room to reserve:");
             label1.setFont(new Font("Tahoma", Font.BOLD, 14));
+            label1.setForeground(Color.white);
             add(label1);
-            label1.setBounds(new Rectangle(new Point(380, 80), label1.getPreferredSize()));
+            label1.setBounds(new Rectangle(new Point(290, 85), label1.getPreferredSize()));
 
             //======== scrollPane1 ========
             {
@@ -183,28 +184,31 @@ public class reserveRoomCustomerForm extends JPanel {
                 scrollPane1.setViewportView(list1);
             }
             add(scrollPane1);
-            scrollPane1.setBounds(60, 110, 810, 220);
+            scrollPane1.setBounds(60, 110, 620, 220);
 
             //---- button3 ----
             button3.setText("Cancel");
             button3.setFont(new Font("Tahoma", Font.BOLD, 14));
+            button3.setForeground(new Color(0, 102, 255));
             button3.addActionListener(e -> cancelButtonClick(e));
             add(button3);
-            button3.setBounds(185, 360, 130, button3.getPreferredSize().height);
+            button3.setBounds(60, 345, 130, button3.getPreferredSize().height);
 
             //---- button1 ----
             button1.setText("Back");
             button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+            button1.setForeground(new Color(0, 102, 255));
             button1.addActionListener(e -> backButtonClick(e));
             add(button1);
-            button1.setBounds(395, 360, 130, button1.getPreferredSize().height);
+            button1.setBounds(210, 345, 130, button1.getPreferredSize().height);
 
             //---- button2 ----
             button2.setText("Reserve");
             button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+            button2.setForeground(new Color(0, 102, 255));
             button2.addActionListener(e -> reserveButtonClick(e));
             add(button2);
-            button2.setBounds(605, 360, 130, button2.getPreferredSize().height);
+            button2.setBounds(550, 345, 130, button2.getPreferredSize().height);
 
             {
                 // compute preferred size
@@ -224,7 +228,7 @@ public class reserveRoomCustomerForm extends JPanel {
         }
 
             // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-            // Generated using JFormDesigner Evaluation license - asdfasdfa
+            // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
             private JLabel label2;
             private JLabel label1;
             private JScrollPane scrollPane1;

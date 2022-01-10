@@ -43,9 +43,6 @@ public class searchReservationsForm extends JPanel {
         this.mainUI = mainUI;
         this.admin = admin;
         initComponents();
-        jframe.setPreferredSize(new Dimension(365, 295));
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
     }
 
     private void searchByCustomerUsernameButtonClick() {
@@ -101,7 +98,7 @@ public class searchReservationsForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         button1 = new JButton();
         button2 = new JButton();
@@ -109,25 +106,28 @@ public class searchReservationsForm extends JPanel {
         button4 = new JButton();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax
-        . swing. border .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing
-        .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .
-        Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red
-        ) , getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override
-        public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e. getPropertyName (
-        ) ) )throw new RuntimeException( ) ;} } );
+        setBackground(new Color(51, 102, 255));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
+        EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing
+        . border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ),
+        java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( )
+        { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () ))
+        throw new RuntimeException( ); }} );
         setLayout(null);
 
         //---- label1 ----
         label1.setText("Search reservations");
         label1.setFont(new Font("Tahoma", Font.BOLD, 22));
         label1.setHorizontalAlignment(SwingConstants.CENTER);
+        label1.setBackground(Color.white);
+        label1.setForeground(Color.white);
         add(label1);
         label1.setBounds(65, 40, 240, label1.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("Search by customer");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> searchByCustomerUsernameButtonClick(e));
         add(button1);
         button1.setBounds(65, 105, 238, button1.getPreferredSize().height);
@@ -135,23 +135,26 @@ public class searchReservationsForm extends JPanel {
         //---- button2 ----
         button2.setText("Search by room");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button2.setForeground(new Color(51, 102, 255));
         button2.addActionListener(e -> searchByRoomButtonClick(e));
         add(button2);
-        button2.setBounds(65, 140, 238, button2.getPreferredSize().height);
+        button2.setBounds(65, 135, 238, button2.getPreferredSize().height);
 
         //---- button3 ----
         button3.setText("Show all reservations");
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button3.setForeground(new Color(51, 102, 255));
         button3.addActionListener(e -> showAllReservationsButtonClick(e));
         add(button3);
-        button3.setBounds(65, 175, 238, button3.getPreferredSize().height);
+        button3.setBounds(65, 165, 238, button3.getPreferredSize().height);
 
         //---- button4 ----
         button4.setText("Cancel");
         button4.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button4.setForeground(new Color(51, 102, 255));
         button4.addActionListener(e -> cancelButtonClick(e));
         add(button4);
-        button4.setBounds(65, 220, 238, button4.getPreferredSize().height);
+        button4.setBounds(100, 205, 155, button4.getPreferredSize().height);
 
         {
             // compute preferred size
@@ -171,7 +174,7 @@ public class searchReservationsForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JButton button1;
     private JButton button2;

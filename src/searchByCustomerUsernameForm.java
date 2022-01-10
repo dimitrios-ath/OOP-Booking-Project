@@ -46,10 +46,6 @@ public class searchByCustomerUsernameForm extends JPanel {
         this.mainUI = mainUI;
         this.admin = admin;
         initComponents();
-        jframe.setPreferredSize(new Dimension(395, 475));
-        jframe.pack();
-        jframe.setLocationRelativeTo(null);
-
         model = new DefaultListModel<>();
         noCustomersFound = new AtomicBoolean(true);
         this.customers.forEach((username, Customer) -> {
@@ -98,7 +94,7 @@ public class searchByCustomerUsernameForm extends JPanel {
             if (list1.isEnabled() && !textField1.isEnabled()) {
                 returnReservationsByCustomer returnReservationsByCustomer = new returnReservationsByCustomer(
                         jframe, this.reservations, this.rooms, this.users, this.customers, this.providers, this.admins,
-                        this.messages, this.mainUI, this.admin, list1.getSelectedValue().toString());
+                        this.messages, this.mainUI, this.admin, list1.getSelectedValue());
                 returnReservationsByCustomer.setCurrentForm(returnReservationsByCustomer);
                 jframe.add(returnReservationsByCustomer);
                 this.currentForm.setVisible(false);
@@ -139,7 +135,7 @@ public class searchByCustomerUsernameForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         textField1 = new JTextField();
         label4 = new JLabel();
@@ -153,19 +149,23 @@ public class searchByCustomerUsernameForm extends JPanel {
 
         //======== this ========
         setFont(new Font("Tahoma", Font.BOLD, 14));
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border
-        .EmptyBorder(0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax
-        .swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,
-        12),java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans
-        .PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062ord\u0065r".equals(e.
-        getPropertyName()))throw new RuntimeException();}});
+        setBackground(new Color(51, 102, 255));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (
+        new javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion"
+        , javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
+        , new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 )
+        , java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
+        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+        ) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
+        ; }} );
         setLayout(null);
 
         //---- label1 ----
         label1.setText("Type the username:");
         label1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label1.setForeground(Color.white);
         add(label1);
-        label1.setBounds(25, 85, 158, 25);
+        label1.setBounds(25, 80, 158, 20);
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -182,8 +182,9 @@ public class searchByCustomerUsernameForm extends JPanel {
         label4.setText("Select one from the list below:");
         label4.setFont(new Font("Tahoma", Font.BOLD, 14));
         label4.setHorizontalAlignment(SwingConstants.CENTER);
+        label4.setForeground(Color.white);
         add(label4);
-        label4.setBounds(45, 160, 285, label4.getPreferredSize().height);
+        label4.setBounds(45, 155, 285, label4.getPreferredSize().height);
 
         //======== scrollPane1 ========
         {
@@ -192,7 +193,7 @@ public class searchByCustomerUsernameForm extends JPanel {
             //---- list1 ----
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             list1.setEnabled(false);
-            list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
+            list1.setFont(new Font("Tahoma", Font.BOLD, 14));
             list1.addMouseListener(new MouseAdapter() {
                 @Override
                 public void mouseClicked(MouseEvent e) {
@@ -202,21 +203,23 @@ public class searchByCustomerUsernameForm extends JPanel {
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(65, 200, 245, 190);
+        scrollPane1.setBounds(65, 185, 245, 190);
 
         //---- button1 ----
         button1.setText("Back");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setForeground(new Color(0, 102, 255));
         button1.addActionListener(e -> backButtonClick(e));
         add(button1);
-        button1.setBounds(65, 420, 110, button1.getPreferredSize().height);
+        button1.setBounds(65, 380, 95, button1.getPreferredSize().height);
 
         //---- button2 ----
         button2.setText("Next");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button2.setForeground(new Color(0, 102, 255));
         button2.addActionListener(e -> nextButtonClick(e));
         add(button2);
-        button2.setBounds(200, 420, 110, button2.getPreferredSize().height);
+        button2.setBounds(200, 380, 110, button2.getPreferredSize().height);
 
         //---- label3 ----
         label3.setText("Username not found");
@@ -227,14 +230,16 @@ public class searchByCustomerUsernameForm extends JPanel {
         //---- label5 ----
         label5.setText("Users info");
         label5.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label5.setForeground(Color.white);
         add(label5);
         label5.setBounds(new Rectangle(new Point(135, 25), label5.getPreferredSize()));
 
         //---- label6 ----
         label6.setText("Or");
         label6.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label6.setForeground(Color.white);
         add(label6);
-        label6.setBounds(new Rectangle(new Point(180, 125), label6.getPreferredSize()));
+        label6.setBounds(new Rectangle(new Point(175, 125), label6.getPreferredSize()));
 
         {
             // compute preferred size
@@ -254,7 +259,7 @@ public class searchByCustomerUsernameForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JTextField textField1;
     private JLabel label4;
