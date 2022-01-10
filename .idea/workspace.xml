@@ -35,13 +35,13 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/adminForm.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/Customer.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/providerForm.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/adminForm.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Provider.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/loginForm.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/Reservation.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Provider.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/addNewRoomProviderForm.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/Reservation.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/MainUI.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="21e3VdoblJZIP4e1uAehXmipL1y" />
@@ -121,10 +121,10 @@
     </configuration>
     <list>
       <item itemvalue="Application.LogInToMeTaBooking" />
-      <item itemvalue="Application.Welcome" />
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.providerTests" />
+      <item itemvalue="Application.Welcome" />
       <item itemvalue="JUnit.All in MyBooking" />
+      <item itemvalue="JUnit.providerTests" />
     </list>
     <recent_temporary>
       <list>
