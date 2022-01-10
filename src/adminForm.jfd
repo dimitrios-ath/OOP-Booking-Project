@@ -26,9 +26,9 @@ new FormModel {
 				"foreground": &Color0 new java.awt.Color( 51, 102, 255, 255 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchReservationsButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 110
+				"x": 90
 				"y": 85
-				"width": 170
+				"width": 215
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
@@ -37,9 +37,9 @@ new FormModel {
 				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchUserButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 110
+				"x": 90
 				"y": 115
-				"width": 170
+				"width": 215
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button3"
@@ -48,9 +48,9 @@ new FormModel {
 				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "activateDeactivateAccountsButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 110
+				"x": 90
 				"y": 145
-				"width": 170
+				"width": 215
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
@@ -69,8 +69,8 @@ new FormModel {
 				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "messagesButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"width": 170
-				"x": 110
+				"width": 215
+				"x": 90
 				"y": 175
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
@@ -82,7 +82,7 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 170
 				"x": 110
-				"y": 220
+				"y": 230
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button6"
@@ -93,7 +93,7 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"width": 170
 				"x": 110
-				"y": 250
+				"y": 260
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 25, 20 )

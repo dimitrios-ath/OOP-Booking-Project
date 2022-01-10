@@ -6,15 +6,17 @@ new FormModel {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
 			"font": &Font0 new java.awt.Font( "Tahoma", 1, 14 )
+			"background": new java.awt.Color( 51, 102, 255, 255 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Type the username:"
 				"font": #Font0
+				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 25
-				"y": 85
+				"y": 80
 				"width": 158
-				"height": 25
+				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textField1"
@@ -30,9 +32,10 @@ new FormModel {
 				"text": "Select one from the list below:"
 				"font": #Font0
 				"horizontalAlignment": 0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 45
-				"y": 160
+				"y": 155
 				"width": 285
 			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -42,12 +45,12 @@ new FormModel {
 					name: "list1"
 					"selectionMode": 0
 					"enabled": false
-					"font": new java.awt.Font( "Tahoma", 0, 14 )
+					"font": new java.awt.Font( "Tahoma", 1, 14 )
 					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "list1Click", true ) )
 				} )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 65
-				"y": 200
+				"y": 185
 				"width": 245
 				"height": 190
 			} )
@@ -55,20 +58,22 @@ new FormModel {
 				name: "button1"
 				"text": "Back"
 				"font": #Font0
+				"foreground": &Color1 new java.awt.Color( 0, 102, 255, 255 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "backButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 65
-				"y": 420
-				"width": 110
+				"y": 380
+				"width": 95
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Next"
 				"font": #Font0
+				"foreground": #Color1
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "nextButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 200
-				"y": 420
+				"y": 380
 				"width": 110
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
@@ -83,6 +88,7 @@ new FormModel {
 				name: "label5"
 				"text": "Users info"
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 135
 				"y": 25
@@ -91,13 +97,14 @@ new FormModel {
 				name: "label6"
 				"text": "Or"
 				"font": new java.awt.Font( "Tahoma", 1, 14 )
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 180
+				"x": 175
 				"y": 125
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 395, 475 )
+			"size": new java.awt.Dimension( 395, 430 )
 		} )
 	}
 }

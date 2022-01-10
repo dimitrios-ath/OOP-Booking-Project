@@ -100,11 +100,11 @@ public class messageForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
-        0, 0, 0, 0) , "", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
-        . BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-        beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder( 0
+        , 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
+        , new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,
+         getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+        ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(null);
 
         //---- label1 ----
@@ -112,7 +112,7 @@ public class messageForm extends JPanel {
         label1.setForeground(Color.white);
         label1.setFont(new Font("Tahoma", Font.BOLD, 22));
         add(label1);
-        label1.setBounds(100, 10, 110, label1.getPreferredSize().height);
+        label1.setBounds(105, 10, 110, label1.getPreferredSize().height);
 
         //---- button3 ----
         button3.setText("New message");
@@ -120,7 +120,7 @@ public class messageForm extends JPanel {
         button3.setForeground(new Color(51, 102, 255));
         button3.addActionListener(e -> newMessageButtonClick(e));
         add(button3);
-        button3.setBounds(90, 50, 130, button3.getPreferredSize().height);
+        button3.setBounds(70, 50, 200, button3.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("Inbox");
@@ -128,7 +128,7 @@ public class messageForm extends JPanel {
         button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> inboxButtonClick(e));
         add(button1);
-        button1.setBounds(90, 80, 130, button1.getPreferredSize().height);
+        button1.setBounds(70, 80, 200, button1.getPreferredSize().height);
 
         //---- button2 ----
         button2.setText("Return");
@@ -136,7 +136,7 @@ public class messageForm extends JPanel {
         button2.setForeground(new Color(51, 102, 255));
         button2.addActionListener(e -> returnButtonClicked(e));
         add(button2);
-        button2.setBounds(90, 120, 130, button2.getPreferredSize().height);
+        button2.setBounds(95, 120, 145, button2.getPreferredSize().height);
 
         {
             // compute preferred size

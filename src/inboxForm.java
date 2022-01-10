@@ -171,14 +171,11 @@ public class inboxForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(
-        new javax.swing.border.EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion"
-        ,javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
-        ,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12)
-        ,java.awt.Color.red), getBorder())); addPropertyChangeListener(
-        new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
-        ){if("bord\u0065r".equals(e.getPropertyName()))throw new RuntimeException()
-        ;}});
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0
+        ,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing.border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM
+        ,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.red),
+         getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e
+        ){if("\u0062ord\u0065r".equals(e.getPropertyName()))throw new RuntimeException();}});
         setLayout(null);
 
         //---- label1 ----
@@ -197,14 +194,14 @@ public class inboxForm extends JPanel {
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(50, 35, 440, scrollPane1.getPreferredSize().height);
+        scrollPane1.setBounds(40, 35, 455, scrollPane1.getPreferredSize().height);
 
         //---- label2 ----
         label2.setText("From:");
         label2.setFont(new Font("Tahoma", Font.BOLD, 14));
         label2.setForeground(Color.white);
         add(label2);
-        label2.setBounds(new Rectangle(new Point(65, 235), label2.getPreferredSize()));
+        label2.setBounds(new Rectangle(new Point(40, 220), label2.getPreferredSize()));
         add(label3);
         label3.setBounds(150, 217, 20, label3.getPreferredSize().height);
 
@@ -219,7 +216,7 @@ public class inboxForm extends JPanel {
             scrollPane2.setViewportView(textArea1);
         }
         add(scrollPane2);
-        scrollPane2.setBounds(165, 215, 210, 50);
+        scrollPane2.setBounds(160, 210, 225, 50);
 
         //---- button1 ----
         button1.setText("Return");
@@ -227,7 +224,7 @@ public class inboxForm extends JPanel {
         button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> returnButtonClicked(e));
         add(button1);
-        button1.setBounds(200, 285, 145, button1.getPreferredSize().height);
+        button1.setBounds(200, 285, 140, button1.getPreferredSize().height);
 
         {
             // compute preferred size

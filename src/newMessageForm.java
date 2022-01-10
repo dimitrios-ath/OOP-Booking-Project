@@ -112,13 +112,12 @@ public class newMessageForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new
-        javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "", javax
-        . swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java
-        .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
-        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans.
-        PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .
-        equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border.
+        EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing
+        . border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ),
+        java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( )
+        { @Override public void propertyChange (java .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () ))
+        throw new RuntimeException( ); }} );
         setLayout(null);
 
         //---- label1 ----
@@ -133,7 +132,7 @@ public class newMessageForm extends JPanel {
         label2.setForeground(Color.white);
         label2.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label2);
-        label2.setBounds(5, 45, 50, 26);
+        label2.setBounds(5, 45, 50, 20);
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -146,7 +145,7 @@ public class newMessageForm extends JPanel {
         label3.setForeground(Color.white);
         label3.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label3);
-        label3.setBounds(5, 80, 55, 26);
+        label3.setBounds(5, 75, 55, 20);
 
         //---- textField2 ----
         textField2.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -183,7 +182,7 @@ public class newMessageForm extends JPanel {
         button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> cancelButtonClick(e));
         add(button1);
-        button1.setBounds(new Rectangle(new Point(80, 215), button1.getPreferredSize()));
+        button1.setBounds(new Rectangle(new Point(80, 225), button1.getPreferredSize()));
 
         //---- button2 ----
         button2.setText("Send");
@@ -191,7 +190,7 @@ public class newMessageForm extends JPanel {
         button2.setForeground(new Color(51, 102, 255));
         button2.addActionListener(e -> sendButtonClick(e));
         add(button2);
-        button2.setBounds(185, 215, 160, button2.getPreferredSize().height);
+        button2.setBounds(185, 225, 160, button2.getPreferredSize().height);
 
         {
             // compute preferred size

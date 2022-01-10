@@ -123,13 +123,14 @@ public class loginForm extends JPanel {
         setFont(new Font("Droid Sans", Font.PLAIN, 12));
         setAlignmentY(2.5F);
         setBackground(new Color(51, 102, 255));
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing
-        . border .EmptyBorder ( 0, 0 ,0 , 0) ,  "" , javax. swing .border . TitledBorder
-        . CENTER ,javax . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "Dia\u006cog", java .
-        awt . Font. BOLD ,12 ) ,java . awt. Color .red ) , getBorder () ) )
-        ;  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
-        ) { if( "\u0062ord\u0065r" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } )
-        ;
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (
+        new javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion"
+        , javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
+        , new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 )
+        , java. awt. Color. red) , getBorder( )) );  addPropertyChangeListener (
+        new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
+        ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
+        ; }} );
         setLayout(null);
 
         //---- label4 ----
@@ -150,24 +151,24 @@ public class loginForm extends JPanel {
         label2.setFont(new Font("Tahoma", Font.BOLD, 14));
         label2.setForeground(Color.white);
         add(label2);
-        label2.setBounds(65, 100, 87, 20);
+        label2.setBounds(55, 100, 87, 20);
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField1);
-        textField1.setBounds(185, 100, 160, textField1.getPreferredSize().height);
+        textField1.setBounds(190, 100, 160, textField1.getPreferredSize().height);
 
         //---- label3 ----
         label3.setText("Password:");
         label3.setFont(new Font("Tahoma", Font.BOLD, 14));
         label3.setForeground(Color.white);
         add(label3);
-        label3.setBounds(65, 135, 87, label3.getPreferredSize().height);
+        label3.setBounds(55, 135, 87, label3.getPreferredSize().height);
 
         //---- passwordField1 ----
         passwordField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(passwordField1);
-        passwordField1.setBounds(185, 130, 160, passwordField1.getPreferredSize().height);
+        passwordField1.setBounds(190, 130, 160, passwordField1.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("Login");
@@ -175,7 +176,7 @@ public class loginForm extends JPanel {
         button1.setForeground(new Color(0, 51, 255));
         button1.addActionListener(e -> loginButtonClick(e));
         add(button1);
-        button1.setBounds(85, 185, 120, 20);
+        button1.setBounds(70, 170, 100, 30);
 
         //---- button2 ----
         button2.setText("Register");
@@ -184,7 +185,7 @@ public class loginForm extends JPanel {
         button2.setForeground(new Color(0, 51, 255));
         button2.addActionListener(e -> registerButtonClick(e));
         add(button2);
-        button2.setBounds(235, 185, 120, 20);
+        button2.setBounds(210, 170, 100, 30);
 
         //---- button3 ----
         button3.setText("Exit");
@@ -192,9 +193,9 @@ public class loginForm extends JPanel {
         button3.setForeground(new Color(0, 51, 255));
         button3.addActionListener(e -> exitButtonClick(e));
         add(button3);
-        button3.setBounds(165, 225, 110, 20);
+        button3.setBounds(140, 215, 110, 20);
 
-        setPreferredSize(new Dimension(430, 280));
+        setPreferredSize(new Dimension(395, 290));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 

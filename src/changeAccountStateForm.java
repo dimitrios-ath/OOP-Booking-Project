@@ -213,11 +213,12 @@ public class changeAccountStateForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
-        0, 0, 0, 0) , "", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
-        . BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
-        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
-        beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.
+        border.EmptyBorder(0,0,0,0), "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e",javax.swing.border.TitledBorder.CENTER
+        ,javax.swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dialo\u0067",java.awt.Font
+        .BOLD,12),java.awt.Color.red), getBorder())); addPropertyChangeListener(
+        new java.beans.PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("borde\u0072"
+        .equals(e.getPropertyName()))throw new RuntimeException();}});
         setLayout(null);
 
         //---- label2 ----
@@ -279,7 +280,7 @@ public class changeAccountStateForm extends JPanel {
         button2.setForeground(new Color(51, 102, 255));
         button2.addActionListener(e -> returnButtonClick(e));
         add(button2);
-        button2.setBounds(75, 240, 120, button2.getPreferredSize().height);
+        button2.setBounds(75, 250, 120, button2.getPreferredSize().height);
 
         //---- button1 ----
         button1.setText("Search");
@@ -287,7 +288,7 @@ public class changeAccountStateForm extends JPanel {
         button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> searchButtonClick(e));
         add(button1);
-        button1.setBounds(240, 240, 130, button1.getPreferredSize().height);
+        button1.setBounds(245, 250, 130, button1.getPreferredSize().height);
 
         //---- button3 ----
         button3.setText("Change state");
@@ -295,7 +296,7 @@ public class changeAccountStateForm extends JPanel {
         button3.setForeground(new Color(51, 102, 255));
         button3.addActionListener(e -> changeStateButtonClick(e));
         add(button3);
-        button3.setBounds(410, 240, 125, button3.getPreferredSize().height);
+        button3.setBounds(410, 250, 125, button3.getPreferredSize().height);
 
         {
             // compute preferred size

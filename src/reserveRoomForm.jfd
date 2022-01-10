@@ -5,13 +5,15 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
+			"background": new java.awt.Color( 51, 102, 255, 255 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label2"
 				"text": "Room reservation"
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 105
-				"y": 45
+				"x": 95
+				"y": 5
 				"width": 225
 				"height": 40
 			} )
@@ -19,11 +21,12 @@ new FormModel {
 				name: "labelGuests"
 				"text": "Total guests:"
 				"font": &Font0 new java.awt.Font( "Tahoma", 1, 14 )
+				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 120
+				"x": 45
+				"y": 65
 				"width": 125
-				"height": 32
+				"height": 15
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "BoxOfGuests"
@@ -42,62 +45,70 @@ new FormModel {
 				}
 				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 205
-				"y": 115
-				"width": 107
+				"x": 220
+				"y": 65
+				"width": 130
+				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "labelCheckin"
 				"text": "Check-in:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 155
+				"x": 45
+				"y": 95
 				"width": 125
-				"height": 26
+				"height": 15
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textCheckin"
 				"font": &Font1 new java.awt.Font( "Tahoma", 0, 14 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 210
-				"y": 155
-				"width": 120
+				"x": 220
+				"y": 95
+				"width": 130
+				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "labelCheckout"
 				"text": "Check-out:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 185
+				"x": 45
+				"y": 125
 				"width": 125
-				"height": 26
+				"height": 15
 			} )
 			add( new FormComponent( "javax.swing.JTextField" ) {
 				name: "textCheckout"
 				"font": #Font1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 210
-				"y": 185
-				"width": 120
+				"x": 220
+				"y": 235
+				"width": 130
+				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Filters:"
 				"font": new java.awt.Font( "Tahoma", 1, 16 )
+				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 190
-				"y": 255
-				"width": 98
+				"x": 155
+				"y": 170
+				"width": 60
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
 				"text": "Max price ($/night):"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 295
+				"x": 45
+				"y": 235
+				"height": 15
 			} )
 			add( new FormComponent( "javax.swing.JSpinner" ) {
 				name: "spinner1"
@@ -108,18 +119,21 @@ new FormModel {
 				}
 				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 235
-				"y": 285
-				"width": 72
+				"x": 220
+				"y": 265
+				"width": 130
+				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label4"
 				"text": "Type:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 335
+				"x": 45
+				"y": 265
 				"width": 125
+				"height": 15
 			} )
 			add( new FormComponent( "javax.swing.JComboBox" ) {
 				name: "comboBox1"
@@ -132,196 +146,218 @@ new FormModel {
 				}
 				"font": #Font0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 235
-				"y": 325
-				"width": 105
+				"x": 220
+				"y": 125
+				"width": 130
+				"height": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label5"
 				"text": "Balcony:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 375
+				"x": 45
+				"y": 305
 				"width": 125
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox1"
 				"font": #Font0
+				"background": &Color1 new java.awt.Color( 51, 102, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 230
-				"y": 370
-				"width": 98
+				"x": 290
+				"y": 320
+				"width": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label6"
 				"text": "Kitchen:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 410
+				"x": 45
+				"y": 340
 				"width": 125
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox2"
 				"font": #Font0
+				"background": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 230
-				"y": 405
-				"width": 98
+				"x": 290
+				"y": 355
+				"width": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label7"
 				"text": "Free WiFi:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 445
+				"x": 45
+				"y": 375
 				"width": 125
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox3"
 				"font": #Font0
+				"background": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 230
-				"y": 440
-				"width": 98
+				"x": 290
+				"y": 390
+				"width": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label13"
 				"text": "Free parking:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 480
+				"x": 45
+				"y": 410
 				"width": 125
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox10"
 				"font": #Font0
+				"background": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 230
-				"y": 475
-				"width": 98
+				"x": 290
+				"y": 425
+				"width": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label8"
 				"text": "Air condition:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 515
+				"x": 45
+				"y": 445
 				"width": 125
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox4"
 				"font": #Font0
+				"background": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 230
-				"y": 510
-				"width": 98
+				"x": 290
+				"y": 460
+				"width": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label9"
 				"text": "Fridge:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 550
+				"x": 45
+				"y": 480
 				"width": 125
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox9"
 				"font": #Font0
+				"background": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 230
-				"y": 545
-				"width": 98
+				"x": 290
+				"y": 495
+				"width": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label10"
 				"text": "TV:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 585
+				"x": 45
+				"y": 515
 				"width": 125
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox6"
 				"font": #Font0
+				"background": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 230
-				"y": 580
-				"width": 98
+				"x": 290
+				"y": 530
+				"width": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label11"
 				"text": "Smoking allowed:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 620
+				"x": 45
+				"y": 550
 				"width": 125
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox7"
 				"font": #Font0
+				"background": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 230
-				"y": 615
-				"width": 98
+				"x": 290
+				"y": 565
+				"width": 20
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label12"
 				"text": "Pets allowed:"
 				"font": #Font0
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 80
-				"y": 655
+				"x": 45
+				"y": 585
 				"width": 125
 			} )
 			add( new FormComponent( "javax.swing.JCheckBox" ) {
 				name: "checkBox8"
 				"font": #Font0
+				"background": #Color1
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 230
-				"y": 650
-				"width": 98
+				"x": 290
+				"y": 600
+				"width": 20
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "buttonBack"
 				"text": "Cancel"
 				"font": #Font0
+				"foreground": &Color2 new java.awt.Color( 0, 102, 255, 255 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "cancelButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 55
-				"y": 715
-				"width": 95
+				"x": 45
+				"y": 665
+				"width": 80
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "buttonClear"
 				"text": "Clear"
 				"font": #Font0
+				"foreground": #Color2
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "clearButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 170
-				"y": 715
-				"width": 95
+				"x": 135
+				"y": 665
+				"width": 70
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "buttonSearch"
 				"text": "Search"
 				"font": #Font0
+				"foreground": #Color2
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "searchButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 285
-				"y": 715
-				"width": 95
+				"x": 220
+				"y": 665
+				"width": 120
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 445, 795 )
+			"size": new java.awt.Dimension( 400, 725 )
 		} )
 	}
 }

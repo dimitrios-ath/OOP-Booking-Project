@@ -109,13 +109,11 @@ public class adminForm extends JPanel {
         //======== this ========
         setForeground(new Color(51, 102, 255));
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax.
-        swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border
-        . TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dialo\u0067"
-        ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder
-        ( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java
-        .beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException
-        ( ); }} );
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
+        0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
+        . BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
+        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
+        beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(null);
 
         //---- label1 ----
@@ -131,7 +129,7 @@ public class adminForm extends JPanel {
         button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> searchReservationsButtonClick(e));
         add(button1);
-        button1.setBounds(110, 85, 170, button1.getPreferredSize().height);
+        button1.setBounds(90, 85, 215, button1.getPreferredSize().height);
 
         //---- button2 ----
         button2.setText("Search users");
@@ -139,7 +137,7 @@ public class adminForm extends JPanel {
         button2.setForeground(new Color(51, 102, 255));
         button2.addActionListener(e -> searchUserButtonClick(e));
         add(button2);
-        button2.setBounds(110, 115, 170, button2.getPreferredSize().height);
+        button2.setBounds(90, 115, 215, button2.getPreferredSize().height);
 
         //---- button3 ----
         button3.setText("Change user state");
@@ -147,7 +145,7 @@ public class adminForm extends JPanel {
         button3.setForeground(new Color(51, 102, 255));
         button3.addActionListener(e -> activateDeactivateAccountsButtonClick(e));
         add(button3);
-        button3.setBounds(110, 145, 170, button3.getPreferredSize().height);
+        button3.setBounds(90, 145, 215, button3.getPreferredSize().height);
 
         //---- label2 ----
         label2.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -161,7 +159,7 @@ public class adminForm extends JPanel {
         button4.setForeground(new Color(51, 102, 255));
         button4.addActionListener(e -> messagesButtonClick(e));
         add(button4);
-        button4.setBounds(110, 175, 170, button4.getPreferredSize().height);
+        button4.setBounds(90, 175, 215, button4.getPreferredSize().height);
 
         //---- button5 ----
         button5.setText("Log out");
@@ -169,7 +167,7 @@ public class adminForm extends JPanel {
         button5.setForeground(new Color(51, 102, 255));
         button5.addActionListener(e -> logoutButtonClick(e));
         add(button5);
-        button5.setBounds(110, 220, 170, button5.getPreferredSize().height);
+        button5.setBounds(110, 230, 170, button5.getPreferredSize().height);
 
         //---- button6 ----
         button6.setText("Exit");
@@ -177,7 +175,7 @@ public class adminForm extends JPanel {
         button6.setForeground(new Color(51, 102, 255));
         button6.addActionListener(e -> exitButtonClick(e));
         add(button6);
-        button6.setBounds(110, 250, 170, button6.getPreferredSize().height);
+        button6.setBounds(110, 260, 170, button6.getPreferredSize().height);
 
         setPreferredSize(new Dimension(395, 335));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents

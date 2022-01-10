@@ -135,7 +135,7 @@ public class selectRoomAndDeleteForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         label2 = new JLabel();
         scrollPane1 = new JScrollPane();
@@ -145,20 +145,21 @@ public class selectRoomAndDeleteForm extends JPanel {
         label3 = new JLabel();
 
         //======== this ========
-        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax
-        .swing.border.EmptyBorder(0,0,0,0), "JF\u006frmDes\u0069gner \u0045valua\u0074ion",javax.swing
-        .border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.
-        Font("D\u0069alog",java.awt.Font.BOLD,12),java.awt.Color.red
-        ), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override
-        public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062order".equals(e.getPropertyName(
-        )))throw new RuntimeException();}});
+        setBackground(new Color(51, 102, 255));
+        setForeground(Color.white);
+        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder ( 0
+        , 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
+        , new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,
+         getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
+        ) { if( "\u0062order" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
         setLayout(null);
 
         //---- label1 ----
         label1.setText("Select a room to remove:");
         label1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label1.setForeground(Color.white);
         add(label1);
-        label1.setBounds(new Rectangle(new Point(375, 80), label1.getPreferredSize()));
+        label1.setBounds(new Rectangle(new Point(210, 85), label1.getPreferredSize()));
 
         //---- label2 ----
         label2.setText("Please select a room");
@@ -175,27 +176,30 @@ public class selectRoomAndDeleteForm extends JPanel {
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(55, 115, 820, 220);
+        scrollPane1.setBounds(55, 115, 500, 220);
 
         //---- button1 ----
         button1.setText("Cancel");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> cancelButtonClick(e));
         add(button1);
-        button1.setBounds(235, 370, 126, button1.getPreferredSize().height);
+        button1.setBounds(55, 340, 115, button1.getPreferredSize().height);
 
         //---- button2 ----
         button2.setText("Remove");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button2.setForeground(new Color(51, 102, 255));
         button2.addActionListener(e -> removeButtonClick(e));
         add(button2);
-        button2.setBounds(565, 370, 125, button2.getPreferredSize().height);
+        button2.setBounds(400, 340, 155, button2.getPreferredSize().height);
 
         //---- label3 ----
         label3.setText("Remove existing room");
         label3.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label3.setForeground(Color.white);
         add(label3);
-        label3.setBounds(new Rectangle(new Point(340, 25), label3.getPreferredSize()));
+        label3.setBounds(new Rectangle(new Point(190, 10), label3.getPreferredSize()));
 
         {
             // compute preferred size
@@ -215,7 +219,7 @@ public class selectRoomAndDeleteForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JLabel label2;
     private JScrollPane scrollPane1;

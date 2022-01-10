@@ -134,12 +134,12 @@ public class providerForm extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border
-        .EmptyBorder ( 0, 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax
-        . swing. border .TitledBorder . BOTTOM, new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,
-        12 ) ,java . awt. Color .red ) , getBorder () ) );  addPropertyChangeListener( new java. beans
-        .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e) { if( "\u0062order" .equals ( e.
-        getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder
+        (0,0,0,0), "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e",javax.swing.border.TitledBorder.CENTER,javax.swing.border
+        .TitledBorder.BOTTOM,new java.awt.Font("D\u0069al\u006fg",java.awt.Font.BOLD,12),java.awt
+        .Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override public void
+        propertyChange(java.beans.PropertyChangeEvent e){if("\u0062or\u0064er".equals(e.getPropertyName()))throw new RuntimeException()
+        ;}});
         setLayout(null);
 
         //---- label1 ----
@@ -203,7 +203,7 @@ public class providerForm extends JPanel {
         button7.setForeground(new Color(51, 102, 255));
         button7.addActionListener(e -> logoutButtonClick(e));
         add(button7);
-        button7.setBounds(105, 295, 210, button7.getPreferredSize().height);
+        button7.setBounds(135, 295, 150, button7.getPreferredSize().height);
 
         //---- button8 ----
         button8.setText("Exit");
@@ -211,7 +211,7 @@ public class providerForm extends JPanel {
         button8.setForeground(new Color(51, 102, 255));
         button8.addActionListener(e -> exitButtonClick(e));
         add(button8);
-        button8.setBounds(105, 325, 210, button8.getPreferredSize().height);
+        button8.setBounds(135, 325, 150, button8.getPreferredSize().height);
 
         //---- label2 ----
         label2.setText("text");

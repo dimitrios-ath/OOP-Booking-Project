@@ -163,13 +163,12 @@ public class registerAsProvider extends JPanel {
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
-        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing
-        . border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frm\u0044es\u0069gn\u0065r \u0045va\u006cua\u0074io\u006e", javax. swing. border. TitledBorder
-        . CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("D\u0069al\u006fg" ,java .
-        awt .Font .BOLD ,12 ), java. awt. Color. red) , getBorder( )) )
-        ;  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-        ) {if ("\u0062or\u0064er" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} )
-        ;
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder
+        ( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border. TitledBorder. CENTER, javax. swing. border
+        . TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt
+        . Color. red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void
+        propertyChange (java .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( )
+        ; }} );
         setLayout(null);
 
         //---- label1 ----
@@ -177,86 +176,86 @@ public class registerAsProvider extends JPanel {
         label1.setForeground(Color.white);
         label1.setFont(new Font("Tahoma", Font.BOLD, 22));
         add(label1);
-        label1.setBounds(50, 0, 310, label1.getPreferredSize().height);
+        label1.setBounds(50, 0, 305, label1.getPreferredSize().height);
 
         //---- label2 ----
         label2.setText("Username:");
         label2.setForeground(Color.white);
         label2.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label2);
-        label2.setBounds(50, 43, 86, 19);
+        label2.setBounds(50, 45, 86, 15);
 
         //---- textField5 ----
         textField5.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField5);
-        textField5.setBounds(240, 45, 140, textField5.getPreferredSize().height);
+        textField5.setBounds(240, 45, 160, 20);
 
         //---- label3 ----
         label3.setText("Password:");
         label3.setForeground(Color.white);
         label3.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label3);
-        label3.setBounds(50, 70, 86, 19);
+        label3.setBounds(50, 75, 86, 15);
 
         //---- passwordField1 ----
         passwordField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(passwordField1);
-        passwordField1.setBounds(240, 70, 140, passwordField1.getPreferredSize().height);
+        passwordField1.setBounds(240, 75, 160, 20);
 
         //---- label11 ----
         label11.setText("Confirm Password:");
         label11.setForeground(Color.white);
         label11.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label11);
-        label11.setBounds(50, 95, label11.getPreferredSize().width, 19);
+        label11.setBounds(50, 105, label11.getPreferredSize().width, 15);
 
         //---- passwordField2 ----
         passwordField2.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(passwordField2);
-        passwordField2.setBounds(240, 95, 140, passwordField2.getPreferredSize().height);
+        passwordField2.setBounds(240, 105, 160, 20);
 
         //---- label5 ----
         label5.setText("First name:");
         label5.setForeground(Color.white);
         label5.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label5);
-        label5.setBounds(50, 120, 86, 19);
+        label5.setBounds(50, 135, 86, 15);
 
         //---- textField8 ----
         textField8.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField8);
-        textField8.setBounds(240, 120, 140, textField8.getPreferredSize().height);
+        textField8.setBounds(240, 135, 160, 20);
 
         //---- label6 ----
         label6.setText("Last name:");
         label6.setForeground(Color.white);
         label6.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label6);
-        label6.setBounds(50, 145, 86, 19);
+        label6.setBounds(50, 165, 86, 15);
 
         //---- textField9 ----
         textField9.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField9);
-        textField9.setBounds(240, 145, 140, textField9.getPreferredSize().height);
+        textField9.setBounds(240, 165, 160, 20);
 
         //---- label4 ----
         label4.setText("Email:");
         label4.setForeground(Color.white);
         label4.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label4);
-        label4.setBounds(50, 170, 86, 19);
+        label4.setBounds(50, 195, 86, 15);
 
         //---- textField10 ----
         textField10.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField10);
-        textField10.setBounds(240, 170, 140, textField10.getPreferredSize().height);
+        textField10.setBounds(240, 195, 160, 20);
 
         //---- label9 ----
         label9.setText("Type");
         label9.setForeground(Color.white);
         label9.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label9);
-        label9.setBounds(50, 195, 86, label9.getPreferredSize().height);
+        label9.setBounds(50, 225, 86, 15);
 
         //---- comboBox1 ----
         comboBox1.setModel(new DefaultComboBoxModel<>(new String[] {
@@ -266,43 +265,43 @@ public class registerAsProvider extends JPanel {
         }));
         comboBox1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(comboBox1);
-        comboBox1.setBounds(240, 195, 140, comboBox1.getPreferredSize().height);
+        comboBox1.setBounds(240, 225, 160, 20);
 
         //---- label8 ----
         label8.setText("Country:");
         label8.setForeground(Color.white);
         label8.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label8);
-        label8.setBounds(50, 220, 86, 19);
+        label8.setBounds(50, 255, 86, 15);
 
         //---- textField7 ----
         textField7.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField7);
-        textField7.setBounds(240, 220, 140, textField7.getPreferredSize().height);
+        textField7.setBounds(240, 255, 160, 20);
 
         //---- label7 ----
         label7.setText("Region:");
         label7.setForeground(Color.white);
         label7.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label7);
-        label7.setBounds(50, 245, 86, 19);
+        label7.setBounds(50, 285, 86, 15);
 
         //---- textField11 ----
         textField11.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField11);
-        textField11.setBounds(240, 245, 140, textField11.getPreferredSize().height);
+        textField11.setBounds(240, 285, 160, 20);
 
         //---- label10 ----
         label10.setText("Office address:");
         label10.setForeground(Color.white);
         label10.setFont(new Font("Tahoma", Font.BOLD, 14));
         add(label10);
-        label10.setBounds(50, 270, 125, label10.getPreferredSize().height);
+        label10.setBounds(50, 315, 125, 15);
 
         //---- textField12 ----
         textField12.setFont(new Font("Tahoma", Font.PLAIN, 14));
         add(textField12);
-        textField12.setBounds(240, 270, 140, textField12.getPreferredSize().height);
+        textField12.setBounds(240, 315, 160, 20);
 
         //---- button1 ----
         button1.setText("Register");
@@ -310,7 +309,7 @@ public class registerAsProvider extends JPanel {
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
         button1.addActionListener(e -> register(e));
         add(button1);
-        button1.setBounds(240, 300, 140, button1.getPreferredSize().height);
+        button1.setBounds(255, 355, 130, 20);
 
         {
             // compute preferred size

@@ -5,13 +5,15 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
+			"background": new java.awt.Color( 51, 102, 255, 255 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "All reservations:"
 				"font": new java.awt.Font( "Tahoma", 1, 14 )
+				"foreground": &Color0 new java.awt.Color( 255, 255, 255, 255 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 405
-				"y": 75
+				"x": 345
+				"y": 80
 				"width": 120
 				"height": 20
 			} )
@@ -25,17 +27,18 @@ new FormModel {
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 65
 				"y": 105
-				"width": 800
+				"width": 685
 				"height": 235
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
 				"text": "Return"
 				"font": #Font0
+				"foreground": new java.awt.Color( 51, 102, 255, 255 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "returnButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 395
-				"y": 365
+				"x": 65
+				"y": 355
 				"width": 135
 				"height": 30
 			} )
@@ -43,13 +46,14 @@ new FormModel {
 				name: "label2"
 				"text": "Reservations"
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
+				"foreground": #Color0
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 390
-				"y": 25
+				"x": 330
+				"y": 10
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 930, 425 )
+			"size": new java.awt.Dimension( 825, 425 )
 		} )
 	}
 }

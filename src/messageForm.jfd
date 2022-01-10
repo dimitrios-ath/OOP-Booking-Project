@@ -12,7 +12,7 @@ new FormModel {
 				"foreground": new java.awt.Color( 255, 255, 255, 255 )
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 100
+				"x": 105
 				"y": 10
 				"width": 110
 			} )
@@ -23,9 +23,9 @@ new FormModel {
 				"foreground": &Color0 new java.awt.Color( 51, 102, 255, 255 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "newMessageButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 90
+				"x": 70
 				"y": 50
-				"width": 130
+				"width": 200
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button1"
@@ -34,9 +34,9 @@ new FormModel {
 				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "inboxButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 90
+				"x": 70
 				"y": 80
-				"width": 130
+				"width": 200
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
@@ -45,13 +45,13 @@ new FormModel {
 				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "returnButtonClicked", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 90
+				"x": 95
 				"y": 120
-				"width": 130
+				"width": 145
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 315, 220 )
+			"size": new java.awt.Dimension( 340, 250 )
 		} )
 	}
 }

@@ -90,7 +90,7 @@ public class returnAllReservationsForRoomForm extends JPanel {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - asdfasdfa
+        // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
         label1 = new JLabel();
         label2 = new JLabel();
         scrollPane1 = new JScrollPane();
@@ -99,19 +99,21 @@ public class returnAllReservationsForRoomForm extends JPanel {
         label3 = new JLabel();
 
         //======== this ========
-        setBorder ( new javax . swing. border .CompoundBorder ( new javax . swing. border .TitledBorder ( new javax . swing. border .EmptyBorder ( 0
-        , 0 ,0 , 0) ,  "JF\u006frmDes\u0069gner \u0045valua\u0074ion" , javax. swing .border . TitledBorder. CENTER ,javax . swing. border .TitledBorder . BOTTOM
-        , new java. awt .Font ( "D\u0069alog", java .awt . Font. BOLD ,12 ) ,java . awt. Color .red ) ,
-         getBorder () ) );  addPropertyChangeListener( new java. beans .PropertyChangeListener ( ){ @Override public void propertyChange (java . beans. PropertyChangeEvent e
-        ) { if( "\u0062order" .equals ( e. getPropertyName () ) )throw new RuntimeException( ) ;} } );
+        setBackground(new Color(51, 102, 255));
+        setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
+        0, 0, 0, 0) , "JF\u006frmDesi\u0067ner Ev\u0061luatio\u006e", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
+        . BOTTOM, new java .awt .Font ("Dialo\u0067" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
+        red) , getBorder( )) );  addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
+        beans .PropertyChangeEvent e) {if ("borde\u0072" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
         setLayout(null);
 
         //---- label1 ----
         label1.setText("Room \"name\" reservations:");
         label1.setFont(new Font("Tahoma", Font.BOLD, 14));
         label1.setHorizontalAlignment(SwingConstants.CENTER);
+        label1.setForeground(Color.white);
         add(label1);
-        label1.setBounds(new Rectangle(new Point(365, 90), label1.getPreferredSize()));
+        label1.setBounds(new Rectangle(new Point(230, 100), label1.getPreferredSize()));
 
         //---- label2 ----
         label2.setText("Please select a room");
@@ -129,20 +131,22 @@ public class returnAllReservationsForRoomForm extends JPanel {
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(52, 120, 818, 210);
+        scrollPane1.setBounds(52, 120, 553, 210);
 
         //---- button1 ----
         button1.setText("Return");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> returnButtonClick(e));
         add(button1);
-        button1.setBounds(390, 360, 145, button1.getPreferredSize().height);
+        button1.setBounds(55, 340, 145, button1.getPreferredSize().height);
 
         //---- label3 ----
         label3.setText("Reservations");
         label3.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label3.setForeground(Color.white);
         add(label3);
-        label3.setBounds(new Rectangle(new Point(390, 20), label3.getPreferredSize()));
+        label3.setBounds(new Rectangle(new Point(260, 20), label3.getPreferredSize()));
 
         {
             // compute preferred size
@@ -162,7 +166,7 @@ public class returnAllReservationsForRoomForm extends JPanel {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - asdfasdfa
+    // Generated using JFormDesigner Evaluation license - Nikos Mpasdanis
     private JLabel label1;
     private JLabel label2;
     private JScrollPane scrollPane1;

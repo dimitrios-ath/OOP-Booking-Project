@@ -5,10 +5,12 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class com.jformdesigner.runtime.NullLayout ) ) {
 			name: "this"
+			"background": new java.awt.Color( 51, 102, 255, 255 )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Type the room ID:"
 				"font": &Font0 new java.awt.Font( "Tahoma", 1, 14 )
+				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 235
 				"y": 85
@@ -27,6 +29,7 @@ new FormModel {
 				"text": "Select one from the list below:"
 				"font": #Font0
 				"horizontalAlignment": 0
+				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 210
 				"y": 155
@@ -53,21 +56,23 @@ new FormModel {
 				name: "button1"
 				"text": "Back"
 				"font": #Font0
+				"foreground": &Color0 new java.awt.Color( 51, 102, 255, 255 )
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "backButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 145
-				"y": 410
+				"x": 45
+				"y": 395
 				"width": 120
 			} )
 			add( new FormComponent( "javax.swing.JButton" ) {
 				name: "button2"
 				"text": "Next"
 				"font": #Font0
+				"foreground": #Color0
 				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "nextButtonClick", true ) )
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
-				"x": 410
-				"y": 410
-				"width": 120
+				"x": 480
+				"y": 395
+				"width": 150
 			} )
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label3"
@@ -81,6 +86,7 @@ new FormModel {
 				name: "label5"
 				"text": "Reservations"
 				"font": new java.awt.Font( "Tahoma", 1, 22 )
+				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 265
 				"y": 25
@@ -89,13 +95,15 @@ new FormModel {
 				name: "label6"
 				"text": "Or"
 				"font": new java.awt.Font( "Tahoma", 1, 14 )
+				"background": new java.awt.Color( 255, 255, 255, 255 )
+				"foreground": sfield java.awt.Color white
 			}, new FormLayoutConstraints( class com.jformdesigner.runtime.NullConstraints ) {
 				"x": 335
 				"y": 125
 			} )
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 5, 5 )
-			"size": new java.awt.Dimension( 680, 460 )
+			"location": new java.awt.Point( 0, 10 )
+			"size": new java.awt.Dimension( 680, 450 )
 		} )
 	}
 }
