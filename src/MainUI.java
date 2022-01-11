@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -167,6 +169,11 @@ public class MainUI {
         jframe.setResizable(false);
         jframe.add(loginForm);
         jframe.setVisible(true);
+        jframe.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                saveAndExit();
+            }
+        });
     }
 
     /**
