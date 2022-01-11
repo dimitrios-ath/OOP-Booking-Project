@@ -1,15 +1,12 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
+import javax.swing.*;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
-import javax.swing.*;
-import javax.swing.border.*;
 
-public class searchByRoomIDForm extends JPanel {
+public class adminSearchCustomerReservationsForm extends JPanel {
     JFrame jframe;
-    searchByRoomIDForm currentForm;
+    adminSearchCustomerReservationsForm currentForm;
     private final Admin admin;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -20,17 +17,15 @@ public class searchByRoomIDForm extends JPanel {
     private final Map<String,Admin> admins;
     private final Map<Integer,Message> messages;
     DefaultListModel<String> model;
-    AtomicBoolean noRoomsFound;
-    ArrayList<Integer> roomIDsInList;
-    private static DecimalFormat df;
+    AtomicBoolean noCustomersFound;
 
-    public void setCurrentForm(searchByRoomIDForm currentForm) {
+    public void setCurrentForm(adminSearchCustomerReservationsForm currentForm) {
         this.currentForm = currentForm;
     }
 
-    public searchByRoomIDForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                              Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                              Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Admin admin) {
+    public adminSearchCustomerReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                                               Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
+                                               Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Admin admin) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -42,26 +37,20 @@ public class searchByRoomIDForm extends JPanel {
         this.mainUI = mainUI;
         this.admin = admin;
         initComponents();
-        jframe.setPreferredSize(new Dimension(675, 475));
+        jframe.setPreferredSize(new Dimension(320, 480));
         jframe.pack();
 
-        roomIDsInList = new ArrayList<>();
-        df = new DecimalFormat("0.00");
         model = new DefaultListModel<>();
-        noRoomsFound = new AtomicBoolean(true);
-        this.rooms.forEach((roomID, room) -> {
-            model.addElement("Room ID: " + room.getId() + ", Name: \"" + room.getName() +
-                    "\", Type: " + room.getType() + ", Capacity: " +
-                    room.getCapacity().toString()+ ", Price: $" +
-                    df.format(room.getPrice()));
-            roomIDsInList.add(roomID);
-            noRoomsFound.set(false);
+        noCustomersFound = new AtomicBoolean(true);
+        this.customers.forEach((username, Customer) -> {
+                model.addElement(username);
+                noCustomersFound.set(false);
         });
-        if (noRoomsFound.get()) {
-            model.addElement("No rooms found");
+        if (noCustomersFound.get()) {
+            model.addElement("No customers found");
         }
         list1.setModel(model);
-        if (!noRoomsFound.get()){
+        if (!noCustomersFound.get()){
             list1.setEnabled(true);
             textField1.setEnabled(false);
         } else {
@@ -71,68 +60,60 @@ public class searchByRoomIDForm extends JPanel {
         }
     }
 
-    private void textField1Click() {
-        if (!noRoomsFound.get()) {
-            list1.setEnabled(false);
-            textField1.setEnabled(true);
-        }
-    }
-
     private void list1Click() {
-        if (!noRoomsFound.get()) {
+        if (!noCustomersFound.get()) {
             list1.setEnabled(true);
             textField1.setEnabled(false);
         }
     }
 
+    private void textField1Click() {
+        if (!noCustomersFound.get()) {
+            list1.setEnabled(false);
+            textField1.setEnabled(true);
+        }
+    }
+
     private void backButtonClick() {
-        searchReservationsForm searchReservationsForm = new searchReservationsForm(jframe, this.reservations,
+        adminSearchReservationsForm adminSearchReservationsForm = new adminSearchReservationsForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
-        searchReservationsForm.setCurrentForm(searchReservationsForm);
-        jframe.add(searchReservationsForm);
+        adminSearchReservationsForm.setCurrentForm(adminSearchReservationsForm);
+        jframe.add(adminSearchReservationsForm);
         this.currentForm.setVisible(false);
     }
 
     private void nextButtonClick() {
-        if (!noRoomsFound.get()) {
+        if (!noCustomersFound.get()) {
             if (list1.isEnabled() && !textField1.isEnabled()) {
                 if (!list1.isSelectionEmpty()) {
-                    returnReservationsByRoomID returnReservationsByRoomID = new returnReservationsByRoomID(
+                    adminReturnCustomerReservationsForm adminReturnCustomerReservationsForm = new adminReturnCustomerReservationsForm(
                             jframe, this.reservations, this.rooms, this.users, this.customers, this.providers, this.admins,
-                            this.messages, this.mainUI, this.admin, roomIDsInList.get(list1.getSelectedIndex()));
-                    returnReservationsByRoomID.setCurrentForm(returnReservationsByRoomID);
-                    jframe.add(returnReservationsByRoomID);
+                            this.messages, this.mainUI, this.admin, list1.getSelectedValue());
+                    adminReturnCustomerReservationsForm.setCurrentForm(adminReturnCustomerReservationsForm);
+                    jframe.add(adminReturnCustomerReservationsForm);
                     this.currentForm.setVisible(false);
                 }
                 else {
-                    label3.setText("Please select a room");
+                    label3.setText("Please select a username");
                     label3.setForeground(Color.red);
                     label3.setVisible(true);
                 }
 
             }
             else if (textField1.isEnabled() && !list1.isEnabled()) {
-                try {
-                    Integer givenID = Integer.parseInt(textField1.getText());
-                    if (this.rooms.containsKey(givenID)) {
-                        returnReservationsByRoomID returnReservationsByRoomID = new returnReservationsByRoomID(jframe, this.reservations,
-                                this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
-                                this.mainUI, this.admin, givenID);
-                        returnReservationsByRoomID.setCurrentForm(returnReservationsByRoomID);
-                        jframe.add(returnReservationsByRoomID);
-                        this.currentForm.setVisible(false);
-                    } else {
-                        label3.setText("Room not found");
-                        label3.setForeground(Color.red);
-                        label3.setVisible(true);
-                    }
-                } catch (NumberFormatException ignored) {
-                    label3.setText("Please enter a valid room ID");
+                if (this.customers.containsKey(textField1.getText())) {
+                    adminReturnCustomerReservationsForm adminReturnCustomerReservationsForm = new adminReturnCustomerReservationsForm(jframe, this.reservations,
+                            this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
+                            this.mainUI, this.admin, textField1.getText());
+                    adminReturnCustomerReservationsForm.setCurrentForm(adminReturnCustomerReservationsForm);
+                    jframe.add(adminReturnCustomerReservationsForm);
+                    this.currentForm.setVisible(false);
+                } else {
+                    label3.setText("Username not found");
                     label3.setForeground(Color.red);
                     label3.setVisible(true);
                 }
-
 
             }
         }
@@ -151,19 +132,21 @@ public class searchByRoomIDForm extends JPanel {
         JLabel label6 = new JLabel();
 
         //======== this ========
+        setFont(new Font("Tahoma", Font.BOLD, 14));
         setBackground(new Color(51, 102, 255));
         setLayout(null);
 
         //---- label1 ----
-        label1.setText("Type the room ID:");
+        label1.setText("Type the username:");
         label1.setFont(new Font("Tahoma", Font.BOLD, 14));
         label1.setForeground(Color.white);
         add(label1);
-        label1.setBounds(new Rectangle(new Point(205, 70), label1.getPreferredSize()));
+        label1.setBounds(20, 80, 145, 30);
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
+        textField1.setForeground(Color.black);
         textField1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -171,15 +154,15 @@ public class searchByRoomIDForm extends JPanel {
             }
         });
         add(textField1);
-        textField1.setBounds(345, 65, 95, textField1.getPreferredSize().height);
+        textField1.setBounds(170, 80, 130, textField1.getPreferredSize().height);
 
         //---- label4 ----
-        label4.setText("Select a room from the list below:");
+        label4.setText("Select one from the list below:");
         label4.setFont(new Font("Tahoma", Font.BOLD, 14));
         label4.setHorizontalAlignment(SwingConstants.CENTER);
         label4.setForeground(Color.white);
         add(label4);
-        label4.setBounds(200, 130, 275, 30);
+        label4.setBounds(20, 150, 285, label4.getPreferredSize().height);
 
         //======== scrollPane1 ========
         {
@@ -189,21 +172,7 @@ public class searchByRoomIDForm extends JPanel {
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             list1.setEnabled(false);
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            list1.setModel(new AbstractListModel<>() {
-                final String[] values = {
-                        "Name: \"test\", type: hotel, capacity: 2, price: $40.00"
-                };
 
-                @Override
-                public int getSize() {
-                    return values.length;
-                }
-
-                @Override
-                public String getElementAt(int i) {
-                    return values[i];
-                }
-            });
             list1.setBackground(Color.white);
             list1.setForeground(Color.black);
             list1.addMouseListener(new MouseAdapter() {
@@ -215,32 +184,33 @@ public class searchByRoomIDForm extends JPanel {
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(55, 160, 565, 220);
+        scrollPane1.setBounds(50, 180, 220, 205);
 
         //---- button1 ----
         button1.setText("Back");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> backButtonClick());
         add(button1);
-        button1.setBounds(140, 395, 125, 40);
+        button1.setBounds(50, 400, 100, 40);
 
         //---- button2 ----
         button2.setText("Next");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
+
         button2.addActionListener(e -> nextButtonClick());
         add(button2);
-        button2.setBounds(410, 395, 125, 40);
+        button2.setBounds(170, 400, 100, 40);
 
         //---- label3 ----
-        label3.setText("Room ID not found");
+        label3.setText("Username not found");
         label3.setVisible(false);
         label3.setFont(new Font("Tahoma", Font.PLAIN, 14));
+        label3.setHorizontalAlignment(SwingConstants.CENTER);
         add(label3);
-        label3.setBounds(460, 65, 195, 25);
+        label3.setBounds(65, 55, 200, 25);
 
         //---- label5 ----
         label5.setText("Reservations");
@@ -248,15 +218,14 @@ public class searchByRoomIDForm extends JPanel {
         label5.setForeground(Color.white);
         label5.setHorizontalAlignment(SwingConstants.CENTER);
         add(label5);
-        label5.setBounds(265, 20, 155, 35);
+        label5.setBounds(new Rectangle(new Point(90, 20), label5.getPreferredSize()));
 
         //---- label6 ----
         label6.setText("or");
         label6.setFont(new Font("Tahoma", Font.BOLD, 14));
-        label6.setBackground(Color.white);
         label6.setForeground(Color.white);
         add(label6);
-        label6.setBounds(new Rectangle(new Point(330, 105), label6.getPreferredSize()));
+        label6.setBounds(new Rectangle(new Point(160, 120), label6.getPreferredSize()));
 
         {
             // compute preferred size

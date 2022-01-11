@@ -4,11 +4,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.*;
-import javax.swing.border.*;
 
-public class returnReservationsByRoomID extends JPanel {
+public class adminReturnRoomReservationsForm extends JPanel {
     JFrame jframe;
-    returnReservationsByRoomID currentForm;
+    adminReturnRoomReservationsForm currentForm;
     private final Admin admin;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -22,14 +21,14 @@ public class returnReservationsByRoomID extends JPanel {
     private static DecimalFormat df;
     AtomicBoolean noReservationsFound;
 
-    public void setCurrentForm(returnReservationsByRoomID currentForm) {
+    public void setCurrentForm(adminReturnRoomReservationsForm currentForm) {
         this.currentForm = currentForm;
     }
     
-    public returnReservationsByRoomID(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                                      Map<String,Authentication> users, Map<String,Customer> customers,
-                                      Map<String,Provider> providers, Map<String,Admin> admins,
-                                      Map<Integer,Message> messages, MainUI mainUI, Admin admin, Integer roomID) {
+    public adminReturnRoomReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                                           Map<String,Authentication> users, Map<String,Customer> customers,
+                                           Map<String,Provider> providers, Map<String,Admin> admins,
+                                           Map<Integer,Message> messages, MainUI mainUI, Admin admin, Integer roomID) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -115,7 +114,7 @@ public class returnReservationsByRoomID extends JPanel {
                     return values[i];
                 }
             });
-            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
             list1.setBackground(Color.white);
             list1.setForeground(Color.black);
             scrollPane1.setViewportView(list1);
@@ -133,8 +132,8 @@ public class returnReservationsByRoomID extends JPanel {
         //---- button1 ----
         button1.setText("Return");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> returnButtonClick());
         add(button1);
         button1.setBounds(435, 340, 125, 40);

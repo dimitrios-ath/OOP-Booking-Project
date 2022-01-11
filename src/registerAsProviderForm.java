@@ -2,11 +2,10 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.Map;
 import javax.swing.*;
-import javax.swing.border.*;
 
-public class registerAsProvider extends JPanel {
+public class registerAsProviderForm extends JPanel {
     JFrame jframe;
-    registerAsProvider currentForm;
+    registerAsProviderForm currentForm;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
     private final Map<Integer,Room> rooms;
@@ -16,13 +15,13 @@ public class registerAsProvider extends JPanel {
     private final Map<String,Admin> admins;
     private final Map<Integer,Message> messages;
 
-    public void setCurrentForm(registerAsProvider currentForm) {
+    public void setCurrentForm(registerAsProviderForm currentForm) {
         this.currentForm = currentForm;
     }
 
-    public registerAsProvider(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                              Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                              Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI) {
+    public registerAsProviderForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                                  Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
+                                  Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -185,7 +184,7 @@ public class registerAsProvider extends JPanel {
 
         //---- textField5 ----
         textField5.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField5.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         textField5.setForeground(Color.black);
         add(textField5);
         textField5.setBounds(185, 75, 150, 25);
@@ -200,7 +199,7 @@ public class registerAsProvider extends JPanel {
 
         //---- passwordField1 ----
         passwordField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        passwordField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         passwordField1.setForeground(Color.black);
         add(passwordField1);
         passwordField1.setBounds(185, 105, 150, 25);
@@ -215,7 +214,7 @@ public class registerAsProvider extends JPanel {
 
         //---- passwordField2 ----
         passwordField2.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        passwordField2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         passwordField2.setForeground(Color.black);
         add(passwordField2);
         passwordField2.setBounds(185, 135, 150, 25);
@@ -230,7 +229,7 @@ public class registerAsProvider extends JPanel {
 
         //---- textField8 ----
         textField8.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField8.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         textField8.setForeground(Color.black);
         add(textField8);
         textField8.setBounds(185, 165, 150, 25);
@@ -245,7 +244,7 @@ public class registerAsProvider extends JPanel {
 
         //---- textField9 ----
         textField9.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField9.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         textField9.setForeground(Color.black);
         add(textField9);
         textField9.setBounds(185, 195, 150, 25);
@@ -260,7 +259,7 @@ public class registerAsProvider extends JPanel {
 
         //---- textField10 ----
         textField10.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField10.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         textField10.setText("mail@example.com");
         textField10.setForeground(Color.gray);
         textField10.addMouseListener(new MouseAdapter() {
@@ -287,7 +286,7 @@ public class registerAsProvider extends JPanel {
             "Private"
         }));
         comboBox1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        comboBox1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         comboBox1.setForeground(Color.black);
         add(comboBox1);
         comboBox1.setBounds(185, 255, 150, 25);
@@ -302,7 +301,7 @@ public class registerAsProvider extends JPanel {
 
         //---- textField7 ----
         textField7.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField7.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         textField7.setForeground(Color.black);
         add(textField7);
         textField7.setBounds(185, 285, 150, 25);
@@ -317,7 +316,7 @@ public class registerAsProvider extends JPanel {
 
         //---- textField11 ----
         textField11.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField11.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         textField11.setForeground(Color.black);
         add(textField11);
         textField11.setBounds(185, 315, 150, 25);
@@ -332,16 +331,16 @@ public class registerAsProvider extends JPanel {
 
         //---- textField12 ----
         textField12.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField12.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         textField12.setForeground(Color.black);
         add(textField12);
         textField12.setBounds(185, 345, 150, 25);
 
         //---- button1 ----
         button1.setText("Register");
-        button1.setForeground(Color.white);
+        button1.setForeground(new Color(51, 102, 255));
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         button1.addActionListener(e -> register());
         add(button1);
         button1.setBounds(210, 395, 125, 40);
@@ -349,8 +348,8 @@ public class registerAsProvider extends JPanel {
         //---- button2 ----
         button2.setText("Cancel");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-        button2.setForeground(Color.white);
+
+        button2.setForeground(new Color(51, 102, 255));
         button2.addActionListener(e -> cancelButtonClick());
         add(button2);
         button2.setBounds(45, 395, 125, 40);

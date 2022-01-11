@@ -1,16 +1,14 @@
 import java.awt.*;
-import java.text.DecimalFormat;
-import java.time.format.DateTimeFormatter;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.*;
-import javax.swing.border.*;
+import java.text.DecimalFormat;
+import java.util.Map;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-public class returnAllReservationsForRoomForm extends JPanel {
+public class adminReturnCustomerReservationsForm extends JPanel {
     JFrame jframe;
-    returnAllReservationsForRoomForm currentForm;
-    private final Provider provider;
+    adminReturnCustomerReservationsForm currentForm;
+    private final Admin admin;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
     private final Map<Integer,Room> rooms;
@@ -19,16 +17,18 @@ public class returnAllReservationsForRoomForm extends JPanel {
     private final Map<String,Provider> providers;
     private final Map<String,Admin> admins;
     private final Map<Integer,Message> messages;
-    private static DecimalFormat df;
     DefaultListModel<String> model;
+    private static DecimalFormat df;
+    AtomicBoolean noReservationsFound;
 
-    public void setCurrentForm(returnAllReservationsForRoomForm currentForm) {
+    public void setCurrentForm(adminReturnCustomerReservationsForm currentForm) {
         this.currentForm = currentForm;
     }
     
-    public returnAllReservationsForRoomForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                Map<String,Authentication> users, Map<String,Customer> customers, Map<String, Provider> providers,
-                Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider, Integer id) {
+    public adminReturnCustomerReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                                               Map<String,Authentication> users, Map<String,Customer> customers,
+                                               Map<String,Provider> providers, Map<String,Admin> admins,
+                                               Map<Integer,Message> messages, MainUI mainUI, Admin admin, String username) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -38,67 +38,58 @@ public class returnAllReservationsForRoomForm extends JPanel {
         this.admins = admins;
         this.messages = messages;
         this.mainUI = mainUI;
-        this.provider = provider;
-        df = new DecimalFormat("0.00");
+        this.admin = admin;
         initComponents();
         jframe.setPreferredSize(new Dimension(1000, 425));
         jframe.pack();
 
-        label1.setText("Room \"" + rooms.get(id).getName() + "\" reservations:");
+        label1.setText("Reservations for " + username + ":");
+        df = new DecimalFormat("0.00");
         model = new DefaultListModel<>();
-        AtomicBoolean roomFound = new AtomicBoolean(false);
-        AtomicInteger counter = new AtomicInteger(1);
-        reservations.forEach((reservationID, reservation) -> {
-            if (reservation.getRoomID() == id) {
-                model.addElement(counter + ". " + "reservation ID: " + reservation.getReservationID() + ", Username: \""
-                        + reservation.getUsername() + "\", Guests: " + reservation.getGuestNumber() + ", Check in: "
-                        + reservation.getCheckIn().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
-                        + ", Check out: " + reservation.getCheckOut().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
-                        + ", Total price: $" + df.format((reservation.getTotalPrice())));
-                roomFound.set(true);
-                counter.getAndIncrement();
+        noReservationsFound = new AtomicBoolean(true);
+        this.reservations.forEach((reservationID, reservation) -> {
+            if (Objects.equals(username, reservation.getUsername())){
+                model.addElement("Reservation ID: " + reservation.getReservationID()
+                        +", Total Guests: " + reservation.getGuestNumber()+", Total nights: " + reservation.getTotalNights()+
+                        ", Room ID: " + reservation.getRoomID() +", Check in: " + reservation.getCheckIn() + ", Check out: " +
+                        reservation.getCheckOut() + ", Price/night: " + df.format(reservation.getTotalPrice() /
+                        reservation.getTotalNights()) + "$, Total cost: " + df.format(reservation.getTotalPrice()) + "$");
+                noReservationsFound.set(false);
             }
         });
-        if (!roomFound.get()) {
-            model.addElement("No reservations found for this room");
+        if (noReservationsFound.get()) {
+            model.addElement("No reservations found");
             list1.setEnabled(false);
         }
         list1.setModel(model);
     }
 
     private void returnButtonClick() {
-        providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
-                this.providers, this.admins, this.messages, this.mainUI, this.provider);
-        providerForm.setCurrentForm(providerForm);
-        this.jframe.add(providerForm);
+        adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
+                this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
+        adminForm.setCurrentForm(adminForm);
+        this.jframe.add(adminForm);
         this.currentForm.setVisible(false);
     }
 
     private void initComponents() {
         label1 = new JLabel();
-        JLabel label2 = new JLabel();
         JScrollPane scrollPane1 = new JScrollPane();
         list1 = new JList<>();
         JButton button1 = new JButton();
-        JLabel label3 = new JLabel();
+        JLabel label2 = new JLabel();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
         setLayout(null);
 
         //---- label1 ----
-        label1.setText("Room \"name\" reservations:");
+        label1.setText("User \"user\" reservations:");
         label1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        label1.setHorizontalAlignment(SwingConstants.CENTER);
         label1.setForeground(Color.white);
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
         add(label1);
-        label1.setBounds(300, 65, 410, label1.getPreferredSize().height);
-
-        //---- label2 ----
-        label2.setText("Please select a room");
-        label2.setVisible(false);
-        add(label2);
-        label2.setBounds(0, 0, 0, 0);
+        label1.setBounds(310, 70, 375, label1.getPreferredSize().height);
 
         //======== scrollPane1 ========
         {
@@ -122,29 +113,31 @@ public class returnAllReservationsForRoomForm extends JPanel {
                     return values[i];
                 }
             });
-            list1.setForeground(Color.black);
+
             list1.setBackground(Color.white);
-            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+            list1.setForeground(Color.black);
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(55, 90, 890, 225);
+        scrollPane1.setBounds(55, 95, 890, 225);
 
         //---- button1 ----
         button1.setText("Return");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> returnButtonClick());
         add(button1);
         button1.setBounds(435, 340, 125, 40);
 
-        //---- label3 ----
-        label3.setText("Reservations");
-        label3.setFont(new Font("Tahoma", Font.BOLD, 22));
-        label3.setForeground(Color.white);
-        add(label3);
-        label3.setBounds(new Rectangle(new Point(430, 20), label3.getPreferredSize()));
+        //---- label2 ----
+        label2.setText("Reservations");
+        label2.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label2.setBackground(Color.white);
+        label2.setForeground(Color.white);
+        label2.setHorizontalAlignment(SwingConstants.CENTER);
+        add(label2);
+        label2.setBounds(425, 15, 150, 40);
 
         {
             // compute preferred size
@@ -161,6 +154,10 @@ public class returnAllReservationsForRoomForm extends JPanel {
             setPreferredSize(preferredSize);
         }
     }
+
+    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
+    // Generated using JFormDesigner Evaluation license - asdfasdfa
     private JLabel label1;
     private JList<String> list1;
+    // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

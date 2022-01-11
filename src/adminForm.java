@@ -1,6 +1,5 @@
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.*;
 import java.util.Map;
 
 public class adminForm extends JPanel {
@@ -58,29 +57,29 @@ public class adminForm extends JPanel {
     private void exitButtonClick() {this.mainUI.saveAndExit();}
 
     private void searchReservationsButtonClick() {
-        searchReservationsForm searchReservationsForm = new searchReservationsForm(jframe, this.reservations,
+        adminSearchReservationsForm adminSearchReservationsForm = new adminSearchReservationsForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
-        searchReservationsForm.setCurrentForm(searchReservationsForm);
-        jframe.add(searchReservationsForm);
+        adminSearchReservationsForm.setCurrentForm(adminSearchReservationsForm);
+        jframe.add(adminSearchReservationsForm);
         this.currentForm.setVisible(false);
     }
 
     private void searchUserButtonClick() {
-        searchUsersForm searchUsersForm = new searchUsersForm(jframe, this.reservations,
+        adminSearchUsersForm adminSearchUsersForm = new adminSearchUsersForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
-        searchUsersForm.setCurrentForm(searchUsersForm);
-        jframe.add(searchUsersForm);
+        adminSearchUsersForm.setCurrentForm(adminSearchUsersForm);
+        jframe.add(adminSearchUsersForm);
         this.currentForm.setVisible(false);
     }
 
     private void activateDeactivateAccountsButtonClick() {
-        changeAccountStateForm changeAccountStateForm = new changeAccountStateForm(jframe, this.reservations,
+        adminChangeAccountStateForm adminChangeAccountStateForm = new adminChangeAccountStateForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                 this.mainUI, this.admin);
-        changeAccountStateForm.setCurrentForm(changeAccountStateForm);
-        jframe.add(changeAccountStateForm);
+        adminChangeAccountStateForm.setCurrentForm(adminChangeAccountStateForm);
+        jframe.add(adminChangeAccountStateForm);
         this.currentForm.setVisible(false);
     }
 
@@ -110,8 +109,8 @@ public class adminForm extends JPanel {
         //---- button1 ----
         button1.setText("Search reservations");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> searchReservationsButtonClick());
         add(button1);
         button1.setBounds(55, 60, 205, 40);
@@ -119,8 +118,8 @@ public class adminForm extends JPanel {
         //---- button2 ----
         button2.setText("Search users");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
+
         button2.addActionListener(e -> searchUserButtonClick());
         add(button2);
         button2.setBounds(55, 105, 205, 40);
@@ -128,8 +127,8 @@ public class adminForm extends JPanel {
         //---- button3 ----
         button3.setText("Change user state");
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button3.setForeground(Color.white);
-        button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button3.setForeground(new Color(51, 102, 255));
+
         button3.addActionListener(e -> activateDeactivateAccountsButtonClick());
         add(button3);
         button3.setBounds(55, 150, 205, 40);
@@ -137,8 +136,8 @@ public class adminForm extends JPanel {
         //---- button4 ----
         button4.setText("Messages");
         button4.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button4.setForeground(Color.white);
-        button4.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button4.setForeground(new Color(51, 102, 255));
+
         button4.addActionListener(e -> messagesButtonClick());
         add(button4);
         button4.setBounds(55, 195, 205, 40);
@@ -146,8 +145,8 @@ public class adminForm extends JPanel {
         //---- button5 ----
         button5.setText("Log out");
         button5.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button5.setForeground(Color.white);
-        button5.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button5.setForeground(new Color(51, 102, 255));
+
         button5.addActionListener(e -> logoutButtonClick());
         add(button5);
         button5.setBounds(95, 260, 125, 40);
@@ -155,8 +154,8 @@ public class adminForm extends JPanel {
         //---- button6 ----
         button6.setText("Exit");
         button6.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button6.setForeground(Color.white);
-        button6.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button6.setForeground(new Color(51, 102, 255));
+
         button6.addActionListener(e -> exitButtonClick());
         add(button6);
         button6.setBounds(95, 305, 125, 40);

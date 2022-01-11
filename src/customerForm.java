@@ -1,7 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
 import java.util.Map;
-import javax.swing.border.*;
 
 public class customerForm extends JPanel {
     JFrame jframe;
@@ -40,20 +39,20 @@ public class customerForm extends JPanel {
     }
     
     private void cancelReservationButtonClick(){
-        cancelReservationCustomerForm cancelReservationCustomerForm= new cancelReservationCustomerForm(this.jframe,
+        customerCancelReservationForm customerCancelReservationForm = new customerCancelReservationForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.customer);
-        cancelReservationCustomerForm.setCurrentForm(cancelReservationCustomerForm);
-        this.jframe.add(cancelReservationCustomerForm);
+        customerCancelReservationForm.setCurrentForm(customerCancelReservationForm);
+        this.jframe.add(customerCancelReservationForm);
         this.currentForm.setVisible(false);
     }
 
     private void showAllReservationsButtonClick(){
-        showAllReservationsCustomerForm showAllReservationsCustomerForm=new showAllReservationsCustomerForm(
+        customerShowAllReservationsForm customerShowAllReservationsForm =new customerShowAllReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.customer);
-        showAllReservationsCustomerForm.setCurrentForm(showAllReservationsCustomerForm);
-        this.jframe.add(showAllReservationsCustomerForm);
+        customerShowAllReservationsForm.setCurrentForm(customerShowAllReservationsForm);
+        this.jframe.add(customerShowAllReservationsForm);
         this.currentForm.setVisible(false);
     }
     
@@ -79,11 +78,11 @@ public class customerForm extends JPanel {
     }
 
     private void reserveRoomButtonClick() {
-        reserveRoomForm reserveRoomForm =new reserveRoomForm(this.jframe,
+        customerReserveRoomFiltersForm customerReserveRoomFiltersForm =new customerReserveRoomFiltersForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.customer);
-        reserveRoomForm.setCurrentForm(reserveRoomForm);
-        this.jframe.add(reserveRoomForm);
+        customerReserveRoomFiltersForm.setCurrentForm(customerReserveRoomFiltersForm);
+        this.jframe.add(customerReserveRoomFiltersForm);
         this.currentForm.setVisible(false);
     }
 
@@ -115,8 +114,8 @@ public class customerForm extends JPanel {
         //---- SearchAndReserveRoom ----
         searchAndReserveRoom.setText("Reserve room");
         searchAndReserveRoom.setFont(new Font("Tahoma", Font.BOLD, 14));
-        searchAndReserveRoom.setForeground(Color.white);
-        searchAndReserveRoom.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        searchAndReserveRoom.setForeground(new Color(51, 102, 255));
+
         searchAndReserveRoom.addActionListener(e -> reserveRoomButtonClick());
         add(searchAndReserveRoom);
         searchAndReserveRoom.setBounds(50, 70, 210, 40);
@@ -124,8 +123,8 @@ public class customerForm extends JPanel {
         //---- cancelReservation ----
         cancelReservation.setText("Cancel Reservation");
         cancelReservation.setFont(new Font("Tahoma", Font.BOLD, 14));
-        cancelReservation.setForeground(Color.white);
-        cancelReservation.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        cancelReservation.setForeground(new Color(51, 102, 255));
+
         cancelReservation.addActionListener(e -> cancelReservationButtonClick());
         add(cancelReservation);
         cancelReservation.setBounds(50, 115, 210, 40);
@@ -133,8 +132,8 @@ public class customerForm extends JPanel {
         //---- showAllReservations ----
         showAllReservations.setText("Show Reservations");
         showAllReservations.setFont(new Font("Tahoma", Font.BOLD, 14));
-        showAllReservations.setForeground(Color.white);
-        showAllReservations.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        showAllReservations.setForeground(new Color(51, 102, 255));
+
         showAllReservations.addActionListener(e -> showAllReservationsButtonClick());
         add(showAllReservations);
         showAllReservations.setBounds(50, 160, 210, 40);
@@ -142,8 +141,8 @@ public class customerForm extends JPanel {
         //---- button1 ----
         button1.setText("Messages");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> messagesButtonClick());
         add(button1);
         button1.setBounds(50, 205, 210, 40);
@@ -151,8 +150,8 @@ public class customerForm extends JPanel {
         //---- Logout ----
         logout.setText("Log Out");
         logout.setFont(new Font("Tahoma", Font.BOLD, 14));
-        logout.setForeground(Color.white);
-        logout.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        logout.setForeground(new Color(51, 102, 255));
+
         logout.addActionListener(e -> logoutButtonClick());
         add(logout);
         logout.setBounds(95, 270, 125, 40);
@@ -160,8 +159,8 @@ public class customerForm extends JPanel {
         //---- exit ----
         exit.setText("Exit");
         exit.setFont(new Font("Tahoma", Font.BOLD, 14));
-        exit.setForeground(Color.white);
-        exit.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        exit.setForeground(new Color(51, 102, 255));
+
         exit.addActionListener(e -> exitButtonClick());
         add(exit);
         exit.setBounds(95, 315, 125, 40);

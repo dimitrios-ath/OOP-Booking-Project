@@ -1,14 +1,13 @@
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class inboxForm extends JPanel {
+public class messageInboxForm extends JPanel {
     JFrame jframe;
-    inboxForm currentForm;
+    messageInboxForm currentForm;
     String currentUsername;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -21,14 +20,14 @@ public class inboxForm extends JPanel {
     DefaultListModel<String> model;
     private ArrayList<Integer> idsInList;
 
-    public void setCurrentForm(inboxForm currentForm) {
+    public void setCurrentForm(messageInboxForm currentForm) {
         this.currentForm = currentForm;
     }
 
-    public inboxForm(JFrame jframe, Map<Integer,Reservation> reservations,
-                     Map<Integer,Room> rooms, Map<String,Authentication> users, Map<String,Customer> customers,
-                     Map<String,Provider> providers, Map<String,Admin> admins, Map<Integer,Message> messages,
-                     MainUI mainUI, String currentUsername) {
+    public messageInboxForm(JFrame jframe, Map<Integer,Reservation> reservations,
+                            Map<Integer,Room> rooms, Map<String,Authentication> users, Map<String,Customer> customers,
+                            Map<String,Provider> providers, Map<String,Admin> admins, Map<Integer,Message> messages,
+                            MainUI mainUI, String currentUsername) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -174,7 +173,7 @@ public class inboxForm extends JPanel {
 
             //---- list1 ----
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
             list1.setForeground(Color.black);
             list1.setBackground(Color.white);
             list1.addListSelectionListener(e -> listValueSelected());
@@ -203,7 +202,7 @@ public class inboxForm extends JPanel {
             textArea1.setLineWrap(true);
             textArea1.setEnabled(false);
             textArea1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            textArea1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
             textArea1.setForeground(Color.black);
             textArea1.setBackground(Color.white);
             scrollPane2.setViewportView(textArea1);
@@ -214,8 +213,8 @@ public class inboxForm extends JPanel {
         //---- button1 ----
         button1.setText("Return");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> returnButtonClicked());
         add(button1);
         button1.setBounds(150, 370, 125, 40);

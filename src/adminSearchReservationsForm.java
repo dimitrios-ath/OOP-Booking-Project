@@ -1,11 +1,10 @@
 import java.awt.*;
 import java.util.Map;
 import javax.swing.*;
-import javax.swing.border.*;
 
-public class searchReservationsForm extends JPanel {
+public class adminSearchReservationsForm extends JPanel {
     JFrame jframe;
-    searchReservationsForm currentForm;
+    adminSearchReservationsForm currentForm;
     private final Admin admin;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -16,13 +15,13 @@ public class searchReservationsForm extends JPanel {
     private final Map<String,Admin> admins;
     private final Map<Integer,Message> messages;
     
-    public void setCurrentForm(searchReservationsForm currentForm) {
+    public void setCurrentForm(adminSearchReservationsForm currentForm) {
         this.currentForm = currentForm;
     }
     
-    public searchReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                                  Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                                  Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Admin admin) {
+    public adminSearchReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                                       Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
+                                       Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Admin admin) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -39,29 +38,29 @@ public class searchReservationsForm extends JPanel {
     }
 
     private void searchByCustomerUsernameButtonClick() {
-        searchByCustomerUsernameForm searchByCustomerUsernameForm = new searchByCustomerUsernameForm(
+        adminSearchCustomerReservationsForm adminSearchCustomerReservationsForm = new adminSearchCustomerReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin);
-        searchByCustomerUsernameForm.setCurrentForm(searchByCustomerUsernameForm);
-        this.jframe.add(searchByCustomerUsernameForm);
+        adminSearchCustomerReservationsForm.setCurrentForm(adminSearchCustomerReservationsForm);
+        this.jframe.add(adminSearchCustomerReservationsForm);
         this.currentForm.setVisible(false);
     }
 
     private void searchByRoomButtonClick() {
-        searchByRoomIDForm searchByRoomIDForm = new searchByRoomIDForm(
+        adminSearchRoomReservationsForm adminSearchRoomReservationsForm = new adminSearchRoomReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin);
-        searchByRoomIDForm.setCurrentForm(searchByRoomIDForm);
-        this.jframe.add(searchByRoomIDForm);
+        adminSearchRoomReservationsForm.setCurrentForm(adminSearchRoomReservationsForm);
+        this.jframe.add(adminSearchRoomReservationsForm);
         this.currentForm.setVisible(false);
     }
 
     private void showAllReservationsButtonClick() {
-        returnAllReservationsAdminForm returnAllReservationsAdminForm = new returnAllReservationsAdminForm(
+        adminReturnAllReservationsForm adminReturnAllReservationsForm = new adminReturnAllReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.admin);
-        returnAllReservationsAdminForm.setCurrentForm(returnAllReservationsAdminForm);
-        this.jframe.add(returnAllReservationsAdminForm);
+        adminReturnAllReservationsForm.setCurrentForm(adminReturnAllReservationsForm);
+        this.jframe.add(adminReturnAllReservationsForm);
         this.currentForm.setVisible(false);
     }
 
@@ -96,8 +95,8 @@ public class searchReservationsForm extends JPanel {
         //---- button1 ----
         button1.setText("Search by customer");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> searchByCustomerUsernameButtonClick());
         add(button1);
         button1.setBounds(55, 80, 210, 40);
@@ -105,8 +104,8 @@ public class searchReservationsForm extends JPanel {
         //---- button2 ----
         button2.setText("Search by room");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
+
         button2.addActionListener(e -> searchByRoomButtonClick());
         add(button2);
         button2.setBounds(55, 125, 210, 40);
@@ -114,8 +113,8 @@ public class searchReservationsForm extends JPanel {
         //---- button3 ----
         button3.setText("All reservations");
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button3.setForeground(Color.white);
-        button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button3.setForeground(new Color(51, 102, 255));
+
         button3.addActionListener(e -> showAllReservationsButtonClick());
         add(button3);
         button3.setBounds(55, 170, 210, 40);
@@ -123,8 +122,8 @@ public class searchReservationsForm extends JPanel {
         //---- button4 ----
         button4.setText("Cancel");
         button4.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button4.setForeground(Color.white);
-        button4.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button4.setForeground(new Color(51, 102, 255));
+
         button4.addActionListener(e -> cancelButtonClick());
         add(button4);
         button4.setBounds(100, 235, 125, 40);

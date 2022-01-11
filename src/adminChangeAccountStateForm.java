@@ -4,11 +4,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.*;
-import javax.swing.border.*;
 
-public class changeAccountStateForm extends JPanel {
+public class adminChangeAccountStateForm extends JPanel {
     JFrame jframe;
-    changeAccountStateForm currentForm;
+    adminChangeAccountStateForm currentForm;
     private final Admin admin;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -21,13 +20,13 @@ public class changeAccountStateForm extends JPanel {
     DefaultListModel<String> model;
     private ArrayList<String> usernamesInList;
 
-    public void setCurrentForm(changeAccountStateForm currentForm) {
+    public void setCurrentForm(adminChangeAccountStateForm currentForm) {
         this.currentForm = currentForm;
     }
 
-    public changeAccountStateForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                                  Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                                  Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Admin admin) {
+    public adminChangeAccountStateForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                                       Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
+                                       Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Admin admin) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -227,7 +226,7 @@ public class changeAccountStateForm extends JPanel {
             "Admin"
         }));
         comboBox1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        comboBox1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         comboBox1.setForeground(Color.black);
         add(comboBox1);
         comboBox1.setBounds(235, 65, comboBox1.getPreferredSize().width, 25);
@@ -242,14 +241,14 @@ public class changeAccountStateForm extends JPanel {
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         textField1.setForeground(Color.black);
         add(textField1);
         textField1.setBounds(235, 100, 135, 25);
 
         //======== scrollPane1 ========
         {
-            scrollPane1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
 
             //---- list1 ----
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -268,7 +267,7 @@ public class changeAccountStateForm extends JPanel {
                     return values[i];
                 }
             });
-            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
             list1.setBackground(Color.white);
             list1.setForeground(Color.black);
             scrollPane1.setViewportView(list1);
@@ -286,8 +285,8 @@ public class changeAccountStateForm extends JPanel {
         //---- button2 ----
         button2.setText("Return");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
+
         button2.addActionListener(e -> returnButtonClick());
         add(button2);
         button2.setBounds(200, 335, 105, 40);
@@ -295,8 +294,8 @@ public class changeAccountStateForm extends JPanel {
         //---- button1 ----
         button1.setText("Search");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> searchButtonClick());
         add(button1);
         button1.setBounds(110, 280, 130, 40);
@@ -304,8 +303,8 @@ public class changeAccountStateForm extends JPanel {
         //---- button3 ----
         button3.setText("Change state");
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button3.setForeground(Color.white);
-        button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button3.setForeground(new Color(51, 102, 255));
+
         button3.addActionListener(e -> changeStateButtonClick());
         add(button3);
         button3.setBounds(260, 280, 130, 40);

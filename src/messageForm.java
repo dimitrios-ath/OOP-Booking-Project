@@ -1,7 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
 import java.util.Map;
-import javax.swing.border.*;
 
 public class messageForm extends JPanel {
     JFrame jframe;
@@ -62,18 +61,18 @@ public class messageForm extends JPanel {
     }
 
     private void newMessageButtonClick() {
-        newMessageForm newMessageForm = new newMessageForm(this.jframe, this.reservations, this.rooms, this.users, 
+        messageNewMessageForm messageNewMessageForm = new messageNewMessageForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, currentUsername);
-        newMessageForm.setCurrentForm(newMessageForm);
-        this.jframe.add(newMessageForm);
+        messageNewMessageForm.setCurrentForm(messageNewMessageForm);
+        this.jframe.add(messageNewMessageForm);
         this.currentForm.setVisible(false);
     }
 
     private void inboxButtonClick() {
-        inboxForm inboxForm = new inboxForm(this.jframe, this.reservations, this.rooms, this.users,
+        messageInboxForm messageInboxForm = new messageInboxForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, currentUsername);
-        inboxForm.setCurrentForm(inboxForm);
-        this.jframe.add(inboxForm);
+        messageInboxForm.setCurrentForm(messageInboxForm);
+        this.jframe.add(messageInboxForm);
         this.currentForm.setVisible(false);
     }
 
@@ -100,8 +99,8 @@ public class messageForm extends JPanel {
         //---- button3 ----
         button3.setText("New message");
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button3.setForeground(Color.white);
-        button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button3.setForeground(new Color(51, 102, 255));
+
         button3.addActionListener(e -> newMessageButtonClick());
         add(button3);
         button3.setBounds(50, 60, 170, 40);
@@ -109,8 +108,8 @@ public class messageForm extends JPanel {
         //---- button1 ----
         button1.setText("Inbox");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> inboxButtonClick());
         add(button1);
         button1.setBounds(50, 105, 170, 40);
@@ -118,8 +117,8 @@ public class messageForm extends JPanel {
         //---- button2 ----
         button2.setText("Return");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
+
         button2.addActionListener(e -> returnButtonClicked());
         add(button2);
         button2.setBounds(75, 165, 125, 40);

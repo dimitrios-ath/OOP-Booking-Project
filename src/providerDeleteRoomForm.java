@@ -5,11 +5,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.*;
-import javax.swing.border.*;
 
-public class selectRoomAndDeleteForm extends JPanel {
+public class providerDeleteRoomForm extends JPanel {
     JFrame jframe;
-    selectRoomAndDeleteForm currentForm;
+    providerDeleteRoomForm currentForm;
     private final Provider provider;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -23,15 +22,15 @@ public class selectRoomAndDeleteForm extends JPanel {
     private static DecimalFormat df;
     private final ArrayList<Integer> idsInList;
 
-    public void setCurrentForm(selectRoomAndDeleteForm currentForm) {
+    public void setCurrentForm(providerDeleteRoomForm currentForm) {
         this.currentForm = currentForm;
     }
 
-    public selectRoomAndDeleteForm(JFrame jframe, Map<Integer,Reservation> reservations,
-                                   Map<Integer,Room> rooms, Map<String,Authentication> users,
-                                   Map<String,Customer> customers, Map<String,Provider> providers,
-                                   Map<String,Admin> admins, Map<Integer,Message> messages,
-                                   MainUI mainUI, Provider provider) {
+    public providerDeleteRoomForm(JFrame jframe, Map<Integer,Reservation> reservations,
+                                  Map<Integer,Room> rooms, Map<String,Authentication> users,
+                                  Map<String,Customer> customers, Map<String,Provider> providers,
+                                  Map<String,Admin> admins, Map<Integer,Message> messages,
+                                  MainUI mainUI, Provider provider) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -157,7 +156,7 @@ public class selectRoomAndDeleteForm extends JPanel {
                     return values[i];
                 }
             });
-            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
             list1.setBackground(Color.white);
             list1.setForeground(Color.black);
             scrollPane1.setViewportView(list1);
@@ -168,8 +167,8 @@ public class selectRoomAndDeleteForm extends JPanel {
         //---- button1 ----
         button1.setText("Cancel");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> cancelButtonClick());
         add(button1);
         button1.setBounds(140, 320, 120, 40);
@@ -177,8 +176,8 @@ public class selectRoomAndDeleteForm extends JPanel {
         //---- button2 ----
         button2.setText("Remove");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
+
         button2.addActionListener(e -> removeButtonClick());
         add(button2);
         button2.setBounds(410, 320, 120, 40);

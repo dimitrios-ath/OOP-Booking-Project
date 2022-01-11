@@ -7,9 +7,9 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.swing.border.*;
 
-public class cancelReservationCustomerForm extends JPanel {
+public class customerCancelReservationForm extends JPanel {
     JFrame jframe;
-    cancelReservationCustomerForm currentForm;
+    customerCancelReservationForm currentForm;
     private final Customer customer;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -23,11 +23,11 @@ public class cancelReservationCustomerForm extends JPanel {
     DefaultListModel<String> model;
     private static DecimalFormat df;
 
-    public void setCurrentForm(cancelReservationCustomerForm currentForm) {
+    public void setCurrentForm(customerCancelReservationForm currentForm) {
         this.currentForm = currentForm;
     }
 
-    public cancelReservationCustomerForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+    public customerCancelReservationForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                          Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                          Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Customer customer) {
         this.jframe = jframe;
@@ -167,8 +167,7 @@ public class cancelReservationCustomerForm extends JPanel {
         //---- buttonCancelReservation ----
         buttonCancelReservation.setText("Cancel");
         buttonCancelReservation.setFont(new Font("Tahoma", Font.BOLD, 14));
-        buttonCancelReservation.setForeground(Color.white);
-        buttonCancelReservation.setBorder(new BevelBorder(BevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        buttonCancelReservation.setForeground(new Color(51, 102, 255));
         buttonCancelReservation.addActionListener(e -> cancelReservationButtonClick());
         add(buttonCancelReservation);
         buttonCancelReservation.setBounds(475, 340, 125, 40);
@@ -176,8 +175,7 @@ public class cancelReservationCustomerForm extends JPanel {
         //---- buttonCancel ----
         buttonCancel.setText("Return");
         buttonCancel.setFont(new Font("Tahoma", Font.BOLD, 14));
-        buttonCancel.setForeground(Color.white);
-        buttonCancel.setBorder(new BevelBorder(BevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        buttonCancel.setForeground(new Color(51, 102, 255));
         buttonCancel.addActionListener(e -> returnButtonClick());
         add(buttonCancel);
         buttonCancel.setBounds(185, 340, 125, 40);

@@ -2,11 +2,10 @@ import java.awt.*;
 import java.util.Map;
 import java.util.Objects;
 import javax.swing.*;
-import javax.swing.border.*;
 
-public class editExistingRoomProviderForm extends JPanel {
+public class providerEditExistingRoomForm extends JPanel {
     JFrame jframe;
-    editExistingRoomProviderForm currentForm;
+    providerEditExistingRoomForm currentForm;
     private final Provider provider;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -18,13 +17,13 @@ public class editExistingRoomProviderForm extends JPanel {
     private final Map<Integer,Message> messages;
     private final Integer idToEdit;
 
-    public void setCurrentForm(editExistingRoomProviderForm currentForm) {
+    public void setCurrentForm(providerEditExistingRoomForm currentForm) {
         this.currentForm = currentForm;
     }
     
-    public editExistingRoomProviderForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                Map<String,Authentication> users, Map<String,Customer> customers, Map<String, Provider> providers,
-                Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider, Integer id) {
+    public providerEditExistingRoomForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                                        Map<String,Authentication> users, Map<String,Customer> customers, Map<String, Provider> providers,
+                                        Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider, Integer id) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -205,7 +204,7 @@ public class editExistingRoomProviderForm extends JPanel {
             "Apartment"
         }));
         comboBox1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        comboBox1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         comboBox1.setForeground(Color.black);
         add(comboBox1);
         comboBox1.setBounds(225, 70, 115, 25);
@@ -220,7 +219,7 @@ public class editExistingRoomProviderForm extends JPanel {
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         textField1.setForeground(Color.black);
         add(textField1);
         textField1.setBounds(225, 100, 115, 25);
@@ -381,38 +380,38 @@ public class editExistingRoomProviderForm extends JPanel {
 
         //---- button2 ----
         button2.setText("Cancel");
-        button2.setForeground(Color.white);
+        button2.setForeground(new Color(51, 102, 255));
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         button2.addActionListener(e -> cancelClick());
         add(button2);
         button2.setBounds(65, 540, 125, 40);
 
         //---- button1 ----
         button1.setText("Edit");
-        button1.setForeground(Color.white);
+        button1.setForeground(new Color(51, 102, 255));
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         button1.addActionListener(e -> editRoomClick());
         add(button1);
         button1.setBounds(245, 540, 125, 40);
 
         //---- spinner1 ----
-        spinner1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         spinner1.setModel(new SpinnerNumberModel(1, 1, 99, 1));
         spinner1.setForeground(Color.black);
         add(spinner1);
         spinner1.setBounds(225, 190, 95, 25);
 
         //---- spinner2 ----
-        spinner2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         spinner2.setModel(new SpinnerNumberModel(10, 1, 9999, 5));
         spinner2.setForeground(Color.black);
         add(spinner2);
         spinner2.setBounds(225, 160, 95, 25);
 
         //---- spinner3 ----
-        spinner3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         spinner3.setModel(new SpinnerNumberModel(10.0, 0.01, 9999.0, 5.0));
         spinner3.setForeground(Color.black);
         spinner3.setFont(new Font("Tahoma", Font.PLAIN, 14));

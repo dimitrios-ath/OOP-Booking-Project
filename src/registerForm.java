@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.util.Map;
 import javax.swing.*;
-import javax.swing.border.*;
 
 public class registerForm extends JPanel {
     JFrame jframe;
@@ -46,16 +45,16 @@ public class registerForm extends JPanel {
 
     private void registerWithRole() {
         if (comboBox1.getSelectedItem()=="Customer") {
-            registerAsCustomer registerAsCustomer = new registerAsCustomer(this.jframe, this.reservations,
+            registerAsCustomerForm registerAsCustomerForm = new registerAsCustomerForm(this.jframe, this.reservations,
                     this.rooms, this.users, this.customers, this.providers, this.admins, this.messages, this.mainUI);
-            registerAsCustomer.setCurrentForm(registerAsCustomer);
-            this.jframe.add(registerAsCustomer);
+            registerAsCustomerForm.setCurrentForm(registerAsCustomerForm);
+            this.jframe.add(registerAsCustomerForm);
         }
         else {
-            registerAsProvider registerAsProvider = new registerAsProvider(this.jframe, this.reservations,
+            registerAsProviderForm registerAsProviderForm = new registerAsProviderForm(this.jframe, this.reservations,
                     this.rooms, this.users, this.customers, this.providers, this.admins, this.messages, this.mainUI);
-            registerAsProvider.setCurrentForm(registerAsProvider);
-            this.jframe.add(registerAsProvider);
+            registerAsProviderForm.setCurrentForm(registerAsProviderForm);
+            this.jframe.add(registerAsProviderForm);
         }
         this.currentForm.setVisible(false);
     }
@@ -81,9 +80,9 @@ public class registerForm extends JPanel {
 
         //---- button1 ----
         button1.setText("Back");
-        button1.setForeground(Color.white);
+        button1.setForeground(new Color(51, 102, 255));
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         button1.addActionListener(e -> backToLogin());
         add(button1);
         button1.setBounds(45, 170, 110, 35);
@@ -96,15 +95,15 @@ public class registerForm extends JPanel {
         }));
         comboBox1.setForeground(Color.black);
         comboBox1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        comboBox1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         add(comboBox1);
         comboBox1.setBounds(110, 105, 125, 40);
 
         //---- button2 ----
         button2.setText("Next");
-        button2.setForeground(Color.white);
+        button2.setForeground(new Color(51, 102, 255));
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         button2.addActionListener(e -> registerWithRole());
         add(button2);
         button2.setBounds(185, 170, 110, 35);

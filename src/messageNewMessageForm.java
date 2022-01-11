@@ -2,11 +2,10 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.Map;
 import java.util.Objects;
-import javax.swing.border.*;
 
-public class newMessageForm extends JPanel {
+public class messageNewMessageForm extends JPanel {
     JFrame jframe;
-    newMessageForm currentForm;
+    messageNewMessageForm currentForm;
     String currentUsername;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -17,14 +16,14 @@ public class newMessageForm extends JPanel {
     private final Map<String,Admin> admins;
     private final Map<Integer,Message> messages;
     
-    public void setCurrentForm(newMessageForm currentForm) {
+    public void setCurrentForm(messageNewMessageForm currentForm) {
         this.currentForm = currentForm;
     }
     
-    public newMessageForm(JFrame jframe, Map<Integer,Reservation> reservations,
-                          Map<Integer,Room> rooms, Map<String,Authentication> users, Map<String,Customer> customers,
-                          Map<String,Provider> providers, Map<String,Admin> admins, Map<Integer,Message> messages,
-                          MainUI mainUI, String currentUsername) {
+    public messageNewMessageForm(JFrame jframe, Map<Integer,Reservation> reservations,
+                                 Map<Integer,Room> rooms, Map<String,Authentication> users, Map<String,Customer> customers,
+                                 Map<String,Provider> providers, Map<String,Admin> admins, Map<Integer,Message> messages,
+                                 MainUI mainUI, String currentUsername) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -121,7 +120,7 @@ public class newMessageForm extends JPanel {
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         textField1.setForeground(Color.black);
-        textField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         add(textField1);
         textField1.setBounds(170, 65, 110, 25);
 
@@ -136,7 +135,7 @@ public class newMessageForm extends JPanel {
         //---- textField2 ----
         textField2.setFont(new Font("Tahoma", Font.PLAIN, 14));
         textField2.setForeground(Color.black);
-        textField2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         add(textField2);
         textField2.setBounds(170, 95, 110, 25);
 
@@ -160,7 +159,7 @@ public class newMessageForm extends JPanel {
             textArea1.setRows(6);
             textArea1.setLineWrap(true);
             textArea1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-            textArea1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
             textArea1.setForeground(Color.black);
             textArea1.setBackground(Color.white);
             scrollPane1.setViewportView(textArea1);
@@ -171,8 +170,8 @@ public class newMessageForm extends JPanel {
         //---- button1 ----
         button1.setText("Cancel");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> cancelButtonClick());
         add(button1);
         button1.setBounds(80, 300, 125, 40);
@@ -180,8 +179,8 @@ public class newMessageForm extends JPanel {
         //---- button2 ----
         button2.setText("Send");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
+
         button2.addActionListener(e -> sendButtonClick());
         add(button2);
         button2.setBounds(245, 300, 125, 40);

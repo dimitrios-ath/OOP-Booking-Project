@@ -1,14 +1,14 @@
 import java.awt.*;
 import java.text.DecimalFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import javax.swing.*;
-import javax.swing.border.*;
 
-public class showAllRoomsForm extends JPanel {
+public class providerReturnAllReservationsForRoomForm extends JPanel {
     JFrame jframe;
-    showAllRoomsForm currentForm;
+    providerReturnAllReservationsForRoomForm currentForm;
     private final Provider provider;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -18,16 +18,16 @@ public class showAllRoomsForm extends JPanel {
     private final Map<String,Provider> providers;
     private final Map<String,Admin> admins;
     private final Map<Integer,Message> messages;
-    DefaultListModel<String> model;
     private static DecimalFormat df;
+    DefaultListModel<String> model;
 
-    public void setCurrentForm(showAllRoomsForm currentForm) {
+    public void setCurrentForm(providerReturnAllReservationsForRoomForm currentForm) {
         this.currentForm = currentForm;
     }
-
-    public showAllRoomsForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                            Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                            Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider) {
+    
+    public providerReturnAllReservationsForRoomForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                                                    Map<String,Authentication> users, Map<String,Customer> customers, Map<String, Provider> providers,
+                                                    Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider, Integer id) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -36,26 +36,30 @@ public class showAllRoomsForm extends JPanel {
         this.providers = providers;
         this.admins = admins;
         this.messages = messages;
-        this.mainUI=mainUI;
+        this.mainUI = mainUI;
         this.provider = provider;
+        df = new DecimalFormat("0.00");
         initComponents();
-        jframe.setPreferredSize(new Dimension(665, 400));
+        jframe.setPreferredSize(new Dimension(1000, 425));
         jframe.pack();
 
-        df = new DecimalFormat("0.00");
+        label1.setText("Room \"" + rooms.get(id).getName() + "\" reservations:");
         model = new DefaultListModel<>();
-        AtomicBoolean noRoomsForProvider = new AtomicBoolean(true);
-        this.rooms.forEach((id, Room) -> {
-            if (Objects.equals(Room.getOwner(), this.provider.getUsername())){
-                model.addElement("Name: \"" + rooms.get(id).getName() +
-                        "\", type: " + rooms.get(id).getType() + ", capacity: " +
-                        rooms.get(id).getCapacity().toString()+ ", price: $" +
-                        df.format(rooms.get(id).getPrice()));
-                noRoomsForProvider.set(false);
+        AtomicBoolean roomFound = new AtomicBoolean(false);
+        AtomicInteger counter = new AtomicInteger(1);
+        reservations.forEach((reservationID, reservation) -> {
+            if (reservation.getRoomID() == id) {
+                model.addElement(counter + ". " + "reservation ID: " + reservation.getReservationID() + ", Username: \""
+                        + reservation.getUsername() + "\", Guests: " + reservation.getGuestNumber() + ", Check in: "
+                        + reservation.getCheckIn().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                        + ", Check out: " + reservation.getCheckOut().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+                        + ", Total price: $" + df.format((reservation.getTotalPrice())));
+                roomFound.set(true);
+                counter.getAndIncrement();
             }
         });
-        if (noRoomsForProvider.get()) {
-            model.addElement("No rooms found");
+        if (!roomFound.get()) {
+            model.addElement("No reservations found for this room");
             list1.setEnabled(false);
         }
         list1.setModel(model);
@@ -70,22 +74,24 @@ public class showAllRoomsForm extends JPanel {
     }
 
     private void initComponents() {
-        JLabel label1 = new JLabel();
+        label1 = new JLabel();
         JLabel label2 = new JLabel();
         JScrollPane scrollPane1 = new JScrollPane();
         list1 = new JList<>();
         JButton button1 = new JButton();
+        JLabel label3 = new JLabel();
 
         //======== this ========
         setBackground(new Color(51, 102, 255));
         setLayout(null);
 
         //---- label1 ----
-        label1.setText("Available rooms");
-        label1.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label1.setText("Room \"name\" reservations:");
+        label1.setFont(new Font("Tahoma", Font.BOLD, 14));
+        label1.setHorizontalAlignment(SwingConstants.CENTER);
         label1.setForeground(Color.white);
         add(label1);
-        label1.setBounds(new Rectangle(new Point(245, 20), label1.getPreferredSize()));
+        label1.setBounds(300, 65, 410, label1.getPreferredSize().height);
 
         //---- label2 ----
         label2.setText("Please select a room");
@@ -95,13 +101,14 @@ public class showAllRoomsForm extends JPanel {
 
         //======== scrollPane1 ========
         {
+            scrollPane1.setFont(new Font("Tahoma", Font.BOLD, 14));
 
             //---- list1 ----
             list1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
             list1.setFont(new Font("Tahoma", Font.PLAIN, 14));
             list1.setModel(new AbstractListModel<>() {
                 final String[] values = {
-                        "Name: \"test\", type: hotel, capacity: 2, price: $40.00"
+                        "Reservation ID: 123 Username: \"testCustomer\", Guests: 1, Check in: 01-03-2022, Check out: 03-03-2022, Total price: $80.00"
                 };
 
                 @Override
@@ -114,22 +121,29 @@ public class showAllRoomsForm extends JPanel {
                     return values[i];
                 }
             });
-            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
-            list1.setBackground(Color.white);
             list1.setForeground(Color.black);
+            list1.setBackground(Color.white);
+
             scrollPane1.setViewportView(list1);
         }
         add(scrollPane1);
-        scrollPane1.setBounds(50, 60, 565, 245);
+        scrollPane1.setBounds(55, 90, 890, 225);
 
         //---- button1 ----
         button1.setText("Return");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> returnButtonClick());
         add(button1);
-        button1.setBounds(270, 320, 125, 40);
+        button1.setBounds(435, 340, 125, 40);
+
+        //---- label3 ----
+        label3.setText("Reservations");
+        label3.setFont(new Font("Tahoma", Font.BOLD, 22));
+        label3.setForeground(Color.white);
+        add(label3);
+        label3.setBounds(new Rectangle(new Point(430, 20), label3.getPreferredSize()));
 
         {
             // compute preferred size
@@ -146,5 +160,6 @@ public class showAllRoomsForm extends JPanel {
             setPreferredSize(preferredSize);
         }
     }
+    private JLabel label1;
     private JList<String> list1;
 }

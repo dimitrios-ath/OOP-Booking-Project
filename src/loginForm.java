@@ -141,7 +141,6 @@ public class loginForm extends JPanel {
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         textField1.setForeground(Color.black);
-        textField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         add(textField1);
         textField1.setBounds(145, 75, 135, 25);
 
@@ -155,15 +154,13 @@ public class loginForm extends JPanel {
 
         //---- passwordField1 ----
         passwordField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        passwordField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
         add(passwordField1);
         passwordField1.setBounds(145, 110, 135, 25);
 
         //---- button1 ----
         button1.setText("Login");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
         button1.addActionListener(e -> loginButtonClick());
         add(button1);
         button1.setBounds(175, 175, 120, 35);
@@ -172,8 +169,7 @@ public class loginForm extends JPanel {
         button2.setText("Register");
         button2.setActionCommand("Register");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
         button2.addActionListener(e -> registerButtonClick());
         add(button2);
         button2.setBounds(35, 175, 120, 35);
@@ -181,8 +177,7 @@ public class loginForm extends JPanel {
         //---- button3 ----
         button3.setText("Exit");
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button3.setForeground(Color.white);
-        button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button3.setForeground(new Color(51, 102, 255));
         button3.addActionListener(e -> exitButtonClick());
         add(button3);
         button3.setBounds(120, 225, 90, 35);

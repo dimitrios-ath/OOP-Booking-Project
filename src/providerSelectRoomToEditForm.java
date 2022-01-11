@@ -1,13 +1,12 @@
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.*;
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class selectRoomAndEditForm extends JPanel {
+public class providerSelectRoomToEditForm extends JPanel {
     JFrame jframe;
-    selectRoomAndEditForm currentForm;
+    providerSelectRoomToEditForm currentForm;
     private final Provider provider;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -21,13 +20,13 @@ public class selectRoomAndEditForm extends JPanel {
     private static DecimalFormat df;
     private final ArrayList<Integer> idsInList;
 
-    public void setCurrentForm(selectRoomAndEditForm currentForm) {
+    public void setCurrentForm(providerSelectRoomToEditForm currentForm) {
         this.currentForm = currentForm;
     }
 
-    public selectRoomAndEditForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
-                                 Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
-                                 Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider) {
+    public providerSelectRoomToEditForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+                                        Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
+                                        Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider) {
         this.jframe = jframe;
         this.reservations = reservations;
         this.rooms = rooms;
@@ -73,11 +72,11 @@ public class selectRoomAndEditForm extends JPanel {
 
     private void nextButtonClick() {
         if (!list1.isSelectionEmpty()) {
-            editExistingRoomProviderForm editExistingRoomProviderForm = new editExistingRoomProviderForm(this.jframe,
+            providerEditExistingRoomForm providerEditExistingRoomForm = new providerEditExistingRoomForm(this.jframe,
                     this.reservations, this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
                     this.mainUI, this.provider, idsInList.get(list1.getSelectedIndex()));
-            editExistingRoomProviderForm.setCurrentForm(editExistingRoomProviderForm);
-            this.jframe.add(editExistingRoomProviderForm);
+            providerEditExistingRoomForm.setCurrentForm(providerEditExistingRoomForm);
+            this.jframe.add(providerEditExistingRoomForm);
             this.currentForm.setVisible(false);
         } else {
             label2.setForeground(Color.red);
@@ -134,7 +133,7 @@ public class selectRoomAndEditForm extends JPanel {
                     return values[i];
                 }
             });
-            list1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
             list1.setBackground(Color.white);
             list1.setForeground(Color.black);
             scrollPane1.setViewportView(list1);
@@ -145,8 +144,8 @@ public class selectRoomAndEditForm extends JPanel {
         //---- button1 ----
         button1.setText("Cancel");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> cancelButtonClick());
         add(button1);
         button1.setBounds(120, 320, 120, 40);
@@ -154,8 +153,8 @@ public class selectRoomAndEditForm extends JPanel {
         //---- button2 ----
         button2.setText("Next");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
+
         button2.addActionListener(e -> nextButtonClick());
         add(button2);
         button2.setBounds(425, 320, 120, 40);

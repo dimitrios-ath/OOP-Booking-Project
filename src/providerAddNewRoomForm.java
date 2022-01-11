@@ -4,9 +4,9 @@ import java.util.Map;
 import java.util.Objects;
 import javax.swing.border.*;
 
-public class addNewRoomProviderForm extends JPanel {
+public class providerAddNewRoomForm extends JPanel {
     JFrame jframe;
-    addNewRoomProviderForm currentForm;
+    providerAddNewRoomForm currentForm;
     private final Provider provider;
     private final MainUI mainUI;
     private final Map<Integer,Reservation> reservations;
@@ -17,11 +17,11 @@ public class addNewRoomProviderForm extends JPanel {
     private final Map<String,Admin> admins;
     private final Map<Integer,Message> messages;
 
-    public void setCurrentForm(addNewRoomProviderForm currentForm) {
+    public void setCurrentForm(providerAddNewRoomForm currentForm) {
         this.currentForm = currentForm;
     }
 
-    public addNewRoomProviderForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
+    public providerAddNewRoomForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                   Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                   Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider) {
         this.jframe = jframe;
@@ -201,7 +201,7 @@ public class addNewRoomProviderForm extends JPanel {
         }));
         comboBox1.setFont(new Font("Tahoma", Font.PLAIN, 14));
         comboBox1.setEditable(true);
-        comboBox1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         comboBox1.setForeground(new Color(51, 102, 255));
         add(comboBox1);
         comboBox1.setBounds(215, 75, 135, 25);
@@ -216,7 +216,7 @@ public class addNewRoomProviderForm extends JPanel {
 
         //---- textField1 ----
         textField1.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        textField1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         textField1.setForeground(Color.black);
         add(textField1);
         textField1.setBounds(215, 115, 135, 25);
@@ -398,8 +398,8 @@ public class addNewRoomProviderForm extends JPanel {
         //---- button2 ----
         button2.setText("Cancel");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
+
         button2.addActionListener(e -> cancelClick());
         add(button2);
         button2.setBounds(55, 590, 125, 40);
@@ -407,14 +407,14 @@ public class addNewRoomProviderForm extends JPanel {
         //---- button1 ----
         button1.setText("Add");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> addRoomClick());
         add(button1);
         button1.setBounds(220, 590, 125, 40);
 
         //---- spinner1 ----
-        spinner1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         spinner1.setModel(new SpinnerNumberModel(1, 1, 99, 1));
         spinner1.setForeground(Color.black);
         spinner1.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -422,7 +422,7 @@ public class addNewRoomProviderForm extends JPanel {
         spinner1.setBounds(215, 235, 95, 25);
 
         //---- spinner2 ----
-        spinner2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         spinner2.setModel(new SpinnerNumberModel(10, 1, 9999, 5));
         spinner2.setForeground(Color.black);
         spinner2.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -430,7 +430,7 @@ public class addNewRoomProviderForm extends JPanel {
         spinner2.setBounds(215, 195, 95, 25);
 
         //---- spinner3 ----
-        spinner3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+
         spinner3.setModel(new SpinnerNumberModel(10.0, 0.01, 9999.0, 5.0));
         spinner3.setForeground(Color.black);
         spinner3.setFont(new Font("Tahoma", Font.PLAIN, 14));

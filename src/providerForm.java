@@ -1,6 +1,5 @@
 import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.*;
 import java.util.Map;
 
 public class providerForm extends JPanel {
@@ -39,47 +38,47 @@ public class providerForm extends JPanel {
     }
 
     private void addRoomButtonClick() {
-        addNewRoomProviderForm addNewRoomProviderForm = new addNewRoomProviderForm(this.jframe,
+        providerAddNewRoomForm providerAddNewRoomForm = new providerAddNewRoomForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
-        addNewRoomProviderForm.setCurrentForm(addNewRoomProviderForm);
-        this.jframe.add(addNewRoomProviderForm);
+        providerAddNewRoomForm.setCurrentForm(providerAddNewRoomForm);
+        this.jframe.add(providerAddNewRoomForm);
         this.currentForm.setVisible(false);
     }
 
     private void editRoomButtonClick() {
-        selectRoomAndEditForm selectRoomAndEditForm = new selectRoomAndEditForm(this.jframe,
+        providerSelectRoomToEditForm providerSelectRoomToEditForm = new providerSelectRoomToEditForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
-        selectRoomAndEditForm.setCurrentForm(selectRoomAndEditForm);
-        this.jframe.add(selectRoomAndEditForm);
+        providerSelectRoomToEditForm.setCurrentForm(providerSelectRoomToEditForm);
+        this.jframe.add(providerSelectRoomToEditForm);
         this.currentForm.setVisible(false);
     }
 
     private void deleteExistingRoomButtonClick() {
-        selectRoomAndDeleteForm selectRoomAndDeleteForm = new selectRoomAndDeleteForm(this.jframe,
+        providerDeleteRoomForm providerDeleteRoomForm = new providerDeleteRoomForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
-        selectRoomAndDeleteForm.setCurrentForm(selectRoomAndDeleteForm);
-        this.jframe.add(selectRoomAndDeleteForm);
+        providerDeleteRoomForm.setCurrentForm(providerDeleteRoomForm);
+        this.jframe.add(providerDeleteRoomForm);
         this.currentForm.setVisible(false);
     }
 
     private void showAllRoomsButtonClick() {
-        showAllRoomsForm showAllRoomsForm = new showAllRoomsForm(this.jframe,
+        providerShowAllRoomsForm providerShowAllRoomsForm = new providerShowAllRoomsForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
-        showAllRoomsForm.setCurrentForm(showAllRoomsForm);
-        this.jframe.add(showAllRoomsForm);
+        providerShowAllRoomsForm.setCurrentForm(providerShowAllRoomsForm);
+        this.jframe.add(providerShowAllRoomsForm);
         this.currentForm.setVisible(false);
     }
 
     private void returnAllReservationsButtonClick() {
-        selectRoomAndReturnReservationsForm selectRoomAndReturnReservationsForm = new selectRoomAndReturnReservationsForm(
+        providerSelectRoomToReturnReservationsForm providerSelectRoomToReturnReservationsForm = new providerSelectRoomToReturnReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
                 this.admins, this.messages, this.mainUI, this.provider);
-        selectRoomAndReturnReservationsForm.setCurrentForm(selectRoomAndReturnReservationsForm);
-        this.jframe.add(selectRoomAndReturnReservationsForm);
+        providerSelectRoomToReturnReservationsForm.setCurrentForm(providerSelectRoomToReturnReservationsForm);
+        this.jframe.add(providerSelectRoomToReturnReservationsForm);
         this.currentForm.setVisible(false);
     }
 
@@ -131,8 +130,8 @@ public class providerForm extends JPanel {
         //---- button2 ----
         button2.setText("Edit existing room");
         button2.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button2.setForeground(Color.white);
-        button2.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button2.setForeground(new Color(51, 102, 255));
+
         button2.addActionListener(e -> editRoomButtonClick());
         add(button2);
         button2.setBounds(60, 105, 210, 40);
@@ -140,8 +139,8 @@ public class providerForm extends JPanel {
         //---- button3 ----
         button3.setText("Delete existing room");
         button3.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button3.setForeground(Color.white);
-        button3.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button3.setForeground(new Color(51, 102, 255));
+
         button3.addActionListener(e -> deleteExistingRoomButtonClick());
         add(button3);
         button3.setBounds(60, 150, 210, 40);
@@ -149,8 +148,8 @@ public class providerForm extends JPanel {
         //---- button4 ----
         button4.setText("Show all rooms");
         button4.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button4.setForeground(Color.white);
-        button4.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button4.setForeground(new Color(51, 102, 255));
+
         button4.addActionListener(e -> showAllRoomsButtonClick());
         add(button4);
         button4.setBounds(60, 195, 210, 40);
@@ -158,8 +157,8 @@ public class providerForm extends JPanel {
         //---- button5 ----
         button5.setText("Show all reservations");
         button5.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button5.setForeground(Color.white);
-        button5.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button5.setForeground(new Color(51, 102, 255));
+
         button5.addActionListener(e -> returnAllReservationsButtonClick());
         add(button5);
         button5.setBounds(60, 240, 210, 40);
@@ -167,8 +166,8 @@ public class providerForm extends JPanel {
         //---- button6 ----
         button6.setText("Messages");
         button6.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button6.setForeground(Color.white);
-        button6.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button6.setForeground(new Color(51, 102, 255));
+
         button6.addActionListener(e -> messagesButtonClick());
         add(button6);
         button6.setBounds(60, 285, 210, 40);
@@ -176,8 +175,8 @@ public class providerForm extends JPanel {
         //---- button7 ----
         button7.setText("Log out");
         button7.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button7.setForeground(Color.white);
-        button7.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button7.setForeground(new Color(51, 102, 255));
+
         button7.addActionListener(e -> logoutButtonClick());
         add(button7);
         button7.setBounds(100, 350, 125, 40);
@@ -185,8 +184,8 @@ public class providerForm extends JPanel {
         //---- button8 ----
         button8.setText("Exit");
         button8.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button8.setForeground(Color.white);
-        button8.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button8.setForeground(new Color(51, 102, 255));
+
         button8.addActionListener(e -> exitButtonClick());
         add(button8);
         button8.setBounds(100, 395, 125, 40);
@@ -194,8 +193,8 @@ public class providerForm extends JPanel {
         //---- button1 ----
         button1.setText("Add new room");
         button1.setFont(new Font("Tahoma", Font.BOLD, 14));
-        button1.setForeground(Color.white);
-        button1.setBorder(new SoftBevelBorder(SoftBevelBorder.RAISED, Color.white, Color.white, Color.blue, Color.blue));
+        button1.setForeground(new Color(51, 102, 255));
+
         button1.addActionListener(e -> addRoomButtonClick());
         add(button1);
         button1.setBounds(60, 60, 210, 40);
