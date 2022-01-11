@@ -153,6 +153,9 @@ public class MainUI {
 
     }
 
+    /**
+     *  Creates new JFrame and displays login form
+     */
     public void optionHandlerGUI() {
         JFrame jframe = new JFrame("myBooking");
         jframe.setPreferredSize(new Dimension(700, 700));
@@ -166,6 +169,9 @@ public class MainUI {
         jframe.setVisible(true);
     }
 
+    /**
+     * Saves everything to ./data/ and exits
+     */
     public void saveAndExit(){
         try (FileOutputStream fos = new FileOutputStream("./data/reservations.dat");
              ObjectOutputStream oos = new ObjectOutputStream(fos)) {

@@ -26,6 +26,20 @@ public class providerDeleteRoomForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Constructor of providerDeleteRoomForm. Adds to displayed list all rooms of the authenticated provider
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param provider
+     */
     public providerDeleteRoomForm(JFrame jframe, Map<Integer,Reservation> reservations,
                                   Map<Integer,Room> rooms, Map<String,Authentication> users,
                                   Map<String,Customer> customers, Map<String,Provider> providers,
@@ -66,6 +80,9 @@ public class providerDeleteRoomForm extends JPanel {
         list1.setModel(model);
     }
 
+    /**
+     * Returns to the provider panel
+     */
     private void cancelButtonClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
@@ -74,6 +91,10 @@ public class providerDeleteRoomForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * If no reservations for the selected room exist, the selected room is removed.
+     * Otherwise, the appropriate error message is displayed
+     */
     private void removeButtonClick() {
         int id;
         if (!list1.isSelectionEmpty()) {
@@ -114,6 +135,9 @@ public class providerDeleteRoomForm extends JPanel {
         }
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JScrollPane scrollPane1 = new JScrollPane();

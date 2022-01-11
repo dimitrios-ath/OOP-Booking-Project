@@ -25,7 +25,22 @@ public class providerSelectRoomToReturnReservationsForm extends JPanel {
     public void setCurrentForm(providerSelectRoomToReturnReservationsForm currentForm) {
         this.currentForm = currentForm;
     }
-    
+
+    /**
+     * Constructor of providerSelectRoomToReturnReservationsForm. Adds to displayed list all rooms
+     * that belong to the current provider
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param provider
+     */
     public providerSelectRoomToReturnReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations,
                                                       Map<Integer,Room> rooms, Map<String,Authentication> users, Map<String,Customer> customers,
                                                       Map<String,Provider> providers, Map<String,Admin> admins, Map<Integer,Message> messages,
@@ -65,6 +80,9 @@ public class providerSelectRoomToReturnReservationsForm extends JPanel {
         list1.setModel(model);
     }
 
+    /**
+     * Returns to provider panel
+     */
     private void cancelButtonClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
@@ -73,6 +91,9 @@ public class providerSelectRoomToReturnReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Proceeds to return all reservations form for the selected room
+     */
     private void nextButtonClick() {
         if (!list1.isSelectionEmpty()) {
             providerReturnAllReservationsForRoomForm providerReturnAllReservationsForRoomForm = new providerReturnAllReservationsForRoomForm(this.jframe,
@@ -87,6 +108,9 @@ public class providerSelectRoomToReturnReservationsForm extends JPanel {
         }
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         label2 = new JLabel();

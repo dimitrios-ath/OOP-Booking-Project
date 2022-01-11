@@ -21,6 +21,19 @@ public class registerAsCustomerForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Constructor of registerAsCustomerForm
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     */
     public registerAsCustomerForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                   Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                   Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI) {
@@ -38,6 +51,9 @@ public class registerAsCustomerForm extends JPanel {
         initComponents();
     }
 
+    /**
+     *  If the form input is valid, it registers new customer to the appropriate HashMaps
+     */
     private void register() {
         String username = textField5.getText();
         boolean validInput = true;
@@ -129,6 +145,9 @@ public class registerAsCustomerForm extends JPanel {
 
     }
 
+    /**
+     * Returns to log in form
+     */
     private void CancelButtonClick() {
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
@@ -154,6 +173,9 @@ public class registerAsCustomerForm extends JPanel {
     }
 
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JLabel label2 = new JLabel();

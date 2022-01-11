@@ -27,6 +27,21 @@ public class customerCancelReservationForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Constructor of customerCancelReservationForm. Adds to displayed list all reservations
+     * the authenticated customer made
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param customer
+     */
     public customerCancelReservationForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                          Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                          Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Customer customer) {
@@ -70,7 +85,10 @@ public class customerCancelReservationForm extends JPanel {
 
     }
 
-   private void cancelReservationButtonClick() {
+    /**
+     * Cancels selected reservation and returns to the customer panel
+     */
+    private void cancelReservationButtonClick() {
        int id;
        if (!list1.isSelectionEmpty()){
            id=idsInList.get(list1.getSelectedIndex());
@@ -79,7 +97,7 @@ public class customerCancelReservationForm extends JPanel {
                label1.setText("Successfully canceled reservation");
                label1.setForeground(Color.green);
                label1.setVisible(true);
-               customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
+               customerForm customerForm = new customerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                        this.providers, this.admins, this.messages, this.mainUI, this.customer);
                customerForm.setCurrentForm(customerForm);
                this.jframe.add(customerForm);
@@ -95,6 +113,9 @@ public class customerCancelReservationForm extends JPanel {
        }
    }
 
+    /**
+     * Returns to the customer panel
+     */
    private void returnButtonClick() {
        customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                this.providers, this.admins, this.messages, this.mainUI, this.customer);
@@ -103,8 +124,9 @@ public class customerCancelReservationForm extends JPanel {
        this.currentForm.setVisible(false);
    }
 
-
-
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - asdfasdfa

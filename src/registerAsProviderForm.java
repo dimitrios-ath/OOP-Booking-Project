@@ -19,6 +19,19 @@ public class registerAsProviderForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Constructor of registerAsProviderForm
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     */
     public registerAsProviderForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                   Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                   Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI) {
@@ -36,6 +49,9 @@ public class registerAsProviderForm extends JPanel {
         initComponents();
     }
 
+    /**
+     * If the form input is valid, it registers new provider to the appropriate HashMaps
+     */
     private void register() {
         String username = textField5.getText();
         boolean validInput = true;
@@ -123,6 +139,9 @@ public class registerAsProviderForm extends JPanel {
         }
     }
 
+    /**
+     * Returns to log in form
+     */
     private void cancelButtonClick() {
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
@@ -137,6 +156,9 @@ public class registerAsProviderForm extends JPanel {
         textField10.setForeground(Color.black);
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JLabel label2 = new JLabel();

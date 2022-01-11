@@ -18,7 +18,21 @@ public class messageForm extends JPanel {
     public void setCurrentForm(messageForm currentForm) {
         this.currentForm = currentForm;
     }
-    
+
+    /**
+     * Constructor of messageForm
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param currentUsername
+     */
     public messageForm(JFrame jframe, Map<Integer,Reservation> reservations,
                        Map<Integer,Room> rooms, Map<String,Authentication> users, Map<String,Customer> customers,
                        Map<String,Provider> providers, Map<String,Admin> admins, Map<Integer,Message> messages,
@@ -38,6 +52,9 @@ public class messageForm extends JPanel {
         jframe.pack();
     }
 
+    /**
+     *  Returns to the appropriate panel based on authenticated user role
+     */
     private void returnButtonClicked() {
         if (this.users.get(currentUsername).getRole()==1) {
             customerForm customerForm = new customerForm(this.jframe, this.reservations, this.rooms, this.users,
@@ -60,6 +77,9 @@ public class messageForm extends JPanel {
         }
     }
 
+    /**
+     * Displays new message form
+     */
     private void newMessageButtonClick() {
         messageNewMessageForm messageNewMessageForm = new messageNewMessageForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, currentUsername);
@@ -68,6 +88,9 @@ public class messageForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Displays inbox form
+     */
     private void inboxButtonClick() {
         messageInboxForm messageInboxForm = new messageInboxForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, currentUsername);
@@ -76,8 +99,9 @@ public class messageForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-
-
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JButton button3 = new JButton();

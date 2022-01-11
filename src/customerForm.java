@@ -19,7 +19,20 @@ public class customerForm extends JPanel {
         this.currentForm = currentForm;
     }
 
-
+    /**
+     * Constructor of customerForm
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param customer
+     */
     public customerForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                         Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                         Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Customer customer) {
@@ -37,7 +50,10 @@ public class customerForm extends JPanel {
         jframe.pack();
         initComponents();
     }
-    
+
+    /**
+     *  Display the customer cancel reservation form
+     */
     private void cancelReservationButtonClick(){
         customerCancelReservationForm customerCancelReservationForm = new customerCancelReservationForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -47,6 +63,9 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     *  Display the customer show all reservations form
+     */
     private void showAllReservationsButtonClick(){
         customerShowAllReservationsForm customerShowAllReservationsForm =new customerShowAllReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -55,7 +74,10 @@ public class customerForm extends JPanel {
         this.jframe.add(customerShowAllReservationsForm);
         this.currentForm.setVisible(false);
     }
-    
+
+    /**
+     *  Display the message form
+     */
     private void messagesButtonClick() {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -65,6 +87,9 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     *  Logout
+     */
     private void logoutButtonClick() {
         loginForm loginForm = new loginForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages,this.mainUI);
@@ -73,10 +98,16 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Save everything changed and exit
+     */
     private void exitButtonClick() {
         this.mainUI.saveAndExit();
     }
 
+    /**
+     *  Display the reserve room form
+     */
     private void reserveRoomButtonClick() {
         customerReserveRoomFiltersForm customerReserveRoomFiltersForm =new customerReserveRoomFiltersForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -86,10 +117,9 @@ public class customerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
-
-
-
-
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JButton searchAndReserveRoom = new JButton();

@@ -24,7 +24,23 @@ public class adminReturnCustomerReservationsForm extends JPanel {
     public void setCurrentForm(adminReturnCustomerReservationsForm currentForm) {
         this.currentForm = currentForm;
     }
-    
+
+    /**
+     *  Constructor of adminReturnCustomerReservationsForm. Adds to displayed list all existing reservations
+     *  for a specific customer
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param admin
+     * @param username
+     */
     public adminReturnCustomerReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                                Map<String,Authentication> users, Map<String,Customer> customers,
                                                Map<String,Provider> providers, Map<String,Admin> admins,
@@ -64,6 +80,9 @@ public class adminReturnCustomerReservationsForm extends JPanel {
         list1.setModel(model);
     }
 
+    /**
+     *  Returns to admin panel
+     */
     private void returnButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
@@ -72,6 +91,9 @@ public class adminReturnCustomerReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         label1 = new JLabel();
         JScrollPane scrollPane1 = new JScrollPane();

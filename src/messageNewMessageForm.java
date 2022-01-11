@@ -19,7 +19,21 @@ public class messageNewMessageForm extends JPanel {
     public void setCurrentForm(messageNewMessageForm currentForm) {
         this.currentForm = currentForm;
     }
-    
+
+    /**
+     * Constructor of messageNewMessageForm
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param currentUsername
+     */
     public messageNewMessageForm(JFrame jframe, Map<Integer,Reservation> reservations,
                                  Map<Integer,Room> rooms, Map<String,Authentication> users, Map<String,Customer> customers,
                                  Map<String,Provider> providers, Map<String,Admin> admins, Map<Integer,Message> messages,
@@ -41,6 +55,9 @@ public class messageNewMessageForm extends JPanel {
         textField1.setEnabled(false);
     }
 
+    /**
+     * Returns to message form
+     */
     private void cancelButtonClick() {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -50,6 +67,10 @@ public class messageNewMessageForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * If the user form input is valid, it adds the message to the messages HashMap and returns
+     * to message form
+     */
     private void sendButtonClick() {
         if (users.containsKey(textField2.getText()) && !Objects.equals(textField2.getText(), "")) {
             label4.setForeground(null);
@@ -85,6 +106,9 @@ public class messageNewMessageForm extends JPanel {
         }
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JLabel label2 = new JLabel();

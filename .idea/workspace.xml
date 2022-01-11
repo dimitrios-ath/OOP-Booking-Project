@@ -6,38 +6,40 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b91168f-e298-4276-b2df-14e4bee53e12" name="Changes" comment="Project files">
+    <list default="true" id="4b91168f-e298-4276-b2df-14e4bee53e12" name="Changes" comment="Fix button foreground colors and change form names">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/addNewRoomProviderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerAddNewRoomForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminChangeAccountStateForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminChangeAccountStateForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/adminForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cancelReservationCustomerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerCancelReservationForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/changeAccountStateForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminChangeAccountStateForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminReturnAllReservationsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminReturnAllReservationsForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminReturnCustomerReservationsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminReturnCustomerReservationsForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminReturnRoomReservationsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminReturnRoomReservationsForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminSearchCustomerReservationsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminSearchCustomerReservationsForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminSearchReservationsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminSearchReservationsForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminSearchRoomReservationsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminSearchRoomReservationsForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/adminSearchUsersForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminSearchUsersForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customerCancelReservationForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerCancelReservationForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/customerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editExistingRoomProviderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerEditExistingRoomForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inboxForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/messageInboxForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jfd/addNewRoomProviderForm.jfd" beforeDir="false" afterPath="$PROJECT_DIR$/src/jfd/addNewRoomProviderForm.jfd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customerReserveRoomFiltersForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerReserveRoomFiltersForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customerReserveRoomForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerReserveRoomForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/customerShowAllReservationsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerShowAllReservationsForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/loginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/loginForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/messageForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/messageForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/newMessageForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/messageNewMessageForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messageInboxForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/messageInboxForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/messageNewMessageForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/messageNewMessageForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/providerAddNewRoomForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerAddNewRoomForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/providerDeleteRoomForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerDeleteRoomForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/providerEditExistingRoomForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerEditExistingRoomForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/providerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registerAsCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerAsCustomerForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/registerAsProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerAsProviderForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/providerReturnAllReservationsForRoomForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerReturnAllReservationsForRoomForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/providerSelectRoomToEditForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerSelectRoomToEditForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/providerSelectRoomToReturnReservationsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerSelectRoomToReturnReservationsForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/providerShowAllRoomsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerShowAllRoomsForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registerAsCustomerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerAsCustomerForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/registerAsProviderForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerAsProviderForm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/registerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/registerForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reserveRoomCustomerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerReserveRoomForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reserveRoomForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerReserveRoomFiltersForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/returnAllReservationsAdminForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminReturnAllReservationsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/returnAllReservationsForRoomForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerReturnAllReservationsForRoomForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/returnReservationsByCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminReturnCustomerReservationsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/returnReservationsByRoomID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminReturnRoomReservationsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchByCustomerUsernameForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminSearchCustomerReservationsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchByRoomIDForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminSearchRoomReservationsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchReservationsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminSearchReservationsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/searchUsersForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/adminSearchUsersForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selectRoomAndDeleteForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerDeleteRoomForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selectRoomAndEditForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerSelectRoomToEditForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/selectRoomAndReturnReservationsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerSelectRoomToReturnReservationsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/showAllReservationsCustomerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/customerShowAllReservationsForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/showAllRoomsForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/providerShowAllRoomsForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641850038104</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fix button foreground colors and change form names">
+      <created>1641903382267</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1641903382267</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -421,7 +430,8 @@
     <MESSAGE value="Remove autogenerated comments, fix all warning messages and create jfd directory" />
     <MESSAGE value="Change project name" />
     <MESSAGE value="Project files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project files" />
+    <MESSAGE value="Fix button foreground colors and change form names" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix button foreground colors and change form names" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

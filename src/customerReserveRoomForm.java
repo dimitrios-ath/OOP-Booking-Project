@@ -35,6 +35,28 @@ public class customerReserveRoomForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Constructor of customerReserveRoomForm. Adds to displayed list all rooms that are available and
+     * match the customer filters
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param customer
+     * @param guests
+     * @param checkIn
+     * @param checkOut
+     * @param filteredRooms
+     * @param previousFilters
+     * @param type
+     * @param maxPrice
+     */
     public customerReserveRoomForm(JFrame jframe, Map<Integer, Reservation> reservations, Map<Integer, Room> rooms,
                                    Map<String, Authentication> users, Map<String, Customer> customers, Map<String, Provider> providers,
                                    Map<String, Admin> admins, Map<Integer, Message> messages, MainUI mainUI, Customer customer,
@@ -101,24 +123,33 @@ public class customerReserveRoomForm extends JPanel {
             }
         }
 
-        public void backButtonClick(){
-            customerReserveRoomFiltersForm customerReserveRoomFiltersForm = new customerReserveRoomFiltersForm(this.jframe, this.reservations, this.rooms,
-                    this.users,this.customers,this.providers,this.admins, this.messages, this.mainUI, this.customer);
-            customerReserveRoomFiltersForm.setCurrentForm(customerReserveRoomFiltersForm);
-            customerReserveRoomFiltersForm.returnToPreviousFormState(guests, checkIn, checkOut, maxPrice, type, previousFilters);
-            this.jframe.add(customerReserveRoomFiltersForm);
-            this.currentForm.setVisible(false);
-        }
+    /**
+     * Returns to customer reserve room filters form and restores the form to the previous state
+     */
+    public void backButtonClick(){
+        customerReserveRoomFiltersForm customerReserveRoomFiltersForm = new customerReserveRoomFiltersForm(this.jframe, this.reservations, this.rooms,
+                this.users,this.customers,this.providers,this.admins, this.messages, this.mainUI, this.customer);
+        customerReserveRoomFiltersForm.setCurrentForm(customerReserveRoomFiltersForm);
+        customerReserveRoomFiltersForm.returnToPreviousFormState(guests, checkIn, checkOut, maxPrice, type, previousFilters);
+        this.jframe.add(customerReserveRoomFiltersForm);
+        this.currentForm.setVisible(false);
+    }
 
-        private void cancelButtonClick() {
-            customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users,
-                    this.customers, this.providers, this.admins, this.messages, this.mainUI, this.customer);
-            customerForm.setCurrentForm(customerForm);
-            this.jframe.add(customerForm);
-            this.currentForm.setVisible(false);
-        }
+    /**
+     * Returns to customer form
+     */
+    private void cancelButtonClick() {
+        customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users,
+                this.customers, this.providers, this.admins, this.messages, this.mainUI, this.customer);
+        customerForm.setCurrentForm(customerForm);
+        this.jframe.add(customerForm);
+        this.currentForm.setVisible(false);
+    }
 
-        private void initComponents () {
+    /**
+     *   Form generator
+     */
+    private void initComponents () {
             JLabel label2 = new JLabel();
             JLabel label1 = new JLabel();
             JScrollPane scrollPane1 = new JScrollPane();

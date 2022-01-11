@@ -44,9 +44,6 @@ public class Customer implements Serializable {
         this.activeAccount = activeAccount;
     }
 
-
-
-
     /**
      * getters of Customer attributes
      */

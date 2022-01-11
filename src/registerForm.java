@@ -18,6 +18,19 @@ public class registerForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Constructor of registerForm
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     */
     public registerForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                         Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                         Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI) {
@@ -35,6 +48,9 @@ public class registerForm extends JPanel {
         initComponents();
     }
 
+    /**
+     * Returns to log in form
+     */
     private void backToLogin() {
         loginForm loginForm = new loginForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
@@ -43,6 +59,9 @@ public class registerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Proceeds to the appropriate form based on new user role
+     */
     private void registerWithRole() {
         if (comboBox1.getSelectedItem()=="Customer") {
             registerAsCustomerForm registerAsCustomerForm = new registerAsCustomerForm(this.jframe, this.reservations,
@@ -59,6 +78,9 @@ public class registerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JButton button1 = new JButton();

@@ -20,7 +20,23 @@ public class providerEditExistingRoomForm extends JPanel {
     public void setCurrentForm(providerEditExistingRoomForm currentForm) {
         this.currentForm = currentForm;
     }
-    
+
+    /**
+     * Constructor of providerEditExistingRoomForm. It sets the form attributes based on the selected room
+     * characteristics
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param provider
+     * @param id
+     */
     public providerEditExistingRoomForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                         Map<String,Authentication> users, Map<String,Customer> customers, Map<String, Provider> providers,
                                         Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider, Integer id) {
@@ -61,6 +77,9 @@ public class providerEditExistingRoomForm extends JPanel {
         
     }
 
+    /**
+     * Returns to the provider panel
+     */
     private void cancelClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
@@ -69,6 +88,9 @@ public class providerEditExistingRoomForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * If the form input is valid, updates the room characteristics
+     */
     private void editRoomClick() {
         boolean validInput = true;
 
@@ -139,8 +161,9 @@ public class providerEditExistingRoomForm extends JPanel {
         }
     }
 
-
-
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label2 = new JLabel();
         JLabel label3 = new JLabel();

@@ -28,6 +28,16 @@ public class customerReserveRoomFiltersForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Returns to the previous form state, given previous attributes as parameters
+     *
+     * @param guests
+     * @param checkIn
+     * @param checkOut
+     * @param maxPrice
+     * @param typeFilter
+     * @param previousFilters
+     */
     public void returnToPreviousFormState(int guests, LocalDate checkIn, LocalDate checkOut,
                                           String maxPrice, String typeFilter, Map<String, Boolean> previousFilters) {
         BoxOfGuests.setSelectedIndex(guests-1);
@@ -59,6 +69,20 @@ public class customerReserveRoomFiltersForm extends JPanel {
         checkBox10.setSelected(previousFilters.get("Parking"));
     }
 
+    /**
+     * Constructor of customerReserveRoomFiltersForm
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param customer
+     */
     public customerReserveRoomFiltersForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                           Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                           Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Customer customer) {
@@ -76,7 +100,10 @@ public class customerReserveRoomFiltersForm extends JPanel {
         jframe.setPreferredSize(new Dimension(430, 750));
         jframe.pack();
     }
-    
+
+    /**
+     * Returns to the customer panel
+     */
     private void cancelButtonClick() {
         customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.customer);
@@ -85,6 +112,9 @@ public class customerReserveRoomFiltersForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Resets form
+     */
     private void clearButtonClick() {
         textCheckout.setText("");
         textCheckin.setText("");
@@ -104,6 +134,10 @@ public class customerReserveRoomFiltersForm extends JPanel {
 
     }
 
+    /**
+     *  If the form data are valid and sufficient, proceeds to customer reserve room form
+     *  and passed filtered rooms as parameter
+     */
     private void searchButtonClick() {
         int guests = BoxOfGuests.getSelectedIndex()+1;
 
@@ -272,6 +306,9 @@ public class customerReserveRoomFiltersForm extends JPanel {
         textCheckout.setForeground(Color.black);
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label2 = new JLabel();
         JLabel labelGuests = new JLabel();

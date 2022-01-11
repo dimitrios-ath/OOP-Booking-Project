@@ -18,7 +18,21 @@ public class adminSearchReservationsForm extends JPanel {
     public void setCurrentForm(adminSearchReservationsForm currentForm) {
         this.currentForm = currentForm;
     }
-    
+
+    /**
+     * Constructor of adminSearchReservationsForm
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param admin
+     */
     public adminSearchReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                        Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                        Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Admin admin) {
@@ -37,6 +51,9 @@ public class adminSearchReservationsForm extends JPanel {
         jframe.pack();
     }
 
+    /**
+     * Proceeds to search customer reservations form
+     */
     private void searchByCustomerUsernameButtonClick() {
         adminSearchCustomerReservationsForm adminSearchCustomerReservationsForm = new adminSearchCustomerReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -46,6 +63,9 @@ public class adminSearchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Proceeds to search room reservations form
+     */
     private void searchByRoomButtonClick() {
         adminSearchRoomReservationsForm adminSearchRoomReservationsForm = new adminSearchRoomReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -55,6 +75,9 @@ public class adminSearchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Proceeds to display all reservations form
+     */
     private void showAllReservationsButtonClick() {
         adminReturnAllReservationsForm adminReturnAllReservationsForm = new adminReturnAllReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -64,6 +87,9 @@ public class adminSearchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Returns to admin panel
+     */
     private void cancelButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
@@ -72,6 +98,9 @@ public class adminSearchReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JButton button1 = new JButton();

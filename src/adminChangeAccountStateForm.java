@@ -24,6 +24,21 @@ public class adminChangeAccountStateForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Constructor of adminChangeAccountStateForm. Adds to displayed list all user's username, account
+     * type and activation state
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param admin
+     */
     public adminChangeAccountStateForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                        Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                        Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Admin admin) {
@@ -70,6 +85,9 @@ public class adminChangeAccountStateForm extends JPanel {
         list1.setModel(model);
     }
 
+    /**
+     *  Updates the list items with the new account activation state
+     */
     private void updateList() {
         model = new DefaultListModel<>();
         AtomicBoolean noUsersFound = new AtomicBoolean(true);
@@ -131,6 +149,9 @@ public class adminChangeAccountStateForm extends JPanel {
         list1.setModel(model);
     }
 
+    /**
+     * Return to admin panel
+     */
     private void returnButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
@@ -144,6 +165,9 @@ public class adminChangeAccountStateForm extends JPanel {
         updateList();
     }
 
+    /**
+     *  Changes the selected account ActiveAccount boolean.
+     */
     private void changeStateButtonClick() {
         String username = usernamesInList.get(list1.getSelectedIndex());
         int role = this.users.get(username).getRole();
@@ -183,8 +207,9 @@ public class adminChangeAccountStateForm extends JPanel {
         updateList();
     }
 
-
-
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label2 = new JLabel();
         JLabel label3 = new JLabel();

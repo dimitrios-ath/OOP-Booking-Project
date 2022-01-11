@@ -20,7 +20,21 @@ public class adminSearchUsersForm extends JPanel {
     public void setCurrentForm(adminSearchUsersForm currentForm) {
         this.currentForm = currentForm;
     }
-    
+
+    /**
+     * Constructor of adminSearchUsersForm. Adds to displayed list all existing usernames and the user type
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param admin
+     */
     public adminSearchUsersForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                 Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                 Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Admin admin) {
@@ -62,6 +76,9 @@ public class adminSearchUsersForm extends JPanel {
         list1.setModel(model);
     }
 
+    /**
+     * Updates the displayed list items based on given filters (account type and name pattern)
+     */
     private void searchButtonClick() {
         model = new DefaultListModel<>();
         AtomicBoolean noUsersFound = new AtomicBoolean(true);
@@ -113,6 +130,9 @@ public class adminSearchUsersForm extends JPanel {
         list1.setModel(model);
     }
 
+    /**
+     * Returns to admin panel
+     */
     private void returnButtonClick() {
         adminForm adminForm = new adminForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers, this.providers, this.admins, this.messages, this.mainUI, this.admin);
@@ -121,6 +141,9 @@ public class adminSearchUsersForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JLabel label2 = new JLabel();

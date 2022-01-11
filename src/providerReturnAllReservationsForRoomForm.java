@@ -24,7 +24,23 @@ public class providerReturnAllReservationsForRoomForm extends JPanel {
     public void setCurrentForm(providerReturnAllReservationsForRoomForm currentForm) {
         this.currentForm = currentForm;
     }
-    
+
+    /**
+     * Constructor of providerReturnAllReservationsForRoomForm. Adds to displayed list all existing
+     * reservations for given room id
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param provider
+     * @param id
+     */
     public providerReturnAllReservationsForRoomForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                                     Map<String,Authentication> users, Map<String,Customer> customers, Map<String, Provider> providers,
                                                     Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider, Integer id) {
@@ -65,6 +81,9 @@ public class providerReturnAllReservationsForRoomForm extends JPanel {
         list1.setModel(model);
     }
 
+    /**
+     * Returns to provider panel
+     */
     private void returnButtonClick() {
         providerForm providerForm = new providerForm(this.jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI, this.provider);
@@ -73,6 +92,9 @@ public class providerReturnAllReservationsForRoomForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         label1 = new JLabel();
         JLabel label2 = new JLabel();

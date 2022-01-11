@@ -24,6 +24,21 @@ public class customerShowAllReservationsForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Constructor of customerShowAllReservationsForm. Adds to displayed list all reservations of
+     * the authenticated customer
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param customer
+     */
     public customerShowAllReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                            Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                            Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Customer customer) {
@@ -62,6 +77,9 @@ public class customerShowAllReservationsForm extends JPanel {
         list1.setModel(model);
     }
 
+    /**
+     * Returns to the customer panel
+     */
     private void returnButtonClick() {
         customerForm customerForm= new customerForm(this.jframe, this.reservations, this.rooms, this.users,
                 this.customers,this.providers,this.admins, this.messages, this.mainUI, this.customer);
@@ -70,6 +88,9 @@ public class customerShowAllReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JScrollPane scrollPane1 = new JScrollPane();

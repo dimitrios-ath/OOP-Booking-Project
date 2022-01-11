@@ -27,6 +27,20 @@ public class adminSearchRoomReservationsForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Constructor of adminSearchRoomReservationsForm. Adds to displayed list all existing rooms
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param admin
+     */
     public adminSearchRoomReservationsForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                                            Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                                            Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Admin admin) {
@@ -84,6 +98,9 @@ public class adminSearchRoomReservationsForm extends JPanel {
         }
     }
 
+    /**
+     *  Returns to search reservations form
+     */
     private void backButtonClick() {
         adminSearchReservationsForm adminSearchReservationsForm = new adminSearchReservationsForm(jframe, this.reservations,
                 this.rooms, this.users, this.customers, this.providers, this.admins, this.messages,
@@ -93,6 +110,10 @@ public class adminSearchRoomReservationsForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     *  Proceeds to adminReturnRoomReservationsForm and displays all reservations for the
+     *  selected room
+     */
     private void nextButtonClick() {
         if (!noRoomsFound.get()) {
             if (list1.isEnabled() && !textField1.isEnabled()) {
@@ -137,6 +158,9 @@ public class adminSearchRoomReservationsForm extends JPanel {
         }
     }
 
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         textField1 = new JTextField();

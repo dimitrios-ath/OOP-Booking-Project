@@ -19,6 +19,20 @@ public class providerForm extends JPanel {
         this.currentForm = currentForm;
     }
 
+    /**
+     * Constructor of providerForm
+     *
+     * @param jframe
+     * @param reservations
+     * @param rooms
+     * @param users
+     * @param customers
+     * @param providers
+     * @param admins
+     * @param messages
+     * @param mainUI
+     * @param provider
+     */
     public providerForm(JFrame jframe, Map<Integer,Reservation> reservations, Map<Integer,Room> rooms,
                         Map<String,Authentication> users, Map<String,Customer> customers, Map<String,Provider> providers,
                         Map<String,Admin> admins, Map<Integer,Message> messages, MainUI mainUI, Provider provider) {
@@ -37,6 +51,9 @@ public class providerForm extends JPanel {
         jframe.pack();
     }
 
+    /**
+     * Displays add room form
+     */
     private void addRoomButtonClick() {
         providerAddNewRoomForm providerAddNewRoomForm = new providerAddNewRoomForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -46,6 +63,9 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Displays edit room form
+     */
     private void editRoomButtonClick() {
         providerSelectRoomToEditForm providerSelectRoomToEditForm = new providerSelectRoomToEditForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -55,6 +75,9 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Displays delete room form
+     */
     private void deleteExistingRoomButtonClick() {
         providerDeleteRoomForm providerDeleteRoomForm = new providerDeleteRoomForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -64,6 +87,9 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Displays show all rooms form
+     */
     private void showAllRoomsButtonClick() {
         providerShowAllRoomsForm providerShowAllRoomsForm = new providerShowAllRoomsForm(this.jframe,
                 this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -73,6 +99,9 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Displays all reservations form
+     */
     private void returnAllReservationsButtonClick() {
         providerSelectRoomToReturnReservationsForm providerSelectRoomToReturnReservationsForm = new providerSelectRoomToReturnReservationsForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -82,6 +111,9 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Displays message form
+     */
     private void messagesButtonClick() {
         messageForm messageForm = new messageForm(
                 this.jframe, this.reservations, this.rooms, this.users, this.customers, this.providers,
@@ -91,6 +123,9 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Logout
+     */
     private void logoutButtonClick() {
         loginForm loginForm = new loginForm(jframe, this.reservations, this.rooms, this.users, this.customers,
                 this.providers, this.admins, this.messages, this.mainUI);
@@ -99,11 +134,16 @@ public class providerForm extends JPanel {
         this.currentForm.setVisible(false);
     }
 
+    /**
+     * Save everything changed and exit
+     */
     private void exitButtonClick() {
         this.mainUI.saveAndExit();
     }
 
-
+    /**
+     *   Form generator
+     */
     private void initComponents() {
         JLabel label1 = new JLabel();
         JButton button2 = new JButton();
